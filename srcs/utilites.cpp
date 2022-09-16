@@ -36,6 +36,15 @@ std::string unsignedToString99(unsigned x)
     return s;
 }
 
+uint16_t atou16(const char *s)
+{
+	uint16_t v = 0;
+
+    while (*s)
+		v = (v << 1) + (v << 3) + (*(s++) - '0');
+    return v;
+}
+
 bool isBothSpace(char const &lhs, char const &rhs)
 {
     return (lhs == ' ' || lhs == '\t') && (rhs == ' ' || rhs == '\t');

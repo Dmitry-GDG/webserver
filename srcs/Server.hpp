@@ -7,17 +7,21 @@ class Server
 {
 	private:
 		t_config	_config;
-
+		int			_sd; //socket descriptor
+		std::string 			_colors[4];
+		unsigned				_nextColor;
+		// std::string				_hostname; // il-a3.msk.21-school.ru
+		int						_sdMaxCount; // = SD_MAXCOUNT
 
 	public:
 		Server(t_config);
 		~Server();
 		
-		t_config getConfig() const;
-
-		bool	start();
+		t_config	getConfig() const;
+		bool		start();
 	
 	private:
+		bool	_createSocket();
 
 };
 

@@ -3,6 +3,8 @@
 ServerRouter::ServerRouter(std::vector<t_config> configs)
 {
 	_configs = configs;
+	char hostname[HOSTNAME_LENGTH];
+	_hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
 	// printAllServersConfig(_configs);
 	for (std::vector<t_config>::iterator iter = _configs.begin(); iter < _configs.end(); iter++)
 		_servers.push_back(Server(*iter));
@@ -17,7 +19,8 @@ std::vector<t_config> ServerRouter::getConfigs() const
 void ServerRouter::launch()
 {
 	std::cout << NC << timestamp() << YELLOS << NAME << ": Welcome to the " << WEBSERV_NAME << " v."<< WEBSERV_VERSION << " by " \
-	<< WEBSERV_AUTHORS << "\nIt was tested on MAC OS.\n" << NC;
+	<< WEBSERV_AUTHORS << "\nIt was tested on MAC OS.\n" \
+	<< "It was launched at " << _hostname << "\n" << NC;
 	// std::cout << "\nTo connect via this Mac use " \
 	// << NC << "localhost" << YELLOS << " (or 127.0.0.1), port: " \
 	// << NC << _port << YELLOS << " and password: " << NC << _password \

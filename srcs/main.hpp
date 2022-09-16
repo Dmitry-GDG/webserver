@@ -5,6 +5,8 @@
 # define WEBSERV_NAME "Cool Webserver"
 # define WEBSERV_VERSION "0.01"
 # define WEBSERV_AUTHORS "trurgot, botilia               "
+# define HOSTNAME_LENGTH 30
+# define SD_MAXCOUNT 1024
 
 # define NC "\033[0m"
 # define REV "\033[7m"
@@ -36,6 +38,7 @@
 # include <sys/select.h>
 # include <sys/socket.h>
 # include <sys/types.h>
+# include <unistd.h>
 # include <vector>
 
 # include "structs.hpp"
@@ -71,6 +74,7 @@ bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std:
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);
 std::string unsignedToString99(unsigned x);
 std::string timestamp();
-void exitErr(std::string errmsg);
+uint16_t	atou16(const char *s);
+void	exitErr(std::string errmsg);
 
 #endif

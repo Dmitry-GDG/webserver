@@ -9,6 +9,7 @@ class ServerRouter
 	private:
 		std::vector<t_config>	_configs; //store vector of all server configs
 		std::vector<Server>		_servers;
+		std::string				_hostname; // il-a3.msk.21-school.ru
 		
 
 	public:
