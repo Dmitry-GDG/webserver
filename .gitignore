@@ -1,0 +1,19 @@
+.git
+*.dSYM/
+.DS_Store
+*/.DS_Store
+subject/.DS_Store
+*/*/.DS_Store
+**/.DS_Store
+a.out
+*.o
+*.a
+valgrind-out.txt
+tmp/
+test/
+main.sh
+*\ copy/
+*\ copy.*
+objs/
+webserver
+
