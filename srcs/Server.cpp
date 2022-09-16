@@ -85,3 +85,14 @@ bool Server::start()
 	return (true);
 }
 
+fd_set Server::sdSet(fd_set & allSds, int & sdMaxCount)
+{
+	// fd_set allSds;
+	// FD_ZERO(&allSds);
+	FD_SET(_sd, & allSds);
+	sdMaxCount = _sd > sdMaxCount ? _sd : sdMaxCount;
+	// std::vector<int> tmp = _connectionManager->getAllConnectionsFds();
+	
+
+	return (allSds);
+}

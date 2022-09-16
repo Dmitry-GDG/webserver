@@ -80,6 +80,8 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 	std::vector<std::string>	tmp;
 	std::vector<std::string>::iterator	iter;
 	
+	configClear(oneServerConfig);
+
 	// If "server_name" was placed before open brace
 	if (*((oneServerConfigVectorSplit[0]).begin()) != "{")
 		oneServerConfig.serverName = *((oneServerConfigVectorSplit[0]).begin());
@@ -202,8 +204,10 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 			}
 		}
 	}
-	// // printServerConfig(oneServerConfig);
-	configs.push_back(oneServerConfig);
+	// printServerConfig(oneServerConfig);
+	
+	if (oneServerConfig.ip.size() > 0 && oneServerConfig.port.size() > 0)
+		configs.push_back(oneServerConfig);
 }
 
 void delCommentsAndWhiteSpacesAndEmptyLines0(std::vector<std::string> & oneServerConfigVector)

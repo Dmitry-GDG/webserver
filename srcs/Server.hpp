@@ -20,6 +20,7 @@ class Server
 		
 		t_config	getConfig() const;
 		bool		start();
+		fd_set		sdSet(fd_set & allSds, int & _sdMaxCountRouter);
 	
 	private:
 

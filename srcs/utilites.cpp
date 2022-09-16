@@ -219,6 +219,22 @@ void locationClear(t_location & location)
 	location.error_page.clear();
 }
 
+void configClear(t_config & oneServerConfig)
+{
+	oneServerConfig.serverName = "";
+	oneServerConfig.listen = "";
+	oneServerConfig.ip = "";
+	oneServerConfig.port = "";
+	oneServerConfig.limitSize = "";
+	oneServerConfig.root = "";
+	oneServerConfig.autoindex = "";
+	oneServerConfig.redirs = "";
+	oneServerConfig.methods.clear();
+	oneServerConfig.locations.clear();
+	oneServerConfig.error_page.clear();
+	oneServerConfig.cgi.clear();
+}
+
 std::string timestamp()
 {
 	time_t now = time(0);

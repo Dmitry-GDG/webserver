@@ -41,3 +41,8 @@ server test2 {
   }
   cgi .test /Users/aleksandruzienko/Documents/21projects/webserver/cgi/my_cgi.test
 }
+
+server
+
+
+

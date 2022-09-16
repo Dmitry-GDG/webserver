@@ -69,6 +69,7 @@ void	printAllServersVector(std::vector<Server> servers);
 void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
 void	locationClear(t_location & location);
+void	configClear(t_config & oneServerConfig);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);
