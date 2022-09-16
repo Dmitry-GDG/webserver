@@ -12,6 +12,7 @@ class Server
 		unsigned				_nextColor;
 		// std::string				_hostname; // il-a3.msk.21-school.ru
 		int						_sdMaxCount; // = SD_MAXCOUNT
+		char					_serverIp[sizeof(struct sockaddr_in)];
 
 	public:
 		Server(t_config);
@@ -21,7 +22,6 @@ class Server
 		bool		start();
 	
 	private:
-		bool	_createSocket();
 
 };
 

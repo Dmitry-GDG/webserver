@@ -1,5 +1,5 @@
 server test {
-  127.0.0.1:8081
+  listen 127.0.0.1:8081
   error_page 404 /Users/wgaunt/Desktop/ws/errorTest.html
   limit_size 1000
   location / {
@@ -21,7 +21,7 @@ server test {
   cgi .test /Users/wgaunt/Desktop/ws/cgi/my_cgi.test
 }
 server test2 {
-  127.0.0.1:4242
+  listen 127.0.0.1:4242
   error_page 404 ../../some.html
   limit_size 1000
   location /usr/ {
@@ -41,5 +41,3 @@ server test2 {
   }
   cgi .test /Users/aleksandruzienko/Documents/21projects/webserver/cgi/my_cgi.test
 }
-
-server

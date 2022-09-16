@@ -32,7 +32,8 @@ void ServerRouter::launch()
 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 	{
 		if (!(*iter).start())
-			exitErr ("Cannot start a server. Check server config file and try again.");
+			exitErr ("Check server config file and try again.");
 	}
+	
 }
 
