@@ -22,8 +22,6 @@ bool Server::start()
 {
 	int on = 1;
 	struct sockaddr_in addr;
-	// char str[sizeof(addr)];
-
 
 	// Create socket
 	if ((_sd = socket(PF_INET, SOCK_STREAM, 0)) < 0)
@@ -69,12 +67,12 @@ bool Server::start()
 		std::cerr << "Can not start a server: can not listen queue." << std::endl;
 		return false;
 	}
+
 	inet_ntop(AF_INET, &(addr.sin_addr), _serverIp, sizeof(addr));
-	// std::cout << "webserver: " << _serverIp << ":" << ntohs(addr.sin_port) << " ";
 
 	std::cout << NC << timestamp() << YELLOS << "On socket descriptor " << NC << _sd \
-	<< YELLOS << " the server " << NC << _config.serverName \
-	<< YELLOS << " was started sacsessfully and listen " << NC \
+	<< YELLOS << " the " << NC << _config.serverName \
+	<< YELLOS << " server started successfully and is listening on " << NC \
 	<< _serverIp << ":" << ntohs(addr.sin_port) << std::endl;
 	// std::cout << "\nTo connect via this Mac use " \
 	// << NC << "localhost" << YELLOS << " (or 127.0.0.1), port: " \
