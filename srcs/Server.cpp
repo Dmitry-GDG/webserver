@@ -1,9 +1,9 @@
 #include "Server.hpp"
 
-Server::Server(t_config config, std::vector<Connection> * connections)
+Server::Server(t_config config)
 {
 	_config = config;
-	_connections = connections;
+	_connections.clear();
 	_colors[0] = GREENS;
 	_colors[1] = BLUS;
 	_colors[2] = VIOLETS;
@@ -86,13 +86,61 @@ bool Server::start()
 	return (true);
 }
 
-void Server::sdSet(fd_set & allActiveSdSets, int & sdMaxCountRouter, std::vector<int> allSds)
+void Server::sdSet(fd_set & allActiveSdSets, int & sdMaxCountRouter)
 {
 	FD_SET(_sd, & allActiveSdSets);
 	sdMaxCountRouter = _sd > sdMaxCountRouter ? _sd : sdMaxCountRouter;
+	std::vector<int> allSds = _getAllSds();
 	for (std::vector<int>::iterator iter = allSds.begin(); iter < allSds.end(); iter++)
 	{
 		FD_SET(*iter, & allActiveSdSets);
 		sdMaxCountRouter = *iter > sdMaxCountRouter ? *iter : sdMaxCountRouter;
 	}
 }
+
+std::vector<int> Server::_getAllSds() const
+{
+	std::vector<int> allSds;
+	allSds.clear();
+	for (std::vector<Connection>::const_iterator iter = _connections.begin(); iter < _connections.end(); iter++)
+		allSds.push_back((*iter).getSd());
+	return allSds;
+}
+
+bool Server::_foundSd(int sd) const
+{
+	for (std::vector<Connection>::const_iterator iter = _connections.begin(); iter < _connections.end(); iter++)
+	{
+		if ((*iter).getSd() == sd)
+			return true;
+	}
+	return false;
+}
+
+bool Server::readSd(int sd)
+{
+	if (sd != _sd && !_foundSd(sd))
+		return false;
+	if (sd == _sd)
+	{
+		struct sockaddr_in newAddr;
+		socklen_t newAddrSize = sizeof(newAddr);
+		int newSd = accept (_sd, (sockaddr *)&newAddr, &newAddrSize);
+		if (newSd < 0)
+			return false;
+		if (_connections.size() < _sdMaxCount)
+		{
+			fcntl(newSd, F_SETFL, O_NONBLOCK);
+			_connections.push_back(Connection(newSd));
+		}
+		else
+			close(newSd);
+	}
+	// else
+	// {
+	// 	// exitErr ("By!");
+	// 	if (_foundSd(sd))
+	// }
+	return true;
+}
+

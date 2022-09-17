@@ -9,7 +9,7 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	_connections.clear();
 	// printAllServersConfig(_configs);
 	for (std::vector<t_config>::iterator iter = _configs.begin(); iter < _configs.end(); iter++)
-		_servers.push_back(Server(*iter, & _connections));
+		_servers.push_back(Server(*iter));
 	printAllServersVector(_servers);
 }
 
@@ -58,6 +58,11 @@ void ServerRouter::launch()
 			if (FD_ISSET(i, &readActiveSdSets))
 			{
 				std::cout << "READ i: " << i <<  std::endl;
+				for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
+				{
+					if ((*iter).readSd(i))
+						break;
+				}
 				sd--;
 			}
 			else if (FD_ISSET(i, &writeActiveSdSets))
@@ -75,17 +80,10 @@ fd_set ServerRouter::_getAllActiveSdSets()
 {
 	fd_set allActiveSdSets;
 	FD_ZERO(&allActiveSdSets);
-	getAllSds();
 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 	{
-		(*iter).sdSet(allActiveSdSets, _sdMaxCount, _allSds);
+		(*iter).sdSet(allActiveSdSets, _sdMaxCount);
 	}
 	return allActiveSdSets;
 }
 
-void ServerRouter::getAllSds()
-{
-	_allSds.clear();
-	for (std::vector<Connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
-		_allSds.push_back((*iter).getSd());
-}
