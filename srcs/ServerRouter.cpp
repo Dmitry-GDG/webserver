@@ -6,9 +6,10 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	char hostname[HOSTNAME_LENGTH];
 	_hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
 	_sdMaxCount = -1;
+	_connections.clear();
 	// printAllServersConfig(_configs);
 	for (std::vector<t_config>::iterator iter = _configs.begin(); iter < _configs.end(); iter++)
-		_servers.push_back(Server(*iter));
+		_servers.push_back(Server(*iter, & _connections));
 	printAllServersVector(_servers);
 }
 
@@ -19,11 +20,12 @@ std::vector<t_config> ServerRouter::getConfigs() const
 
 void ServerRouter::launch()
 {
-	fd_set allSds, readSds, writeSds;
+	fd_set allActiveSdSets, readActiveSdSets, writeActiveSdSets;
+	int	sd;
 
 	std::cout << NC << timestamp() << YELLOS << NAME << ": Welcome to the " << WEBSERV_NAME << " v."<< WEBSERV_VERSION << " by " \
 	<< WEBSERV_AUTHORS << "\nIt was tested on MAC OS.\n" \
-	<< "It was launched at " << _hostname << "\n" << NC;
+	<< "It was launched at " << NC << _hostname << "\n";
 	// std::cout << "\nTo connect via this Mac use " \
 	// << NC << "localhost" << YELLOS << " (or 127.0.0.1), port: " \
 	// << NC << _port << YELLOS << " and password: " << NC << _password \
@@ -38,25 +40,54 @@ void ServerRouter::launch()
 			exitErr ("Check server config file and try again.");
 	}
 
-	FD_ZERO(&allSds);
-	FD_ZERO(&readSds);
-	FD_ZERO(&writeSds);
+	FD_ZERO(&allActiveSdSets);
+	FD_ZERO(&readActiveSdSets);
+	FD_ZERO(&writeActiveSdSets);
 
-	// while (21)
-	// {
-	// 	allSds = _getAllSds();
-	// 	readSds = allSds;
-	// 	writeSds = allSds;
-	// }
-	
+	while (21)
+	{
+		allActiveSdSets = _getAllActiveSdSets();
+		readActiveSdSets = allActiveSdSets;
+		writeActiveSdSets = allActiveSdSets;
+
+		sd = select(_sdMaxCount + 1, &readActiveSdSets, &writeActiveSdSets, 0, 0);
+		if (sd < 0)
+			continue;
+		for (int i = 0; i < _sdMaxCount && sd > 0; i++)
+		{
+			if (FD_ISSET(i, &readActiveSdSets))
+			{
+				std::cout << "READ" << std::endl;
+				sd--;
+			}
+			else if (FD_ISSET(i, &writeActiveSdSets))
+			{
+				std::cout << "WRITE" << std::endl;
+				sd--;
+			}
+		}
+	}
+	std::cout << "By!" << std::endl;
+	exit (0);
 }
 
-fd_set ServerRouter::_getAllSds()
+fd_set ServerRouter::_getAllActiveSdSets()
 {
-	fd_set allSds;
-	FD_ZERO(&allSds);
+	fd_set allActiveSdSets;
+	FD_ZERO(&allActiveSdSets);
+	std::vector<int> allSds;
+	allSds = getAllSds();
 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
-		(*iter).sdSet(allSds, _sdMaxCount);
+	{
+		(*iter).sdSet(allActiveSdSets, _sdMaxCount, allSds);
+	}
+	return allActiveSdSets;
+}
+
+std::vector<int> ServerRouter::getAllSds()
+{
+	std::vector<int> allSds;
+	for (std::vector<Connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
+		allSds.push_back((*iter).getSd());
 	return allSds;
 }
-

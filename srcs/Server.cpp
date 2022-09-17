@@ -1,8 +1,9 @@
 #include "Server.hpp"
 
-Server::Server(t_config config)
+Server::Server(t_config config, std::vector<Connection> * connections)
 {
 	_config = config;
+	_connections = connections;
 	_colors[0] = GREENS;
 	_colors[1] = BLUS;
 	_colors[2] = VIOLETS;
@@ -85,14 +86,13 @@ bool Server::start()
 	return (true);
 }
 
-fd_set Server::sdSet(fd_set & allSds, int & sdMaxCount)
+void Server::sdSet(fd_set & allActiveSdSets, int & sdMaxCountRouter, std::vector<int> allSds)
 {
-	// fd_set allSds;
-	// FD_ZERO(&allSds);
-	FD_SET(_sd, & allSds);
-	sdMaxCount = _sd > sdMaxCount ? _sd : sdMaxCount;
-	// std::vector<int> tmp = _connectionManager->getAllConnectionsFds();
-	
-
-	return (allSds);
+	FD_SET(_sd, & allActiveSdSets);
+	sdMaxCountRouter = _sd > sdMaxCountRouter ? _sd : sdMaxCountRouter;
+	for (std::vector<int>::iterator iter = allSds.begin(); iter < allSds.end(); iter++)
+	{
+		FD_SET(*iter, & allActiveSdSets);
+		sdMaxCountRouter = *iter > sdMaxCountRouter ? *iter : sdMaxCountRouter;
+	}
 }

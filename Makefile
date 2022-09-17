@@ -21,7 +21,7 @@ CCFLAGS +=	-pedantic-errors
 RM =		rm -Rf
 
 # FILES
-MAIN =		main ServerRouter utilites parserServerConfigFile Server
+MAIN =		main ServerRouter utilites parserServerConfigFile Server Connection
 # WEBSERVCONFIG =	lexer parser
 # AUTOINDEX =	AutoIndexGenerator
 # CGI =		CgiHandler

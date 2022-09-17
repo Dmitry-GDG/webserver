@@ -2,25 +2,28 @@
 # define SERVER_HPP
 
 # include "main.hpp"
+# include "Connection.hpp"
+
+class Connection;
 
 class Server
 {
 	private:
 		t_config	_config;
 		int			_sd; //socket descriptor
-		std::string 			_colors[4];
-		unsigned				_nextColor;
-		// std::string				_hostname; // il-a3.msk.21-school.ru
-		int						_sdMaxCount; // = SD_MAXCOUNT
-		char					_serverIp[sizeof(struct sockaddr_in)];
+		std::string _colors[4];
+		unsigned	_nextColor;
+		int			_sdMaxCount; // = SD_MAXCOUNT
+		char		_serverIp[sizeof(struct sockaddr_in)];
+		std::vector<Connection>	* _connections;
 
 	public:
-		Server(t_config);
+		Server(t_config, std::vector<Connection> *);
 		~Server();
 		
 		t_config	getConfig() const;
 		bool		start();
-		fd_set		sdSet(fd_set & allSds, int & _sdMaxCountRouter);
+		void		sdSet(fd_set & allActiveSdSets, int & sdMaxCountRouter, std::vector<int> allSds);
 	
 	private:
 
