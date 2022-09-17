@@ -57,12 +57,12 @@ void ServerRouter::launch()
 		{
 			if (FD_ISSET(i, &readActiveSdSets))
 			{
-				std::cout << "READ" << std::endl;
+				std::cout << "READ i: " << i <<  std::endl;
 				sd--;
 			}
 			else if (FD_ISSET(i, &writeActiveSdSets))
 			{
-				std::cout << "WRITE" << std::endl;
+				std::cout << "WRITE i: " << i << std::endl;
 				sd--;
 			}
 		}
@@ -75,19 +75,17 @@ fd_set ServerRouter::_getAllActiveSdSets()
 {
 	fd_set allActiveSdSets;
 	FD_ZERO(&allActiveSdSets);
-	std::vector<int> allSds;
-	allSds = getAllSds();
+	getAllSds();
 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 	{
-		(*iter).sdSet(allActiveSdSets, _sdMaxCount, allSds);
+		(*iter).sdSet(allActiveSdSets, _sdMaxCount, _allSds);
 	}
 	return allActiveSdSets;
 }
 
-std::vector<int> ServerRouter::getAllSds()
+void ServerRouter::getAllSds()
 {
-	std::vector<int> allSds;
+	_allSds.clear();
 	for (std::vector<Connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
-		allSds.push_back((*iter).getSd());
-	return allSds;
+		_allSds.push_back((*iter).getSd());
 }

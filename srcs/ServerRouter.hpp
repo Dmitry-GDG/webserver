@@ -12,6 +12,7 @@ class ServerRouter
 		std::string				_hostname; // il-a3.msk.21-school.ru
 		int						_sdMaxCount;
 		std::vector<Connection>	_connections;
+		std::vector<int> 		_allSds;
 		
 
 	public:
@@ -20,7 +21,7 @@ class ServerRouter
 
 		void launch();
 		std::vector<t_config>	getConfigs() const;
-		std::vector<int>		getAllSds();
+		void					getAllSds();
 
 	private:
 		fd_set _getAllActiveSdSets();
