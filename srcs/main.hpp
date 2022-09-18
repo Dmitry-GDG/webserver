@@ -34,7 +34,9 @@
 # include <netinet/in.h>
 # include <set>
 # include <string>
+# include <strings.h>
 # include <sys/event.h>
+# include <sys/poll.h>
 # include <sys/select.h>
 # include <sys/socket.h>
 # include <sys/types.h>
@@ -68,6 +70,7 @@ void	printAllServersConfig(std::vector<t_config> configs, std::string msg);
 void	printAllServersVector(std::vector<Server> servers, std::string msg);
 void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
+void	printPollfds(std::vector<pollfd> data, std::string msg);
 void	locationClear(t_location & location);
 void	configClear(t_config & oneServerConfig);
 

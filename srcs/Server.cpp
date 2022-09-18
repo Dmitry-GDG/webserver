@@ -32,6 +32,12 @@ Server::~Server() {}
 const t_config & Server::getConfig() const
 	{ return _config; }
 
+int Server::getSd() const
+	{ return _sd; }
+
+void Server::setSd(int sd)
+	{ _sd = sd; }
+
 // bool Server::start()
 // {
 // 	int on = 1;

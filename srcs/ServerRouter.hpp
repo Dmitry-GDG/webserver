@@ -13,7 +13,9 @@ class ServerRouter
 		// int						_sdMaxCount;
 		// std::vector<Connection>	_connections;
 		// std::vector<int> 		_allSds;
-		std::vector<int>		_sds;
+		
+		std::vector<struct pollfd> _pollfds;
+		// std::vector<int>		_sds;
 		
 
 	public:
@@ -27,6 +29,7 @@ class ServerRouter
 
 	private:
 		// fd_set _getAllActiveSdSets();
+		bool	_launch(Server & server);
 
 };
 

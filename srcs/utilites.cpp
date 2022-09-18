@@ -222,6 +222,21 @@ void printVVector(std::vector<std::vector<std::string> > data, std::string msg)
 	std::cout << "----------------" << std::endl;
 }
 
+void printPollfds(std::vector<pollfd> data, std::string msg)
+{
+	if (msg != "")
+		std::cout << "**** " << msg << " ****" << std::endl;
+	else
+		std::cout << "**** printPollfds ****" << std::endl;
+	int i = 1;
+	for (std::vector<struct pollfd>::iterator iter = data.begin(); iter < data.end(); iter++)
+	{
+		std::cout << "_pollfds[" << i << "]: sd=_pollfds.fd = " << (*iter).fd << ", _pollfds.events = " << (*iter).events << ", _pollfds.revents = " << (*iter).revents << std::endl;
+		i++;
+	}
+	std::cout << "----------------" << std::endl;
+}
+
 void locationClear(t_location & location)
 {
 	location.path = "";
