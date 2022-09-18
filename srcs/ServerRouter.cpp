@@ -15,6 +15,7 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	// # ifdef DEBUGMODE
 	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
 	// # endif
+	_sdMaxCount = _servers.size();
 }
 
 ServerRouter::~ServerRouter() {}
@@ -123,8 +124,16 @@ void ServerRouter::start()
 	printPollfds(_pollfds, "DEBUG _pollfds");
 	# endif
 
-
-
+	while (42)
+	{
+		if (!_mainLoop())
+			break;
+	}
+	for (std::vector<struct pollfd>::iterator iter = _pollfds.begin(); iter < _pollfds.end(); iter++)
+	{
+		if ((*iter).fd >= 0)
+			close ((*iter).fd);
+	}
 }
 
 // void ServerRouter::launch()
