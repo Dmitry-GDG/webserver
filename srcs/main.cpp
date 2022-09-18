@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 		// # ifdef DEBUGMODE
 		// 	printAllServersConfig(data.getConfigs(), "DEBUG main AllServersConfig");
 		// # endif
-		data.launch();
+		data.start();
 	}
 	catch (const std::exception& e)
 	{
