@@ -140,7 +140,7 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "error" || oneServerConfigVectorSplit[i][0] == "error_page" || oneServerConfigVectorSplit[i][0] == "errors" || oneServerConfigVectorSplit[i][0] == "error_pages")
 				{
-					location.error_page.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[i][1], oneServerConfigVectorSplit[i][2]) );
+					location.error_pages.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[i][1], oneServerConfigVectorSplit[i][2]) );
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "}")
@@ -157,7 +157,9 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 			oneServerConfig.locations = locations;
 		}
 	}
-	// printVVector(oneServerConfigVectorSplit, "after Delete All locations");
+	// # ifdef DEBUGMODE
+	// 	printVVector(oneServerConfigVectorSplit, "DEBUG parseVectorOnStruct after Delete All locations");
+	// # endif
 
 	// After removing all locations fill server structure
 	for (size_t j = 0; j < oneServerConfigVectorSplit.size(); j++)
@@ -185,6 +187,8 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 					oneServerConfig.limitSize = oneServerConfigVectorSplit[j][1];
 				if (oneServerConfigVectorSplit[j][0] == "root")
 					oneServerConfig.root = oneServerConfigVectorSplit[j][1];
+				if (oneServerConfigVectorSplit[j][0] == "index")
+					oneServerConfig.index = oneServerConfigVectorSplit[j][1];
 				if (oneServerConfigVectorSplit[j][0] == "autoindex")
 					oneServerConfig.autoindex = oneServerConfigVectorSplit[j][1];
 				if (oneServerConfigVectorSplit[j][0] == "cgi")
@@ -192,7 +196,7 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 				if (oneServerConfigVectorSplit[j][0] == "redir" || oneServerConfigVectorSplit[j][0] == "redirs" || oneServerConfigVectorSplit[j][0] == "redirection")
 					oneServerConfig.redirs = oneServerConfigVectorSplit[j][1];
 				if (oneServerConfigVectorSplit[j][0] == "error_page" || oneServerConfigVectorSplit[j][0] == "error_pages" || oneServerConfigVectorSplit[j][0] == "error" || oneServerConfigVectorSplit[j][0] == "errors")
-					oneServerConfig.error_page.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[j][1], oneServerConfigVectorSplit[j][2]) );
+					oneServerConfig.error_pages.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[j][1], oneServerConfigVectorSplit[j][2]) );
 				if (oneServerConfigVectorSplit[j][0] == "methods" || oneServerConfigVectorSplit[j][0] == "method" || oneServerConfigVectorSplit[j][0] == "allow_methods" || oneServerConfigVectorSplit[j][0] == "allow_method")
 				{
 					for (size_t k = 1; k < oneServerConfigVectorSplit[j].size(); k++)
@@ -204,7 +208,9 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 			}
 		}
 	}
-	// printServerConfig(oneServerConfig);
+	// # ifdef DEBUGMODE
+	// 	printServerConfig(oneServerConfig, "DEBUG parseVectorOnStruct");
+	// # endif
 	
 	if (oneServerConfig.ip.size() > 0 && oneServerConfig.port.size() > 0)
 		configs.push_back(oneServerConfig);
@@ -212,7 +218,9 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 
 void delCommentsAndWhiteSpacesAndEmptyLines0(std::vector<std::string> & oneServerConfigVector)
 {
-	// printVector(oneServerConfigVector, "delCommentsAndWhiteSpaces 0");
+	// # ifdef DEBUGMODE
+	// 	printVector(oneServerConfigVector, "DEBUG delCommentsAndWhiteSpaces 0");
+	// # endif
 
 	// _delete Comments
 	for (std::vector<std::string>::iterator iterV = oneServerConfigVector.begin(); iterV < oneServerConfigVector.end(); iterV++)
@@ -223,7 +231,9 @@ void delCommentsAndWhiteSpacesAndEmptyLines0(std::vector<std::string> & oneServe
 				(*iterV).resize(iterS - (*iterV).begin());
 		}
 	}
-	// printVector(oneServerConfigVector, "delCommentsAndWhiteSpaces after delete Comments");
+	// # ifdef DEBUGMODE
+	// 	printVector(oneServerConfigVector, "DEBUG delCommentsAndWhiteSpaces after delete Comments");
+	// # endif
 
 	// _delete White Spaces
 	for (std::vector<std::string>::iterator iterV = oneServerConfigVector.begin(); iterV < oneServerConfigVector.end(); iterV++)
@@ -242,7 +252,9 @@ void delCommentsAndWhiteSpacesAndEmptyLines0(std::vector<std::string> & oneServe
 		if ((*iterV)[0] == ' ')
 			(*iterV).erase((*iterV).begin());
 	}
-	// printVector(oneServerConfigVector, "delCommentsAndWhiteSpaces after delete Comments and WhiteSpaces");
+	// # ifdef DEBUGMODE
+	// 	printVector(oneServerConfigVector, "DEBUG delCommentsAndWhiteSpaces after delete Comments and WhiteSpaces");
+	// # endif
 
 	// _delete empty lines
 	for (std::vector<std::string>::iterator iterV = oneServerConfigVector.begin(); iterV < oneServerConfigVector.end(); iterV++)
@@ -253,7 +265,9 @@ void delCommentsAndWhiteSpacesAndEmptyLines0(std::vector<std::string> & oneServe
 			iterV--;
 		}
 	}
-	// printVector(oneServerConfigVector, "delCommentsAndWhiteSpaces after delete Comments and WhiteSpaces and EmptyLines");
+	// # ifdef DEBUGMODE
+	// 	printVector(oneServerConfigVector, "DEBUG delCommentsAndWhiteSpaces after delete Comments and WhiteSpaces and EmptyLines");
+	// # endif
 
 	// _delete semicolons
 	for (std::vector<std::string>::iterator iterV = oneServerConfigVector.begin(); iterV < oneServerConfigVector.end(); iterV++)
@@ -261,7 +275,9 @@ void delCommentsAndWhiteSpacesAndEmptyLines0(std::vector<std::string> & oneServe
 		while ((*iterV).size() > 1 && ((*iterV)[(*iterV).size() - 1] == ' ' || (*iterV)[(*iterV).size() - 1] == ';'))
 			(*iterV).resize((*iterV).size() - 1);
 	}
-	// printVector(oneServerConfigVector, "delCommentsAndWhiteSpaces after delete Comments and WhiteSpaces and EmptyLines and Semicolons");
+	// # ifdef DEBUGMODE
+	// 	printVector(oneServerConfigVector, "DEBUG delCommentsAndWhiteSpaces after delete Comments and WhiteSpaces and EmptyLines and Semicolons");
+	// # endif
 }
 
 // работу начинает парсер
@@ -275,10 +291,14 @@ void parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::ve
 	std::vector<std::vector<std::string> >	oneServerConfigVectorSplit;
 	std::vector<std::vector<std::string> >	allServersConfigVectorSplit;
 
-	// printVector(vectorConfigFile, "parserVectorConfigFile 0");
+	// # ifdef DEBUGMODE
+	// 	printVector(vectorConfigFile, "DEBUG parserVectorConfigFile 0");
+	// # endif
 
 	delCommentsAndWhiteSpacesAndEmptyLines0(vectorConfigFile);
-	// printVector(vectorConfigFile, "parserVectorConfigFile after delCommentsAndWhiteSpacesAndEmptyLines");
+	// # ifdef DEBUGMODE
+	// 	printVector(vectorConfigFile, "DEBUG parserVectorConfigFile after delCommentsAndWhiteSpacesAndEmptyLines");
+	// # endif
 
 	// Split all config strings and make vector from them
 	allServersConfigVectorSplit.clear();
@@ -287,10 +307,14 @@ void parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::ve
 		splitStr.clear();
 		std::string strToSplit = *iter;
 		splitString(strToSplit, ' ', splitStr);
-		// printVector(splitStr, "splitStr");
+		// # ifdef DEBUGMODE
+		// 	printVector(splitStr, "DEBUG parserVectorConfigFile splitStr");
+		// # endif
 		allServersConfigVectorSplit.push_back(splitStr);
 	}
-	// printVVector(allServersConfigVectorSplit, "allServersConfigVectorSplit");
+	// # ifdef DEBUGMODE
+	// 	printVVector(allServersConfigVectorSplit, "DEBUG parserVectorConfigFile after split all config strings");
+	// # endif
 
 	std::vector<std::vector<std::string> >::iterator iterA = allServersConfigVectorSplit.begin();
 	for (; iterA < allServersConfigVectorSplit.end(); iterA++)
@@ -308,9 +332,13 @@ void parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::ve
 			iterA++;
 			oneServerConfigVectorSplit.push_back(*iterA);
 		}
-		// printVVector(oneServerConfigVectorSplit, "before");
+		// # ifdef DEBUGMODE
+		// 	printVVector(oneServerConfigVectorSplit, "DEBUG parserVectorConfigFile before checkBracketAndCorrectVector");
+		// # endif
 		checkBracketAndCorrectVector(oneServerConfigVectorSplit);
-		// printVVector(oneServerConfigVectorSplit, "after");
+		// # ifdef DEBUGMODE
+		// 	printVVector(oneServerConfigVectorSplit, "DEBUG parserVectorConfigFile after checkBracketAndCorrectVector");
+		// # endif
 		parseVectorOnStruct(oneServerConfigVectorSplit, configs);
 	}
 }

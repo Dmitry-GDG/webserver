@@ -16,7 +16,7 @@ CC =		c++
 CCFLAGS =	-Wall -Wextra -Werror 
 CCFLAGS +=	-std=c++98
 CCFLAGS +=	-pedantic-errors
-# CCFLAGS +=	-DDEBUG
+CCFLAGS +=	-DDEBUGMODE
 # CCFLAGS +=	-g -fsanitize=address
 RM =		rm -Rf
 
@@ -100,7 +100,7 @@ $(NAME): $(OBJ_DIR) $(OBJ_BUILD) Makefile $(HEADS)
 	\t$(BLUS)Usage: ./$(NAME) [config_file_name] $(NC)"
 #	@echo "\n\033[0mDone !"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp  $(HEADS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp  $(HEADS)  Makefile
 	@printf "$(VIOLETS)Generating $(NAME)'s objects... %-38.38s\r" $@
 	@$(CC) $(CCFLAGS) $(HEAD) $(DEFINES) -o $@ -c $<
 

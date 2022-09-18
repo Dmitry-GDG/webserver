@@ -63,9 +63,9 @@ typedef unsigned char	u_char;
 
 bool	isBothSpace(char const &lhs, char const &rhs);
 void	splitString(std::string str, char seperator, std::vector<std::string> & strings);
-void	printServerConfig(t_config config);
-void	printAllServersConfig(std::vector<t_config> configs);
-void	printAllServersVector(std::vector<Server> servers);
+void	printServerConfig(t_config config, std::string msg);
+void	printAllServersConfig(std::vector<t_config> configs, std::string msg);
+void	printAllServersVector(std::vector<Server> servers, std::string msg);
 void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
 void	locationClear(t_location & location);

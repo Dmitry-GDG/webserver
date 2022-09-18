@@ -7,10 +7,14 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	_hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
 	_sdMaxCount = -1;
 	_connections.clear();
-	// printAllServersConfig(_configs);
+	// # ifdef DEBUGMODE
+	// 	printAllServersConfig(_configs, "DEBUG ServerRouter AllServersConfig");
+	// # endif
 	for (std::vector<t_config>::iterator iter = _configs.begin(); iter < _configs.end(); iter++)
 		_servers.push_back(Server(*iter));
-	printAllServersVector(_servers);
+	// # ifdef DEBUGMODE
+	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
+	// # endif
 }
 
 ServerRouter::~ServerRouter() {}
@@ -57,7 +61,9 @@ void ServerRouter::launch()
 		{
 			if (FD_ISSET(i, &readActiveSdSets))
 			{
-				std::cout << "READ i: " << i <<  std::endl;
+				# ifdef DEBUGMODE
+					std::cout << "DEBUG launch READ sd: " << i <<  std::endl;
+				# endif
 				for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 				{
 					if ((*iter).readSd(i))
@@ -67,7 +73,9 @@ void ServerRouter::launch()
 			}
 			else if (FD_ISSET(i, &writeActiveSdSets))
 			{
-				std::cout << "WRITE i: " << i << std::endl;
+				# ifdef DEBUGMODE
+					std::cout << "DEBUG launch WRITE sd: " << i << std::endl;
+				# endif
 				sd--;
 			}
 		}

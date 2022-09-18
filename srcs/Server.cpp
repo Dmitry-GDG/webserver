@@ -9,9 +9,22 @@ Server::Server(t_config config)
 	_colors[2] = VIOLETS;
 	_colors[3] = AQUAMARINES;
 	_nextColor = 0;
+	_sdMaxCount = SD_MAXCOUNT;
 	// char hostname[HOSTNAME_LENGTH];
 	// _hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
-	_sdMaxCount = SD_MAXCOUNT;
+}
+
+Server & Server::operator=(const Server & server)
+{
+	_config = server._config;
+	_connections = server._connections;
+	_colors[0] = server._colors[0];
+	_colors[1] = server._colors[1];
+	_colors[2] = server._colors[2];
+	_colors[3] = server._colors[3];
+	_nextColor = server._nextColor;
+	_sdMaxCount = server._sdMaxCount;
+	return *this;
 }
 
 Server::~Server() {}

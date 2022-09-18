@@ -20,6 +20,7 @@ class Server
 	public:
 		Server(t_config);
 		~Server();
+		Server & operator=(const Server & server);
 		
 		t_config	getConfig() const;
 		bool		start();

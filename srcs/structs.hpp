@@ -85,22 +85,24 @@ typedef struct s_location
 	std::string					redirs;
 	std::vector<std::string>	methods;
 	std::map<std::string, std::string>	cgi;
-	std::map<std::string, std::string>	error_page;
+	std::map<std::string, std::string>	error_pages;
 } t_location;
 
 typedef struct s_config
 {
-	std::string					serverName;
+	std::string					serverName; //
 	std::string					listen;
-	std::string					ip;
-	std::string					port;
-	std::string					limitSize;
-	std::string					root;
-	std::string					autoindex;
-	std::string					redirs;
-	std::vector<std::string>	methods;
-	std::vector<t_location>		locations;
-	std::map<std::string, std::string>	error_page;
+	std::string					ip; //
+	std::string					port; //
+	std::string					limitSize; //
+	std::string					root; //
+	std::string					index; //
+	std::string					upload; //
+	std::string					autoindex; //
+	std::string					redirs; //
+	std::vector<std::string>	methods; //
+	std::vector<t_location>		locations; //
+	std::map<std::string, std::string>	error_pages; //
 	std::map<std::string, std::string>	cgi;
 } t_config;
 
