@@ -2,7 +2,14 @@
 # define SERVERROUTER_HPP
 
 # include "main.hpp"
-# include "Server.hpp"
+// # include "Server.hpp"
+
+// enum ConnectionStatus {
+// 	READ,
+// 	READ_DONE,
+// 	WRITE,
+// 	WRITE_DONE
+// };
 
 class ServerRouter
 {
@@ -14,10 +21,12 @@ class ServerRouter
 		// std::vector<Connection>	_connections;
 		// std::vector<int> 		_allSds;
 		
-		pollfd	_pollfds[SD_MAXCOUNT]; // real size = _servers.size()
+		pollfd	_pollfds[SD_MAXCOUNT]; // real size = _servers.size() + new income sds
 		size_t	_pollfdsQty;
 		// std::vector<int>		_sds;
 		// std::vector<struct pollfd> _pollfds;
+
+		t_connection	_connections[SD_MAXCOUNT];
 		
 
 	public:
@@ -35,6 +44,7 @@ class ServerRouter
 		bool	_mainLoop();
 		void	_closeSockets();
 		bool	_isSocketServer(int);
+		void	_saveConnection(int, int,  std::string, unsigned long);
 
 };
 

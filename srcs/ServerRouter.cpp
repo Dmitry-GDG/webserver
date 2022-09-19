@@ -138,6 +138,8 @@ void ServerRouter::start()
 bool ServerRouter::_mainLoop()
 {
 	int sd;
+	socklen_t socklen = sizeof(struct sockaddr_in);
+	struct sockaddr_in addrNew;
 	// std::string msg;
 
 	int ret = poll(_pollfds, _servers.size(), -1);
@@ -159,9 +161,11 @@ bool ServerRouter::_mainLoop()
 		{
 			do
 			{
-				sd = accept(_pollfds[i].fd, NULL, NULL);
+				sd = accept(_pollfds[i].fd, (struct sockaddr *)&addrNew, &socklen);
+				// sd = accept(_pollfds[i].fd, NULL, NULL);
 				if (sd < 0)
 				{
+					// std::cout << errno << std::endl;
 					if (errno != EWOULDBLOCK)
 					{
 						std::cerr << "Error in accepting" << std::endl;
@@ -169,13 +173,23 @@ bool ServerRouter::_mainLoop()
 					}
 					break ;
 				}
-				printMsg(i + 1, sd, "new connection, now is listening sd: ", "");
 				_pollfds[_pollfdsQty].fd = sd;
 				_pollfds[_pollfdsQty].events = POLLIN;
-				// newConnection
+				_saveConnection(sd, i, inet_ntoa(((struct sockaddr_in*)&addrNew)->sin_addr), ntohs(((struct sockaddr_in*)&addrNew)->sin_port));
 				_pollfdsQty++;
+				std::string msg = "new connection from ";
+				msg += _connections[sd].fromIp;
+				msg += ":";
+				msg += std::to_string(_connections[sd].fromPort); 
+				msg += ", sd: ";
+				printMsg(i + 1, sd, msg, "");
 			} while (sd > 0);
 		}
+		else if (_pollfds[i].revents == POLLIN)
+		{
+			printMsg(i + 1, sd, "new connection, now is listening sd: ", "");
+		}
+		std::cout << "Hi!" << std::endl;
 	}
 	return true;
 }
@@ -197,6 +211,15 @@ bool ServerRouter::_isSocketServer(int fd)
 			return true;
 	}
 	return false;
+}
+
+void ServerRouter::_saveConnection(int sdFrom, int sdServ, std::string fromIP, unsigned long fromPort)
+{
+	_connections[sdFrom].sdServ = sdServ;
+	_connections[sdFrom].position = 0;
+	_connections[sdFrom].status = READ;
+	_connections[sdFrom].fromIp = fromIP;
+	_connections[sdFrom].fromPort = fromPort;
 }
 
 // void ServerRouter::launch()
