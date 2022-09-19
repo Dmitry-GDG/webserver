@@ -27,6 +27,7 @@
 
 # include <algorithm>
 # include <arpa/inet.h>
+// # include <cstring>
 # include <fcntl.h>
 # include <fstream>
 # include <iostream>
@@ -70,7 +71,9 @@ void	printAllServersConfig(std::vector<t_config> configs, std::string msg);
 void	printAllServersVector(std::vector<Server> servers, std::string msg);
 void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
-void	printPollfds(std::vector<pollfd> data, std::string msg);
+// void	printPollfds(std::vector<pollfd> data, std::string msg);
+void	printPollfds(pollfd *pfds, std::string msg, size_t pSize);
+void	printMsg(size_t who, size_t whom, std::string msg1, std::string msg2);
 void	locationClear(t_location & location);
 void	configClear(t_config & oneServerConfig);
 

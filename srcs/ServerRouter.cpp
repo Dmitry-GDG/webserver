@@ -5,7 +5,7 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	_configs = configs;
 	char hostname[HOSTNAME_LENGTH];
 	_hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
-	_pollfds.clear();
+	// _pollfds.clear();
 
 	// # ifdef DEBUGMODE
 	// 	printAllServersConfig(_configs, "DEBUG ServerRouter AllServersConfig");
@@ -15,7 +15,7 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	// # ifdef DEBUGMODE
 	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
 	// # endif
-	_sdMaxCount = _servers.size();
+	_pollfdsQty = _servers.size();
 }
 
 ServerRouter::~ServerRouter() {}
@@ -23,7 +23,7 @@ ServerRouter::~ServerRouter() {}
 std::vector<t_config> ServerRouter::getConfigs() const
 	{ return _configs; }
 
-bool ServerRouter::_launch(Server & server)
+bool ServerRouter::_launch(Server & server, int indx)
 {
 	int on = 1;
 	struct sockaddr_in addr;
@@ -81,7 +81,7 @@ bool ServerRouter::_launch(Server & server)
 	server.setSd(sd);
 	pfd.fd = sd;
 	pfd.events = POLLIN;
-	_pollfds.push_back(pfd);
+	_pollfds[indx] = pfd;
 
 	char serverIp[sizeof(struct sockaddr_in)];
 	inet_ntop(AF_INET, &(addr.sin_addr), serverIp, sizeof(addr));
@@ -114,14 +114,16 @@ void ServerRouter::start()
 	// << NC << _port << YELLOS << " and password: " << NC << _password \
 	// << std::endl;
 
+	int indx = 0;
 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 	{
-		if (!_launch((*iter)))
+		if (!_launch(*iter, indx))
 			exitErr ("Check server config file and try again.");
+		indx++;
 	}
 
 	# ifdef DEBUGMODE
-	printPollfds(_pollfds, "DEBUG _pollfds");
+	printPollfds(_pollfds, "DEBUG _pollfds", _pollfdsQty);
 	# endif
 
 	while (42)
@@ -129,11 +131,72 @@ void ServerRouter::start()
 		if (!_mainLoop())
 			break;
 	}
-	for (std::vector<struct pollfd>::iterator iter = _pollfds.begin(); iter < _pollfds.end(); iter++)
+
+	_closeSockets();
+}
+
+bool ServerRouter::_mainLoop()
+{
+	int sd;
+	// std::string msg;
+
+	int ret = poll(_pollfds, _servers.size(), -1);
+	if (ret < 0)
 	{
-		if ((*iter).fd >= 0)
-			close ((*iter).fd);
+		_closeSockets();
+		exitErr ("Error in poll.");
 	}
+	if (ret == 0)
+	{
+		_closeSockets();
+		exitErr ("Error timeout in poll.");
+	}
+	for (size_t i = 0; i < _servers.size(); i++)
+	{
+		if (_pollfds[i].revents == 0)
+			continue;
+		if (_isSocketServer(_pollfds[i].fd))
+		{
+			do
+			{
+				sd = accept(_pollfds[i].fd, NULL, NULL);
+				if (sd < 0)
+				{
+					if (errno != EWOULDBLOCK)
+					{
+						std::cerr << "Error in accepting" << std::endl;
+						return false;
+					}
+					break ;
+				}
+				printMsg(i + 1, sd, "new connection, now is listening sd: ", "");
+				_pollfds[_pollfdsQty].fd = sd;
+				_pollfds[_pollfdsQty].events = POLLIN;
+				// newConnection
+				_pollfdsQty++;
+			} while (sd > 0);
+		}
+	}
+	return true;
+}
+
+void ServerRouter::_closeSockets()
+{
+	for (size_t i = 0; i < sizeof(_servers); i++)
+	{
+		if (_pollfds[i].fd >= 0)
+			close (_pollfds[i].fd);
+	}
+}
+
+bool ServerRouter::_isSocketServer(int fd)
+{
+	for (size_t i = 0; i < sizeof(_servers); i++)
+	{
+		if (_pollfds[i].fd == fd)
+			return true;
+	}
+	return false;
 }
 
 // void ServerRouter::launch()

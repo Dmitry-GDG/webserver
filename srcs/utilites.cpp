@@ -222,19 +222,36 @@ void printVVector(std::vector<std::vector<std::string> > data, std::string msg)
 	std::cout << "----------------" << std::endl;
 }
 
-void printPollfds(std::vector<pollfd> data, std::string msg)
+// void printPollfds(std::vector<pollfd> data, std::string msg)
+// {
+// 	if (msg != "")
+// 		std::cout << "**** " << msg << " ****" << std::endl;
+// 	else
+// 		std::cout << "**** printPollfds ****" << std::endl;
+// 	int i = 1;
+// 	for (std::vector<struct pollfd>::iterator iter = data.begin(); iter < data.end(); iter++)
+// 	{
+// 		std::cout << "_pollfds[" << i << "]: sd=_pollfds.fd = " << (*iter).fd << ", _pollfds.events = " << (*iter).events << ", _pollfds.revents = " << (*iter).revents << std::endl;
+// 		i++;
+// 	}
+// 	std::cout << "----------------" << std::endl;
+// }
+
+
+void printPollfds(pollfd *pfds, std::string msg, size_t pSize)
 {
 	if (msg != "")
 		std::cout << "**** " << msg << " ****" << std::endl;
 	else
 		std::cout << "**** printPollfds ****" << std::endl;
-	int i = 1;
-	for (std::vector<struct pollfd>::iterator iter = data.begin(); iter < data.end(); iter++)
-	{
-		std::cout << "_pollfds[" << i << "]: sd=_pollfds.fd = " << (*iter).fd << ", _pollfds.events = " << (*iter).events << ", _pollfds.revents = " << (*iter).revents << std::endl;
-		i++;
-	}
+	for (size_t i = 0; i < pSize; i++)
+		std::cout << "_pollfds[" << i + 1 << "]: sd=_pollfds.fd = " << pfds[i].fd << ", _pollfds.events = " << pfds[i].events << ", _pollfds.revents = " << pfds[i].revents << std::endl;
 	std::cout << "----------------" << std::endl;
+}
+
+void printMsg(size_t who, size_t whom, std::string msg1, std::string msg2)
+{
+	std::cout << NC << timestamp() << YELLOS << "server [" << who << "]: " << msg1 << NC << whom << YELLOS << msg2 <<  NC << std::endl;
 }
 
 void locationClear(t_location & location)

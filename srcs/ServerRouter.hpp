@@ -10,12 +10,14 @@ class ServerRouter
 		std::vector<t_config>	_configs; //store vector of all server configs
 		std::vector<Server>		_servers;
 		std::string				_hostname; // il-a3.msk.21-school.ru
-		int						_sdMaxCount;
+		// int						_sdMaxCount;
 		// std::vector<Connection>	_connections;
 		// std::vector<int> 		_allSds;
 		
-		std::vector<struct pollfd> _pollfds;
+		pollfd	_pollfds[SD_MAXCOUNT]; // real size = _servers.size()
+		size_t	_pollfdsQty;
 		// std::vector<int>		_sds;
+		// std::vector<struct pollfd> _pollfds;
 		
 
 	public:
@@ -29,8 +31,10 @@ class ServerRouter
 
 	private:
 		// fd_set _getAllActiveSdSets();
-		bool	_launch(Server & server);
+		bool	_launch(Server &, int);
 		bool	_mainLoop();
+		void	_closeSockets();
+		bool	_isSocketServer(int);
 
 };
 
