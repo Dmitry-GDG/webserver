@@ -14,9 +14,9 @@ int	main(int argc, char **argv)
 			throw ParserException();
 		parserVectorConfigFile(vectorConfigFile, configs);
 		ServerRouter data(configs);
-		// # ifdef DEBUGMODE
+		// #ifdef DEBUGMODE
 		// 	printAllServersConfig(data.getConfigs(), "DEBUG main AllServersConfig");
-		// # endif
+		// #endif
 		data.start();
 	}
 	catch (const std::exception& e)

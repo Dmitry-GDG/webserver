@@ -115,13 +115,13 @@ void printServerConfig(t_config config, std::string msg)
 	if (config.methods.size() > 0)
 		{
 			for (size_t j = 0; j < config.methods.size(); j++)
-					std::cout << "method " << j + 1 << ":\t" << config.methods[j] << std::endl;
+					std::cout << "method " << j << ":\t" << config.methods[j] << std::endl;
 		}
 	if (config.locations.size() > 0)
 	{
 		for (size_t i = 0; i < config.locations.size(); i++)
 		{
-			std::cout << "  location Nr " << i + 1 << std::endl;
+			std::cout << "  location Nr " << i << std::endl;
 			if (config.locations[i].path.size() > 0)
 				std::cout << "path:\t" << config.locations[i].path << std::endl;
 			if (config.locations[i].root.size() > 0)
@@ -139,7 +139,7 @@ void printServerConfig(t_config config, std::string msg)
 			if (config.locations[i].methods.size() > 0)
 			{
 				for (size_t j = 0; j < config.locations[i].methods.size(); j++)
-					std::cout << "method " << j + 1 << ":\t" << config.locations[i].methods[j] << std::endl;
+					std::cout << "method " << j << ":\t" << config.locations[i].methods[j] << std::endl;
 			}
 			if (config.locations[i].cgi.size() > 0)
 			{
@@ -171,7 +171,7 @@ void printAllServersConfig(std::vector<t_config> configs, std::string msg)
 		std::cout << "**** printAllServersConfig ****" << std::endl;
 	for (size_t i = 0; i < configs.size(); i++)
 	{
-		std::cout << "Server Nr " << i + 1 << std::endl;
+		std::cout << "Server Nr " << i << std::endl;
 		printServerConfig(configs[i], "");
 		std::cout << "-------------------------" << std::endl;
 	}
@@ -183,7 +183,7 @@ void printAllServersVector(std::vector<Server> servers, std::string msg)
 		std::cout << "**** " << msg << " ****" << std::endl;
 	else
 		std::cout << "**** printAllServersVector ****" << std::endl;
-	int i = 1;
+	int i = 0;
 	for (std::vector<Server>::iterator iter = servers.begin(); iter < servers.end(); iter++)
 	{
 		std::cout << "Server Nr " << i << std::endl;
@@ -245,13 +245,13 @@ void printPollfds(pollfd *pfds, std::string msg, size_t pSize)
 	else
 		std::cout << "**** printPollfds ****" << std::endl;
 	for (size_t i = 0; i < pSize; i++)
-		std::cout << "_pollfds[" << i + 1 << "]: sd=_pollfds.fd = " << pfds[i].fd << ", _pollfds.events = " << pfds[i].events << ", _pollfds.revents = " << pfds[i].revents << std::endl;
+		std::cout << "_pollfds[" << i << "]: sd=_pollfds.fd = " << pfds[i].fd << ", _pollfds.events = " << pfds[i].events << ", _pollfds.revents = " << pfds[i].revents << std::endl;
 	std::cout << "----------------" << std::endl;
 }
 
 void printMsg(size_t who, size_t whom, std::string msg1, std::string msg2)
 {
-	std::cout << NC << timestamp() << YELLOS << "server [" << who << "]: " << msg1 << NC << whom << YELLOS << msg2 <<  NC << std::endl;
+	std::cout << NC << timestamp() << YELLOS << "server[" << who << "]: " << msg1 << NC << whom << YELLOS << msg2 <<  NC << std::endl;
 }
 
 void locationClear(t_location & location)

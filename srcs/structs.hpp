@@ -35,11 +35,12 @@ enum ConnectionStatus {
 
 typedef struct s_connection
 {
-	int					sdServ;
-	int					position;
+	size_t				srvNbr;
+	size_t				clntSd;
+	size_t				position;
 	ConnectionStatus	status;
 	std::string			fromIp;
-	unsigned long		fromPort;
+	unsigned			fromPort;
 } t_connection;
 
 typedef struct s_location

@@ -38,6 +38,12 @@ int Server::getSd() const
 void Server::setSd(int sd)
 	{ _sd = sd; }
 
+size_t Server::getServNbr() const
+	{ return _srvrNbr; }
+
+void Server::setSrvrNbr(size_t indx)
+	{ _srvrNbr = indx; }
+
 // bool Server::start()
 // {
 // 	int on = 1;

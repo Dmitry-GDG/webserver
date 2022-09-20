@@ -26,7 +26,8 @@ class ServerRouter
 		// std::vector<int>		_sds;
 		// std::vector<struct pollfd> _pollfds;
 
-		t_connection	_connections[SD_MAXCOUNT];
+		// t_connection	_connections[SD_MAXCOUNT];
+		std::vector<t_connection> _connections;
 		
 
 	public:
@@ -45,6 +46,11 @@ class ServerRouter
 		void	_closeSockets();
 		bool	_isSocketServer(int);
 		void	_saveConnection(int, int,  std::string, unsigned long);
+		void	_removeSdFromPollfds(int);
+		void	_removeConnection(size_t);
+		size_t	_getSrvNbrFromConnection(size_t);
+		std::string	_getIpFromConnection(size_t);
+		unsigned	_getPortFromConnection(size_t);
 
 };
 

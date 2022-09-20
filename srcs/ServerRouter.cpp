@@ -7,14 +7,14 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	_hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
 	// _pollfds.clear();
 
-	// # ifdef DEBUGMODE
+	// #ifdef DEBUGMODE
 	// 	printAllServersConfig(_configs, "DEBUG ServerRouter AllServersConfig");
-	// # endif
+	// #endif
 	for (std::vector<t_config>::iterator iter = _configs.begin(); iter < _configs.end(); iter++)
 		_servers.push_back(Server(*iter));
-	// # ifdef DEBUGMODE
+	// #ifdef DEBUGMODE
 	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
-	// # endif
+	// #endif
 	_pollfdsQty = _servers.size();
 }
 
@@ -79,6 +79,7 @@ bool ServerRouter::_launch(Server & server, int indx)
 	}
 
 	server.setSd(sd);
+	server.setSrvrNbr(indx);
 	pfd.fd = sd;
 	pfd.events = POLLIN;
 	_pollfds[indx] = pfd;
@@ -88,7 +89,7 @@ bool ServerRouter::_launch(Server & server, int indx)
 
 	std::cout << NC << timestamp() << YELLOS << "On socket descriptor " << NC << sd \
 	<< YELLOS << " the " << NC << server.getConfig().serverName \
-	<< YELLOS << " server started successfully and is listening on " << NC \
+	<< YELLOS << " server[" << server.getServNbr() << "] started successfully and is listening on " << NC \
 	<< serverIp << ":" << ntohs(addr.sin_port) << std::endl;
 	// std::cout << "\nTo connect via this Mac use " \
 	// << NC << "localhost" << YELLOS << " (or 127.0.0.1), port: " \
@@ -122,9 +123,9 @@ void ServerRouter::start()
 		indx++;
 	}
 
-	# ifdef DEBUGMODE
-	printPollfds(_pollfds, "DEBUG _pollfds", _pollfdsQty);
-	# endif
+	// #ifdef DEBUGMODE
+	// printPollfds(_pollfds, "DEBUG _pollfds", _pollfdsQty);
+	// #endif
 
 	while (42)
 	{
@@ -137,61 +138,89 @@ void ServerRouter::start()
 
 bool ServerRouter::_mainLoop()
 {
-	int sd;
+	// int sd = -1;
 	socklen_t socklen = sizeof(struct sockaddr_in);
 	struct sockaddr_in addrNew;
-	// std::string msg;
+	std::string msg;
 
-	int ret = poll(_pollfds, _servers.size(), -1);
-	if (ret < 0)
+	int ret = poll(_pollfds, _pollfdsQty, -1);
+	if (ret < 0 || ret == 0)
 	{
 		_closeSockets();
-		exitErr ("Error in poll.");
+		if (ret < 0)
+			exitErr ("Poll error.");
+		exitErr ("Poll error timeout.");
 	}
-	if (ret == 0)
-	{
-		_closeSockets();
-		exitErr ("Error timeout in poll.");
-	}
-	for (size_t i = 0; i < _servers.size(); i++)
+	for (size_t i = 0; i < _pollfdsQty; i++)
 	{
 		if (_pollfds[i].revents == 0)
 			continue;
 		if (_isSocketServer(_pollfds[i].fd))
 		{
-			do
+			int sd = accept(_pollfds[i].fd, (struct sockaddr *)&addrNew, &socklen);
+			if (sd < 0)
 			{
-				sd = accept(_pollfds[i].fd, (struct sockaddr *)&addrNew, &socklen);
-				// sd = accept(_pollfds[i].fd, NULL, NULL);
-				if (sd < 0)
+				if (errno != EWOULDBLOCK)
 				{
-					// std::cout << errno << std::endl;
-					if (errno != EWOULDBLOCK)
-					{
-						std::cerr << "Error in accepting" << std::endl;
-						return false;
-					}
-					break ;
+					std::cerr << "Accept error." << std::endl;
+					return false;
 				}
-				_pollfds[_pollfdsQty].fd = sd;
-				_pollfds[_pollfdsQty].events = POLLIN;
-				_saveConnection(sd, i, inet_ntoa(((struct sockaddr_in*)&addrNew)->sin_addr), ntohs(((struct sockaddr_in*)&addrNew)->sin_port));
-				_pollfdsQty++;
-				std::string msg = "new connection from ";
-				msg += _connections[sd].fromIp;
-				msg += ":";
-				msg += std::to_string(_connections[sd].fromPort); 
-				msg += ", sd: ";
-				printMsg(i + 1, sd, msg, "");
-			} while (sd > 0);
+				break ;
+			}
+			_pollfds[_pollfdsQty].fd = sd;
+			_pollfds[_pollfdsQty].events = POLLIN;
+			_pollfdsQty++;
+			_saveConnection(sd, i, inet_ntoa(((struct sockaddr_in*)&addrNew)->sin_addr), ntohs(((struct sockaddr_in*)&addrNew)->sin_port));
+			msg = "new connection from " + _getIpFromConnection(sd) + ":" + std::to_string(_getPortFromConnection(sd)) + ", sd: ";
+			printMsg(i, sd, msg, "");
 		}
-		else if (_pollfds[i].revents == POLLIN)
+		else if (_pollfds[i].revents == POLLIN) // есть данные для чтения
 		{
-			printMsg(i + 1, sd, "new connection, now is listening sd: ", "");
+			size_t clntSd = _pollfds[i].fd;
+			size_t srvNbr = _getSrvNbrFromConnection(clntSd);
+			printMsg(srvNbr, clntSd, "now is reading sd: ", "");
+
+			_pollfds[i].revents = 0;
 		}
+		else if (_pollfds[i].revents == POLLOUT) // запись возможна
+		{
+
+		}
+		// else if (_pollfds[i].revents != POLLIN && _pollfds[i].revents != POLLOUT)
+		// {
+		// 	size_t clntSd = _pollfds[i].fd;
+		// 	size_t srvNbr = _getSrvNbrFromConnection(clntSd);
+		// 	printMsg(srvNbr, clntSd, "client closed sd: ", "");
+		// 	close (_pollfds[i].fd);
+		// 	_removeSdFromPollfds(i);
+		// 	_removeConnection(clntSd);
+		// }
 		std::cout << "Hi!" << std::endl;
 	}
 	return true;
+}
+
+void ServerRouter::_removeSdFromPollfds(int indx)
+{
+	_pollfds[indx].fd = -1;
+	for (size_t i = 0; i < _pollfdsQty; i++)
+	{
+		if (_pollfds[i].fd < 0)
+		{
+			for (size_t j = i; j < _pollfdsQty - 1; j++)
+				_pollfds[j] = _pollfds[j + 1];
+			_pollfdsQty--;
+		}
+	}
+}
+
+void ServerRouter::_removeConnection(size_t clntSd)
+{
+	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
+	{
+		if ((*iter).clntSd == clntSd)
+			_connections.erase(iter);
+	}
 }
 
 void ServerRouter::_closeSockets()
@@ -205,22 +234,78 @@ void ServerRouter::_closeSockets()
 
 bool ServerRouter::_isSocketServer(int fd)
 {
-	for (size_t i = 0; i < sizeof(_servers); i++)
+	// #ifdef DEBUGMODE
+	// 	std::cout << "**** DEBUG _isSocketServer ****\nfd: " << fd << std::endl;
+	// #endif
+	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 	{
-		if (_pollfds[i].fd == fd)
+		// #ifdef DEBUGMODE
+		// 	std::cout << "_sd: " << (*iter).getSd() << std::endl;
+		// #endif
+		if ((*iter).getSd() == fd)
+		{
+			// #ifdef DEBUGMODE
+			// 	std::cout << "-------------------------" << std::endl;
+			// #endif
 			return true;
+		}
 	}
+	// #ifdef DEBUGMODE
+	// 	std::cout << "-------------------------" << std::endl;
+	// #endif
 	return false;
 }
 
-void ServerRouter::_saveConnection(int sdFrom, int sdServ, std::string fromIP, unsigned long fromPort)
+size_t ServerRouter::_getSrvNbrFromConnection(size_t clntSd)
 {
-	_connections[sdFrom].sdServ = sdServ;
-	_connections[sdFrom].position = 0;
-	_connections[sdFrom].status = READ;
-	_connections[sdFrom].fromIp = fromIP;
-	_connections[sdFrom].fromPort = fromPort;
+	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
+	{
+		if ((*iter).clntSd == clntSd)
+			return (*iter).srvNbr;
+	}
+	return 0;
 }
+
+std::string ServerRouter::_getIpFromConnection(size_t clntSd)
+{
+	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
+	{
+		if ((*iter).clntSd == clntSd)
+			return (*iter).fromIp;
+	}
+	return "";
+}
+
+unsigned ServerRouter::_getPortFromConnection(size_t clntSd)
+{
+	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
+	{
+		if ((*iter).clntSd == clntSd)
+			return (*iter).fromPort;
+	}
+	return 0;
+}
+
+void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned long fromPort)
+{
+	t_connection connection;
+	connection.srvNbr = srvNbr;
+	connection.clntSd = sdFrom;
+	connection.position = 0;
+	connection.status = READ;
+	connection.fromIp = fromIP;
+	connection.fromPort = fromPort;
+	_connections.push_back(connection);
+}
+
+// void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned long fromPort)
+// {
+// 	_connections[sdFrom].srvNbr = srvNbr;
+// 	_connections[sdFrom].position = 0;
+// 	_connections[sdFrom].status = READ;
+// 	_connections[sdFrom].fromIp = fromIP;
+// 	_connections[sdFrom].fromPort = fromPort;
+// }
 
 // void ServerRouter::launch()
 // {
@@ -261,9 +346,9 @@ void ServerRouter::_saveConnection(int sdFrom, int sdServ, std::string fromIP, u
 // 		{
 // 			if (FD_ISSET(i, &readActiveSdSets))
 // 			{
-// 				# ifdef DEBUGMODE
+// 				#ifdef DEBUGMODE
 // 					std::cout << "DEBUG launch READ sd: " << i <<  std::endl;
-// 				# endif
+// 				#endif
 // 				for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 // 				{
 // 					if ((*iter).readSd(i))
@@ -273,9 +358,9 @@ void ServerRouter::_saveConnection(int sdFrom, int sdServ, std::string fromIP, u
 // 			}
 // 			else if (FD_ISSET(i, &writeActiveSdSets))
 // 			{
-// 				# ifdef DEBUGMODE
+// 				#ifdef DEBUGMODE
 // 					std::cout << "DEBUG launch WRITE sd: " << i << std::endl;
-// 				# endif
+// 				#endif
 // 				sd--;
 // 			}
 // 		}
