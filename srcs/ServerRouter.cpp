@@ -171,16 +171,17 @@ bool ServerRouter::_mainLoop()
 			_pollfds[_pollfdsQty].events = POLLIN;
 			_pollfdsQty++;
 			_saveConnection(sd, i, inet_ntoa(((struct sockaddr_in*)&addrNew)->sin_addr), ntohs(((struct sockaddr_in*)&addrNew)->sin_port));
-			msg = "new connection from " + _getIpFromConnection(sd) + ":" + std::to_string(_getPortFromConnection(sd)) + ", sd: ";
+			msg = "new connection from " + _getConnection(sd)->fromIp + ":" + std::to_string(_getConnection(sd)->fromPort) + ", sd: ";
 			printMsg(i, sd, msg, "");
 		}
 		else if (_pollfds[i].revents == POLLIN) // есть данные для чтения
 		{
-			size_t clntSd = _pollfds[i].fd;
-			size_t srvNbr = _getSrvNbrFromConnection(clntSd);
-			printMsg(srvNbr, clntSd, "now is reading sd: ", "");
+			int clntSd = _pollfds[i].fd;
+			t_connection * connection = _getConnection(clntSd);
+			printMsg(connection->srvNbr, clntSd, "now is reading sd: ", "");
+			_readSd(connection);
 
-			_pollfds[i].revents = 0;
+			// _pollfds[i].revents = 0;
 		}
 		else if (_pollfds[i].revents == POLLOUT) // запись возможна
 		{
@@ -188,9 +189,9 @@ bool ServerRouter::_mainLoop()
 		}
 		// else if (_pollfds[i].revents != POLLIN && _pollfds[i].revents != POLLOUT)
 		// {
-		// 	size_t clntSd = _pollfds[i].fd;
-		// 	size_t srvNbr = _getSrvNbrFromConnection(clntSd);
-		// 	printMsg(srvNbr, clntSd, "client closed sd: ", "");
+		// 	int clntSd = _pollfds[i].fd;
+		// 	t_connection * connection = _getConnection(clntSd);
+		// 	printMsg(connection->srvNbr, clntSd, "client closed sd: ", "");
 		// 	close (_pollfds[i].fd);
 		// 	_removeSdFromPollfds(i);
 		// 	_removeConnection(clntSd);
@@ -214,7 +215,7 @@ void ServerRouter::_removeSdFromPollfds(int indx)
 	}
 }
 
-void ServerRouter::_removeConnection(size_t clntSd)
+void ServerRouter::_removeConnection(int clntSd)
 {
 	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
 	{
@@ -256,37 +257,48 @@ bool ServerRouter::_isSocketServer(int fd)
 	return false;
 }
 
-size_t ServerRouter::_getSrvNbrFromConnection(size_t clntSd)
+int ServerRouter::_readSd(t_connection * connection)
+{
+	char buf[BUF_SIZE + 1];
+	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+	std::cout << "server[" << connection->srvNbr << "]: " << qtyBytes << " bytes read" << std::endl;
+	if (qtyBytes == 0)
+	{
+		connection->status = READ_DONE;
+		return qtyBytes;
+	}
+	else if (qtyBytes > 0)
+	{
+		buf[qtyBytes] = '\0';
+		_parseInputData(buf, connection);
+	}
+	return qtyBytes;
+}
+
+void ServerRouter::_parseInputData(char * buf, t_connection * connection)
+{
+	std::string inpt = buf;
+	#ifdef DEBUGMODE
+		std::cout << "Input: " << inpt << ", size: " << inpt.size() << std::endl;
+	#endif
+	std::string inptLine = inpt.substr(0, inpt.find('\n', 0));
+	if (inptLine.find("HTTP") != std::string::npos)
+	{
+		connection->inputdata.dataType = HEADERS;
+	}
+}
+
+t_connection * ServerRouter::_getConnection(int clntSd)
 {
 	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
 	{
 		if ((*iter).clntSd == clntSd)
-			return (*iter).srvNbr;
+			return &(*iter);
 	}
-	return 0;
+	return NULL;
 }
 
-std::string ServerRouter::_getIpFromConnection(size_t clntSd)
-{
-	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
-	{
-		if ((*iter).clntSd == clntSd)
-			return (*iter).fromIp;
-	}
-	return "";
-}
-
-unsigned ServerRouter::_getPortFromConnection(size_t clntSd)
-{
-	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
-	{
-		if ((*iter).clntSd == clntSd)
-			return (*iter).fromPort;
-	}
-	return 0;
-}
-
-void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned long fromPort)
+void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned fromPort)
 {
 	t_connection connection;
 	connection.srvNbr = srvNbr;
@@ -298,7 +310,7 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	_connections.push_back(connection);
 }
 
-// void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned long fromPort)
+// void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned fromPort)
 // {
 // 	_connections[sdFrom].srvNbr = srvNbr;
 // 	_connections[sdFrom].position = 0;

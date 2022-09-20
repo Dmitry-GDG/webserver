@@ -26,21 +26,37 @@
 //     { NULL, 0 }
 // };
 
-enum ConnectionStatus {
+enum ConnectionStatus
+{
 	READ,
 	READ_DONE,
 	WRITE,
 	WRITE_DONE
 };
 
+enum InputDataType
+{
+	HEADERS,
+	DATA_START,
+	DATA_CONT,
+	DATA_END
+};
+
+typedef struct s_inputdata
+{
+	InputDataType	dataType;
+
+} t_inputdata;
+
 typedef struct s_connection
 {
-	size_t				srvNbr;
-	size_t				clntSd;
-	size_t				position;
-	ConnectionStatus	status;
+	int					srvNbr;
+	int					clntSd;
 	std::string			fromIp;
 	unsigned			fromPort;
+	size_t				position;
+	ConnectionStatus	status;
+	t_inputdata			inputdata;
 } t_connection;
 
 typedef struct s_location

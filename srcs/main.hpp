@@ -7,6 +7,7 @@
 # define WEBSERV_AUTHORS "trurgot, botilia               "
 # define HOSTNAME_LENGTH 30
 # define SD_MAXCOUNT 1024
+# define BUF_SIZE 3000
 
 # define NC "\033[0m"
 # define REV "\033[7m"

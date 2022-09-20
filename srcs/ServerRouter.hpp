@@ -2,14 +2,6 @@
 # define SERVERROUTER_HPP
 
 # include "main.hpp"
-// # include "Server.hpp"
-
-// enum ConnectionStatus {
-// 	READ,
-// 	READ_DONE,
-// 	WRITE,
-// 	WRITE_DONE
-// };
 
 class ServerRouter
 {
@@ -45,12 +37,12 @@ class ServerRouter
 		bool	_mainLoop();
 		void	_closeSockets();
 		bool	_isSocketServer(int);
-		void	_saveConnection(int, int,  std::string, unsigned long);
+		void	_saveConnection(int, int,  std::string, unsigned);
 		void	_removeSdFromPollfds(int);
-		void	_removeConnection(size_t);
-		size_t	_getSrvNbrFromConnection(size_t);
-		std::string	_getIpFromConnection(size_t);
-		unsigned	_getPortFromConnection(size_t);
+		void	_removeConnection(int);
+		t_connection	* _getConnection(int clntSd);
+		int		_readSd(t_connection *);
+		void	_parseInputData(char *, t_connection *);
 
 };
 
