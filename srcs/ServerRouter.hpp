@@ -38,11 +38,12 @@ class ServerRouter
 		void	_closeSockets();
 		bool	_isSocketServer(int);
 		void	_saveConnection(int, int,  std::string, unsigned);
+		void	_initInputdata(t_inputdata & data);
 		void	_removeSdFromPollfds(int);
 		void	_removeConnection(int);
 		t_connection	* _getConnection(int clntSd);
 		int		_readSd(t_connection *);
-		void	_parseInputData(char *, t_connection *);
+		// void	_parseInputData(char *, t_connection *);
 
 };
 

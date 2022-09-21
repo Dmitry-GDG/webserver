@@ -260,6 +260,8 @@ bool ServerRouter::_isSocketServer(int fd)
 int ServerRouter::_readSd(t_connection * connection)
 {
 	char buf[BUF_SIZE + 1];
+	// std::string err;
+
 	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
 	std::cout << "server[" << connection->srvNbr << "]: " << qtyBytes << " bytes read" << std::endl;
 	if (qtyBytes == 0)
@@ -270,23 +272,37 @@ int ServerRouter::_readSd(t_connection * connection)
 	else if (qtyBytes > 0)
 	{
 		buf[qtyBytes] = '\0';
-		_parseInputData(buf, connection);
+		if (!parseInputData(buf, connection))
+		{
+			while (qtyBytes > 0)
+				qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+			connection->status = READ_DONE;
+			return 0;
+		}
+
+
+
+
 	}
 	return qtyBytes;
 }
 
-void ServerRouter::_parseInputData(char * buf, t_connection * connection)
-{
-	std::string inpt = buf;
-	#ifdef DEBUGMODE
-		std::cout << "Input: " << inpt << ", size: " << inpt.size() << std::endl;
-	#endif
-	std::string inptLine = inpt.substr(0, inpt.find('\n', 0));
-	if (inptLine.find("HTTP") != std::string::npos)
-	{
-		connection->inputdata.dataType = HEADERS;
-	}
-}
+// void ServerRouter::_parseInputData(char * buf, t_connection * connection)
+// {
+// 	std::string inpt = buf;
+// 	#ifdef DEBUGMODE
+// 		std::cout << "Input: " << inpt << ", size: " << inpt.size() << std::endl;
+// 	#endif
+// 	std::string inptLine = inpt.substr(0, inpt.find('\n', 0));
+// 	if (inptLine.find("HTTP") != std::string::npos)
+// 	{
+// 		connection->inputdata.dataType = HEADERS;
+// 		size_t first = 0;
+// 		size_t second = inptLine.find(' ', first);
+// 		connection->inputdata.method = inptLine.substr(first, second);
+
+// 	}
+// }
 
 t_connection * ServerRouter::_getConnection(int clntSd)
 {
@@ -307,7 +323,18 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.status = READ;
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
+	connection.methods.clear();
+	connection.methods.push_back("GET");
+	connection.methods.push_back("POST");
+	connection.methods.push_back("DELETE");
+	_initInputdata(connection.inputdata);
 	_connections.push_back(connection);
+}
+
+void ServerRouter::_initInputdata(t_inputdata & data)
+{
+	data.method.clear();
+	data.address.clear();
 }
 
 // void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned fromPort)

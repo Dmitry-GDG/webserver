@@ -8,6 +8,10 @@
 # define HOSTNAME_LENGTH 30
 # define SD_MAXCOUNT 1024
 # define BUF_SIZE 3000
+# define DELIMETER "\r\n"
+// # define METHOD1 "GET"
+// # define METHOD2 "POST"
+// # define METHOD3 "DELETE"
 
 # define NC "\033[0m"
 # define REV "\033[7m"
@@ -80,6 +84,7 @@ void	configClear(t_config & oneServerConfig);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);
+bool	parseInputData(char * buf, t_connection * connection);
 std::string unsignedToString99(unsigned x);
 std::string timestamp();
 uint16_t	atou16(const char *s);

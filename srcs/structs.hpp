@@ -45,6 +45,11 @@ enum InputDataType
 typedef struct s_inputdata
 {
 	InputDataType	dataType;
+	// std::string		dataType; // HEADERS, DATA_START, DATA_CONTIN, DATA_END
+	std::string		method; // GET, POST or DELETE
+	std::string		address;
+	std::string		httpVersion;
+// };
 
 } t_inputdata;
 
@@ -56,7 +61,9 @@ typedef struct s_connection
 	unsigned			fromPort;
 	size_t				position;
 	ConnectionStatus	status;
+	// std::string			status; // 	READ, READ_DONE, WRITE, WRITE_DONE
 	t_inputdata			inputdata;
+	std::vector<std::string> methods; // GET, POST, DELETE
 } t_connection;
 
 typedef struct s_location
