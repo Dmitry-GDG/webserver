@@ -180,6 +180,10 @@ bool ServerRouter::_mainLoop()
 			t_connection * connection = _getConnection(clntSd);
 			printMsg(connection->srvNbr, clntSd, "now is reading sd: ", "");
 			_readSd(connection);
+			#ifdef DEBUGMODE
+				printConnection(connection, "DEBUGMODE _mainLoop printConnection");
+			#endif
+
 
 			// _pollfds[i].revents = 0;
 		}
@@ -317,25 +321,18 @@ t_connection * ServerRouter::_getConnection(int clntSd)
 void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned fromPort)
 {
 	t_connection connection;
+	connectionClear(connection);
 	connection.srvNbr = srvNbr;
 	connection.clntSd = sdFrom;
-	connection.position = 0;
 	connection.status = READ;
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
-	connection.methods.clear();
 	connection.methods.push_back("GET");
 	connection.methods.push_back("POST");
 	connection.methods.push_back("DELETE");
-	_initInputdata(connection.inputdata);
 	_connections.push_back(connection);
 }
 
-void ServerRouter::_initInputdata(t_inputdata & data)
-{
-	data.method.clear();
-	data.address.clear();
-}
 
 // void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned fromPort)
 // {

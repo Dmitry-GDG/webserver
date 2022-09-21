@@ -44,11 +44,12 @@ enum InputDataType
 
 typedef struct s_inputdata
 {
-	InputDataType	dataType;
-	// std::string		dataType; // HEADERS, DATA_START, DATA_CONTIN, DATA_END
 	std::string		method; // GET, POST or DELETE
 	std::string		address;
 	std::string		httpVersion;
+	InputDataType	dataType;
+	// std::string		dataType; // HEADERS, DATA_START, DATA_CONTIN, DATA_END
+	std::map<std::string, std::string>	htmlFields;
 // };
 
 } t_inputdata;

@@ -8,7 +8,7 @@
 # define HOSTNAME_LENGTH 30
 # define SD_MAXCOUNT 1024
 # define BUF_SIZE 3000
-# define DELIMETER "\r\n"
+# define DELIMETER "\\r\\n"
 // # define METHOD1 "GET"
 // # define METHOD2 "POST"
 // # define METHOD3 "DELETE"
@@ -71,16 +71,19 @@ typedef unsigned char	u_char;
 
 bool	isBothSpace(char const &lhs, char const &rhs);
 void	splitString(std::string str, char seperator, std::vector<std::string> & strings);
+void	locationClear(t_location & location);
+void	configClear(t_config & oneServerConfig);
+void	connectionClear(t_connection & connection);
+void	connectionInputdataClear(t_connection * connection);
+
 void	printServerConfig(t_config config, std::string msg);
 void	printAllServersConfig(std::vector<t_config> configs, std::string msg);
 void	printAllServersVector(std::vector<Server> servers, std::string msg);
 void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
-// void	printPollfds(std::vector<pollfd> data, std::string msg);
 void	printPollfds(pollfd *pfds, std::string msg, size_t pSize);
 void	printMsg(size_t who, size_t whom, std::string msg1, std::string msg2);
-void	locationClear(t_location & location);
-void	configClear(t_config & oneServerConfig);
+void	printConnection(t_connection * connection, std::string msg);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);
@@ -89,5 +92,6 @@ std::string unsignedToString99(unsigned x);
 std::string timestamp();
 uint16_t	atou16(const char *s);
 void	exitErr(std::string errmsg);
+void	delWhiteSpacesStr(std::string & inptStr);
 
 #endif
