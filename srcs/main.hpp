@@ -75,6 +75,8 @@ void	locationClear(t_location & location);
 void	configClear(t_config & oneServerConfig);
 void	connectionClear(t_connection & connection);
 void	connectionInputdataClear(t_connection * connection);
+void	printMsg(size_t who, size_t whom, std::string msg1, std::string msg2);
+void	printMsgToLogFile(std::string msg);
 
 void	printServerConfig(t_config config, std::string msg);
 void	printAllServersConfig(std::vector<t_config> configs, std::string msg);
@@ -82,7 +84,6 @@ void	printAllServersVector(std::vector<Server> servers, std::string msg);
 void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
 void	printPollfds(pollfd *pfds, std::string msg, size_t pSize);
-void	printMsg(size_t who, size_t whom, std::string msg1, std::string msg2);
 void	printConnection(t_connection * connection, std::string msg);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
@@ -90,8 +91,10 @@ void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::v
 bool	parseInputData(char * buf, t_connection * connection);
 std::string unsignedToString99(unsigned x);
 std::string timestamp();
+std::string datastamp();
 uint16_t	atou16(const char *s);
 void	exitErr(std::string errmsg);
+void	ctrl_c_handler(int signum);
 void	delWhiteSpacesStr(std::string & inptStr);
 
 #endif

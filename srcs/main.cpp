@@ -6,8 +6,10 @@ int	main(int argc, char **argv)
 	std::vector<t_config>		configs; //store vector of all server configs
 	std::vector<std::string>	vectorConfigFile; //tmp store input config data in vector
 
+	signal(SIGINT, ctrl_c_handler);
 	std::string	configFile = ((argc > 1) ? argv[1] : "configs/configurationAcr.conf");
 	// std::string	configFile = ((argc > 1) ? argv[1] : "configs/webserv.conf");
+	printMsgToLogFile(datastamp() + timestamp() + "Starting...");
 	try
 	{
 		if (!openConfigFileAndWriteToVectorConfigFile(configFile, vectorConfigFile))
@@ -24,6 +26,7 @@ int	main(int argc, char **argv)
 		exitErr(e.what());
 	}
 
+	printMsgToLogFile(timestamp() + "Webserver stopped. Buy!\n ----------------------");
 	return 0;
 }
 

@@ -46,6 +46,13 @@ void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
 	// return outp;
 }
 
+void	parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * connection)
+{
+	(void) splitBuf;
+	(void) connection;
+	std::cout << "parseMultiStringData" << std::endl;
+}
+
 bool parseInputData(char * buf, t_connection * connection)
 {
 	std::string inpt = buf;
@@ -53,6 +60,7 @@ bool parseInputData(char * buf, t_connection * connection)
 	std::vector<std::string>	splitBuf;
 	std::vector<std::string>	splitStr;
 	std::string inptStr;
+	std::string msg;
 
 	#ifdef DEBUGMODE
 		std::cout << "**** DEBUGMODE parseInputData ****\nInput: " << inpt << ", size: " << inpt.size() << "\n-------------" << std::endl;
@@ -60,9 +68,9 @@ bool parseInputData(char * buf, t_connection * connection)
 
 	connectionInputdataClear(connection);
 	splitStrDelimeter(inpt, splitBuf);
-	#ifdef DEBUGMODE
-		printVector(splitBuf, "DEBUGMODE parseInputData splitStrDelimeter");
-	#endif
+	// #ifdef DEBUGMODE
+	// 	printVector(splitBuf, "DEBUGMODE parseInputData splitStrDelimeter");
+	// #endif
 
 	std::vector<std::string>::iterator iterVV = splitBuf.begin();
 	inptStr = *iterVV;
@@ -81,7 +89,9 @@ bool parseInputData(char * buf, t_connection * connection)
 		splitString(inptStr, ' ', splitStr);
 		if (splitStr.size() < 3)
 		{
-			std::cerr << "Error! Incorrect request" << std::endl;
+			msg = "Error! Incorrect request";
+			std::cerr << msg << std::endl;
+			printMsgToLogFile(timestamp() + msg);
 			return false;
 		}
 
@@ -91,7 +101,9 @@ bool parseInputData(char * buf, t_connection * connection)
 
 		if ( std::find(connection->methods.begin(), connection->methods.end(), *iter) == connection->methods.end() )
 		{
-			std::cerr << "Error! Unknown method" << std::endl;
+			msg = "Error! Unknown method";
+			std::cerr << msg << std::endl;
+			printMsgToLogFile(timestamp() + msg);
 			return false;
 		}
 		else
@@ -110,6 +122,8 @@ bool parseInputData(char * buf, t_connection * connection)
 			connection->inputdata.htmlFields[splitStr[0]] = splitStr[1];
 		}
 	}
+	else
+		parseMultiStringData(splitBuf, connection);
 	// #ifdef DEBUGMODE
 	// 	printConnection(connection, "DEBUGMODE parseInputData printConnection");
 	// #endif

@@ -17,10 +17,19 @@ void exitErr(std::string errmsg)
 	if (errmsg != "Interrupted system call")
 	{
 		std::cerr << "\r" << REV << errmsg << std::endl;
+		printMsgToLogFile(timestamp() + errmsg + "\n" + timestamp() + "Webserver stopped by error. Buy!\n ----------------------");
 		exit (EXIT_FAILURE);
 	}
 	std::cout << "\r" << REV << "Buy!" << std::endl;
+	printMsgToLogFile(timestamp() + errmsg + "\n" + timestamp() + "Webserver stopped. Buy!\n ----------------------");
 	exit (EXIT_SUCCESS);
+}
+
+void ctrl_c_handler(int signum)
+{
+	(void) signum;
+	printMsgToLogFile(timestamp() + "Webserver stopped by Ctrl+C. Buy!\n ----------------------");
+	exit (EXIT_FAILURE);
 }
 
 std::string unsignedToString99(unsigned x)
@@ -300,4 +309,18 @@ std::string timestamp()
 	time_t now = time(0);
 	tm *ltm = localtime(&now);
 	return("[" + unsignedToString99(ltm->tm_hour) +  ":" + unsignedToString99(ltm->tm_min) + ":" +  unsignedToString99(ltm->tm_sec) + "]: ");
+}
+
+std::string datastamp()
+{
+	time_t now = time(0);
+	tm *ltm = localtime(&now);
+	return(std::to_string(ltm->tm_mday) +  "." + std::to_string(ltm->tm_mon) + "." +  std::to_string(ltm->tm_year + 1900) + "\n");
+}
+
+void printMsgToLogFile(std::string msg)
+{
+    std::ofstream fout("logfile.txt", std::ofstream::app);
+    fout << msg << std::endl; 
+    fout.close();
 }

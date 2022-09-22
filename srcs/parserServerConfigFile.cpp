@@ -9,7 +9,9 @@ bool openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std:
 	inpt.open(config_file_name);
 	if (!inpt.is_open())
 	{
-		std::cerr << "Error of read entered file" << std::endl;
+		std::string msg = "Error of read entered file";
+		std::cerr << msg << std::endl;
+		printMsgToLogFile(timestamp() + msg);
 		return false;
 	}
 
