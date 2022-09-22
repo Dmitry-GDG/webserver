@@ -36,10 +36,9 @@ enum ConnectionStatus
 
 enum InputDataType
 {
-	HEADERS,
+	HTTP,
 	DATA_START,
-	DATA_CONT,
-	DATA_END
+	DATA_CONTIN
 };
 
 typedef struct s_inputdata
@@ -47,8 +46,8 @@ typedef struct s_inputdata
 	std::string		method; // GET, POST or DELETE
 	std::string		address;
 	std::string		httpVersion;
-	InputDataType	dataType;
-	// std::string		dataType; // HEADERS, DATA_START, DATA_CONTIN, DATA_END
+	InputDataType	dataType; // HTTP, DATA_START, DATA_CONTIN, DATA_END
+	// std::string		dataType; // HTTP, DATA_START, DATA_CONTIN, DATA_END
 	std::map<std::string, std::string>	htmlFields;
 // };
 

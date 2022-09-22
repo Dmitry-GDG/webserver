@@ -95,7 +95,7 @@ bool parseInputData(char * buf, t_connection * connection)
 			return false;
 		}
 
-		connection->inputdata.dataType = HEADERS;
+		connection->inputdata.dataType = HTTP;
 
 		std::vector<std::string>::iterator iter = splitStr.begin();
 

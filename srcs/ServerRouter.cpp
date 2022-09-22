@@ -302,6 +302,7 @@ int ServerRouter::_readSd(t_connection * connection)
 	if (qtyBytes == 0)
 	{
 		connection->status = READ_DONE;
+		std::cout << "less 0" << std::endl;
 		return qtyBytes;
 	}
 	else if (qtyBytes > 0)
@@ -312,6 +313,8 @@ int ServerRouter::_readSd(t_connection * connection)
 			while (qtyBytes > 0)
 				qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
 			connection->status = READ_DONE;
+			// if (qtyBytes < 0)
+			// 	std::cout << "less 0" << std::endl;
 			return 0;
 		}
 
@@ -319,6 +322,8 @@ int ServerRouter::_readSd(t_connection * connection)
 
 
 	}
+	// else if (qtyBytes < 0)
+	// 	std::cout << "less 0" << std::endl;
 	return qtyBytes;
 }
 

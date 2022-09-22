@@ -14,22 +14,23 @@ class Server;
 
 void exitErr(std::string errmsg)
 {
-	if (errmsg != "Interrupted system call")
-	{
+	// if (errmsg != "Interrupted system call")
+	// {
 		std::cerr << "\r" << REV << errmsg << std::endl;
 		printMsgToLogFile(timestamp() + errmsg + "\n" + timestamp() + "Webserver stopped by error. Buy!\n ----------------------");
 		exit (EXIT_FAILURE);
-	}
-	std::cout << "\r" << REV << "Buy!" << std::endl;
-	printMsgToLogFile(timestamp() + errmsg + "\n" + timestamp() + "Webserver stopped. Buy!\n ----------------------");
-	exit (EXIT_SUCCESS);
+	// }
+	// std::cout << "\r" << REV << "Buy!" << std::endl;
+	// printMsgToLogFile(timestamp() + errmsg + "\n" + timestamp() + "Webserver stopped. Buy!\n ----------------------");
+	// exit (EXIT_SUCCESS);
 }
 
 void ctrl_c_handler(int signum)
 {
 	(void) signum;
 	printMsgToLogFile(timestamp() + "Webserver stopped by Ctrl+C. Buy!\n ----------------------");
-	exit (EXIT_FAILURE);
+	std::cout << "\r" << "Buy!" << std::endl;
+	exit (EXIT_SUCCESS);
 }
 
 std::string unsignedToString99(unsigned x)
@@ -284,7 +285,7 @@ void connectionInputdataClear(t_connection * connection)
 	connection->inputdata.method = "";
 	connection->inputdata.address = "";
 	connection->inputdata.httpVersion = "";
-	connection->inputdata.dataType = HEADERS;
+	connection->inputdata.dataType = HTTP;
 	connection->inputdata.htmlFields.clear();
 }
 
@@ -300,7 +301,7 @@ void connectionClear(t_connection & connection)
 	connection.inputdata.method = "";
 	connection.inputdata.address = "";
 	connection.inputdata.httpVersion = "";
-	connection.inputdata.dataType = HEADERS;
+	connection.inputdata.dataType = HTTP;
 	connection.inputdata.htmlFields.clear();
 }
 
@@ -313,9 +314,11 @@ std::string timestamp()
 
 std::string datastamp()
 {
+	std::string arr[] = {"Jan.", "Feb.", "Mar.", "Apr.", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."};
+	std::vector<std::string> months(std::begin(arr), std::end(arr));
 	time_t now = time(0);
 	tm *ltm = localtime(&now);
-	return(std::to_string(ltm->tm_mday) +  "." + std::to_string(ltm->tm_mon) + "." +  std::to_string(ltm->tm_year + 1900) + "\n");
+	return(std::to_string(ltm->tm_mday) +  " " + months[ltm->tm_mon] + " " +  std::to_string(ltm->tm_year + 1900) + "\n");
 }
 
 void printMsgToLogFile(std::string msg)
