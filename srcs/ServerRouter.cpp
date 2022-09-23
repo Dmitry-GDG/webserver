@@ -183,15 +183,16 @@ bool ServerRouter::_mainLoop()
 		if (_isSocketServer(_pollfds[i].fd))
 		{
 			int sd = accept(_pollfds[i].fd, (struct sockaddr *)&addrNew, &socklen);
+			fcntl(sd, F_SETFL, O_NONBLOCK);
 			if (sd < 0)
 			{
-				if (errno != EWOULDBLOCK)
-				{
+				// if (errno != EWOULDBLOCK)
+				// {
 					msg = "sd " + std::to_string(_pollfds[i].fd) + ": Accept error.";
 					printMsgErr(-1, -1, msg, "");
 					printMsgToLogFile(-1, -1, msg, "");
 					return false;
-				}
+				// }
 				break ;
 			}
 			_pollfds[_pollfdsQty].fd = sd;
@@ -206,6 +207,7 @@ bool ServerRouter::_mainLoop()
 		{
 			int clntSd = _pollfds[i].fd;
 			t_connection * connection = _getConnection(clntSd);
+			char buf[BUF_SIZE + 1];
 			if (_pollfds[i].revents == POLLIN) // есть данные для чтения
 			{
 				int bt = _readSd(connection);
@@ -224,7 +226,8 @@ bool ServerRouter::_mainLoop()
 			{
 
 			}
-			else if (connection->wasRequest && _pollfds[i].revents != POLLIN && _pollfds[i].revents != POLLOUT)
+			// else if (connection->wasRequest && _pollfds[i].revents != POLLIN && _pollfds[i].revents != POLLOUT)
+			else if (recv(clntSd, buf, BUF_SIZE, MSG_PEEK) == 0)
 			{
 				msg = "client closed sd ";
 				printMsg(connection->srvNbr, clntSd, msg, "");
@@ -316,8 +319,6 @@ int ServerRouter::_readSd(t_connection * connection)
 			while (qtyBytes > 0)
 				qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
 			connection->status = READ_DONE;
-			// if (qtyBytes < 0)
-			// 	std::cout << "less 0" << std::endl;
 			return 0;
 		}
 
