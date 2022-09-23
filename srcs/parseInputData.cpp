@@ -18,7 +18,6 @@ void delWhiteSpacesStr(std::string & inptStr)
 
 void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
 {
-	// std::vector<std::string> outp;
 	std::string delim = DELIMETER;
 	std::string outpLine;
 	outp.clear();
@@ -43,7 +42,6 @@ void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
 			break;
 		}
 	}
-	// return outp;
 }
 
 void	parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * connection)
@@ -89,9 +87,10 @@ bool parseInputData(char * buf, t_connection * connection)
 		splitString(inptStr, ' ', splitStr);
 		if (splitStr.size() < 3)
 		{
-			msg = "Error! Incorrect request";
-			std::cerr << msg << std::endl;
-			printMsgToLogFile(timestamp() + msg);
+			msg = "Error! Incorrect request from sd ";
+			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+
 			return false;
 		}
 
@@ -101,9 +100,9 @@ bool parseInputData(char * buf, t_connection * connection)
 
 		if ( std::find(connection->methods.begin(), connection->methods.end(), *iter) == connection->methods.end() )
 		{
-			msg = "Error! Unknown method";
-			std::cerr << msg << std::endl;
-			printMsgToLogFile(timestamp() + msg);
+			msg = "Error! Unknown method from sd ";
+			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 			return false;
 		}
 		else

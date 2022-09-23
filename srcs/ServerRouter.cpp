@@ -35,8 +35,8 @@ bool ServerRouter::_launch(Server & server, int indx)
 	if ((sd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
 		msg = "Can not start a server: can not create socket.";
-		std::cerr << msg << std::endl;
-		printMsgToLogFile(timestamp() + msg);
+		printMsgErr(-1, -1, msg, "");
+		printMsgToLogFile(-1, -1, msg, "");
 		return false;
 	}
 	// std::cout << "_sd = " << _sd << std::endl;
@@ -46,8 +46,8 @@ bool ServerRouter::_launch(Server & server, int indx)
 	{
 		close (sd);
 		msg = "Can not start a server: can not set socket options.";
-		std::cerr << msg << std::endl;
-		printMsgToLogFile(timestamp() + msg);
+		printMsgErr(-1, -1, msg, "");
+		printMsgToLogFile(-1, -1, msg, "");
 		return false;
 	}
 
@@ -61,8 +61,8 @@ bool ServerRouter::_launch(Server & server, int indx)
 	{
 		close(sd);
 		msg = "Can not start a server: can not convert listen address.";
-		std::cerr << msg << std::endl;
-		printMsgToLogFile(timestamp() + msg);
+		printMsgErr(-1, -1, msg, "");
+		printMsgToLogFile(-1, -1, msg, "");
 		return false;
 	}
 
@@ -71,8 +71,8 @@ bool ServerRouter::_launch(Server & server, int indx)
 	{
 		close(sd);
 		msg = "Can not start a server: can not set the port or filename to bind the socket to.";
-		std::cerr << msg << std::endl;
-		printMsgToLogFile(timestamp() + msg);
+		printMsgErr(-1, -1, msg, "");
+		printMsgToLogFile(-1, -1, msg, "");
 		return false;
 	}
 
@@ -84,8 +84,8 @@ bool ServerRouter::_launch(Server & server, int indx)
 	{
 		close(sd);
 		msg = "Can not start a server: can not listen queue.";
-		std::cerr << msg << std::endl;
-		printMsgToLogFile(timestamp() + msg);
+		printMsgErr(-1, -1, msg, "");
+		printMsgToLogFile(-1, -1, msg, "");
 		return false;
 	}
 
@@ -110,7 +110,8 @@ bool ServerRouter::_launch(Server & server, int indx)
 	// << NC << _port << YELLOS << " and password: " << NC << _password \
 	// << std::endl;
 
-	printMsgToLogFile(timestamp() + "On sd " + std::to_string(sd) + " the '" + server.getConfig().serverName + "' server[" + std::to_string(server.getServNbr()) + "] started successfully and is listening on " + serverIp + ":" + std::to_string(ntohs(addr.sin_port)));
+	msg = "On sd " + std::to_string(sd) + " the '" + server.getConfig().serverName + "' server[" + std::to_string(server.getServNbr()) + "] started successfully and is listening on " + serverIp + ":" + std::to_string(ntohs(addr.sin_port));
+	printMsgToLogFile(-1, -1, msg, "");
 
 	return true;
 }
@@ -130,7 +131,10 @@ void ServerRouter::start()
 	// << NC << _port << YELLOS << " and password: " << NC << _password \
 	// << std::endl;
 	
-	printMsgToLogFile(timestamp() + "Webserver " + WEBSERV_NAME + " started at " + _hostname);
+	msg = "Webserver ";
+	msg += WEBSERV_NAME;
+	msg += " started at " + _hostname;
+	printMsgToLogFile(-1, -1, msg, "");
 
 	int indx = 0;
 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
@@ -138,7 +142,7 @@ void ServerRouter::start()
 		if (!_launch(*iter, indx))
 		{
 			msg = "Check server config file and try again.";
-			printMsgToLogFile(timestamp() + msg);
+			printMsgToLogFile(-1, -1, msg, "");
 			exitErr (msg);
 		}
 		indx++;
@@ -169,14 +173,8 @@ bool ServerRouter::_mainLoop()
 	{
 		_closeSockets();
 		if (ret < 0)
-		{
-			msg = "Poll error.";
-			printMsgToLogFile(timestamp() + msg);
-			exitErr (msg);
-		}
-		msg = "Poll error timeout.";
-		printMsgToLogFile(timestamp() + msg);
-		exitErr (msg);
+			exitErr ("Poll error.");
+		exitErr ("Poll error timeout.");
 	}
 	for (size_t i = 0; i < _pollfdsQty; i++)
 	{
@@ -189,9 +187,9 @@ bool ServerRouter::_mainLoop()
 			{
 				if (errno != EWOULDBLOCK)
 				{
-					msg = "Accept error.";
-					std::cerr << msg << std::endl;
-					printMsgToLogFile(timestamp() + msg);
+					msg = "sd " + std::to_string(_pollfds[i].fd) + ": Accept error.";
+					printMsgErr(-1, -1, msg, "");
+					printMsgToLogFile(-1, -1, msg, "");
 					return false;
 				}
 				break ;
@@ -202,36 +200,41 @@ bool ServerRouter::_mainLoop()
 			_saveConnection(sd, i, inet_ntoa(((struct sockaddr_in*)&addrNew)->sin_addr), ntohs(((struct sockaddr_in*)&addrNew)->sin_port));
 			msg = "new connection from " + _getConnection(sd)->fromIp + ":" + std::to_string(_getConnection(sd)->fromPort) + ", sd: ";
 			printMsg(i, sd, msg, "");
-			printMsgToLogFile(timestamp() + "server[" + std::to_string(i) + "]: " + msg + std::to_string(sd));
+			printMsgToLogFile(i, sd, msg, "");
 		}
-		else if (_pollfds[i].revents == POLLIN) // есть данные для чтения
+		else
 		{
 			int clntSd = _pollfds[i].fd;
 			t_connection * connection = _getConnection(clntSd);
-			printMsg(connection->srvNbr, clntSd, "now is reading sd: ", "");
-			printMsgToLogFile(timestamp() + "server[" + std::to_string(connection->srvNbr) + "]: now is reading sd " + std::to_string(clntSd));
-			_readSd(connection);
-			#ifdef DEBUGMODE
-				printConnection(connection, "DEBUGMODE _mainLoop printConnection");
-			#endif
+			if (_pollfds[i].revents == POLLIN) // есть данные для чтения
+			{
+				int bt = _readSd(connection);
+				msg = "got " + std::to_string(bt) + " bytes from sd ";
+				printMsg(connection->srvNbr, clntSd, msg, "");
+				printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
+				#ifdef DEBUGMODE
+					printConnection(connection, "DEBUGMODE _mainLoop printConnection");
+				#endif
 
 
-			// _pollfds[i].revents = 0;
+				// _pollfds[i].revents = 0;
+				connection->wasRequest = true;
+			}
+			else if (_pollfds[i].revents == POLLOUT) // запись возможна
+			{
+
+			}
+			else if (connection->wasRequest && _pollfds[i].revents != POLLIN && _pollfds[i].revents != POLLOUT)
+			{
+				msg = "client closed sd ";
+				printMsg(connection->srvNbr, clntSd, msg, "");
+				printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
+				close (_pollfds[i].fd);
+				_removeSdFromPollfds(i);
+				_removeConnection(clntSd);
+			}
+			std::cout << "Hi!" << std::endl;
 		}
-		else if (_pollfds[i].revents == POLLOUT) // запись возможна
-		{
-
-		}
-		// else if (_pollfds[i].revents != POLLIN && _pollfds[i].revents != POLLOUT)
-		// {
-		// 	int clntSd = _pollfds[i].fd;
-		// 	t_connection * connection = _getConnection(clntSd);
-		// 	printMsg(connection->srvNbr, clntSd, "client closed sd: ", "");
-		// 	close (_pollfds[i].fd);
-		// 	_removeSdFromPollfds(i);
-		// 	_removeConnection(clntSd);
-		// }
-		std::cout << "Hi!" << std::endl;
 	}
 	return true;
 }
@@ -327,23 +330,6 @@ int ServerRouter::_readSd(t_connection * connection)
 	return qtyBytes;
 }
 
-// void ServerRouter::_parseInputData(char * buf, t_connection * connection)
-// {
-// 	std::string inpt = buf;
-// 	#ifdef DEBUGMODE
-// 		std::cout << "Input: " << inpt << ", size: " << inpt.size() << std::endl;
-// 	#endif
-// 	std::string inptLine = inpt.substr(0, inpt.find('\n', 0));
-// 	if (inptLine.find("HTTP") != std::string::npos)
-// 	{
-// 		connection->inputdata.dataType = HEADERS;
-// 		size_t first = 0;
-// 		size_t second = inptLine.find(' ', first);
-// 		connection->inputdata.method = inptLine.substr(first, second);
-
-// 	}
-// }
-
 t_connection * ServerRouter::_getConnection(int clntSd)
 {
 	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
@@ -363,83 +349,12 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.status = READ;
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
+	connection.wasRequest = false;
 	connection.methods.push_back("GET");
 	connection.methods.push_back("POST");
 	connection.methods.push_back("DELETE");
 	_connections.push_back(connection);
 }
-
-
-// void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, unsigned fromPort)
-// {
-// 	_connections[sdFrom].srvNbr = srvNbr;
-// 	_connections[sdFrom].position = 0;
-// 	_connections[sdFrom].status = READ;
-// 	_connections[sdFrom].fromIp = fromIP;
-// 	_connections[sdFrom].fromPort = fromPort;
-// }
-
-// void ServerRouter::launch()
-// {
-// 	fd_set allActiveSdSets, readActiveSdSets, writeActiveSdSets;
-// 	int	sd;
-
-// 	std::cout << NC << timestamp() << YELLOS << NAME << ": Welcome to the " << WEBSERV_NAME << " v."<< WEBSERV_VERSION << " by " \
-// 	<< WEBSERV_AUTHORS << "\nIt was tested on MAC OS.\n" \
-// 	<< "It was launched at " << NC << _hostname << "\n";
-// 	// std::cout << "\nTo connect via this Mac use " \
-// 	// << NC << "localhost" << YELLOS << " (or 127.0.0.1), port: " \
-// 	// << NC << _port << YELLOS << " and password: " << NC << _password \
-// 	// << YELLOS << "\nTo connect via another Mac in school's local network use " \
-// 	// << NC << _hostname << YELLOS << ", port: " \
-// 	// << NC << _port << YELLOS << " and password: " << NC << _password \
-// 	// << std::endl;
-
-// 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
-// 	{
-// 		if (!(*iter).start())
-// 			exitErr ("Check server config file and try again.");
-// 	}
-
-// 	FD_ZERO(&allActiveSdSets);
-// 	FD_ZERO(&readActiveSdSets);
-// 	FD_ZERO(&writeActiveSdSets);
-
-// 	while (21)
-// 	{
-// 		allActiveSdSets = _getAllActiveSdSets();
-// 		readActiveSdSets = allActiveSdSets;
-// 		writeActiveSdSets = allActiveSdSets;
-
-// 		sd = select(_sdMaxCount + 1, &readActiveSdSets, &writeActiveSdSets, 0, 0);
-// 		if (sd < 0)
-// 			continue;
-// 		for (int i = 0; i < _sdMaxCount && sd > 0; i++)
-// 		{
-// 			if (FD_ISSET(i, &readActiveSdSets))
-// 			{
-// 				#ifdef DEBUGMODE
-// 					std::cout << "DEBUG launch READ sd: " << i <<  std::endl;
-// 				#endif
-// 				for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
-// 				{
-// 					if ((*iter).readSd(i))
-// 						break;
-// 				}
-// 				sd--;
-// 			}
-// 			else if (FD_ISSET(i, &writeActiveSdSets))
-// 			{
-// 				#ifdef DEBUGMODE
-// 					std::cout << "DEBUG launch WRITE sd: " << i << std::endl;
-// 				#endif
-// 				sd--;
-// 			}
-// 		}
-// 	}
-// 	std::cout << "By!" << std::endl;
-// 	exit (0);
-// }
 
 // fd_set ServerRouter::_getAllActiveSdSets()
 // {

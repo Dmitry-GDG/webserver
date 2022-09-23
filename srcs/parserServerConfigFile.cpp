@@ -10,8 +10,8 @@ bool openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std:
 	if (!inpt.is_open())
 	{
 		std::string msg = "Error of read entered file";
-		std::cerr << msg << std::endl;
-		printMsgToLogFile(timestamp() + msg);
+		printMsgErr(-1, -1, msg, "");
+		printMsgToLogFile(-1, -1, msg, "");
 		return false;
 	}
 

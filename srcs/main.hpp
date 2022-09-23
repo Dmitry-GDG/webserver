@@ -9,9 +9,6 @@
 # define SD_MAXCOUNT 1024
 # define BUF_SIZE 3000
 # define DELIMETER "\\r\\n"
-// # define METHOD1 "GET"
-// # define METHOD2 "POST"
-// # define METHOD3 "DELETE"
 
 # define NC "\033[0m"
 # define REV "\033[7m"
@@ -32,7 +29,6 @@
 
 # include <algorithm>
 # include <arpa/inet.h>
-// # include <cstring>
 # include <fcntl.h>
 # include <fstream>
 # include <iostream>
@@ -52,11 +48,6 @@
 # include "structs.hpp"
 # include "Server.hpp"
 
-// # include "http_response_status_codes.hpp"
-// # include "messages.hpp"
-// # include "webservconfig/lexer.hpp"
-// # include "webservconfig/parser.hpp"
-
 class Server;
 
 class ParserException : public std::exception 
@@ -75,8 +66,9 @@ void	locationClear(t_location & location);
 void	configClear(t_config & oneServerConfig);
 void	connectionClear(t_connection & connection);
 void	connectionInputdataClear(t_connection * connection);
-void	printMsg(size_t who, size_t whom, std::string msg1, std::string msg2);
-void	printMsgToLogFile(std::string msg);
+void	printMsg(int srvNb, int clntSd, std::string msg1, std::string msg2);
+void	printMsgErr(int srvNb, int clntSd, std::string msg1, std::string msg2);
+void	printMsgToLogFile(int srvNb, int clntSd, std::string msg1, std::string msg2);
 
 void	printServerConfig(t_config config, std::string msg);
 void	printAllServersConfig(std::vector<t_config> configs, std::string msg);
