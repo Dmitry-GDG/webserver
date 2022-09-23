@@ -21,21 +21,26 @@ void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
 	std::string delim = DELIMETER;
 	std::string outpLine;
 	outp.clear();
-	long	first = 0;
-	long	second = 0;
+	unsigned long	first = 0;
+	unsigned long	second = 0;
 	for(;;)
 	{
-		second = str.find(delim.c_str(), first);
-		if (second != -1)
+		second = str.find(delim, first);
+		if (second != std::string::npos)
 		{
-			outpLine = str.substr(first, second);
+			outpLine = str.substr(first, second - first);
+			// std::cout << "outpLine: " << outpLine << std::endl;
 			first = second + delim.size();
-			outp.push_back(outpLine);
+			if (*(outpLine.end() - 1) == 10 || *(outpLine.end() - 1) == 32)
+				outpLine.erase(outpLine.end() - 1);
+			if (outpLine.size() > 0)
+				outp.push_back(outpLine);
 		}
 		else
 		{
 			outpLine = str.substr(first, str.size());
-			if (*(outpLine.end() - 1) == 10)
+			// std::cout << "outpLine2: " << outpLine << std::endl;
+			if (*(outpLine.end() - 1) == 10 || *(outpLine.end() - 1) == 32)
 				outpLine.erase(outpLine.end() - 1);
 			if (outpLine.size() > 0)
 				outp.push_back(outpLine);
@@ -60,9 +65,9 @@ bool parseInputData(char * buf, t_connection * connection)
 	std::string msg;
 
 	delWhiteSpacesStr(inpt);
-	#ifdef DEBUGMODE
-		std::cout << "**** DEBUGMODE parseInputData ****\nInput: " << inpt << ", size: " << inpt.size() << "\n-------------" << std::endl;
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << "**** DEBUGMODE parseInputData ****\nInput: " << inpt << ", size: " << inpt.size() << "\n-------------" << std::endl;
+	// #endif
 
 	connectionInputdataClear(connection);
 	splitStrDelimeter(inpt, splitBuf);
@@ -118,9 +123,9 @@ bool parseInputData(char * buf, t_connection * connection)
 			delWhiteSpacesStr(inptStr);
 			splitStr.clear();
 			splitString(inptStr, ':', splitStr);
-			#ifdef DEBUGMODE
-				std::cout << "DEBUGMODE parseInputData nputdata.htmlFields\t" << splitStr[0] << "\t" << splitStr[1] << std::endl;
-			#endif
+			// #ifdef DEBUGMODE
+			// 	std::cout << "DEBUGMODE parseInputData nputdata.htmlFields\t" << splitStr[0] << "\t" << splitStr[1] << std::endl;
+			// #endif
 			connection->inputdata.htmlFields[splitStr[0]] = splitStr[1];
 		}
 	}

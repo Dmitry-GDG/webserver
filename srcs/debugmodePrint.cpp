@@ -175,20 +175,22 @@ void printConnection(t_connection * connection, std::string msg)
 	std::cout << "Position:\t" << connection->position << std::endl;
 	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
-	std::cout << "Status:\t" << sts[connection->status] << std::endl;
+	std::cout << "Status:\t\t" << sts[connection->status] << std::endl;
 	if (connection->methods.size() > 0)
 	{
 		for (size_t i = 0; i < connection->methods.size(); i++)
-			std::cout << "method[" << i << "]: " << connection->methods[i] << std::endl;
+			std::cout << "method[" << i << "]:\t" << connection->methods[i] << std::endl;
 	}
 	std::cout << "Inputdata method:\t" << connection->inputdata.method << std::endl;
 	std::cout << "Inputdata address:\t" << connection->inputdata.address << std::endl;
 	std::cout << "Inputdata httpVersion:\t" << connection->inputdata.httpVersion << std::endl;
-	std::cout << "Inputdata dataType:\t" << connection->inputdata.dataType << std::endl;
+	std::string arr2[] = {"HTTP", "DATA_START", "DATA_CONTIN"};
+	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
+	std::cout << "Inputdata dataType:\t" << dtt[connection->inputdata.dataType] << std::endl;
 	int i = 0;
 	for (std::map<std::string, std::string>::iterator iterM = connection->inputdata.htmlFields.begin(); iterM != connection->inputdata.htmlFields.end(); iterM++)
 	{
-		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]: " << (*iterM).first << ":" << (*iterM).second << std::endl;
+		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":" << (*iterM).second << std::endl;
 		i++;
 	}
 

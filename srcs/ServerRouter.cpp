@@ -211,9 +211,7 @@ bool ServerRouter::_mainLoop()
 			if (_pollfds[i].revents == POLLIN) // есть данные для чтения
 			{
 				_readSd(connection);
-				// msg = "got " + std::to_string(bt) + " bytes from sd ";
-				// printMsg(connection->srvNbr, clntSd, msg, "");
-				// printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
+
 				#ifdef DEBUGMODE
 					printConnection(connection, "DEBUGMODE _mainLoop printConnection");
 				#endif
