@@ -61,7 +61,6 @@ typedef struct s_connection
 	unsigned			fromPort;
 	size_t				position;
 	ConnectionStatus	status;
-	bool				wasRequest;
 	// std::string			status; // 	READ, READ_DONE, WRITE, WRITE_DONE
 	t_inputdata			inputdata;
 	std::vector<std::string> methods; // GET, POST, DELETE

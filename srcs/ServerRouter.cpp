@@ -210,23 +210,21 @@ bool ServerRouter::_mainLoop()
 			char buf[BUF_SIZE + 1];
 			if (_pollfds[i].revents == POLLIN) // есть данные для чтения
 			{
-				int bt = _readSd(connection);
-				msg = "got " + std::to_string(bt) + " bytes from sd ";
-				printMsg(connection->srvNbr, clntSd, msg, "");
-				printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
+				_readSd(connection);
+				// msg = "got " + std::to_string(bt) + " bytes from sd ";
+				// printMsg(connection->srvNbr, clntSd, msg, "");
+				// printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
 				#ifdef DEBUGMODE
 					printConnection(connection, "DEBUGMODE _mainLoop printConnection");
 				#endif
 
 
 				// _pollfds[i].revents = 0;
-				connection->wasRequest = true;
 			}
 			else if (_pollfds[i].revents == POLLOUT) // запись возможна
 			{
 
 			}
-			// else if (connection->wasRequest && _pollfds[i].revents != POLLIN && _pollfds[i].revents != POLLOUT)
 			else if (recv(clntSd, buf, BUF_SIZE, MSG_PEEK) == 0)
 			{
 				msg = "client closed sd ";
@@ -301,19 +299,23 @@ bool ServerRouter::_isSocketServer(int fd)
 int ServerRouter::_readSd(t_connection * connection)
 {
 	char buf[BUF_SIZE + 1];
-	// std::string err;
+	std::string msg;
 
 	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
-	std::cout << "server[" << connection->srvNbr << "]: " << qtyBytes << " bytes read" << std::endl;
 	if (qtyBytes == 0)
 	{
+		msg = "finished reading data from sd ";
+		printMsg(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		connection->status = READ_DONE;
-		std::cout << "less 0" << std::endl;
 		return qtyBytes;
 	}
 	else if (qtyBytes > 0)
 	{
 		buf[qtyBytes] = '\0';
+		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
+		printMsg(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		if (!parseInputData(buf, connection))
 		{
 			while (qtyBytes > 0)
@@ -326,8 +328,6 @@ int ServerRouter::_readSd(t_connection * connection)
 
 
 	}
-	// else if (qtyBytes < 0)
-	// 	std::cout << "less 0" << std::endl;
 	return qtyBytes;
 }
 
@@ -350,7 +350,6 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.status = READ;
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
-	connection.wasRequest = false;
 	connection.methods.push_back("GET");
 	connection.methods.push_back("POST");
 	connection.methods.push_back("DELETE");

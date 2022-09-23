@@ -54,12 +54,12 @@ void	parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * conn
 bool parseInputData(char * buf, t_connection * connection)
 {
 	std::string inpt = buf;
-	delWhiteSpacesStr(inpt);
 	std::vector<std::string>	splitBuf;
 	std::vector<std::string>	splitStr;
 	std::string inptStr;
 	std::string msg;
 
+	delWhiteSpacesStr(inpt);
 	#ifdef DEBUGMODE
 		std::cout << "**** DEBUGMODE parseInputData ****\nInput: " << inpt << ", size: " << inpt.size() << "\n-------------" << std::endl;
 	#endif
@@ -118,6 +118,9 @@ bool parseInputData(char * buf, t_connection * connection)
 			delWhiteSpacesStr(inptStr);
 			splitStr.clear();
 			splitString(inptStr, ':', splitStr);
+			#ifdef DEBUGMODE
+				std::cout << "DEBUGMODE parseInputData nputdata.htmlFields\t" << splitStr[0] << "\t" << splitStr[1] << std::endl;
+			#endif
 			connection->inputdata.htmlFields[splitStr[0]] = splitStr[1];
 		}
 	}

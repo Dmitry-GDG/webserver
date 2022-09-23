@@ -173,7 +173,9 @@ void printConnection(t_connection * connection, std::string msg)
 	std::cout << "Client Sd:\t" << connection->clntSd << std::endl;
 	std::cout << "Client from:\t" << connection->fromIp << ":" << connection->fromPort << std::endl;
 	std::cout << "Position:\t" << connection->position << std::endl;
-	std::cout << "Status:\t" << connection->status << std::endl;
+	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
+	std::vector<std::string> sts(std::begin(arr), std::end(arr));
+	std::cout << "Status:\t" << sts[connection->status] << std::endl;
 	if (connection->methods.size() > 0)
 	{
 		for (size_t i = 0; i < connection->methods.size(); i++)
@@ -183,8 +185,12 @@ void printConnection(t_connection * connection, std::string msg)
 	std::cout << "Inputdata address:\t" << connection->inputdata.address << std::endl;
 	std::cout << "Inputdata httpVersion:\t" << connection->inputdata.httpVersion << std::endl;
 	std::cout << "Inputdata dataType:\t" << connection->inputdata.dataType << std::endl;
+	int i = 0;
 	for (std::map<std::string, std::string>::iterator iterM = connection->inputdata.htmlFields.begin(); iterM != connection->inputdata.htmlFields.end(); iterM++)
-		std::cout << (*iterM).first << ":" << (*iterM).second << std::endl;
+	{
+		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]: " << (*iterM).first << ":" << (*iterM).second << std::endl;
+		i++;
+	}
 
 	std::cout << "----------------" << std::endl;
 }
