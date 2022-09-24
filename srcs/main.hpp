@@ -76,7 +76,7 @@ void	printAllServersVector(std::vector<Server> servers, std::string msg);
 void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
 void	printPollfds(pollfd *pfds, std::string msg, size_t pSize);
-void	printConnection(t_connection * connection, std::string msg);
+void	printConnection(t_connection * connection, std::string msg, int sign);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);

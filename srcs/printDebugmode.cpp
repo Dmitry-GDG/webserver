@@ -163,15 +163,33 @@ void printServerConfig(t_config config, std::string msg)
 	}
 }
 
-void printConnection(t_connection * connection, std::string msg)
+void printConnection(t_connection * connection, std::string msg, int sign)
 {
 	if (msg != "")
 		std::cout << "**** " << msg << " ****" << std::endl;
 	else
 		std::cout << "**** printConnection ****" << std::endl;
 	std::cout << "server Nbr:\t" << connection->srvNbr << std::endl;
-	std::cout << "Client Sd:\t" << connection->clntSd << std::endl;
 	std::cout << "Client from:\t" << connection->fromIp << ":" << connection->fromPort << std::endl;
+	std::cout << "Client Sd:\t" << connection->clntSd << std::endl;
+	if (sign == 1)
+	{
+		std::vector<std::pair<int, std::string> > vec;
+		vec.push_back(std::make_pair(1, "POLLIN"));
+		vec.push_back(std::make_pair(4, "POLLOUT"));
+		std::cout << "Client events:\t";
+		for (size_t i = 0; i < vec.size(); i++)
+		{
+			if (vec[i].first == connection->pfd->events)
+				std::cout << vec[i].second << std::endl;
+		}
+		std::cout << "Client revents:\t";
+		for (size_t i = 0; i < vec.size(); i++)
+		{
+			if (vec[i].first == connection->pfd->revents)
+				std::cout << vec[i].second << std::endl;
+		}
+	}
 	std::cout << "Position:\t" << connection->position << std::endl;
 	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
@@ -193,6 +211,8 @@ void printConnection(t_connection * connection, std::string msg)
 		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":" << (*iterM).second << std::endl;
 		i++;
 	}
+	if (connection->inputStr.size() > 0)
+		std::cout << "Input str:\t" << connection->inputStr << std::endl;
 
 	std::cout << "----------------" << std::endl;
 }

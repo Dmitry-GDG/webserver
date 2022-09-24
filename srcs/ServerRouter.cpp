@@ -42,6 +42,8 @@ bool ServerRouter::_launch(Server & server, int indx)
 	// std::cout << "_sd = " << _sd << std::endl;
 
 	// Set socket options
+	// SOL_SOCKET - присвоение параметра на уровне библиотеки сокетов
+	// SO_REUSEADDR - разрешает повторное использование локальных адресов
 	if (setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on)) < 0)
 	{
 		close (sd);
@@ -70,7 +72,7 @@ bool ServerRouter::_launch(Server & server, int indx)
 	if (bind(sd, (struct sockaddr*)&addr, sizeof(addr)) < 0)
 	{
 		close(sd);
-		msg = "Can not start a server: can not set the port or filename to bind the socket to.";
+		msg = "Can not start a server: can not set the port to bind the socket to.";
 		printMsgErr(-1, -1, msg, "");
 		printMsgToLogFile(-1, -1, msg, "");
 		return false;
@@ -140,11 +142,7 @@ void ServerRouter::start()
 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 	{
 		if (!_launch(*iter, indx))
-		{
-			msg = "Check server config file and try again.";
-			printMsgToLogFile(-1, -1, msg, "");
-			exitErr (msg);
-		}
+			exitErr ("Check server config file and try again.");
 		indx++;
 	}
 
@@ -207,21 +205,27 @@ bool ServerRouter::_mainLoop()
 		{
 			int clntSd = _pollfds[i].fd;
 			t_connection * connection = _getConnection(clntSd);
+			connection->pfd = &(_pollfds[i]);
 			char buf[BUF_SIZE + 1];
-			if (_pollfds[i].revents == POLLIN) // есть данные для чтения
+			if (_pollfds[i].revents & POLLIN) // есть данные для чтения
 			{
 				_readSd(connection);
 
 				#ifdef DEBUGMODE
-					printConnection(connection, "DEBUGMODE _mainLoop printConnection");
+					printConnection(connection, "DEBUGMODE _mainLoop printConnection", 1);
 				#endif
+
+
+
+				if (connection->status == READ_DONE)
+					connection->pfd->events = POLLOUT;
 
 
 				// _pollfds[i].revents = 0;
 			}
-			else if (_pollfds[i].revents == POLLOUT) // запись возможна
+			else if (_pollfds[i].revents & POLLOUT) // запись возможна
 			{
-
+				// std::cout << "POLOUT" << std::endl;
 			}
 			else if (recv(clntSd, buf, BUF_SIZE, MSG_PEEK) == 0)
 			{
@@ -229,8 +233,8 @@ bool ServerRouter::_mainLoop()
 				printMsg(connection->srvNbr, clntSd, msg, "");
 				printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
 				close (_pollfds[i].fd);
-				_removeSdFromPollfds(i);
 				_removeConnection(clntSd);
+				_removeSdFromPollfds(i);
 			}
 			std::cout << "Hi!" << std::endl;
 		}
@@ -311,6 +315,7 @@ int ServerRouter::_readSd(t_connection * connection)
 	else if (qtyBytes > 0)
 	{
 		buf[qtyBytes] = '\0';
+		connection->inputStr += buf;
 		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
@@ -348,10 +353,31 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.status = READ;
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
+	connection.inputStr.clear();
 	connection.methods.push_back("GET");
 	connection.methods.push_back("POST");
 	connection.methods.push_back("DELETE");
 	_connections.push_back(connection);
+}
+
+short ServerRouter::getEvents(int sd)
+{
+	for (size_t i = 0; i < _pollfdsQty; i++)
+	{
+		if (_pollfds[i].fd == sd)
+			return _pollfds[i].events;
+	}
+	return -1;
+}
+
+short ServerRouter::getRevents(int sd)
+{
+	for (size_t i = 0; i < _pollfdsQty; i++)
+	{
+		if (_pollfds[i].fd == sd)
+			return _pollfds[i].revents;
+	}
+	return -1;
 }
 
 // fd_set ServerRouter::_getAllActiveSdSets()

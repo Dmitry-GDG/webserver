@@ -63,6 +63,8 @@ typedef struct s_connection
 	ConnectionStatus	status;
 	// std::string			status; // 	READ, READ_DONE, WRITE, WRITE_DONE
 	t_inputdata			inputdata;
+	pollfd				* pfd;
+	std::string			inputStr;
 	std::vector<std::string> methods; // GET, POST, DELETE
 } t_connection;
 

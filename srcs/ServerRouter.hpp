@@ -30,6 +30,8 @@ class ServerRouter
 		std::vector<t_config>	getConfigs() const;
 		// void					getAllSds();
 		void					start();
+		short					getEvents(int sd);
+		short					getRevents(int sd);
 
 	private:
 		// fd_set _getAllActiveSdSets();

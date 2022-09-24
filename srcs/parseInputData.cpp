@@ -132,7 +132,7 @@ bool parseInputData(char * buf, t_connection * connection)
 	else
 		parseMultiStringData(splitBuf, connection);
 	// #ifdef DEBUGMODE
-	// 	printConnection(connection, "DEBUGMODE parseInputData printConnection");
+	// 	printConnection(connection, "DEBUGMODE parseInputData printConnection", 0);
 	// #endif
 	return true;
 }
