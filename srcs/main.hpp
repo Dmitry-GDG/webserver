@@ -62,6 +62,7 @@ typedef unsigned char	u_char;
 
 bool	isBothSpace(char const &lhs, char const &rhs);
 void	splitString(std::string str, char seperator, std::vector<std::string> & strings);
+void	splitStringColon(std::string str, char seperator, std::vector<std::string> & strings);
 void	locationClear(t_location & location);
 void	configClear(t_config & oneServerConfig);
 void	connectionClear(t_connection & connection);

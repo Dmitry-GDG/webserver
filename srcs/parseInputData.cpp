@@ -18,7 +18,9 @@ void delWhiteSpacesStr(std::string & inptStr)
 
 void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
 {
-	std::string delim = DELIMETER;
+	// std::string delim = DELIMETER;
+	// char c1 = 13, c2 = 10;
+	std::string delim = "\r\n";
 	std::string outpLine;
 	outp.clear();
 	unsigned long	first = 0;
@@ -77,10 +79,15 @@ bool parseInputData(char * buf, t_connection * connection)
 
 	std::vector<std::string>::iterator iterVV = splitBuf.begin();
 	inptStr = *iterVV;
-	// #ifdef DEBUGMODE
-	// 	for (std::string::iterator iter = inptStr.begin(); iter < inptStr.end(); iter++)
-	// 		std::cout << *iter << "\t" << (int)(*iter) << std::endl;
-	// #endif
+	#ifdef DEBUGMODE
+		int j = 0;
+		for (std::string::iterator iter = inptStr.begin(); iter < inptStr.end(); iter++)
+		{
+			std::cout << j << "\t" << *iter << "\t" << (int)(*iter) << std::endl;
+			j++;
+		}
+		std::cout << "---------------" << std::endl;
+	#endif
 
 	delWhiteSpacesStr(inptStr);
 	// #ifdef DEBUGMODE
@@ -117,12 +124,13 @@ bool parseInputData(char * buf, t_connection * connection)
 		connection->inputdata.httpVersion = *(iter + 2);
 
 		iterVV++;
+		// std::cout << "iterVV: " << *iterVV << std::endl;
 		for (; iterVV < splitBuf.end(); iterVV++)
 		{
 			inptStr = *iterVV;
 			delWhiteSpacesStr(inptStr);
 			splitStr.clear();
-			splitString(inptStr, ':', splitStr);
+			splitStringColon(inptStr, ':', splitStr);
 			// #ifdef DEBUGMODE
 			// 	std::cout << "DEBUGMODE parseInputData nputdata.htmlFields\t" << splitStr[0] << "\t" << splitStr[1] << std::endl;
 			// #endif
