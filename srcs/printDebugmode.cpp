@@ -208,7 +208,7 @@ void printConnection(t_connection * connection, std::string msg, int sign)
 	int i = 0;
 	for (std::map<std::string, std::string>::iterator iterM = connection->inputdata.htmlFields.begin(); iterM != connection->inputdata.htmlFields.end(); iterM++)
 	{
-		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":" << (*iterM).second << std::endl;
+		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
 		i++;
 	}
 	if (connection->inputStr.size() > 0)

@@ -45,6 +45,7 @@ class ServerRouter
 		void	_removeConnection(int);
 		t_connection	* _getConnection(int clntSd);
 		int		_readSd(t_connection *);
+		int		_sendAnswer(t_connection *);
 		// void	_parseInputData(char *, t_connection *);
 
 };

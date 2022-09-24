@@ -46,11 +46,8 @@ typedef struct s_inputdata
 	std::string		method; // GET, POST or DELETE
 	std::string		address;
 	std::string		httpVersion;
-	InputDataType	dataType; // HTTP, DATA_START, DATA_CONTIN, DATA_END
-	// std::string		dataType; // HTTP, DATA_START, DATA_CONTIN, DATA_END
+	InputDataType	dataType; // HTTP, DATA_START, DATA_CONTIN
 	std::map<std::string, std::string>	htmlFields;
-// };
-
 } t_inputdata;
 
 typedef struct s_connection

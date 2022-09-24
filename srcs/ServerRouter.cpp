@@ -225,7 +225,13 @@ bool ServerRouter::_mainLoop()
 			}
 			else if (_pollfds[i].revents & POLLOUT) // запись возможна
 			{
-				// std::cout << "POLOUT" << std::endl;
+				std::cout << "POLOUT" << std::endl;
+				// _sendAnswer(connection);
+				if (connection->status == WRITE_DONE)
+				{
+					connection->pfd->events = POLLIN;
+					connection->inputStr = "";
+				}
 			}
 			else if (recv(clntSd, buf, BUF_SIZE, MSG_PEEK) == 0)
 			{
@@ -241,6 +247,12 @@ bool ServerRouter::_mainLoop()
 	}
 	return true;
 }
+
+// int ServerRouter::_sendAnswer(t_connection * connection)
+// {
+// 	std::string answer = 
+
+// }
 
 void ServerRouter::_removeSdFromPollfds(int indx)
 {
