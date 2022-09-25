@@ -47,8 +47,10 @@
 
 # include "structs.hpp"
 # include "Server.hpp"
+# include "ServerRouter.hpp"
 
 class Server;
+class ServerRouter;
 
 class ParserException : public std::exception 
 {
@@ -72,12 +74,13 @@ void	printMsgErr(int srvNb, int clntSd, std::string msg1, std::string msg2);
 void	printMsgToLogFile(int srvNb, int clntSd, std::string msg1, std::string msg2);
 
 void	printServerConfig(t_config config, std::string msg);
+void	printWebServer(ServerRouter, std::string msg);
 void	printAllServersConfig(std::vector<t_config> configs, std::string msg);
 void	printAllServersVector(std::vector<Server> servers, std::string msg);
 void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
-void	printPollfds(pollfd *pfds, std::string msg, size_t pSize);
-void	printConnection(t_connection * connection, std::string msg, int sign);
+void	printPollfds(const pollfd *pfds, std::string msg, size_t pSize);
+void	printConnection(t_connection connection, std::string msg, int sign);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);

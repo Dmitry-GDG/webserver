@@ -21,6 +21,9 @@ int	main(int argc, char **argv)
 		// #ifdef DEBUGMODE
 		// 	printAllServersConfig(data.getConfigs(), "DEBUG main AllServersConfig");
 		// #endif
+		#ifdef DEBUGMODE
+			printWebServer(data, "DEBUG main WebServer");
+		#endif
 		data.start();
 	}
 	catch (const std::exception& e)

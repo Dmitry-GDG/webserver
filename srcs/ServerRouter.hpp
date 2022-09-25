@@ -3,6 +3,8 @@
 
 # include "main.hpp"
 
+class Server;
+
 class ServerRouter
 {
 	private:
@@ -20,18 +22,24 @@ class ServerRouter
 
 		// t_connection	_connections[SD_MAXCOUNT];
 		std::vector<t_connection> _connections;
-		
+		std::map<std::string, std::string>	_responseStatusCodes;
 
 	public:
 		ServerRouter(std::vector<t_config> configs);
 		~ServerRouter();
 
 		// void launch();
-		std::vector<t_config>	getConfigs() const;
 		// void					getAllSds();
 		void					start();
 		short					getEvents(int sd);
 		short					getRevents(int sd);
+		std::vector<t_config>	getConfigs() const;
+		std::string				getHostname() const;
+		std::vector<Server>		getServers() const;
+		const pollfd					* getPollfds() const;
+		size_t					getPollfdsQty() const;
+		std::vector<t_connection>	getConnections() const;
+		std::map<std::string, std::string>	getResponseStatusCodes() const;
 
 	private:
 		// fd_set _getAllActiveSdSets();
@@ -47,6 +55,8 @@ class ServerRouter
 		int		_readSd(t_connection *);
 		int		_sendAnswer(t_connection *);
 		// void	_parseInputData(char *, t_connection *);
+		void	_responseStatusCodesInit();
+		void	_pollfdsInit();
 
 };
 

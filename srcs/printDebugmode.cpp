@@ -1,5 +1,7 @@
 #include "main.hpp"
 
+#include "ServerRouter.hpp"
+
 void printAllServersConfig(std::vector<t_config> configs, std::string msg)
 {
 	if (msg != "")
@@ -59,7 +61,7 @@ void printAllServersVector(std::vector<Server> servers, std::string msg)
 	}
 }
 
-void printPollfds(pollfd *pfds, std::string msg, size_t pSize)
+void printPollfds(const pollfd *pfds, std::string msg, size_t pSize)
 {
 	if (msg != "")
 		std::cout << "**** " << msg << " ****" << std::endl;
@@ -163,15 +165,15 @@ void printServerConfig(t_config config, std::string msg)
 	}
 }
 
-void printConnection(t_connection * connection, std::string msg, int sign)
+void printConnection(t_connection connection, std::string msg, int sign)
 {
 	if (msg != "")
 		std::cout << "**** " << msg << " ****" << std::endl;
 	else
 		std::cout << "**** printConnection ****" << std::endl;
-	std::cout << "server Nbr:\t" << connection->srvNbr << std::endl;
-	std::cout << "Client from:\t" << connection->fromIp << ":" << connection->fromPort << std::endl;
-	std::cout << "Client Sd:\t" << connection->clntSd << std::endl;
+	std::cout << "server Nbr:\t" << connection.srvNbr << std::endl;
+	std::cout << "Client from:\t" << connection.fromIp << ":" << connection.fromPort << std::endl;
+	std::cout << "Client Sd:\t" << connection.clntSd << std::endl;
 	if (sign == 1)
 	{
 		std::vector<std::pair<int, std::string> > vec;
@@ -180,39 +182,122 @@ void printConnection(t_connection * connection, std::string msg, int sign)
 		std::cout << "Client events:\t";
 		for (size_t i = 0; i < vec.size(); i++)
 		{
-			if (vec[i].first == connection->pfd->events)
+			if (vec[i].first == connection.pfd->events)
 				std::cout << vec[i].second << std::endl;
 		}
 		std::cout << "Client revents:\t";
 		for (size_t i = 0; i < vec.size(); i++)
 		{
-			if (vec[i].first == connection->pfd->revents)
+			if (vec[i].first == connection.pfd->revents)
 				std::cout << vec[i].second << std::endl;
 		}
 	}
-	std::cout << "Position:\t" << connection->position << std::endl;
+	std::cout << "Position:\t" << connection.position << std::endl;
 	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
-	std::cout << "Status:\t\t" << sts[connection->status] << std::endl;
-	if (connection->methods.size() > 0)
+	std::cout << "Status:\t\t" << sts[connection.status] << std::endl;
+	if (connection.methods.size() > 0)
 	{
-		for (size_t i = 0; i < connection->methods.size(); i++)
-			std::cout << "method[" << i << "]:\t" << connection->methods[i] << std::endl;
+		for (size_t i = 0; i < connection.methods.size(); i++)
+			std::cout << "method[" << i << "]:\t" << connection.methods[i] << std::endl;
 	}
-	std::cout << "Inputdata method:\t" << connection->inputdata.method << std::endl;
-	std::cout << "Inputdata address:\t" << connection->inputdata.address << std::endl;
-	std::cout << "Inputdata httpVersion:\t" << connection->inputdata.httpVersion << std::endl;
+	std::cout << "Inputdata method:\t" << connection.inputdata.method << std::endl;
+	std::cout << "Inputdata address:\t" << connection.inputdata.address << std::endl;
+	std::cout << "Inputdata httpVersion:\t" << connection.inputdata.httpVersion << std::endl;
 	std::string arr2[] = {"HTTP", "DATA_START", "DATA_CONTIN"};
 	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
-	std::cout << "Inputdata dataType:\t" << dtt[connection->inputdata.dataType] << std::endl;
+	std::cout << "Inputdata dataType:\t" << dtt[connection.inputdata.dataType] << std::endl;
 	int i = 0;
-	for (std::map<std::string, std::string>::iterator iterM = connection->inputdata.htmlFields.begin(); iterM != connection->inputdata.htmlFields.end(); iterM++)
+	for (std::map<std::string, std::string>::iterator iterM = connection.inputdata.htmlFields.begin(); iterM != connection.inputdata.htmlFields.end(); iterM++)
 	{
 		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
 		i++;
 	}
-	if (connection->inputStr.size() > 0)
-		std::cout << "Input str:\n" << connection->inputStr << std::endl;
+	if (connection.inputStr.size() > 0)
+		std::cout << "Input str:\n" << connection.inputStr << std::endl;
 
 	std::cout << "----------------" << std::endl;
+}
+
+// void printConnection(t_connection * connection, std::string msg, int sign)
+// {
+// 	if (msg != "")
+// 		std::cout << "**** " << msg << " ****" << std::endl;
+// 	else
+// 		std::cout << "**** printConnection ****" << std::endl;
+// 	std::cout << "server Nbr:\t" << connection->srvNbr << std::endl;
+// 	std::cout << "Client from:\t" << connection->fromIp << ":" << connection->fromPort << std::endl;
+// 	std::cout << "Client Sd:\t" << connection->clntSd << std::endl;
+// 	if (sign == 1)
+// 	{
+// 		std::vector<std::pair<int, std::string> > vec;
+// 		vec.push_back(std::make_pair(1, "POLLIN"));
+// 		vec.push_back(std::make_pair(4, "POLLOUT"));
+// 		std::cout << "Client events:\t";
+// 		for (size_t i = 0; i < vec.size(); i++)
+// 		{
+// 			if (vec[i].first == connection->pfd->events)
+// 				std::cout << vec[i].second << std::endl;
+// 		}
+// 		std::cout << "Client revents:\t";
+// 		for (size_t i = 0; i < vec.size(); i++)
+// 		{
+// 			if (vec[i].first == connection->pfd->revents)
+// 				std::cout << vec[i].second << std::endl;
+// 		}
+// 	}
+// 	std::cout << "Position:\t" << connection->position << std::endl;
+// 	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
+// 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
+// 	std::cout << "Status:\t\t" << sts[connection->status] << std::endl;
+// 	if (connection->methods.size() > 0)
+// 	{
+// 		for (size_t i = 0; i < connection->methods.size(); i++)
+// 			std::cout << "method[" << i << "]:\t" << connection->methods[i] << std::endl;
+// 	}
+// 	std::cout << "Inputdata method:\t" << connection->inputdata.method << std::endl;
+// 	std::cout << "Inputdata address:\t" << connection->inputdata.address << std::endl;
+// 	std::cout << "Inputdata httpVersion:\t" << connection->inputdata.httpVersion << std::endl;
+// 	std::string arr2[] = {"HTTP", "DATA_START", "DATA_CONTIN"};
+// 	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
+// 	std::cout << "Inputdata dataType:\t" << dtt[connection->inputdata.dataType] << std::endl;
+// 	int i = 0;
+// 	for (std::map<std::string, std::string>::iterator iterM = connection->inputdata.htmlFields.begin(); iterM != connection->inputdata.htmlFields.end(); iterM++)
+// 	{
+// 		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
+// 		i++;
+// 	}
+// 	if (connection->inputStr.size() > 0)
+// 		std::cout << "Input str:\n" << connection->inputStr << std::endl;
+
+// 	std::cout << "----------------" << std::endl;
+// }
+
+void printWebServer(ServerRouter data, std::string msg)
+{
+	if (msg != "")
+		std::cout << "**** " << msg << " ****" << std::endl;
+	else
+		std::cout << "**** printWebServer ****" << std::endl;
+	std::cout << "Host name: " << data.getHostname() << std::endl;
+	// if (data.getConfigs().size() > 0)
+	// 	printAllServersConfig(data.getConfigs(), "");
+	if (data.getServers().size() > 0)
+		printAllServersVector(data.getServers(), "");
+	if (data.getConnections().size() > 0)
+	{
+		std::vector<t_connection> tmp = data.getConnections();
+		for (std::vector<t_connection>::iterator iter = tmp.begin(); iter < tmp.end(); iter++)
+			printConnection((*iter), "", 0);
+	}
+	if (data.getResponseStatusCodes().size() > 0)
+	{
+		std::cout << "Response status codes:" << std::endl;
+		std::map<std::string, std::string> tmp = data.getResponseStatusCodes();
+		for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
+			std::cout << (*iter).first << ":" << (*iter).second << "\t";
+		std::cout << std::endl;
+	}
+	std::cout << "Quantuty of poiifds:\t" << data.getPollfdsQty() << std::endl;
+	printPollfds(data.getPollfds(), "",  data.getPollfdsQty());
 }

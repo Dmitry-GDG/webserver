@@ -3,6 +3,7 @@
 ServerRouter::ServerRouter(std::vector<t_config> configs)
 {
 	_configs = configs;
+	_responseStatusCodesInit();
 	char hostname[HOSTNAME_LENGTH];
 	_hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
 	// _pollfds.clear();
@@ -16,12 +17,10 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
 	// #endif
 	_pollfdsQty = _servers.size();
+	_pollfdsInit();
 }
 
 ServerRouter::~ServerRouter() {}
-
-std::vector<t_config> ServerRouter::getConfigs() const
-	{ return _configs; }
 
 bool ServerRouter::_launch(Server & server, int indx)
 {
@@ -212,7 +211,7 @@ bool ServerRouter::_mainLoop()
 				_readSd(connection);
 
 				#ifdef DEBUGMODE
-					printConnection(connection, "DEBUGMODE _mainLoop printConnection", 1);
+					printConnection(* connection, "DEBUGMODE _mainLoop printConnection", 1);
 				#endif
 
 
@@ -372,6 +371,26 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	_connections.push_back(connection);
 }
 
+void ServerRouter::_responseStatusCodesInit()
+{
+	_responseStatusCodes.clear();
+	// _responseStatusCodes["100"] = "Continue";
+	std::vector<std::pair<std::string, std::string> > vr = {{"100", "Continue"}, {"101", "Switching Protocols"}, {"102", "Processing"}, {"103", "Early Hints"}, {"200", "OK"}, {"201", "Created"}, {"202", "Accepted"}, {"203", "Non-Authoritative Information"}, {"204", "No Content"}, {"205", "Reset Content"}, {"206", "Partial Content"}, {"207", "Multi-Status"}, {"208", "Already Reported"}, {"226", "IM Used"}, {"300", "Multiple Choices"}, {"301", "Moved Permanently"}, {"302", "Found"}, {"303", "See Other"}, {"304", "Not Modified"}, {"305", "Use Proxy"}, {"307", "Temporary Redirect"}, {"308", "Permanent Redirect"}, {"400", "Bad Request"}, {"401", "Unauthorized"}, {"402", "Payment Required"}, {"403", "Forbidden"}, {"404", "Not Found"}, {"405", "Method Not Allowed"}, {"406", "Not Acceptable"}, {"407", "Proxy Authentication Required"}, {"408", "Request Timeout"}, {"409", "Conflict"}, {"410", "Gone"}, {"411", "Length Required"}, {"412", "Precondition Failed"}, {"413", "Payload Too Large"}, {"414", "URI Too Long"}, {"415", "Unsupported Media Type"}, {"416", "Range Not Satisfiable"}, {"417", "Expectation Failed"}, {"418", "I'm a teapot"}, {"421", "Misdirected Request"}, {"422", "Unprocessable Content"}, {"423", "Locked"}, {"424", "Failed Dependency"}, {"425", "Too Early"}, {"426", "Upgrade Required"}, {"428", "Precondition Required"}, {"429", "Too Many Requests"}, {"431", "Request Header Fields Too Large"}, {"451", "Unavailable For Legal Reasons"}, {"500", "Internal Server Error"}, {"501", "Not Implemented"}, {"502", "Bad Gateway"}, {"503", "Service Unavailable"}, {"504", "Gateway Timeout"}, {"505", "HTTP Version Not Supported"}, {"506", "Variant Also Negotiates"}, {"507", "Insufficient Storage"}, {"508", "Loop Detected"}, {"510", "Not Extended"}, {"511", "Network Authentication Required"}};
+	// std::cout << "!!!!! vr[0].first = " <<  vr[0].first << ",  vr[0].second = " <<  vr[0].second << std::endl;
+	// for (size_t i = 0; i < 100; i++)
+	// 	_responseStatusCodes[vr[i].first] = vr[i].second;
+}
+
+void ServerRouter::_pollfdsInit()
+{
+	for (size_t i = 0; i < _pollfdsQty; i++)
+	{
+		_pollfds[i].fd = 0;
+		_pollfds[i].events = 0;
+		_pollfds[i].revents = 0;
+	}
+}
+
 short ServerRouter::getEvents(int sd)
 {
 	for (size_t i = 0; i < _pollfdsQty; i++)
@@ -391,6 +410,30 @@ short ServerRouter::getRevents(int sd)
 	}
 	return -1;
 }
+
+std::vector<t_config> ServerRouter::getConfigs() const
+	{ return _configs; }
+
+std::string ServerRouter::getHostname() const
+	{ return _hostname; }
+
+std::vector<Server> ServerRouter::getServers() const
+	{ return _servers; }
+
+const pollfd * ServerRouter::getPollfds() const
+	{ return  _pollfds; }
+
+size_t ServerRouter::getPollfdsQty() const
+	{ return _pollfdsQty; }
+
+std::vector<t_connection> ServerRouter::getConnections() const
+	{ return _connections; }
+
+std::map<std::string, std::string> ServerRouter::getResponseStatusCodes() const
+	{ return _responseStatusCodes; }
+
+
+
 
 // fd_set ServerRouter::_getAllActiveSdSets()
 // {

@@ -1781,3 +1781,36 @@
 [07:31:03]: server[0]: new connection from 127.0.0.1:56786, sd: 10
 [07:31:53]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[09:18:41]: 25 Sept. 2022 
+[09:18:41]: Starting... 
+[09:18:41]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[09:18:41]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[09:18:41]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[09:18:41]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[09:18:41]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[09:18:41]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[09:18:41]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:00:41]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:01:11]: 25 Sept. 2022 
+[10:01:11]: Starting... 
+[10:01:11]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[10:01:11]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:01:11]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:01:11]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:01:11]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:01:11]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:01:11]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:09:59]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:14:51]: 25 Sept. 2022 
+[10:14:51]: Starting... 
+[10:14:51]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[10:14:51]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:14:51]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:14:51]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:14:51]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:14:51]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:14:51]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:15:12]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
