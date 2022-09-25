@@ -58,43 +58,57 @@ bool isBothSpace(char const &lhs, char const &rhs)
 void splitString (std::string str, char seperator, std::vector<std::string> & strings)  
 {
 	strings.clear();
-	// size_t currIndex = 0;
-	size_t i = 0;
-	size_t startIndex = 0, endIndex = 0;  
-	while (i <= str.size())  
+	std::string subStr; 
+	size_t startIndex = 0;  
+	for (size_t endIndex = 0; endIndex <= str.size(); endIndex++)  
 	{
-		if (str[i] == seperator || i == str.size())  
+		if (endIndex == str.size() || str[endIndex] == seperator)  
 		{
-			endIndex = i;  
-			std::string subStr = "";  
+			subStr = "";  
 			subStr.append(str, startIndex, endIndex - startIndex);  
 			strings.push_back(subStr);  
-			// currIndex += 1;  
 			startIndex = endIndex + 1;  
 		}  
-		i++;
 	}
+
+
+
+	// size_t currIndex = 0;
+	// size_t i = 0;
+	// size_t startIndex = 0, endIndex = 0;  
+	// while (i <= str.size())  
+	// {
+	// 	if (str[i] == seperator || i == str.size())  
+	// 	{
+	// 		endIndex = i;  
+	// 		std::string subStr = "";  
+	// 		subStr.append(str, startIndex, endIndex - startIndex);  
+	// 		strings.push_back(subStr);  
+	// 		// currIndex += 1;  
+	// 		startIndex = endIndex + 1;  
+	// 	}  
+	// 	i++;
+	// }
 }
 
 void splitStringColon (std::string str, char seperator, std::vector<std::string> & strings)  
 {
 	strings.clear();
-	size_t i = 0;  
-	size_t endIndex = 0;  
-	while (i <= str.size())  
+	for (size_t endIndex = 0; endIndex <= str.size(); endIndex++)
 	{
-		if (str[i] == seperator || i == str.size())  
+		if (endIndex == str.size() || str[endIndex] == seperator)
 		{
-			endIndex = i;  
-			std::string subStr = "";  
-			subStr.append(str, 0, endIndex);  
-			strings.push_back(subStr);  
-			// startIndex = endIndex + 1;
-			subStr.append(str, endIndex + 1, str.size() - endIndex - 1);
-			strings.push_back(subStr); 
+			std::string subStr = "";
+			subStr.append(str, 0, endIndex);
+			strings.push_back(subStr);
+			if (endIndex != str.size())
+			{
+				subStr = "";
+				subStr.append(str, endIndex + 1, std::string::npos);
+				strings.push_back(subStr);
+			}
 			return ;
-		}  
-		i++;
+		}
 	}
 }
 

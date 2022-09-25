@@ -212,7 +212,7 @@ void printConnection(t_connection * connection, std::string msg, int sign)
 		i++;
 	}
 	if (connection->inputStr.size() > 0)
-		std::cout << "Input str:\t" << connection->inputStr << std::endl;
+		std::cout << "Input str:\n" << connection->inputStr << std::endl;
 
 	std::cout << "----------------" << std::endl;
 }

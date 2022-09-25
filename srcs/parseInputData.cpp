@@ -79,15 +79,15 @@ bool parseInputData(char * buf, t_connection * connection)
 
 	std::vector<std::string>::iterator iterVV = splitBuf.begin();
 	inptStr = *iterVV;
-	#ifdef DEBUGMODE
-		int j = 0;
-		for (std::string::iterator iter = inptStr.begin(); iter < inptStr.end(); iter++)
-		{
-			std::cout << j << "\t" << *iter << "\t" << (int)(*iter) << std::endl;
-			j++;
-		}
-		std::cout << "---------------" << std::endl;
-	#endif
+	// #ifdef DEBUGMODE
+	// 	int j = 0;
+	// 	for (std::string::iterator iter = inptStr.begin(); iter < inptStr.end(); iter++)
+	// 	{
+	// 		std::cout << j << "\t" << *iter << "\t" << (int)(*iter) << std::endl;
+	// 		j++;
+	// 	}
+	// 	std::cout << "---------------" << std::endl;
+	// #endif
 
 	delWhiteSpacesStr(inptStr);
 	// #ifdef DEBUGMODE
