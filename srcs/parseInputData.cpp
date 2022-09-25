@@ -18,9 +18,8 @@ void delWhiteSpacesStr(std::string & inptStr)
 
 void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
 {
-	// std::string delim = DELIMETER;
-	// char c1 = 13, c2 = 10;
-	std::string delim = "\r\n";
+	std::string delim = DELIMETER;
+	// std::string delim = "\r\n";
 	std::string outpLine;
 	outp.clear();
 	unsigned long	first = 0;

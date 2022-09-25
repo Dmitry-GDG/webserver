@@ -1814,3 +1814,142 @@
 [10:14:51]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
 [10:15:12]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[13:00:09]: 25 Sept. 2022 
+[13:00:09]: Starting... 
+[13:00:09]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[13:00:09]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:00:09]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:00:09]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:00:09]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:00:09]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:00:09]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:11:53]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:12:49]: 25 Sept. 2022 
+[13:12:49]: Starting... 
+[13:12:49]: std::bad_alloc 
+[13:12:49]: Webserver stopped by error. Buy!
+ ---------------------- 
+[13:13:08]: 25 Sept. 2022 
+[13:13:08]: Starting... 
+[13:13:08]: std::bad_alloc 
+[13:13:08]: Webserver stopped by error. Buy!
+ ---------------------- 
+[13:13:44]: 25 Sept. 2022 
+[13:13:45]: Starting... 
+[13:13:45]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[13:13:45]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:13:45]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:13:45]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:13:45]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:13:45]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:13:45]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:15:20]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:15:23]: 25 Sept. 2022 
+[13:15:23]: Starting... 
+[13:15:23]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[13:15:23]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:15:23]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:15:23]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:15:23]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:15:23]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:15:23]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:19:07]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:19:10]: 25 Sept. 2022 
+[13:19:10]: Starting... 
+[13:19:10]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[13:19:10]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:19:10]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:19:10]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:19:10]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:19:10]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:19:10]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:22:04]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:22:12]: 25 Sept. 2022 
+[13:22:12]: Starting... 
+[13:22:12]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[13:22:12]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:22:12]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:22:12]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:22:12]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:22:12]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:22:12]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:34:49]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:34:58]: 25 Sept. 2022 
+[13:34:58]: Starting... 
+[13:34:58]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[13:34:58]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:34:58]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:34:58]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:34:58]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:34:58]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:34:58]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:35:09]: server[0]: new connection from 127.0.0.1:54496, sd: 9
+[13:35:09]: server[0]: got 356 bytes from sd 9
+[13:36:11]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:36:19]: 25 Sept. 2022 
+[13:36:19]: Starting... 
+[13:36:19]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[13:36:19]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:36:19]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:36:19]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:36:19]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:36:19]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:36:19]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:36:23]: server[0]: new connection from 127.0.0.1:54522, sd: 9
+[13:36:23]: server[0]: got 356 bytes from sd 9
+[13:44:22]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:44:33]: 25 Sept. 2022 
+[13:44:33]: Starting... 
+[13:44:33]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[13:44:33]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:44:33]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:44:33]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:44:33]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:44:33]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:44:33]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:44:39]: server[0]: new connection from 127.0.0.1:55327, sd: 9
+[13:44:39]: server[0]: got 356 bytes from sd 9
+[14:16:48]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[14:20:27]: 25 Sept. 2022 
+[14:20:27]: Starting... 
+[14:20:27]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[14:20:27]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[14:20:27]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[14:20:27]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[14:20:27]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[14:20:27]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[14:20:27]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[14:20:33]: server[0]: new connection from 127.0.0.1:56583, sd: 9
+[14:20:33]: server[0]: got 356 bytes from sd 9
+[14:20:51]: server[0]: new connection from 127.0.0.1:56592, sd: 10
+[14:20:51]: server[0]: new connection from 127.0.0.1:56593, sd: 11
+[14:20:51]: server[0]: got 688 bytes from sd 10
+[14:20:55]: server[0]: finished reading data from sd 10
+[14:20:55]: server[0]: new connection from 127.0.0.1:56594, sd: 13
+[14:20:55]: server[0]: got 714 bytes from sd 11
+[14:21:01]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[14:21:09]: 25 Sept. 2022 
+[14:21:09]: Starting... 
+[14:21:09]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[14:21:09]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[14:21:09]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[14:21:09]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[14:21:09]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[14:21:09]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[14:21:09]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[14:21:13]: server[0]: new connection from 127.0.0.1:56607, sd: 9
+[14:21:13]: server[0]: new connection from 127.0.0.1:56608, sd: 10
+[14:21:13]: server[0]: got 714 bytes from sd 9
+[14:21:21]: server[0]: new connection from 127.0.0.1:56612, sd: 11
+[14:21:21]: server[0]: got 356 bytes from sd 11
+[14:21:29]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

@@ -55,8 +55,8 @@ class ServerRouter
 		int		_readSd(t_connection *);
 		int		_sendAnswer(t_connection *);
 		// void	_parseInputData(char *, t_connection *);
-		void	_responseStatusCodesInit();
 		void	_pollfdsInit();
+		void	_responseStatusCodesInit();
 
 };
 
