@@ -13,11 +13,15 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	// #endif
 	for (std::vector<t_config>::iterator iter = _configs.begin(); iter < _configs.end(); iter++)
 		_servers.push_back(Server(*iter));
+	_pollfdsQty = _servers.size();
+	_pollfdsInit();
+	std::string arr[] = {"GET", "POST", "DELETE"};
+	std::vector<std::string> metods(std::begin(arr), std::end(arr));
+	_methods.clear();
+	_methods = metods;
 	// #ifdef DEBUGMODE
 	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
 	// #endif
-	_pollfdsQty = _servers.size();
-	_pollfdsInit();
 }
 
 ServerRouter::~ServerRouter() {}
@@ -237,9 +241,9 @@ bool ServerRouter::_mainLoop()
 				msg = "client closed sd ";
 				printMsg(connection->srvNbr, clntSd, msg, "");
 				printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
-				close (_pollfds[i].fd);
+				close (clntSd);
+				_removeSdFromPollfds(clntSd);
 				_removeConnection(clntSd);
-				_removeSdFromPollfds(i);
 			}
 			std::cout << "Hi!" << std::endl;
 		}
@@ -251,17 +255,49 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 {
 	std::string delim = DELIMETER;
 	std::string answer = connection->inputdata.httpVersion + " ";
+	if (connection->inputdata.dataType == HTTP && connection->inputdata.method == "GET")
+		_prepareGetAnswer(connection, answer);
 
+
+
+	if (send(connection->clntSd, answer.c_str(), answer.length(), 0) < 0)
+	{
+		close (connection->clntSd);
+		_removeSdFromPollfds(connection->clntSd);
+		_removeConnection(connection->clntSd);
+	}
 	return 0; //?
 }
 
-void ServerRouter::_removeSdFromPollfds(int indx)
+void ServerRouter::_prepareGetAnswer(t_connection * connection, std::string & answer)
 {
-	_pollfds[indx].fd = -1;
+	Server server = _getServer(connection->srvNbr);
+	(void) answer;
+
+}
+
+// bool ServerRouter::_responseCheckMethod()
+// {
+// 	return true;
+// }
+
+void ServerRouter::_removeSdFromPollfds(int clntSd)
+{
+	// _pollfds[indx].fd = -1;
+	// for (size_t i = 0; i < _pollfdsQty; i++)
+	// {
+	// 	if (_pollfds[i].fd < 0)
+	// 	{
+	// 		for (size_t j = i; j < _pollfdsQty - 1; j++)
+	// 			_pollfds[j] = _pollfds[j + 1];
+	// 		_pollfdsQty--;
+	// 	}
+	// }
 	for (size_t i = 0; i < _pollfdsQty; i++)
 	{
-		if (_pollfds[i].fd < 0)
+		if (_pollfds[i].fd == clntSd)
 		{
+			_pollfds[i].fd = -1;
 			for (size_t j = i; j < _pollfdsQty - 1; j++)
 				_pollfds[j] = _pollfds[j + 1];
 			_pollfdsQty--;
@@ -368,9 +404,11 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.fromPort = fromPort;
 	connection.inputStr.clear();
 	connection.responseStatusCodes = _responseStatusCodes;
-	connection.methods.push_back("GET");
-	connection.methods.push_back("POST");
-	connection.methods.push_back("DELETE");
+	connection.methods.clear();
+	connection.methods = _methods;
+	// connection.methods.push_back("GET");
+	// connection.methods.push_back("POST");
+	// connection.methods.push_back("DELETE");
 	_connections.push_back(connection);
 }
 
@@ -460,7 +498,15 @@ std::vector<t_connection> ServerRouter::getConnections() const
 std::map<std::string, std::string> ServerRouter::getResponseStatusCodes() const
 	{ return _responseStatusCodes; }
 
-
+Server ServerRouter::_getServer(int srvNbr) const
+{
+	for (std::vector<Server>::const_iterator iter = _servers.begin(); iter < _servers.end(); iter++)
+	{
+		if ((*iter).getServNbr() == srvNbr)
+			return *iter;
+	}
+	return _servers[0];
+}
 
 
 // fd_set ServerRouter::_getAllActiveSdSets()

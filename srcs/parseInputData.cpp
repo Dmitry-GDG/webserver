@@ -16,9 +16,9 @@ void delWhiteSpacesStr(std::string & inptStr)
 		inptStr.erase(inptStr.begin());
 }
 
-void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
+void splitStrDelimeter(std::string str, std::vector<std::string> & outp, std::string delim)
 {
-	std::string delim = DELIMETER;
+	// std::string delim = DELIMETER;
 	// std::string delim = "\r\n";
 	std::string outpLine;
 	outp.clear();
@@ -50,6 +50,40 @@ void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
 	}
 }
 
+// void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
+// {
+// 	std::string delim = DELIMETER;
+// 	// std::string delim = "\r\n";
+// 	std::string outpLine;
+// 	outp.clear();
+// 	unsigned long	first = 0;
+// 	unsigned long	second = 0;
+// 	for(;;)
+// 	{
+// 		second = str.find(delim, first);
+// 		if (second != std::string::npos)
+// 		{
+// 			outpLine = str.substr(first, second - first);
+// 			// std::cout << "outpLine: " << outpLine << std::endl;
+// 			first = second + delim.size();
+// 			if (*(outpLine.end() - 1) == 10 || *(outpLine.end() - 1) == 32)
+// 				outpLine.erase(outpLine.end() - 1);
+// 			if (outpLine.size() > 0)
+// 				outp.push_back(outpLine);
+// 		}
+// 		else
+// 		{
+// 			outpLine = str.substr(first, str.size());
+// 			// std::cout << "outpLine2: " << outpLine << std::endl;
+// 			if (*(outpLine.end() - 1) == 10 || *(outpLine.end() - 1) == 32)
+// 				outpLine.erase(outpLine.end() - 1);
+// 			if (outpLine.size() > 0)
+// 				outp.push_back(outpLine);
+// 			break;
+// 		}
+// 	}
+// }
+
 void	parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * connection)
 {
 	(void) splitBuf;
@@ -70,8 +104,24 @@ bool parseInputData(char * buf, t_connection * connection)
 	// 	std::cout << "**** DEBUGMODE parseInputData ****\nInput: " << inpt << ", size: " << inpt.size() << "\n-------------" << std::endl;
 	// #endif
 
+	std::vector<std::string> headerBody;
+	splitStrDelimeter(inpt, headerBody, DDELIMETER);
+	#ifdef DEBUGMODE
+		std::cout << "**** DEBUGMODE parseInputData splitStrDelimeter headerBody ****" << std::endl;
+		size_t jjj = 0;
+		for (std::vector<std::string>::iterator iter = headerBody.begin(); iter < headerBody.end(); iter++)
+		{
+			std::cout << "headerBody[" << jjj << "]: " << *iter << std::endl;
+			jjj++;
+		}
+		std::cout << "---- end of headerBody ----" << std::endl;
+	#endif
+
+
+
+
 	connectionInputdataClear(connection);
-	splitStrDelimeter(inpt, splitBuf);
+	splitStrDelimeter(inpt, splitBuf, DELIMETER);
 	// #ifdef DEBUGMODE
 	// 	printVector(splitBuf, "DEBUGMODE parseInputData splitStrDelimeter");
 	// #endif

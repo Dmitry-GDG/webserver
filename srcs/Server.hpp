@@ -13,7 +13,8 @@ class Server
 		int			_sd; //socket descriptor
 		std::string _colors[4];
 		unsigned	_nextColor;
-		size_t		_srvrNbr;
+		int			_srvrNbr;
+		// std::vector<std::string> _methods; // GET, POST, DELETE
 		// size_t		_sdMaxCount; // = SD_MAXCOUNT
 		// char		_serverIp[sizeof(struct sockaddr_in)];
 		// std::vector<Connection>	_connections;
@@ -26,7 +27,7 @@ class Server
 		const t_config	& getConfig() const;
 		int		getSd() const;
 		void	setSd(int);
-		size_t	getServNbr() const;
+		int		getServNbr() const;
 		void	setSrvrNbr(size_t);
 		// bool		start();
 		// void		sdSet(fd_set & allActiveSdSets, int & sdMaxCountRouter);

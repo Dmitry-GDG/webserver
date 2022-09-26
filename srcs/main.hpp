@@ -9,6 +9,7 @@
 # define SD_MAXCOUNT 1024
 # define BUF_SIZE 3000
 # define DELIMETER "\r\n"
+# define DDELIMETER "\r\n\r\n"
 // # define DELIMETER "\\r\\n"
 
 # define NC "\033[0m"
