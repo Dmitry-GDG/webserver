@@ -159,7 +159,7 @@ bool parseInputData(char * buf, t_connection * connection)
 
 		std::vector<std::string>::iterator iter = splitStr.begin();
 
-		if ( std::find(connection->methods.begin(), connection->methods.end(), *iter) == connection->methods.end() )
+		if ( std::find(connection->allowedMethods.begin(), connection->allowedMethods.end(), *iter) == connection->allowedMethods.end() )
 		{
 			msg = "Error! Unknown method from sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");

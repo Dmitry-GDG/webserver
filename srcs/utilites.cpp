@@ -203,7 +203,7 @@ void connectionClear(t_connection & connection)
 	connection.status = READ;
 	connection.fromIp = "";
 	connection.fromPort = 0;
-	connection.methods.clear();
+	connection.allowedMethods.clear();
 	connection.inputdata.method = "";
 	connection.inputdata.address = "";
 	connection.inputdata.httpVersion = "";

@@ -23,7 +23,7 @@ class ServerRouter
 		// t_connection	_connections[SD_MAXCOUNT];
 		std::vector<t_connection> _connections;
 		std::map<std::string, std::string>	_responseStatusCodes;
-		std::vector<std::string> _methods; // GET, POST, DELETE
+		std::vector<std::string> _allowedMethods; // GET, POST, DELETE
 
 	public:
 		ServerRouter(std::vector<t_config> configs);

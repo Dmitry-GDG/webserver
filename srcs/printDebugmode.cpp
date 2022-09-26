@@ -210,10 +210,10 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
 	std::cout << "Status:\t\t" << sts[connection.status] << std::endl;
-	if (connection.methods.size() > 0)
+	if (connection.allowedMethods.size() > 0)
 	{
-		for (size_t i = 0; i < connection.methods.size(); i++)
-			std::cout << "method[" << i << "]:\t" << connection.methods[i] << std::endl;
+		for (size_t i = 0; i < connection.allowedMethods.size(); i++)
+			std::cout << "allowedMethods[" << i << "]:\t" << connection.allowedMethods[i] << std::endl;
 	}
 	std::cout << "Inputdata method:\t" << connection.inputdata.method << std::endl;
 	std::cout << "Inputdata address:\t" << connection.inputdata.address << std::endl;

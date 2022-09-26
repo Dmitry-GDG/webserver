@@ -62,7 +62,7 @@ typedef struct s_connection
 	t_inputdata			inputdata;
 	pollfd				* pfd;
 	std::string			inputStr;
-	std::vector<std::string> methods; // GET, POST, DELETE
+	std::vector<std::string> allowedMethods; // GET, POST, DELETE
 	std::map<std::string, std::string> responseStatusCodes;
 } t_connection;
 

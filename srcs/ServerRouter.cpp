@@ -17,8 +17,8 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	_pollfdsInit();
 	std::string arr[] = {"GET", "POST", "DELETE"};
 	std::vector<std::string> metods(std::begin(arr), std::end(arr));
-	_methods.clear();
-	_methods = metods;
+	_allowedMethods.clear();
+	_allowedMethods = metods;
 	// #ifdef DEBUGMODE
 	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
 	// #endif
@@ -404,8 +404,8 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.fromPort = fromPort;
 	connection.inputStr.clear();
 	connection.responseStatusCodes = _responseStatusCodes;
-	connection.methods.clear();
-	connection.methods = _methods;
+	connection.allowedMethods.clear();
+	connection.allowedMethods = _allowedMethods;
 	// connection.methods.push_back("GET");
 	// connection.methods.push_back("POST");
 	// connection.methods.push_back("DELETE");
