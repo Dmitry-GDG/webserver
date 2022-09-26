@@ -234,6 +234,13 @@ void printConnection(t_connection connection, std::string msg, int sign)
 			std::cout << (*iter).first << ":" << (*iter).second << "\t";
 		std::cout << std::endl;
 	}
+	if (connection.contentTypes.size() > 0)
+	{
+		std::cout << "Content types:" << std::endl;
+		for(std::map<std::string, std::string>::iterator iter = connection.contentTypes.begin(); iter != connection.contentTypes.end(); iter++)
+			std::cout << (*iter).first << ":" << (*iter).second << "\t";
+		std::cout << std::endl;
+	}
 	if (connection.inputStr.size() > 0)
 		std::cout << "Input str:\n" << connection.inputStr << std::endl;
 
@@ -314,7 +321,19 @@ void printWebServer(ServerRouter data, std::string msg)
 	if (data.getResponseStatusCodes().size() > 0)
 	{
 		std::cout << "Response status codes:" << std::endl;
-		std::map<std::string, std::string> tmp = data.getResponseStatusCodes();
+		std::map<std::string, std::string> tmp;
+		tmp.clear();
+		tmp = data.getResponseStatusCodes();
+		for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
+			std::cout << (*iter).first << ":" << (*iter).second << "\t";
+		std::cout << std::endl;
+	}
+	if (data.getContentTypes().size() > 0)
+	{
+		std::cout << "Content types:" << std::endl;
+		std::map<std::string, std::string> tmp;
+		tmp.clear();
+		tmp = data.getContentTypes();
 		for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
 			std::cout << (*iter).first << ":" << (*iter).second << "\t";
 		std::cout << std::endl;

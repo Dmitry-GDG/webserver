@@ -64,6 +64,7 @@ typedef struct s_connection
 	std::string			inputStr;
 	std::vector<std::string> allowedMethods; // GET, POST, DELETE
 	std::map<std::string, std::string> responseStatusCodes;
+	std::map<std::string, std::string>	contentTypes;
 } t_connection;
 
 typedef struct s_location

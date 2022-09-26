@@ -65,6 +65,9 @@ git push
 26/9 #Д#
 - изменил инициализацию методов (теперь они инициализируются в ServerRouter)
 - переименовал в ServerRouter и structs: methods в allowedMethods
+- ввел структуры Response status codes и Content types
+- с вебстраницами поработал
+- необх доделать ответ (ServerRouter line 255 & 291; ws-117; h-288)
 
 25/9 #Д#
 - исправил парсинг запросов от браузеров

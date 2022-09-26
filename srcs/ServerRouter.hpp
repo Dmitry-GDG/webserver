@@ -23,6 +23,7 @@ class ServerRouter
 		// t_connection	_connections[SD_MAXCOUNT];
 		std::vector<t_connection> _connections;
 		std::map<std::string, std::string>	_responseStatusCodes;
+		std::map<std::string, std::string>	_contentTypes;
 		std::vector<std::string> _allowedMethods; // GET, POST, DELETE
 
 	public:
@@ -41,6 +42,7 @@ class ServerRouter
 		size_t					getPollfdsQty() const;
 		std::vector<t_connection>	getConnections() const;
 		std::map<std::string, std::string>	getResponseStatusCodes() const;
+		std::map<std::string, std::string>	getContentTypes() const;
 
 	private:
 		// fd_set _getAllActiveSdSets();
@@ -59,8 +61,12 @@ class ServerRouter
 		// void	_parseInputData(char *, t_connection *);
 		void	_pollfdsInit();
 		void	_responseStatusCodesInit();
+		void	_contentTypesInit();
 		// bool	_responseCheckMethod();
-		void	_prepareGetAnswer(t_connection *, std::string & answer);
+		void	_prepareGetAnswer(std::string & answer, t_connection *);
+		void	_preparePostAnswer(std::string & answer, t_connection *);
+		void	_prepareDeleteAnswer(std::string & answer, t_connection *);
+		void	_addStatusCode(std::string & answer, t_connection * connection, std::string code);
 
 };
 

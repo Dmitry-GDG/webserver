@@ -4,6 +4,7 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 {
 	_configs = configs;
 	_responseStatusCodesInit();
+	_contentTypesInit();
 	char hostname[HOSTNAME_LENGTH];
 	_hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
 	// _pollfds.clear();
@@ -245,7 +246,7 @@ bool ServerRouter::_mainLoop()
 				_removeSdFromPollfds(clntSd);
 				_removeConnection(clntSd);
 			}
-			std::cout << "Hi!" << std::endl;
+			// std::cout << "Hi!" << std::endl;
 		}
 	}
 	return true;
@@ -253,12 +254,30 @@ bool ServerRouter::_mainLoop()
 
 int ServerRouter::_sendAnswer(t_connection * connection)
 {
+	std::string msg;
 	std::string delim = DELIMETER;
 	std::string answer = connection->inputdata.httpVersion + " ";
-	if (connection->inputdata.dataType == HTTP && connection->inputdata.method == "GET")
-		_prepareGetAnswer(connection, answer);
+	if (connection->inputdata.dataType == HTTP)
+	{
+		if (std::find(connection->allowedMethods.begin(), connection->allowedMethods.end(), connection->inputdata.method) == connection->allowedMethods.end() )
+		{
+			msg = "Error! Unknown method from sd ";
+			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+			_addStatusCode(answer, connection, "405");
+		}
+		if (connection->inputdata.method == "GET")
+			_prepareGetAnswer(answer, connection);
+		if (connection->inputdata.method == "POST")
+			_preparePostAnswer(answer, connection);
+		if (connection->inputdata.method == "DELETE")
+			_prepareDeleteAnswer(answer, connection);
+	}
 
 
+	#ifdef DEBUGMODE
+		std::cout << "**** DEBUGMODE ServerRouter//_sendanswer answer ****\nAnswer:\n" << answer << std::endl;
+	#endif
 
 	if (send(connection->clntSd, answer.c_str(), answer.length(), 0) < 0)
 	{
@@ -269,11 +288,56 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	return 0; //?
 }
 
-void ServerRouter::_prepareGetAnswer(t_connection * connection, std::string & answer)
+void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connection)
+{
+	std::string msg;
+	Server server = _getServer(connection->srvNbr);
+	bool correctAddr = false;
+	if (connection->inputdata.address != "\\")
+	{
+		for (size_t i = 0; i < server.getConfig().locations.size(); i++)
+		{
+			if (connection->inputdata.address == server.getConfig().locations[i].path)
+				correctAddr = true;
+		}
+	}
+	if (!correctAddr)
+	{
+		msg = "Error! Unknown location addr from sd ";
+		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		_addStatusCode(answer, connection, "404");
+	}
+	else
+		_addStatusCode(answer, connection, "200");
+	answer += "Server: ";
+	answer += WEBSERV_NAME;
+	answer += DELIMETER;
+
+
+
+}
+
+void ServerRouter::_preparePostAnswer(std::string & answer, t_connection * connection)
 {
 	Server server = _getServer(connection->srvNbr);
 	(void) answer;
 
+}
+
+void ServerRouter::_prepareDeleteAnswer(std::string & answer, t_connection * connection)
+{
+	Server server = _getServer(connection->srvNbr);
+	(void) answer;
+
+}
+
+void ServerRouter::_addStatusCode(std::string & answer, t_connection * connection, std::string code)
+{
+	if (connection->responseStatusCodes.find(code) != connection->responseStatusCodes.end())
+		answer += code + " " + connection->responseStatusCodes[code] + DELIMETER;
+	else
+		answer += "200 " + connection->responseStatusCodes["200"] + DELIMETER;
 }
 
 // bool ServerRouter::_responseCheckMethod()
@@ -404,6 +468,7 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.fromPort = fromPort;
 	connection.inputStr.clear();
 	connection.responseStatusCodes = _responseStatusCodes;
+	connection.contentTypes = _contentTypes;
 	connection.allowedMethods.clear();
 	connection.allowedMethods = _allowedMethods;
 	// connection.methods.push_back("GET");
@@ -444,6 +509,24 @@ void ServerRouter::_responseStatusCodesInit()
 	#define ARRSIZE(arr) (sizeof((arr))/sizeof((arr)[0]))
 	for (size_t i = 0; i < ARRSIZE(responseStatusCodesArr); i++)
 		_responseStatusCodes[responseStatusCodesArr[i].first] = responseStatusCodesArr[i].second;
+	#undef  ARRSIZE
+}
+
+void ServerRouter::_contentTypesInit()
+{
+	_contentTypes.clear();
+	std::pair<std::string, std::string> contentTypesArr[] =
+	{
+		std::make_pair("gif", "image/gif"), std::make_pair("jpg", "image/jpeg"), std::make_pair("jpeg", "image/jpeg"), 
+		std::make_pair("png", "image/png"), std::make_pair("svg", "image/svg+xml"), std::make_pair("webp", "image/webp"), 
+		std::make_pair("ico", "image/vnd.microsoft.icon"), std::make_pair("css", "text/css"), std::make_pair("csv", "text/csv"), 
+		std::make_pair("html", "text/html"), std::make_pair("htm", "text/html"), std::make_pair("php", "text/php"), 
+		std::make_pair("xml", "text/xml"), std::make_pair("pdf", "application/pdf")
+	};
+
+	#define ARRSIZE(arr) (sizeof((arr))/sizeof((arr)[0]))
+	for (size_t i = 0; i < ARRSIZE(contentTypesArr); i++)
+		_contentTypes[contentTypesArr[i].first] = contentTypesArr[i].second;
 	#undef  ARRSIZE
 }
 
@@ -497,6 +580,9 @@ std::vector<t_connection> ServerRouter::getConnections() const
 
 std::map<std::string, std::string> ServerRouter::getResponseStatusCodes() const
 	{ return _responseStatusCodes; }
+
+std::map<std::string, std::string> ServerRouter::getContentTypes() const
+	{ return _contentTypes; }
 
 Server ServerRouter::_getServer(int srvNbr) const
 {
