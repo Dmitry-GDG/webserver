@@ -2508,3 +2508,89 @@
 [10:46:15]: server[0]: Error! Can not open the file 127.0.0.1:4242//resourcespage.html10
 [10:46:41]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[12:41:54]: 27 Sept. 2022 
+[12:41:54]: Starting... 
+[12:41:54]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[12:41:54]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[12:41:54]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[12:41:54]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[12:41:54]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[12:41:54]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[12:41:54]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[12:42:02]: server[0]: new connection from 127.0.0.1:49798, sd: 9
+[12:42:02]: server[0]: got 356 bytes from sd 9
+[12:42:02]: server[0]: Error! Can not open the file 127.0.0.1:4242//resources/siteindex.html9
+[12:42:31]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[12:42:33]: 27 Sept. 2022 
+[12:42:33]: Starting... 
+[12:42:33]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[12:42:33]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[12:42:33]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[12:42:33]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[12:42:33]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[12:42:33]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[12:42:33]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[12:42:38]: server[0]: new connection from 127.0.0.1:49875, sd: 9
+[12:42:38]: server[0]: got 356 bytes from sd 9
+[12:42:38]: server[0]: Error! Can not open the file 127.0.0.1:4242/resources/site/index.html9
+[12:46:39]: server[0]: new connection from 127.0.0.1:49933, sd: 10
+[12:46:39]: server[0]: got 381 bytes from sd 10
+[12:46:39]: server[0]: Error! Unknown location addr from sd 10
+[12:46:39]: server[0]: Error! Can not open the file 127.0.0.1:4242/resources/site/index.html10
+[12:48:13]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[12:48:16]: 27 Sept. 2022 
+[12:48:16]: Starting... 
+[12:48:16]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[12:48:16]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[12:48:16]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[12:48:16]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[12:48:16]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[12:48:16]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[12:48:16]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[12:48:37]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[12:48:40]: 27 Sept. 2022 
+[12:48:40]: Starting... 
+[12:48:40]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[12:48:40]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[12:48:40]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[12:48:40]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[12:48:40]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[12:48:40]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[12:48:40]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[12:48:58]: server[0]: new connection from 127.0.0.1:49958, sd: 9
+[12:48:58]: server[0]: got 381 bytes from sd 9
+[12:48:58]: server[0]: Error! Unknown location addr from sd 9
+[12:48:58]: server[0]: Error! Can not open the file 127.0.0.1:4242/resources/site/index.html, sd 9
+[12:51:50]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[12:51:53]: 27 Sept. 2022 
+[12:51:53]: Starting... 
+[12:51:53]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[12:51:53]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[12:51:53]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[12:51:53]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[12:51:53]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[12:51:53]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[12:51:53]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[12:52:20]: server[0]: new connection from 127.0.0.1:50022, sd: 9
+[12:52:20]: server[0]: got 356 bytes from sd 9
+[12:52:20]: server[0]: The file ./resources/site/index.html was sucsessfully opened, sd 9
+[12:54:41]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[12:54:45]: 27 Sept. 2022 
+[12:54:45]: Starting... 
+[12:54:45]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[12:54:45]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[12:54:45]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[12:54:45]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[12:54:45]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[12:54:45]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[12:54:45]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[12:54:50]: server[0]: new connection from 127.0.0.1:50051, sd: 9
+[12:54:50]: server[0]: got 356 bytes from sd 9
+[12:54:50]: server[0]: The file ./resources/site/index.html was sucsessfully opened, sd 9
+[13:22:17]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

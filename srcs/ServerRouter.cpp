@@ -20,9 +20,9 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	std::vector<std::string> metods(std::begin(arr), std::end(arr));
 	_allowedMethods.clear();
 	_allowedMethods = metods;
-	#ifdef DEBUGMODE
-		printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
-	#endif
+	// #ifdef DEBUGMODE
+	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
+	// #endif
 }
 
 ServerRouter::~ServerRouter() {}
@@ -347,7 +347,8 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 {
 	std::string msg;
 	Server server = _getServer(connection->srvNbr);
-	std::string path = server.getConfig().listen + connection->inputdata.address;
+	// std::string path = server.getConfig().listen + connection->inputdata.address;
+	std::string path = "." + connection->inputdata.address;
 	size_t i;
 	for (i = 0; i < server.getConfig().locations.size(); i++)
 	{
@@ -375,14 +376,14 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 	FILE * file = fopen(pathChar, "rb"); //r - read only, b - in binary
 	if (!S_ISREG(buf.st_mode) || file == NULL)
 	{
-		msg = "Error! Can not open the file " + path;
+		msg = "Error! Can not open the file " + path + ", sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		connection->responseStatusCode = "404";
 	}
 	else
 	{
-		msg = "The file " + path + " was sucsessfully opened";
+		msg = "The file " + path + " was sucsessfully opened, sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		connection->responseStatusCode = "200";
@@ -398,7 +399,7 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 		else
 			contType = "text/html";
 
-		contentTypeAndLength = "Content-Type: " + contType + "charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength);
+		contentTypeAndLength = "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength);
 		fclose(file);
 	}
 }
