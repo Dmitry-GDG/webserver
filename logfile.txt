@@ -2264,3 +2264,247 @@
 [16:37:50]: server[0]: got 356 bytes from sd 9
 [16:37:53]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[08:41:53]: 27 Sept. 2022 
+[08:41:53]: Starting... 
+[08:41:53]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[08:41:53]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:41:53]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:41:53]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:41:53]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:41:53]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:41:53]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:42:19]: server[0]: new connection from 127.0.0.1:56794, sd: 9
+[08:42:19]: server[0]: got 356 bytes from sd 9
+[08:42:23]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:44:04]: 27 Sept. 2022 
+[08:44:04]: Starting... 
+[08:44:04]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[08:44:04]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:44:04]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:44:04]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:44:04]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:44:04]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:44:04]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:44:08]: server[0]: new connection from 127.0.0.1:56842, sd: 9
+[08:44:08]: server[0]: got 356 bytes from sd 9
+[08:49:22]: server[1]: new connection from 127.0.0.1:56955, sd: 10
+[08:49:22]: server[1]: got 517 bytes from sd 10
+[08:49:52]: server[1]: finished reading data from sd 10
+[08:49:52]: server[1]: Error! Unknown method from sd 10
+[08:49:52]: server[1]: finished reading data from sd 10
+[08:50:02]: server[1]: new connection from 127.0.0.1:56991, sd: 11
+[08:50:02]: server[1]: got 517 bytes from sd 11
+[08:50:22]: server[1]: new connection from 127.0.0.1:57024, sd: 13
+[08:50:22]: server[1]: got 517 bytes from sd 13
+[08:50:32]: server[1]: finished reading data from sd 11
+[08:50:32]: server[1]: Error! Unknown method from sd 11
+[08:50:32]: server[1]: finished reading data from sd 11
+[08:50:52]: server[1]: finished reading data from sd 13
+[08:50:52]: server[1]: Error! Unknown method from sd 13
+[08:50:53]: server[1]: finished reading data from sd 13
+[08:53:45]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:53:49]: 27 Sept. 2022 
+[08:53:49]: Starting... 
+[08:53:49]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[08:53:49]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:53:49]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:53:49]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:53:49]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:53:49]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:53:49]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:53:57]: server[0]: new connection from 127.0.0.1:57112, sd: 9
+[08:53:57]: server[0]: got 356 bytes from sd 9
+[08:55:44]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:55:49]: 27 Sept. 2022 
+[08:55:49]: Starting... 
+[08:55:49]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[08:55:49]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:55:49]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:55:49]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:55:49]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:55:49]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:55:49]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:55:52]: server[0]: new connection from 127.0.0.1:57158, sd: 9
+[08:55:52]: server[0]: got 356 bytes from sd 9
+[08:59:22]: server[1]: new connection from 127.0.0.1:57253, sd: 10
+[08:59:22]: server[1]: got 517 bytes from sd 10
+[08:59:52]: server[1]: finished reading data from sd 10
+[08:59:52]: server[1]: Error! Unknown method from sd 10
+[08:59:52]: server[1]: finished reading data from sd 10
+[09:00:02]: server[1]: new connection from 127.0.0.1:57292, sd: 11
+[09:00:02]: server[1]: got 517 bytes from sd 11
+[09:00:22]: server[1]: new connection from 127.0.0.1:57324, sd: 13
+[09:00:22]: server[1]: got 517 bytes from sd 13
+[09:00:32]: server[1]: finished reading data from sd 11
+[09:00:32]: server[1]: Error! Unknown method from sd 11
+[09:00:32]: server[1]: finished reading data from sd 11
+[09:00:52]: server[1]: finished reading data from sd 13
+[09:00:52]: server[1]: Error! Unknown method from sd 13
+[09:00:52]: server[1]: finished reading data from sd 13
+[09:09:22]: server[1]: new connection from 127.0.0.1:57484, sd: 14
+[09:09:22]: server[1]: got 517 bytes from sd 14
+[09:09:52]: server[1]: finished reading data from sd 14
+[09:09:52]: server[1]: Error! Unknown method from sd 14
+[09:09:52]: server[1]: finished reading data from sd 14
+[09:10:02]: server[1]: new connection from 127.0.0.1:57521, sd: 15
+[09:10:02]: server[1]: got 517 bytes from sd 15
+[09:10:22]: server[1]: new connection from 127.0.0.1:57558, sd: 16
+[09:10:22]: server[1]: got 517 bytes from sd 16
+[09:10:32]: server[1]: finished reading data from sd 15
+[09:10:32]: server[1]: Error! Unknown method from sd 15
+[09:10:32]: server[1]: finished reading data from sd 15
+[09:10:52]: server[1]: finished reading data from sd 16
+[09:10:53]: server[1]: Error! Unknown method from sd 16
+[09:10:53]: server[1]: finished reading data from sd 16
+[09:10:53]: server[1]: client closed sd 16
+[09:11:07]: server[0]: finished reading data from sd 9
+[09:11:07]: server[0]: finished reading data from sd 9
+[09:11:35]: server[0]: new connection from 127.0.0.1:57609, sd: 16
+[09:11:35]: server[0]: got 325 bytes from sd 16
+[09:11:37]: server[0]: new connection from 127.0.0.1:57612, sd: 17
+[09:11:37]: server[0]: finished reading data from sd 16
+[09:11:37]: server[0]: finished reading data from sd 16
+[09:11:37]: server[0]: finished reading data from sd 17
+[09:11:37]: server[0]: Error! Unknown method from sd 17
+[09:11:37]: server[0]: finished reading data from sd 17
+[09:11:37]: server[0]: client closed sd 17
+[09:12:08]: server[0]: new connection from 127.0.0.1:57634, sd: 17
+[09:12:08]: server[0]: got 376 bytes from sd 17
+[09:12:28]: server[0]: finished reading data from sd 17
+[09:12:28]: server[0]: finished reading data from sd 17
+[09:19:22]: server[1]: new connection from 127.0.0.1:57822, sd: 18
+[09:19:23]: server[1]: got 517 bytes from sd 18
+[09:19:52]: server[1]: finished reading data from sd 18
+[09:19:52]: server[1]: Error! Unknown method from sd 18
+[09:19:52]: server[1]: finished reading data from sd 18
+[09:19:52]: server[1]: client closed sd 18
+[09:20:02]: server[1]: new connection from 127.0.0.1:57863, sd: 18
+[09:20:02]: server[1]: got 517 bytes from sd 18
+[09:20:22]: server[1]: new connection from 127.0.0.1:57903, sd: 19
+[09:20:22]: server[1]: got 517 bytes from sd 19
+[09:20:32]: server[1]: finished reading data from sd 18
+[09:20:32]: server[1]: Error! Unknown method from sd 18
+[09:20:32]: server[1]: finished reading data from sd 18
+[09:20:32]: server[1]: client closed sd 18
+[09:20:52]: server[1]: finished reading data from sd 19
+[09:20:52]: server[1]: Error! Unknown method from sd 19
+[09:20:52]: server[1]: finished reading data from sd 19
+[09:26:39]: server[0]: new connection from 127.0.0.1:58056, sd: 18
+[09:26:39]: server[0]: got 356 bytes from sd 18
+[09:28:37]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[09:29:33]: 27 Sept. 2022 
+[09:29:33]: Starting... 
+[09:29:33]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[09:29:33]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[09:29:33]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[09:29:33]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[09:29:33]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[09:29:33]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[09:29:33]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[09:30:02]: server[1]: new connection from 127.0.0.1:58173, sd: 9
+[09:30:02]: server[1]: got 517 bytes from sd 9
+[09:30:22]: server[1]: new connection from 127.0.0.1:58211, sd: 10
+[09:30:22]: server[1]: got 517 bytes from sd 10
+[09:30:32]: server[1]: finished reading data from sd 9
+[09:30:32]: server[1]: Error! Unknown method from sd 9
+[09:30:32]: server[1]: finished reading data from sd 9
+[09:30:32]: server[1]: client closed sd 9
+[09:30:52]: server[1]: finished reading data from sd 10
+[09:30:52]: server[1]: Error! Unknown method from sd 10
+[09:30:52]: server[1]: finished reading data from sd 10
+[09:39:22]: server[1]: new connection from 127.0.0.1:58432, sd: 9
+[09:39:22]: server[1]: got 517 bytes from sd 9
+[09:39:52]: server[1]: finished reading data from sd 9
+[09:39:52]: server[1]: Error! Unknown method from sd 9
+[09:39:52]: server[1]: finished reading data from sd 9
+[09:40:02]: server[1]: new connection from 127.0.0.1:58470, sd: 11
+[09:40:02]: server[1]: got 517 bytes from sd 11
+[09:40:22]: server[1]: new connection from 127.0.0.1:58508, sd: 13
+[09:40:22]: server[1]: got 517 bytes from sd 13
+[09:40:32]: server[1]: finished reading data from sd 11
+[09:40:32]: server[1]: Error! Unknown method from sd 11
+[09:40:32]: server[1]: finished reading data from sd 11
+[09:40:52]: server[1]: finished reading data from sd 13
+[09:40:52]: server[1]: Error! Unknown method from sd 13
+[09:40:52]: server[1]: finished reading data from sd 13
+[09:49:22]: server[1]: new connection from 127.0.0.1:58735, sd: 14
+[09:49:22]: server[1]: got 517 bytes from sd 14
+[09:49:52]: server[1]: finished reading data from sd 14
+[09:49:52]: server[1]: Error! Unknown method from sd 14
+[09:49:52]: server[1]: finished reading data from sd 14
+[09:50:02]: server[1]: new connection from 127.0.0.1:58774, sd: 15
+[09:50:02]: server[1]: got 517 bytes from sd 15
+[09:50:22]: server[1]: new connection from 127.0.0.1:58814, sd: 16
+[09:50:22]: server[1]: got 517 bytes from sd 16
+[09:50:32]: server[1]: finished reading data from sd 15
+[09:50:32]: server[1]: Error! Unknown method from sd 15
+[09:50:32]: server[1]: finished reading data from sd 15
+[09:50:32]: server[1]: client closed sd 15
+[09:50:52]: server[1]: finished reading data from sd 16
+[09:50:52]: server[1]: Error! Unknown method from sd 16
+[09:50:52]: server[1]: finished reading data from sd 16
+[09:50:52]: server[1]: client closed sd 16
+[09:59:22]: server[1]: new connection from 127.0.0.1:59032, sd: 15
+[09:59:22]: server[1]: got 517 bytes from sd 15
+[09:59:52]: server[1]: finished reading data from sd 15
+[09:59:52]: server[1]: Error! Unknown method from sd 15
+[09:59:52]: server[1]: finished reading data from sd 15
+[10:00:02]: server[1]: new connection from 127.0.0.1:59073, sd: 16
+[10:00:02]: server[1]: got 517 bytes from sd 16
+[10:00:22]: server[1]: new connection from 127.0.0.1:59111, sd: 17
+[10:00:22]: server[1]: got 517 bytes from sd 17
+[10:00:32]: server[1]: finished reading data from sd 16
+[10:00:32]: server[1]: Error! Unknown method from sd 16
+[10:00:32]: server[1]: finished reading data from sd 16
+[10:00:32]: server[1]: client closed sd 16
+[10:00:52]: server[1]: finished reading data from sd 17
+[10:00:52]: server[1]: Error! Unknown method from sd 17
+[10:00:52]: server[1]: finished reading data from sd 17
+[10:09:22]: server[1]: new connection from 127.0.0.1:59632, sd: 16
+[10:09:22]: server[1]: got 517 bytes from sd 16
+[10:09:52]: server[1]: finished reading data from sd 16
+[10:09:52]: server[1]: Error! Unknown method from sd 16
+[10:09:52]: server[1]: finished reading data from sd 16
+[10:09:52]: server[1]: client closed sd 16
+[10:10:02]: server[1]: new connection from 127.0.0.1:59690, sd: 16
+[10:10:02]: server[1]: got 517 bytes from sd 16
+[10:10:22]: server[1]: new connection from 127.0.0.1:59727, sd: 18
+[10:10:22]: server[1]: got 517 bytes from sd 18
+[10:10:32]: server[1]: finished reading data from sd 16
+[10:10:32]: server[1]: Error! Unknown method from sd 16
+[10:10:32]: server[1]: finished reading data from sd 16
+[10:10:32]: server[1]: client closed sd 16
+[10:10:52]: server[1]: finished reading data from sd 18
+[10:10:52]: server[1]: Error! Unknown method from sd 18
+[10:10:52]: server[1]: finished reading data from sd 18
+[10:10:52]: server[1]: client closed sd 18
+[10:19:22]: server[1]: new connection from 127.0.0.1:60261, sd: 16
+[10:19:22]: server[1]: got 517 bytes from sd 16
+[10:19:52]: server[1]: finished reading data from sd 16
+[10:19:52]: server[1]: Error! Unknown method from sd 16
+[10:19:52]: server[1]: finished reading data from sd 16
+[10:20:02]: server[1]: new connection from 127.0.0.1:60309, sd: 18
+[10:20:02]: server[1]: got 517 bytes from sd 18
+[10:20:07]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:45:15]: 27 Sept. 2022 
+[10:45:15]: Starting... 
+[10:45:15]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[10:45:15]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:45:15]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:45:15]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:45:15]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:45:15]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:45:15]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:45:40]: server[0]: new connection from 127.0.0.1:62085, sd: 9
+[10:45:40]: server[0]: got 356 bytes from sd 9
+[10:45:40]: server[0]: Error! Can not open the file 127.0.0.1:4242//resourcespage.html9
+[10:46:15]: server[0]: new connection from 127.0.0.1:62160, sd: 10
+[10:46:15]: server[0]: got 356 bytes from sd 10
+[10:46:15]: server[0]: Error! Can not open the file 127.0.0.1:4242//resourcespage.html10
+[10:46:41]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

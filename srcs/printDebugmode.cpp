@@ -227,17 +227,17 @@ void printConnection(t_connection connection, std::string msg, int sign)
 		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
 		i++;
 	}
-	if (connection.responseStatusCodes.size() > 0)
+	if (connection.responseStatusCodesAll.size() > 0)
 	{
 		std::cout << "Response status codes:" << std::endl;
-		for(std::map<std::string, std::string>::iterator iter = connection.responseStatusCodes.begin(); iter != connection.responseStatusCodes.end(); iter++)
+		for(std::map<std::string, std::string>::iterator iter = connection.responseStatusCodesAll.begin(); iter != connection.responseStatusCodesAll.end(); iter++)
 			std::cout << (*iter).first << ":" << (*iter).second << "\t";
 		std::cout << std::endl;
 	}
-	if (connection.contentTypes.size() > 0)
+	if (connection.contentTypesAll.size() > 0)
 	{
 		std::cout << "Content types:" << std::endl;
-		for(std::map<std::string, std::string>::iterator iter = connection.contentTypes.begin(); iter != connection.contentTypes.end(); iter++)
+		for(std::map<std::string, std::string>::iterator iter = connection.contentTypesAll.begin(); iter != connection.contentTypesAll.end(); iter++)
 			std::cout << (*iter).first << ":" << (*iter).second << "\t";
 		std::cout << std::endl;
 	}

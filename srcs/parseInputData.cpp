@@ -1,5 +1,13 @@
 #include "main.hpp"
 
+bool checkDelimeterAtTheEnd(std::string str)
+{
+	std::string delim = DELIMETER;
+	if ((str.size() > 1) && (str[str.size() - 2] == delim[delim.size() - 2]) && (str[str.size() - 1] == delim[delim.size() - 1]))
+		return true;
+	return false;
+}
+
 void delWhiteSpacesStr(std::string & inptStr)
 {
 	// _replace tabs into spaces
@@ -151,7 +159,7 @@ bool parseInputData(char * buf, t_connection * connection)
 			msg = "Error! Incorrect request from sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-
+			connection->responseStatusCode = "400";
 			return false;
 		}
 

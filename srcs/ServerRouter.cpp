@@ -20,9 +20,9 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	std::vector<std::string> metods(std::begin(arr), std::end(arr));
 	_allowedMethods.clear();
 	_allowedMethods = metods;
-	// #ifdef DEBUGMODE
-	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
-	// #endif
+	#ifdef DEBUGMODE
+		printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
+	#endif
 }
 
 ServerRouter::~ServerRouter() {}
@@ -264,13 +264,15 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 			msg = "Error! Unknown method from sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-			_addStatusCode(answer, connection, "405");
+			// _addStatusCode(answer, connection, "405");
+			connection->responseStatusCode = "405";
+			answer += connection->responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseStatusCode] + DELIMETER;
 		}
-		if (connection->inputdata.method == "GET")
+		else if (connection->inputdata.method == "GET")
 			_prepareGetAnswer(answer, connection);
-		if (connection->inputdata.method == "POST")
+		else if (connection->inputdata.method == "POST")
 			_preparePostAnswer(answer, connection);
-		if (connection->inputdata.method == "DELETE")
+		else if (connection->inputdata.method == "DELETE")
 			_prepareDeleteAnswer(answer, connection);
 	}
 
@@ -285,6 +287,7 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 		_removeSdFromPollfds(connection->clntSd);
 		_removeConnection(connection->clntSd);
 	}
+	connection->status = WRITE_DONE;
 	return 0; //?
 }
 
@@ -306,13 +309,21 @@ void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connec
 		msg = "Error! Unknown location addr from sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		_addStatusCode(answer, connection, "404");
+		connection->responseStatusCode = "404";
 	}
-	else
-		_addStatusCode(answer, connection, "200");
-	answer += "Server: ";
+	// else
+	// 	connection->responseStatusCode = "200";
+
+	std::string contentTypeAndLength = "";
+	_addFileToAnswer(contentTypeAndLength, connection);
+
+	answer += connection->responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseStatusCode] + DELIMETER;
+	answer += "Server: \"";
 	answer += WEBSERV_NAME;
+	answer += "\"";
 	answer += DELIMETER;
+	answer += contentTypeAndLength;
+	answer += DDELIMETER;
 
 
 
@@ -332,13 +343,118 @@ void ServerRouter::_prepareDeleteAnswer(std::string & answer, t_connection * con
 
 }
 
-void ServerRouter::_addStatusCode(std::string & answer, t_connection * connection, std::string code)
+void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connection * connection)
 {
-	if (connection->responseStatusCodes.find(code) != connection->responseStatusCodes.end())
-		answer += code + " " + connection->responseStatusCodes[code] + DELIMETER;
+	std::string msg;
+	Server server = _getServer(connection->srvNbr);
+	std::string path = server.getConfig().listen + connection->inputdata.address;
+	size_t i;
+	for (i = 0; i < server.getConfig().locations.size(); i++)
+	{
+		if (connection->inputdata.address == server.getConfig().locations[i].path)
+		{
+			if (server.getConfig().locations[i].root != "")
+				path += server.getConfig().locations[i].root;
+			if (server.getConfig().locations[i].index != "")
+				path += server.getConfig().locations[i].index;
+			break;
+		}
+	}
+	if (i == server.getConfig().locations.size())
+	{
+		if (server.getConfig().root != "")
+			path += server.getConfig().root;
+		if (server.getConfig().index != "")
+			path += server.getConfig().index;
+	}
+
+	const char * pathChar = path.c_str();
+	struct  stat buf;
+	
+	lstat(pathChar, & buf);
+	FILE * file = fopen(pathChar, "rb"); //r - read only, b - in binary
+	if (!S_ISREG(buf.st_mode) || file == NULL)
+	{
+		msg = "Error! Can not open the file " + path;
+		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		connection->responseStatusCode = "404";
+	}
 	else
-		answer += "200 " + connection->responseStatusCodes["200"] + DELIMETER;
+	{
+		msg = "The file " + path + " was sucsessfully opened";
+		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		connection->responseStatusCode = "200";
+
+		fseek(file, 0L, SEEK_END);
+		int fileLength = ftell(file);
+
+		int dot = path.find(".");
+		std::string ext = path.substr(dot + 1, path.length() - dot);
+		std::string contType;
+		if (connection->contentTypesAll.find(ext) != connection->contentTypesAll.end())
+			contType = connection->contentTypesAll[ext];
+		else
+			contType = "text/html";
+
+		contentTypeAndLength = "Content-Type: " + contType + "charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength);
+		fclose(file);
+	}
 }
+
+int ServerRouter::_readSd(t_connection * connection)
+{
+	char buf[BUF_SIZE + 1];
+	std::string msg;
+
+	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+	if (qtyBytes == 0)
+	{
+		msg = "finished reading data from sd ";
+		printMsg(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		connection->status = READ_DONE;
+		connection->responseStatusCode = "200";
+		return qtyBytes;
+	}
+	else if (qtyBytes > 0)
+	{
+		buf[qtyBytes] = '\0';
+		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
+		printMsg(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		connection->inputStr += buf;
+		if (checkDelimeterAtTheEnd(connection->inputStr))
+		{
+			connection->status = READ_DONE;
+			if (!parseInputData(buf, connection))
+			{
+				while (qtyBytes > 0)
+					qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+				// connection->status = READ_DONE;
+				connection->inputStr = "";
+				return 0;
+			}
+			connection->responseStatusCode = "200";
+			// connection->inputStr = "";
+		}
+		connection->responseStatusCode = "100";
+
+
+
+
+	}
+	return qtyBytes;
+}
+
+// void ServerRouter::_addStatusCode(std::string & answer, t_connection * connection, std::string code)
+// {
+// 	if (connection->responseStatusCodesAll.find(code) != connection->responseStatusCodesAll.end())
+// 		answer += code + " " + connection->responseStatusCodesAll[code] + DELIMETER;
+// 	else
+// 		answer += "200 " + connection->responseStatusCodesAll["200"] + DELIMETER;
+// }
 
 // bool ServerRouter::_responseCheckMethod()
 // {
@@ -411,42 +527,6 @@ bool ServerRouter::_isSocketServer(int fd)
 	return false;
 }
 
-int ServerRouter::_readSd(t_connection * connection)
-{
-	char buf[BUF_SIZE + 1];
-	std::string msg;
-
-	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
-	if (qtyBytes == 0)
-	{
-		msg = "finished reading data from sd ";
-		printMsg(connection->srvNbr, connection->clntSd, msg, "");
-		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->status = READ_DONE;
-		return qtyBytes;
-	}
-	else if (qtyBytes > 0)
-	{
-		buf[qtyBytes] = '\0';
-		connection->inputStr += buf;
-		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
-		printMsg(connection->srvNbr, connection->clntSd, msg, "");
-		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		if (!parseInputData(buf, connection))
-		{
-			while (qtyBytes > 0)
-				qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
-			connection->status = READ_DONE;
-			return 0;
-		}
-
-
-
-
-	}
-	return qtyBytes;
-}
-
 t_connection * ServerRouter::_getConnection(int clntSd)
 {
 	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
@@ -467,13 +547,16 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
 	connection.inputStr.clear();
-	connection.responseStatusCodes = _responseStatusCodes;
-	connection.contentTypes = _contentTypes;
+	connection.responseStatusCode = "200";
+	connection.responseStatusCodesAll = _responseStatusCodes;
+	connection.contentTypesAll = _contentTypes;
 	connection.allowedMethods.clear();
 	connection.allowedMethods = _allowedMethods;
-	// connection.methods.push_back("GET");
-	// connection.methods.push_back("POST");
-	// connection.methods.push_back("DELETE");
+	connection.inputdata.address = "";
+	connection.inputdata.dataType = DATA_START;
+	connection.inputdata.htmlFields.clear();
+	connection.inputdata.httpVersion = "";
+	connection.inputdata.method = "";
 	_connections.push_back(connection);
 }
 

@@ -43,6 +43,7 @@
 # include <sys/poll.h>
 # include <sys/select.h>
 # include <sys/socket.h>
+# include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
 # include <vector>
@@ -94,5 +95,6 @@ uint16_t	atou16(const char *s);
 void	exitErr(std::string errmsg);
 void	ctrl_c_handler(int signum);
 void	delWhiteSpacesStr(std::string & inptStr);
+bool	checkDelimeterAtTheEnd(std::string str);
 
 #endif
