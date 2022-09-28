@@ -157,7 +157,12 @@ void ServerRouter::start()
 	while (42)
 	{
 		if (!_mainLoop())
+		{
+			std::cout << "!_mainLoop()" << std::endl;
 			break;
+		}
+		_checkTimeout();
+		std::cout << "Hi42!" << std::endl;
 	}
 
 	_closeSockets();
@@ -170,6 +175,7 @@ bool ServerRouter::_mainLoop()
 	struct sockaddr_in addrNew;
 	std::string msg;
 
+	std::cout << "_mainLoop()" << std::endl;
 	int ret = poll(_pollfds, _pollfdsQty, -1);
 	if (ret < 0 || ret == 0)
 	{
@@ -180,10 +186,15 @@ bool ServerRouter::_mainLoop()
 	}
 	for (size_t i = 0; i < _pollfdsQty; i++)
 	{
+		std::cout << "size_t i = 0; i < _pollfdsQty; i++" << std::endl;
 		if (_pollfds[i].revents == 0)
+		{
+			std::cout << "revents == 0" << std::endl;
 			continue;
+		}
 		if (_isSocketServer(_pollfds[i].fd))
 		{
+			std::cout << "_isSocketServer" << std::endl;
 			int sd = accept(_pollfds[i].fd, (struct sockaddr *)&addrNew, &socklen);
 			fcntl(sd, F_SETFL, O_NONBLOCK);
 			if (sd < 0)
@@ -207,12 +218,15 @@ bool ServerRouter::_mainLoop()
 		}
 		else
 		{
+			std::cout << "else" << std::endl;
 			int clntSd = _pollfds[i].fd;
 			t_connection * connection = _getConnection(clntSd);
 			connection->pfd = &(_pollfds[i]);
 			char buf[BUF_SIZE + 1];
 			if (_pollfds[i].revents & POLLIN) // есть данные для чтения
 			{
+				std::cout << "_pollfds[i].revents & POLLIN" << std::endl;
+				// _setConnectionLastActivity(connection->lastActivityTime);
 				_readSd(connection);
 
 				#ifdef DEBUGMODE
@@ -227,27 +241,28 @@ bool ServerRouter::_mainLoop()
 
 				// _pollfds[i].revents = 0;
 			}
-			else if (_pollfds[i].revents & POLLOUT) // запись возможна
-			{
-				std::cout << "POLOUT" << std::endl;
-				_sendAnswer(connection);
-				if (connection->status == WRITE_DONE)
-				{
-					connection->pfd->events = POLLIN;
-					connection->inputStr = "";
-				}
-			}
+			// else if (_pollfds[i].revents & POLLOUT) // запись возможна
+			// {
+			// 	std::cout << "POLOUT" << std::endl;
+			// 	_sendAnswer(connection);
+			// 	if (connection->status == WRITE_DONE)
+			// 	{
+			// 		connection->pfd->events = POLLIN;
+			// 		connection->inputdata.inputStr = "";
+			// 	}
+			// 	std::cout << "POLOUT2" << std::endl;
+			// }
 			else if (recv(clntSd, buf, BUF_SIZE, MSG_PEEK) == 0)
 			{
 				msg = "client closed sd ";
 				printMsg(connection->srvNbr, clntSd, msg, "");
 				printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
-				close (clntSd);
-				_removeSdFromPollfds(clntSd);
-				_removeConnection(clntSd);
+				_closeConnection (clntSd);
 			}
-			// std::cout << "Hi!" << std::endl;
+			// else
+			// 	_closeConnection (clntSd);
 		}
+		std::cout << "Hi!" << std::endl;
 	}
 	return true;
 }
@@ -265,8 +280,8 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 			// _addStatusCode(answer, connection, "405");
-			connection->responseStatusCode = "405";
-			answer += connection->responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseStatusCode] + DELIMETER;
+			connection->responseData.responseStatusCode = "405";
+			answer += connection->responseData.responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseData.responseStatusCode] + DELIMETER;
 		}
 		else if (connection->inputdata.method == "GET")
 			_prepareGetAnswer(answer, connection);
@@ -282,12 +297,9 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	#endif
 
 	if (send(connection->clntSd, answer.c_str(), answer.length(), 0) < 0)
-	{
-		close (connection->clntSd);
-		_removeSdFromPollfds(connection->clntSd);
-		_removeConnection(connection->clntSd);
-	}
+		_closeConnection (connection->clntSd);
 	connection->status = WRITE_DONE;
+	// _setConnectionLastActivity(connection->lastActivityTime);
 	return 0; //?
 }
 
@@ -309,7 +321,7 @@ void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connec
 		msg = "Error! Unknown location addr from sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->responseStatusCode = "404";
+		connection->responseData.responseStatusCode = "404";
 	}
 	// else
 	// 	connection->responseStatusCode = "200";
@@ -317,7 +329,7 @@ void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connec
 	std::string contentTypeAndLength = "";
 	_addFileToAnswer(contentTypeAndLength, connection);
 
-	answer += connection->responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseStatusCode] + DELIMETER;
+	answer += connection->responseData.responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseData.responseStatusCode] + DELIMETER;
 	answer += "Server: \"";
 	answer += WEBSERV_NAME;
 	answer += "\"";
@@ -349,7 +361,10 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 	Server server = _getServer(connection->srvNbr);
 	// std::string path = server.getConfig().listen + connection->inputdata.address;
 	std::string path = "." + connection->inputdata.address;
+
 	size_t i;
+	if (server.getConfig().root != "")
+		path += server.getConfig().root;
 	for (i = 0; i < server.getConfig().locations.size(); i++)
 	{
 		if (connection->inputdata.address == server.getConfig().locations[i].path)
@@ -358,16 +373,38 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 				path += server.getConfig().locations[i].root;
 			if (server.getConfig().locations[i].index != "")
 				path += server.getConfig().locations[i].index;
+			else
+				path += "index.html";
 			break;
 		}
 	}
 	if (i == server.getConfig().locations.size())
 	{
-		if (server.getConfig().root != "")
-			path += server.getConfig().root;
 		if (server.getConfig().index != "")
 			path += server.getConfig().index;
+		else
+			path += "index.html";
 	}
+
+	// size_t i;
+	// for (i = 0; i < server.getConfig().locations.size(); i++)
+	// {
+	// 	if (connection->inputdata.address == server.getConfig().locations[i].path)
+	// 	{
+	// 		if (server.getConfig().locations[i].root != "")
+	// 			path += server.getConfig().locations[i].root;
+	// 		if (server.getConfig().locations[i].index != "")
+	// 			path += server.getConfig().locations[i].index;
+	// 		break;
+	// 	}
+	// }
+	// if (i == server.getConfig().locations.size())
+	// {
+	// 	if (server.getConfig().root != "")
+	// 		path += server.getConfig().root;
+	// 	if (server.getConfig().index != "")
+	// 		path += server.getConfig().index;
+	// }
 
 	const char * pathChar = path.c_str();
 	struct  stat buf;
@@ -379,14 +416,14 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 		msg = "Error! Can not open the file " + path + ", sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->responseStatusCode = "404";
+		connection->responseData.responseStatusCode = "404";
 	}
 	else
 	{
 		msg = "The file " + path + " was sucsessfully opened, sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->responseStatusCode = "200";
+		connection->responseData.responseStatusCode = "200";
 
 		fseek(file, 0L, SEEK_END);
 		int fileLength = ftell(file);
@@ -416,7 +453,7 @@ int ServerRouter::_readSd(t_connection * connection)
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		connection->status = READ_DONE;
-		connection->responseStatusCode = "200";
+		connection->responseData.responseStatusCode = "200";
 		return qtyBytes;
 	}
 	else if (qtyBytes > 0)
@@ -425,8 +462,8 @@ int ServerRouter::_readSd(t_connection * connection)
 		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->inputStr += buf;
-		if (checkDelimeterAtTheEnd(connection->inputStr))
+		connection->inputdata.inputStr += buf;
+		if (checkDelimeterAtTheEnd(connection->inputdata.inputStr))
 		{
 			connection->status = READ_DONE;
 			if (!parseInputData(buf, connection))
@@ -434,13 +471,13 @@ int ServerRouter::_readSd(t_connection * connection)
 				while (qtyBytes > 0)
 					qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
 				// connection->status = READ_DONE;
-				connection->inputStr = "";
+				connection->inputdata.inputStr = "";
 				return 0;
 			}
-			connection->responseStatusCode = "200";
+			connection->responseData.responseStatusCode = "200";
 			// connection->inputStr = "";
 		}
-		connection->responseStatusCode = "100";
+		connection->responseData.responseStatusCode = "100";
 
 
 
@@ -504,6 +541,13 @@ void ServerRouter::_closeSockets()
 	}
 }
 
+void ServerRouter::_closeConnection(int clntSd)
+{
+	close (clntSd);
+	_removeSdFromPollfds(clntSd);
+	_removeConnection(clntSd);
+}
+
 bool ServerRouter::_isSocketServer(int fd)
 {
 	// #ifdef DEBUGMODE
@@ -547,18 +591,47 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.status = READ;
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
-	connection.inputStr.clear();
-	connection.responseStatusCode = "200";
 	connection.responseStatusCodesAll = _responseStatusCodes;
 	connection.contentTypesAll = _contentTypes;
 	connection.allowedMethods.clear();
 	connection.allowedMethods = _allowedMethods;
+	connection.inputdata.inputStr.clear();
 	connection.inputdata.address = "";
 	connection.inputdata.dataType = DATA_START;
 	connection.inputdata.htmlFields.clear();
 	connection.inputdata.httpVersion = "";
 	connection.inputdata.method = "";
+	connection.responseData.responseStatusCode = "200";
+	_setConnectionLastActivity(connection.lastActivityTime);
 	_connections.push_back(connection);
+}
+
+void ServerRouter::_setConnectionLastActivity(long int & lastActivityTime)
+{
+	struct timeval	tm;
+	gettimeofday(&tm, NULL);
+	lastActivityTime = tm.tv_sec;
+}
+
+void ServerRouter::_checkTimeout()
+{
+	std::string msg, msg1;
+	struct timeval	tm1;
+	gettimeofday(&tm1, NULL);
+	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
+	{
+		// #ifdef DEBUGMODE
+		// 	std::cout << "**** DEBUGMODE _checkTimeout ****\ntime now: " << tm1.tv_sec << "\tlastActivityTime: " << (*iter).lastActivityTime << "\tTIMEOUT: " << TIMEOUT << "\n--------" << std::endl;
+		// #endif
+		if (tm1.tv_sec - (*iter).lastActivityTime >= TIMEOUT)
+		{
+			msg = "closed sd ";
+			msg1 = " by timeout";
+			printMsg((*iter).srvNbr, (*iter).clntSd, msg, msg1);
+			printMsgToLogFile((*iter).srvNbr, (*iter).clntSd, msg, msg1);
+			_closeConnection((*iter).clntSd);
+		}
+	}
 }
 
 void ServerRouter::_responseStatusCodesInit()

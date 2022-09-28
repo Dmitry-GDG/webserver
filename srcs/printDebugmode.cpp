@@ -207,6 +207,7 @@ void printConnection(t_connection connection, std::string msg, int sign)
 		}
 	}
 	std::cout << "Position:\t" << connection.position << std::endl;
+	std::cout << "Last Connection time:\t" << connection.lastActivityTime << " sec" << std::endl;
 	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
 	std::cout << "Status:\t\t" << sts[connection.status] << std::endl;
@@ -241,8 +242,8 @@ void printConnection(t_connection connection, std::string msg, int sign)
 			std::cout << (*iter).first << ":" << (*iter).second << "\t";
 		std::cout << std::endl;
 	}
-	if (connection.inputStr.size() > 0)
-		std::cout << "Input str:\n" << connection.inputStr << std::endl;
+	if (connection.inputdata.inputStr.size() > 0)
+		std::cout << "Input str:\n" << connection.inputdata.inputStr << std::endl;
 
 	std::cout << "----------------" << std::endl;
 }

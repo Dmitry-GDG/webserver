@@ -49,8 +49,11 @@ class ServerRouter
 		bool	_launch(Server &, int);
 		bool	_mainLoop();
 		void	_closeSockets();
+		void	_closeConnection(int clntSd);
 		bool	_isSocketServer(int);
 		void	_saveConnection(int, int,  std::string, unsigned);
+		void	_setConnectionLastActivity(long int & lastActivityTime);
+		void	_checkTimeout();
 		// void	_initInputdata(t_inputdata & data);
 		void	_removeSdFromPollfds(int);
 		void	_removeConnection(int);

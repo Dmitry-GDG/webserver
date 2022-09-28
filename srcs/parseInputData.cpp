@@ -159,7 +159,7 @@ bool parseInputData(char * buf, t_connection * connection)
 			msg = "Error! Incorrect request from sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-			connection->responseStatusCode = "400";
+			connection->responseData.responseStatusCode = "400";
 			return false;
 		}
 

@@ -47,8 +47,15 @@ typedef struct s_inputdata
 	std::string		address;
 	std::string		httpVersion;
 	InputDataType	dataType; // HTTP, DATA_START, DATA_CONTIN
+	std::string		inputStr;
 	std::map<std::string, std::string>	htmlFields;
 } t_inputdata;
+
+typedef struct s_response
+{
+	std::string		responseStatusCode;
+
+} t_response;
 
 typedef struct s_connection
 {
@@ -57,13 +64,12 @@ typedef struct s_connection
 	std::string			fromIp;
 	unsigned			fromPort;
 	size_t				position;
+	pollfd				* pfd;
+	long int			lastActivityTime;
 	ConnectionStatus	status;
 	// std::string			status; // 	READ, READ_DONE, WRITE, WRITE_DONE
 	t_inputdata			inputdata;
-	pollfd				* pfd;
-	std::string			inputStr;
-	std::string			responseStatusCode;
-	// bool				isInputStrFinished;
+	t_response			responseData;
 	std::vector<std::string> allowedMethods; // GET, POST, DELETE
 	std::map<std::string, std::string> responseStatusCodesAll;
 	std::map<std::string, std::string>	contentTypesAll;

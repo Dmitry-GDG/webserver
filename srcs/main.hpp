@@ -11,6 +11,7 @@
 # define DELIMETER "\r\n"
 # define DDELIMETER "\r\n\r\n"
 // # define DELIMETER "\\r\\n"
+# define TIMEOUT 180 // in seconds
 
 # define NC "\033[0m"
 # define REV "\033[7m"
@@ -44,6 +45,7 @@
 # include <sys/select.h>
 # include <sys/socket.h>
 # include <sys/stat.h>
+# include <sys/time.h>
 # include <sys/types.h>
 # include <unistd.h>
 # include <vector>
