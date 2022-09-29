@@ -114,16 +114,16 @@ bool parseInputData(char * buf, t_connection * connection)
 
 	std::vector<std::string> headerBody;
 	splitStrDelimeter(inpt, headerBody, DDELIMETER);
-	#ifdef DEBUGMODE
-		std::cout << "**** DEBUGMODE parseInputData splitStrDelimeter headerBody ****" << std::endl;
-		size_t jjj = 0;
-		for (std::vector<std::string>::iterator iter = headerBody.begin(); iter < headerBody.end(); iter++)
-		{
-			std::cout << "headerBody[" << jjj << "]: " << *iter << std::endl;
-			jjj++;
-		}
-		std::cout << "---- end of headerBody ----" << std::endl;
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << "**** DEBUGMODE parseInputData splitStrDelimeter headerBody ****" << std::endl;
+	// 	size_t jjj = 0;
+	// 	for (std::vector<std::string>::iterator iter = headerBody.begin(); iter < headerBody.end(); iter++)
+	// 	{
+	// 		std::cout << "headerBody[" << jjj << "]: " << *iter << std::endl;
+	// 		jjj++;
+	// 	}
+	// 	std::cout << "---- end of headerBody ----" << std::endl;
+	// #endif
 
 
 
@@ -159,7 +159,7 @@ bool parseInputData(char * buf, t_connection * connection)
 			msg = "Error! Incorrect request from sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-			connection->responseData.responseStatusCode = "400";
+			connection->responseData.statusCode = "400";
 			return false;
 		}
 

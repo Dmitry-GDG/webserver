@@ -161,8 +161,8 @@ void ServerRouter::start()
 			std::cout << "!_mainLoop()" << std::endl;
 			break;
 		}
-		_checkTimeout();
-		std::cout << "Hi42!" << std::endl;
+		// _checkTimeout(); //disconnect by timeout
+		// std::cout << "Hi42!" << std::endl;
 	}
 
 	_closeSockets();
@@ -175,7 +175,7 @@ bool ServerRouter::_mainLoop()
 	struct sockaddr_in addrNew;
 	std::string msg;
 
-	std::cout << "_mainLoop()" << std::endl;
+	// std::cout << "_mainLoop()" << std::endl;
 	int ret = poll(_pollfds, _pollfdsQty, -1);
 	if (ret < 0 || ret == 0)
 	{
@@ -186,10 +186,10 @@ bool ServerRouter::_mainLoop()
 	}
 	for (size_t i = 0; i < _pollfdsQty; i++)
 	{
-		std::cout << "size_t i = 0; i < _pollfdsQty; i++" << std::endl;
+		// std::cout << "size_t i = 0; i < _pollfdsQty; i++" << std::endl;
 		if (_pollfds[i].revents == 0)
 		{
-			std::cout << "revents == 0" << std::endl;
+			// std::cout << "revents == 0" << std::endl;
 			continue;
 		}
 		if (_isSocketServer(_pollfds[i].fd))
@@ -218,7 +218,7 @@ bool ServerRouter::_mainLoop()
 		}
 		else
 		{
-			std::cout << "else" << std::endl;
+			// std::cout << "else" << std::endl;
 			int clntSd = _pollfds[i].fd;
 			t_connection * connection = _getConnection(clntSd);
 			connection->pfd = &(_pollfds[i]);
@@ -235,7 +235,7 @@ bool ServerRouter::_mainLoop()
 
 
 
-				if (connection->status == READ_DONE)
+				if (connection->requestProcessingStep == READ_DONE)
 					connection->pfd->events = POLLOUT;
 
 
@@ -262,7 +262,7 @@ bool ServerRouter::_mainLoop()
 			// else
 			// 	_closeConnection (clntSd);
 		}
-		std::cout << "Hi!" << std::endl;
+		// std::cout << "Hi!" << std::endl;
 	}
 	return true;
 }
@@ -280,8 +280,8 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 			// _addStatusCode(answer, connection, "405");
-			connection->responseData.responseStatusCode = "405";
-			answer += connection->responseData.responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseData.responseStatusCode] + DELIMETER;
+			connection->responseData.statusCode = "405";
+			answer += connection->responseData.statusCode + " " + connection->responseStatusCodesAll[connection->responseData.statusCode] + DELIMETER;
 		}
 		else if (connection->inputData.method == "GET")
 			_prepareGetAnswer(answer, connection);
@@ -298,7 +298,7 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 
 	if (send(connection->clntSd, answer.c_str(), answer.length(), 0) < 0)
 		_closeConnection (connection->clntSd);
-	connection->status = WRITE_DONE;
+	connection->requestProcessingStep = WRITE_DONE;
 	// _setConnectionLastActivity(connection->lastActivityTime);
 	return 0; //?
 }
@@ -306,6 +306,7 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connection)
 {
 	std::string msg;
+	connection->responseData.type = GET;
 	Server server = _getServer(connection->srvNbr);
 	bool correctAddr = false;
 	if (connection->inputData.address != "\\")
@@ -321,7 +322,7 @@ void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connec
 		msg = "Error! Unknown location addr from sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->responseData.responseStatusCode = "404";
+		connection->responseData.statusCode = "404";
 	}
 	// else
 	// 	connection->responseStatusCode = "200";
@@ -329,7 +330,7 @@ void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connec
 	std::string contentTypeAndLength = "";
 	_addFileToAnswer(contentTypeAndLength, connection);
 
-	answer += connection->responseData.responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseData.responseStatusCode] + DELIMETER;
+	answer += connection->responseData.statusCode + " " + connection->responseStatusCodesAll[connection->responseData.statusCode] + DELIMETER;
 	answer += "Server: \"";
 	answer += WEBSERV_NAME;
 	answer += "\"";
@@ -343,6 +344,8 @@ void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connec
 
 void ServerRouter::_preparePostAnswer(std::string & answer, t_connection * connection)
 {
+	std::string msg;
+	connection->responseData.type = POST;
 	Server server = _getServer(connection->srvNbr);
 	(void) answer;
 
@@ -350,6 +353,8 @@ void ServerRouter::_preparePostAnswer(std::string & answer, t_connection * conne
 
 void ServerRouter::_prepareDeleteAnswer(std::string & answer, t_connection * connection)
 {
+	std::string msg;
+	connection->responseData.type = DELETE;
 	Server server = _getServer(connection->srvNbr);
 	(void) answer;
 
@@ -416,14 +421,14 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 		msg = "Error! Can not open the file " + path + ", sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->responseData.responseStatusCode = "404";
+		connection->responseData.statusCode = "404";
 	}
 	else
 	{
 		msg = "The file " + path + " was sucsessfully opened, sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->responseData.responseStatusCode = "200";
+		connection->responseData.statusCode = "200";
 
 		fseek(file, 0L, SEEK_END);
 		int fileLength = ftell(file);
@@ -452,8 +457,8 @@ int ServerRouter::_readSd(t_connection * connection)
 		msg = "finished reading data from sd ";
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->status = READ_DONE;
-		connection->responseData.responseStatusCode = "200";
+		connection->requestProcessingStep = READ_DONE;
+		connection->responseData.statusCode = "200";
 		return qtyBytes;
 	}
 	else if (qtyBytes > 0)
@@ -465,19 +470,19 @@ int ServerRouter::_readSd(t_connection * connection)
 		connection->inputData.inputStr += buf;
 		if (checkDelimeterAtTheEnd(connection->inputData.inputStr))
 		{
-			connection->status = READ_DONE;
+			connection->requestProcessingStep = READ_DONE;
 			if (!parseInputData(buf, connection))
 			{
 				while (qtyBytes > 0)
 					qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
 				// connection->status = READ_DONE;
-				connection->inputData.inputStr = "";
+				// connection->inputData.inputStr = "";
 				return 0;
 			}
-			connection->responseData.responseStatusCode = "200";
+			connection->responseData.statusCode = "200";
 			// connection->inputStr = "";
 		}
-		connection->responseData.responseStatusCode = "100";
+		connection->responseData.statusCode = "100";
 
 
 

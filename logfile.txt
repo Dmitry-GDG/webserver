@@ -3147,3 +3147,358 @@
 [10:50:56]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
 [10:50:59]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[13:44:00]: 29 Sept. 2022 
+[13:44:00]: Starting... 
+[13:44:00]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[13:44:00]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:44:00]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:44:00]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:44:00]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:44:00]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:44:00]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:44:10]: server[0]: new connection from 127.0.0.1:52374, sd: 9
+[13:44:10]: server[0]: got 356 bytes from sd 9
+[13:44:14]: server[0]: new connection from 127.0.0.1:52384, sd: 10
+[13:44:14]: server[0]: got 356 bytes from sd 10
+[13:44:25]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:45:26]: 29 Sept. 2022 
+[13:45:26]: Starting... 
+[13:45:26]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[13:45:26]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:45:26]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:45:26]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:45:26]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:45:26]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:45:26]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:45:30]: server[0]: new connection from 127.0.0.1:52447, sd: 9
+[13:45:30]: server[0]: got 356 bytes from sd 9
+[13:45:34]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:46:07]: 29 Sept. 2022 
+[13:46:07]: Starting... 
+[13:46:07]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[13:46:07]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:46:07]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:46:07]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:46:07]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:46:07]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:46:07]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:46:18]: server[0]: new connection from 127.0.0.1:52487, sd: 9
+[13:46:18]: server[0]: got 356 bytes from sd 9
+[13:46:21]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:46:46]: 29 Sept. 2022 
+[13:46:46]: Starting... 
+[13:46:46]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[13:46:46]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:46:46]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:46:46]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:46:46]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:46:46]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:46:46]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:46:51]: server[0]: new connection from 127.0.0.1:52521, sd: 9
+[13:46:51]: server[0]: got 356 bytes from sd 9
+[13:47:42]: server[1]: new connection from 127.0.0.1:52557, sd: 10
+[13:47:42]: server[1]: got 517 bytes from sd 10
+[13:48:12]: server[1]: finished reading data from sd 10
+[13:48:12]: server[1]: client closed sd 10
+[13:48:22]: server[1]: new connection from 127.0.0.1:52629, sd: 10
+[13:48:22]: server[1]: got 517 bytes from sd 10
+[13:48:42]: server[1]: new connection from 127.0.0.1:52718, sd: 11
+[13:48:42]: server[1]: new connection from 127.0.0.1:52719, sd: 13
+[13:48:42]: server[1]: got 517 bytes from sd 11
+[13:48:42]: server[1]: got 517 bytes from sd 13
+[13:48:42]: server[1]: new connection from 127.0.0.1:52720, sd: 14
+[13:48:42]: server[1]: new connection from 127.0.0.1:52721, sd: 15
+[13:48:42]: server[1]: got 517 bytes from sd 14
+[13:48:42]: server[1]: got 517 bytes from sd 15
+[13:48:52]: server[1]: finished reading data from sd 10
+[13:48:52]: server[1]: client closed sd 10
+[13:49:12]: server[1]: finished reading data from sd 11
+[13:49:12]: server[1]: client closed sd 11
+[13:49:12]: server[1]: finished reading data from sd 13
+[13:49:12]: server[1]: client closed sd 13
+[13:49:12]: server[1]: finished reading data from sd 14
+[13:49:12]: server[1]: client closed sd 14
+[13:49:12]: server[1]: finished reading data from sd 15
+[13:49:12]: server[1]: client closed sd 15
+[13:49:51]: server[0]: closed sd 9 by timeout
+[13:49:51]: server[0]: new connection from 127.0.0.1:52829, sd: 9
+[13:49:51]: server[0]: got 356 bytes from sd 9
+[13:51:17]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:51:22]: 29 Sept. 2022 
+[13:51:22]: Starting... 
+[13:51:22]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[13:51:22]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:51:22]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:51:22]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:51:22]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:51:22]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:51:22]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:51:25]: server[0]: new connection from 127.0.0.1:52906, sd: 9
+[13:51:25]: server[0]: got 356 bytes from sd 9
+[13:53:22]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:53:25]: 29 Sept. 2022 
+[13:53:25]: Starting... 
+[13:53:25]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[13:53:25]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:53:25]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:53:25]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:53:25]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:53:25]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:53:25]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:53:28]: server[0]: new connection from 127.0.0.1:53046, sd: 9
+[13:53:28]: server[0]: got 356 bytes from sd 9
+[13:55:14]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[13:55:18]: 29 Sept. 2022 
+[13:55:18]: Starting... 
+[13:55:18]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[13:55:18]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:55:18]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:55:18]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:55:18]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:55:18]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:55:18]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:55:26]: server[0]: new connection from 127.0.0.1:53136, sd: 9
+[13:55:26]: server[0]: got 356 bytes from sd 9
+[13:57:42]: server[1]: new connection from 127.0.0.1:53321, sd: 10
+[13:57:42]: server[1]: got 517 bytes from sd 10
+[13:58:12]: server[1]: finished reading data from sd 10
+[13:58:12]: server[1]: client closed sd 10
+[13:58:22]: server[1]: new connection from 127.0.0.1:53391, sd: 10
+[13:58:22]: server[1]: got 517 bytes from sd 10
+[13:58:26]: server[0]: closed sd 9 by timeout
+[13:58:26]: server[0]: new connection from 127.0.0.1:53483, sd: 9
+[13:58:26]: server[0]: got 356 bytes from sd 9
+[13:58:42]: server[1]: new connection from 127.0.0.1:53498, sd: 11
+[13:58:42]: server[1]: got 517 bytes from sd 11
+[13:58:42]: server[1]: new connection from 127.0.0.1:53499, sd: 13
+[13:58:42]: server[1]: got 517 bytes from sd 13
+[13:58:42]: server[1]: new connection from 127.0.0.1:53500, sd: 14
+[13:58:42]: server[1]: got 517 bytes from sd 14
+[13:58:42]: server[1]: new connection from 127.0.0.1:53501, sd: 15
+[13:58:42]: server[1]: got 517 bytes from sd 15
+[13:58:52]: server[1]: finished reading data from sd 10
+[13:58:52]: server[1]: client closed sd 10
+[13:59:12]: server[1]: finished reading data from sd 11
+[13:59:12]: server[1]: client closed sd 11
+[13:59:12]: server[1]: finished reading data from sd 13
+[13:59:12]: server[1]: client closed sd 13
+[13:59:12]: server[1]: finished reading data from sd 14
+[13:59:12]: server[1]: client closed sd 14
+[13:59:12]: server[1]: finished reading data from sd 15
+[13:59:12]: server[1]: client closed sd 15
+[14:01:26]: server[0]: closed sd 9 by timeout
+[14:01:26]: server[0]: new connection from 127.0.0.1:53671, sd: 9
+[14:01:26]: server[0]: got 356 bytes from sd 9
+[14:04:26]: server[0]: closed sd 9 by timeout
+[14:07:42]: server[1]: new connection from 127.0.0.1:54001, sd: 9
+[14:07:42]: server[1]: got 517 bytes from sd 9
+[14:07:56]: server[0]: new connection from 127.0.0.1:54020, sd: 10
+[14:07:56]: server[0]: got 356 bytes from sd 10
+[14:07:59]: server[0]: client closed sd 10
+[14:08:12]: server[1]: finished reading data from sd 9
+[14:08:12]: server[1]: client closed sd 9
+[14:08:22]: server[1]: new connection from 127.0.0.1:54066, sd: 9
+[14:08:22]: server[1]: got 517 bytes from sd 9
+[14:08:42]: server[1]: new connection from 127.0.0.1:54190, sd: 10
+[14:08:42]: server[1]: got 517 bytes from sd 10
+[14:08:42]: server[1]: new connection from 127.0.0.1:54191, sd: 11
+[14:08:42]: server[1]: new connection from 127.0.0.1:54192, sd: 13
+[14:08:42]: server[1]: got 517 bytes from sd 11
+[14:08:42]: server[1]: new connection from 127.0.0.1:54193, sd: 14
+[14:08:42]: server[1]: got 517 bytes from sd 13
+[14:08:42]: server[1]: got 517 bytes from sd 14
+[14:08:52]: server[1]: finished reading data from sd 9
+[14:08:52]: server[1]: client closed sd 9
+[14:09:12]: server[1]: finished reading data from sd 10
+[14:09:12]: server[1]: client closed sd 10
+[14:09:12]: server[1]: finished reading data from sd 11
+[14:09:12]: server[1]: finished reading data from sd 13
+[14:09:12]: server[1]: client closed sd 11
+[14:09:12]: server[1]: finished reading data from sd 14
+[14:09:12]: server[1]: client closed sd 13
+[14:09:12]: server[1]: client closed sd 14
+[14:17:42]: server[1]: new connection from 127.0.0.1:54601, sd: 9
+[14:17:42]: server[1]: got 517 bytes from sd 9
+[14:18:12]: server[1]: finished reading data from sd 9
+[14:18:12]: server[1]: client closed sd 9
+[14:18:23]: server[1]: new connection from 127.0.0.1:54694, sd: 9
+[14:18:23]: server[1]: got 517 bytes from sd 9
+[14:18:43]: server[1]: new connection from 127.0.0.1:54796, sd: 10
+[14:18:43]: server[1]: got 517 bytes from sd 10
+[14:18:43]: server[1]: new connection from 127.0.0.1:54797, sd: 11
+[14:18:43]: server[1]: got 517 bytes from sd 11
+[14:18:43]: server[1]: new connection from 127.0.0.1:54798, sd: 13
+[14:18:43]: server[1]: got 517 bytes from sd 13
+[14:18:43]: server[1]: new connection from 127.0.0.1:54799, sd: 14
+[14:18:43]: server[1]: got 517 bytes from sd 14
+[14:18:53]: server[1]: finished reading data from sd 9
+[14:18:53]: server[1]: client closed sd 9
+[14:19:13]: server[1]: finished reading data from sd 10
+[14:19:13]: server[1]: client closed sd 10
+[14:19:13]: server[1]: finished reading data from sd 11
+[14:19:13]: server[1]: client closed sd 11
+[14:19:13]: server[1]: finished reading data from sd 13
+[14:19:13]: server[1]: client closed sd 13
+[14:19:13]: server[1]: finished reading data from sd 14
+[14:19:13]: server[1]: client closed sd 14
+[14:19:40]: server[0]: new connection from 127.0.0.1:54850, sd: 9
+[14:19:41]: server[0]: got 356 bytes from sd 9
+[14:21:51]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[14:24:28]: 29 Sept. 2022 
+[14:24:28]: Starting... 
+[14:24:28]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[14:24:28]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[14:24:28]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[14:24:28]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[14:24:28]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[14:24:28]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[14:24:28]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[14:24:35]: server[0]: new connection from 127.0.0.1:55165, sd: 9
+[14:24:35]: server[0]: got 356 bytes from sd 9
+[14:27:35]: server[0]: closed sd 9 by timeout
+[14:27:35]: server[0]: new connection from 127.0.0.1:55354, sd: 9
+[14:27:35]: server[0]: got 356 bytes from sd 9
+[14:27:42]: server[1]: new connection from 127.0.0.1:55382, sd: 10
+[14:27:42]: server[1]: got 517 bytes from sd 10
+[14:28:12]: server[1]: finished reading data from sd 10
+[14:28:12]: server[1]: client closed sd 10
+[14:28:23]: server[1]: new connection from 127.0.0.1:55434, sd: 10
+[14:28:23]: server[1]: got 517 bytes from sd 10
+[14:28:43]: server[1]: new connection from 127.0.0.1:55552, sd: 11
+[14:28:43]: server[1]: got 517 bytes from sd 11
+[14:28:43]: server[1]: new connection from 127.0.0.1:55553, sd: 13
+[14:28:43]: server[1]: new connection from 127.0.0.1:55554, sd: 14
+[14:28:43]: server[1]: got 517 bytes from sd 13
+[14:28:43]: server[1]: new connection from 127.0.0.1:55556, sd: 15
+[14:28:43]: server[1]: got 517 bytes from sd 14
+[14:28:43]: server[1]: got 517 bytes from sd 15
+[14:28:53]: server[1]: finished reading data from sd 10
+[14:28:53]: server[1]: client closed sd 10
+[14:29:13]: server[1]: finished reading data from sd 11
+[14:29:13]: server[1]: client closed sd 11
+[14:29:13]: server[1]: finished reading data from sd 13
+[14:29:13]: server[1]: client closed sd 13
+[14:29:13]: server[1]: finished reading data from sd 14
+[14:29:13]: server[1]: client closed sd 14
+[14:29:13]: server[1]: finished reading data from sd 15
+[14:29:13]: server[1]: client closed sd 15
+[14:30:35]: server[0]: closed sd 9 by timeout
+[14:30:35]: server[0]: new connection from 127.0.0.1:55646, sd: 9
+[14:30:35]: server[0]: got 356 bytes from sd 9
+[14:33:35]: server[0]: closed sd 9 by timeout
+[14:35:46]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[14:35:55]: 29 Sept. 2022 
+[14:35:55]: Starting... 
+[14:35:55]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[14:35:55]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[14:35:55]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[14:35:55]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[14:35:55]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[14:35:55]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[14:35:55]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[14:35:59]: server[0]: new connection from 127.0.0.1:55977, sd: 9
+[14:35:59]: server[0]: got 356 bytes from sd 9
+[14:37:42]: server[1]: new connection from 127.0.0.1:56092, sd: 10
+[14:37:42]: server[1]: got 517 bytes from sd 10
+[14:38:12]: server[1]: finished reading data from sd 10
+[14:38:12]: server[1]: client closed sd 10
+[14:38:22]: server[1]: new connection from 127.0.0.1:56146, sd: 10
+[14:38:22]: server[1]: got 517 bytes from sd 10
+[14:38:42]: server[1]: new connection from 127.0.0.1:56236, sd: 11
+[14:38:42]: server[1]: new connection from 127.0.0.1:56237, sd: 13
+[14:38:42]: server[1]: got 517 bytes from sd 11
+[14:38:42]: server[1]: new connection from 127.0.0.1:56238, sd: 14
+[14:38:42]: server[1]: got 517 bytes from sd 13
+[14:38:42]: server[1]: new connection from 127.0.0.1:56239, sd: 15
+[14:38:42]: server[1]: got 517 bytes from sd 14
+[14:38:42]: server[1]: got 517 bytes from sd 15
+[14:38:52]: server[1]: finished reading data from sd 10
+[14:38:52]: server[1]: client closed sd 10
+[14:38:59]: server[0]: closed sd 9 by timeout
+[14:38:59]: server[0]: new connection from 127.0.0.1:56244, sd: 9
+[14:38:59]: server[0]: got 356 bytes from sd 9
+[14:39:12]: server[1]: finished reading data from sd 11
+[14:39:12]: server[1]: client closed sd 11
+[14:39:12]: server[1]: finished reading data from sd 13
+[14:39:12]: server[1]: client closed sd 13
+[14:39:12]: server[1]: finished reading data from sd 14
+[14:39:12]: server[1]: client closed sd 14
+[14:39:12]: server[1]: finished reading data from sd 15
+[14:39:12]: server[1]: client closed sd 15
+[14:41:59]: server[0]: closed sd 9 by timeout
+[14:41:59]: server[0]: new connection from 127.0.0.1:56404, sd: 9
+[14:41:59]: server[0]: got 356 bytes from sd 9
+[14:44:59]: server[0]: closed sd 9 by timeout
+[14:47:42]: server[1]: new connection from 127.0.0.1:56770, sd: 9
+[14:47:42]: server[1]: got 517 bytes from sd 9
+[14:48:12]: server[1]: finished reading data from sd 9
+[14:48:12]: server[1]: client closed sd 9
+[14:48:22]: server[1]: new connection from 127.0.0.1:56841, sd: 9
+[14:48:22]: server[1]: got 517 bytes from sd 9
+[14:48:42]: server[1]: new connection from 127.0.0.1:56939, sd: 10
+[14:48:42]: server[1]: got 517 bytes from sd 10
+[14:48:42]: server[1]: new connection from 127.0.0.1:56940, sd: 11
+[14:48:42]: server[1]: got 517 bytes from sd 11
+[14:48:42]: server[1]: new connection from 127.0.0.1:56941, sd: 13
+[14:48:42]: server[1]: got 517 bytes from sd 13
+[14:48:42]: server[1]: new connection from 127.0.0.1:56943, sd: 14
+[14:48:42]: server[1]: got 517 bytes from sd 14
+[14:48:52]: server[1]: finished reading data from sd 9
+[14:48:52]: server[1]: client closed sd 9
+[14:49:12]: server[1]: finished reading data from sd 10
+[14:49:12]: server[1]: client closed sd 10
+[14:49:12]: server[1]: finished reading data from sd 11
+[14:49:12]: server[1]: client closed sd 11
+[14:49:12]: server[1]: finished reading data from sd 13
+[14:49:12]: server[1]: client closed sd 13
+[14:49:12]: server[1]: finished reading data from sd 14
+[14:49:12]: server[1]: client closed sd 14
+[14:57:43]: server[1]: new connection from 127.0.0.1:57508, sd: 9
+[14:57:43]: server[1]: got 517 bytes from sd 9
+[14:58:13]: server[1]: finished reading data from sd 9
+[14:58:13]: server[1]: client closed sd 9
+[14:58:22]: server[1]: new connection from 127.0.0.1:57540, sd: 9
+[14:58:22]: server[1]: got 517 bytes from sd 9
+[14:58:42]: server[1]: new connection from 127.0.0.1:57649, sd: 10
+[14:58:42]: server[1]: got 517 bytes from sd 10
+[14:58:42]: server[1]: new connection from 127.0.0.1:57650, sd: 11
+[14:58:42]: server[1]: got 517 bytes from sd 11
+[14:58:42]: server[1]: new connection from 127.0.0.1:57651, sd: 13
+[14:58:42]: server[1]: got 517 bytes from sd 13
+[14:58:43]: server[1]: new connection from 127.0.0.1:57652, sd: 14
+[14:58:43]: server[1]: got 517 bytes from sd 14
+[14:58:52]: server[1]: finished reading data from sd 9
+[14:58:52]: server[1]: client closed sd 9
+[14:59:12]: server[1]: finished reading data from sd 10
+[14:59:12]: server[1]: client closed sd 10
+[14:59:12]: server[1]: finished reading data from sd 11
+[14:59:12]: server[1]: client closed sd 11
+[14:59:12]: server[1]: finished reading data from sd 13
+[14:59:12]: server[1]: client closed sd 13
+[14:59:13]: server[1]: finished reading data from sd 14
+[14:59:13]: server[1]: client closed sd 14
+[15:07:05]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[15:07:15]: 29 Sept. 2022 
+[15:07:15]: Starting... 
+[15:07:15]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[15:07:15]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[15:07:15]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[15:07:15]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[15:07:15]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[15:07:15]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[15:07:15]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[15:07:42]: server[1]: new connection from 127.0.0.1:58337, sd: 9
+[15:07:42]: server[1]: got 517 bytes from sd 9
+[15:08:12]: server[1]: finished reading data from sd 9
+[15:08:12]: server[1]: client closed sd 9
+[15:08:20]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

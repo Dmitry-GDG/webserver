@@ -208,9 +208,9 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	}
 	std::cout << "Position:\t" << connection.position << std::endl;
 	std::cout << "Last Connection time:\t" << connection.lastActivityTime << " sec" << std::endl;
-	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
+	std::string arr[] = {"NOT_DEFINED_REQUEST_PROCESSING_STEP", "READ", "READ_DONE", "WRITE", "WRITE_DONE"};
 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
-	std::cout << "Status:\t\t" << sts[connection.status] << std::endl;
+	std::cout << "Request Processing Step:\t\t" << sts[connection.requestProcessingStep] << std::endl;
 	if (connection.allowedMethods.size() > 0)
 	{
 		for (size_t i = 0; i < connection.allowedMethods.size(); i++)
@@ -233,7 +233,7 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::cout << "Inputdata method:\t" << connection.inputData.method << std::endl;
 	std::cout << "Inputdata address:\t" << connection.inputData.address << std::endl;
 	std::cout << "Inputdata httpVersion:\t" << connection.inputData.httpVersion << std::endl;
-	std::string arr2[] = {"HTTP", "DATA_START", "DATA_CONTIN"};
+	std::string arr2[] = {"NOT_DEFINED_INPUT_DATA", "HTTP"};
 	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
 	std::cout << "Inputdata dataType:\t" << dtt[connection.inputData.dataType] << std::endl;
 	int i = 0;
@@ -243,9 +243,9 @@ void printConnection(t_connection connection, std::string msg, int sign)
 		i++;
 	}
 	if (connection.inputData.inputStr.size() > 0)
-		std::cout << "Input str:\n" << connection.inputData.inputStr << std::endl;
+		std::cout << "+++++++\nInput str:\n" << connection.inputData.inputStr << std::endl;
 
-	std::cout << "----------------" << std::endl;
+	std::cout << "+++++++\n----------------" << std::endl;
 }
 
 // void printConnection(t_connection * connection, std::string msg, int sign)

@@ -26,8 +26,9 @@
 //     { NULL, 0 }
 // };
 
-enum ConnectionStatus
+enum RequestProcessingStep
 {
+	NOT_DEFINED_REQUEST_PROCESSING_STEP,
 	READ,
 	READ_DONE,
 	WRITE,
@@ -36,14 +37,13 @@ enum ConnectionStatus
 
 enum InputDataType
 {
-	HTTP,
-	DATA_START,
-	DATA_CONTIN
+	NOT_DEFINED_INPUT_DATA,
+	HTTP
 };
 
 enum ResponseType
 {
-	NOT_DEFINED,
+	NOT_DEFINED_RESPONSE_TYPE,
 	GET,
 	POST,
 	DELETE,
@@ -58,15 +58,15 @@ typedef struct s_inputdata
 	// RequestType		requestType;
 	std::string		address;
 	std::string		httpVersion;
-	InputDataType	dataType; // HTTP, DATA_START, DATA_CONTIN
+	InputDataType	dataType; // HTTP
 	std::map<std::string, std::string>	htmlFields;
 	std::string		inputStr;
 } t_inputdata;
 
 typedef struct s_response
 {
-	std::string		responseStatusCode;
-	ResponseType	method; // NOT_DEFINED, GET, POST, DELETE, REDIRECT, CGI_NET, CGI_LOC
+	std::string		statusCode;
+	ResponseType	type; // NOT_DEFINED_RESPONSE_TYPE, GET, POST, DELETE, REDIRECT, CGI_NET, CGI_LOC
 
 } t_response;
 
@@ -79,7 +79,7 @@ typedef struct s_connection
 	size_t				position;
 	pollfd				* pfd;
 	long int			lastActivityTime;
-	ConnectionStatus	status;
+	RequestProcessingStep	requestProcessingStep;
 	// std::string			status; // 	READ, READ_DONE, WRITE, WRITE_DONE
 	std::vector<std::string> allowedMethods; // GET, POST, DELETE
 	std::map<std::string, std::string> responseStatusCodesAll;
