@@ -3502,3 +3502,16 @@
 [15:08:12]: server[1]: client closed sd 9
 [15:08:20]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[15:17:11]: 29 Sept. 2022 
+[15:17:11]: Starting... 
+[15:17:11]: Webserver Cool Webserver started at il-a3.msk.21-school.ru 
+[15:17:11]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[15:17:11]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[15:17:11]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[15:17:11]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[15:17:11]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[15:17:11]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[15:17:58]: server[0]: new connection from 127.0.0.1:49688, sd: 9
+[15:17:58]: server[0]: got 356 bytes from sd 9
+[16:25:35]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
