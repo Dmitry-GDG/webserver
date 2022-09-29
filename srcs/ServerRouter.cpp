@@ -20,9 +20,9 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	std::vector<std::string> metods(std::begin(arr), std::end(arr));
 	_allowedMethods.clear();
 	_allowedMethods = metods;
-	// #ifdef DEBUGMODE
-	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
-	// #endif
+	#ifdef DEBUGMODE
+		printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
+	#endif
 }
 
 ServerRouter::~ServerRouter() {}
@@ -271,10 +271,10 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 {
 	std::string msg;
 	std::string delim = DELIMETER;
-	std::string answer = connection->inputdata.httpVersion + " ";
-	if (connection->inputdata.dataType == HTTP)
+	std::string answer = connection->inputData.httpVersion + " ";
+	if (connection->inputData.dataType == HTTP)
 	{
-		if (std::find(connection->allowedMethods.begin(), connection->allowedMethods.end(), connection->inputdata.method) == connection->allowedMethods.end() )
+		if (std::find(connection->allowedMethods.begin(), connection->allowedMethods.end(), connection->inputData.method) == connection->allowedMethods.end() )
 		{
 			msg = "Error! Unknown method from sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
@@ -283,11 +283,11 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 			connection->responseData.responseStatusCode = "405";
 			answer += connection->responseData.responseStatusCode + " " + connection->responseStatusCodesAll[connection->responseData.responseStatusCode] + DELIMETER;
 		}
-		else if (connection->inputdata.method == "GET")
+		else if (connection->inputData.method == "GET")
 			_prepareGetAnswer(answer, connection);
-		else if (connection->inputdata.method == "POST")
+		else if (connection->inputData.method == "POST")
 			_preparePostAnswer(answer, connection);
-		else if (connection->inputdata.method == "DELETE")
+		else if (connection->inputData.method == "DELETE")
 			_prepareDeleteAnswer(answer, connection);
 	}
 
@@ -308,11 +308,11 @@ void ServerRouter::_prepareGetAnswer(std::string & answer, t_connection * connec
 	std::string msg;
 	Server server = _getServer(connection->srvNbr);
 	bool correctAddr = false;
-	if (connection->inputdata.address != "\\")
+	if (connection->inputData.address != "\\")
 	{
 		for (size_t i = 0; i < server.getConfig().locations.size(); i++)
 		{
-			if (connection->inputdata.address == server.getConfig().locations[i].path)
+			if (connection->inputData.address == server.getConfig().locations[i].path)
 				correctAddr = true;
 		}
 	}
@@ -360,14 +360,14 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 	std::string msg;
 	Server server = _getServer(connection->srvNbr);
 	// std::string path = server.getConfig().listen + connection->inputdata.address;
-	std::string path = "." + connection->inputdata.address;
+	std::string path = "." + connection->inputData.address;
 
 	size_t i;
 	if (server.getConfig().root != "")
 		path += server.getConfig().root;
 	for (i = 0; i < server.getConfig().locations.size(); i++)
 	{
-		if (connection->inputdata.address == server.getConfig().locations[i].path)
+		if (connection->inputData.address == server.getConfig().locations[i].path)
 		{
 			if (server.getConfig().locations[i].root != "")
 				path += server.getConfig().locations[i].root;
@@ -462,8 +462,8 @@ int ServerRouter::_readSd(t_connection * connection)
 		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->inputdata.inputStr += buf;
-		if (checkDelimeterAtTheEnd(connection->inputdata.inputStr))
+		connection->inputData.inputStr += buf;
+		if (checkDelimeterAtTheEnd(connection->inputData.inputStr))
 		{
 			connection->status = READ_DONE;
 			if (!parseInputData(buf, connection))
@@ -471,7 +471,7 @@ int ServerRouter::_readSd(t_connection * connection)
 				while (qtyBytes > 0)
 					qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
 				// connection->status = READ_DONE;
-				connection->inputdata.inputStr = "";
+				connection->inputData.inputStr = "";
 				return 0;
 			}
 			connection->responseData.responseStatusCode = "200";
@@ -587,21 +587,25 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	t_connection connection;
 	connectionClear(connection);
 	connection.srvNbr = srvNbr;
-	connection.clntSd = sdFrom;
-	connection.status = READ;
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
-	connection.responseStatusCodesAll = _responseStatusCodes;
-	connection.contentTypesAll = _contentTypes;
+	connection.clntSd = sdFrom;
+	connection.position = 0;
+	connection.status = READ;
 	connection.allowedMethods.clear();
 	connection.allowedMethods = _allowedMethods;
-	connection.inputdata.inputStr.clear();
-	connection.inputdata.address = "";
-	connection.inputdata.dataType = DATA_START;
-	connection.inputdata.htmlFields.clear();
-	connection.inputdata.httpVersion = "";
-	connection.inputdata.method = "";
+	connection.responseStatusCodesAll.clear();
+	connection.responseStatusCodesAll = _responseStatusCodes;
+	connection.contentTypesAll.clear();
+	connection.contentTypesAll = _contentTypes;
+	connection.inputData.method = "";
+	connection.inputData.address = "";
+	connection.inputData.httpVersion = "";
+	connection.inputData.dataType = DATA_START;
+	connection.inputData.htmlFields.clear();
+	connection.inputData.inputStr.clear();
 	connection.responseData.responseStatusCode = "200";
+	connection.responseData.method.clear();
 	_setConnectionLastActivity(connection.lastActivityTime);
 	_connections.push_back(connection);
 }

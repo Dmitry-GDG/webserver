@@ -128,7 +128,7 @@ bool parseInputData(char * buf, t_connection * connection)
 
 
 
-	connectionInputdataClear(connection);
+	connectionInputDataClear(connection);
 	splitStrDelimeter(inpt, splitBuf, DELIMETER);
 	// #ifdef DEBUGMODE
 	// 	printVector(splitBuf, "DEBUGMODE parseInputData splitStrDelimeter");
@@ -163,7 +163,7 @@ bool parseInputData(char * buf, t_connection * connection)
 			return false;
 		}
 
-		connection->inputdata.dataType = HTTP;
+		connection->inputData.dataType = HTTP;
 
 		std::vector<std::string>::iterator iter = splitStr.begin();
 
@@ -175,10 +175,10 @@ bool parseInputData(char * buf, t_connection * connection)
 		// 	return false;
 		// }
 		// else
-			connection->inputdata.method = *iter;
+			connection->inputData.method = *iter;
 
-		connection->inputdata.address = *(iter + 1);
-		connection->inputdata.httpVersion = *(iter + 2);
+		connection->inputData.address = *(iter + 1);
+		connection->inputData.httpVersion = *(iter + 2);
 
 		iterVV++;
 		// std::cout << "iterVV: " << *iterVV << std::endl;
@@ -191,7 +191,7 @@ bool parseInputData(char * buf, t_connection * connection)
 			// #ifdef DEBUGMODE
 			// 	std::cout << "DEBUGMODE parseInputData nputdata.htmlFields\t" << splitStr[0] << "\t" << splitStr[1] << std::endl;
 			// #endif
-			connection->inputdata.htmlFields[splitStr[0]] = splitStr[1];
+			connection->inputData.htmlFields[splitStr[0]] = splitStr[1];
 		}
 	}
 	else

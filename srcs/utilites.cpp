@@ -186,29 +186,33 @@ void configClear(t_config & oneServerConfig)
 	oneServerConfig.cgi.clear();
 }
 
-void connectionInputdataClear(t_connection * connection)
+void connectionInputDataClear(t_connection * connection)
 {
-	connection->inputdata.method = "";
-	connection->inputdata.address = "";
-	connection->inputdata.httpVersion = "";
-	connection->inputdata.dataType = HTTP;
-	connection->inputdata.htmlFields.clear();
+	connection->inputData.method = "";
+	connection->inputData.address = "";
+	connection->inputData.httpVersion = "";
+	connection->inputData.dataType = HTTP;
+	connection->inputData.htmlFields.clear();
 }
 
 void connectionClear(t_connection & connection)
 {
 	connection.srvNbr = 0;
+	connection.fromIp = "";
+	connection.fromPort = 0;
 	connection.clntSd = 0;
 	connection.position = 0;
 	connection.status = READ;
-	connection.fromIp = "";
-	connection.fromPort = 0;
 	connection.allowedMethods.clear();
-	connection.inputdata.method = "";
-	connection.inputdata.address = "";
-	connection.inputdata.httpVersion = "";
-	connection.inputdata.dataType = HTTP;
-	connection.inputdata.htmlFields.clear();
+	connection.responseStatusCodesAll.clear();
+	connection.contentTypesAll.clear();
+	connection.inputData.method = "";
+	connection.inputData.address = "";
+	connection.inputData.httpVersion = "";
+	connection.inputData.dataType = HTTP;
+	connection.inputData.htmlFields.clear();
+	connection.inputData.inputStr.clear();
+	connection.responseData.method.clear();
 }
 
 std::string datastamp()

@@ -216,18 +216,6 @@ void printConnection(t_connection connection, std::string msg, int sign)
 		for (size_t i = 0; i < connection.allowedMethods.size(); i++)
 			std::cout << "allowedMethods[" << i << "]:\t" << connection.allowedMethods[i] << std::endl;
 	}
-	std::cout << "Inputdata method:\t" << connection.inputdata.method << std::endl;
-	std::cout << "Inputdata address:\t" << connection.inputdata.address << std::endl;
-	std::cout << "Inputdata httpVersion:\t" << connection.inputdata.httpVersion << std::endl;
-	std::string arr2[] = {"HTTP", "DATA_START", "DATA_CONTIN"};
-	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
-	std::cout << "Inputdata dataType:\t" << dtt[connection.inputdata.dataType] << std::endl;
-	int i = 0;
-	for (std::map<std::string, std::string>::iterator iterM = connection.inputdata.htmlFields.begin(); iterM != connection.inputdata.htmlFields.end(); iterM++)
-	{
-		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
-		i++;
-	}
 	if (connection.responseStatusCodesAll.size() > 0)
 	{
 		std::cout << "Response status codes:" << std::endl;
@@ -242,8 +230,20 @@ void printConnection(t_connection connection, std::string msg, int sign)
 			std::cout << (*iter).first << ":" << (*iter).second << "\t";
 		std::cout << std::endl;
 	}
-	if (connection.inputdata.inputStr.size() > 0)
-		std::cout << "Input str:\n" << connection.inputdata.inputStr << std::endl;
+	std::cout << "Inputdata method:\t" << connection.inputData.method << std::endl;
+	std::cout << "Inputdata address:\t" << connection.inputData.address << std::endl;
+	std::cout << "Inputdata httpVersion:\t" << connection.inputData.httpVersion << std::endl;
+	std::string arr2[] = {"HTTP", "DATA_START", "DATA_CONTIN"};
+	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
+	std::cout << "Inputdata dataType:\t" << dtt[connection.inputData.dataType] << std::endl;
+	int i = 0;
+	for (std::map<std::string, std::string>::iterator iterM = connection.inputData.htmlFields.begin(); iterM != connection.inputData.htmlFields.end(); iterM++)
+	{
+		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
+		i++;
+	}
+	if (connection.inputData.inputStr.size() > 0)
+		std::cout << "Input str:\n" << connection.inputData.inputStr << std::endl;
 
 	std::cout << "----------------" << std::endl;
 }

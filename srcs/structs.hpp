@@ -41,38 +41,50 @@ enum InputDataType
 	DATA_CONTIN
 };
 
+// enum RequestType
+// {
+// 	GET,
+// 	POST,
+// 	DELETE,
+// 	REDIRECT,
+// 	CGI_NET,
+// 	CGI_LOC
+// };
+
 typedef struct s_inputdata
 {
-	std::string		method; // GET, POST or DELETE
+	std::string		method; // GET, POST, DELETE
+	// RequestType		requestType;
 	std::string		address;
 	std::string		httpVersion;
 	InputDataType	dataType; // HTTP, DATA_START, DATA_CONTIN
-	std::string		inputStr;
 	std::map<std::string, std::string>	htmlFields;
+	std::string		inputStr;
 } t_inputdata;
 
 typedef struct s_response
 {
 	std::string		responseStatusCode;
+	std::string		method; // GET, POST, DELETE, REDIRECT, CGI_NET, CGI_LOC
 
 } t_response;
 
 typedef struct s_connection
 {
 	int					srvNbr;
-	int					clntSd;
 	std::string			fromIp;
 	unsigned			fromPort;
+	int					clntSd;
 	size_t				position;
 	pollfd				* pfd;
 	long int			lastActivityTime;
 	ConnectionStatus	status;
 	// std::string			status; // 	READ, READ_DONE, WRITE, WRITE_DONE
-	t_inputdata			inputdata;
-	t_response			responseData;
 	std::vector<std::string> allowedMethods; // GET, POST, DELETE
 	std::map<std::string, std::string> responseStatusCodesAll;
 	std::map<std::string, std::string>	contentTypesAll;
+	t_inputdata			inputData;
+	t_response			responseData;
 } t_connection;
 
 typedef struct s_location

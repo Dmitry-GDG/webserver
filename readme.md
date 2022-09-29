@@ -62,7 +62,12 @@ git push
 - что такое cgi http://www.codenet.ru/webmast/cgi/cgidev.php
 
 ### Хронология изменений:
-27/9 #Д#
+29/9 #Д#
+- добавил в структуру t_response поле метод
+- переименовал и упорядочил структуры данных во всех файлах
+- работаю над анализом вх данных
+
+28/9 #Д#
 - перенёс в connection inputstr в inputdata
 - ввёл в connection структуру t_response и перенёс в неё responseStatus
 - ввёл в структуре connection: lastActivityTime и реализовал закрытие соединения при бездействии по таймауту (у Сафари - 3 мин)

@@ -1,7 +1,7 @@
 #ifndef MAIN_HPP
 # define MAIN_HPP
 
-# define NAME "webserver"
+# define NAME "webserv"
 # define WEBSERV_NAME "Cool Webserver"
 # define WEBSERV_VERSION "0.01"
 # define WEBSERV_AUTHORS "trurgot, botilia               "
@@ -73,7 +73,7 @@ void	splitStringColon(std::string str, char seperator, std::vector<std::string> 
 void	locationClear(t_location & location);
 void	configClear(t_config & oneServerConfig);
 void	connectionClear(t_connection & connection);
-void	connectionInputdataClear(t_connection * connection);
+void	connectionInputDataClear(t_connection * connection);
 void	printMsg(int srvNb, int clntSd, std::string msg1, std::string msg2);
 void	printMsgErr(int srvNb, int clntSd, std::string msg1, std::string msg2);
 void	printMsgToLogFile(int srvNb, int clntSd, std::string msg1, std::string msg2);

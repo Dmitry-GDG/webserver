@@ -3103,3 +3103,47 @@
 [10:40:48]: server[0]: client closed sd 9
 [10:41:28]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[10:13:37]: 29 Sept. 2022 
+[10:13:37]: Starting... 
+[10:13:37]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[10:13:37]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:13:37]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:13:37]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:13:37]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:13:37]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:13:37]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:14:09]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:19:29]: 29 Sept. 2022 
+[10:19:29]: Starting... 
+[10:19:29]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[10:19:29]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:19:29]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:19:29]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:19:29]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:19:29]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:19:29]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:24:12]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:50:24]: 29 Sept. 2022 
+[10:50:24]: Starting... 
+[10:50:24]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[10:50:24]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:50:24]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:50:24]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:50:24]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:50:24]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:50:24]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:50:52]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:50:56]: 29 Sept. 2022 
+[10:50:56]: Starting... 
+[10:50:56]: Webserver Cool Webserver started at oa-b4.msk.21-school.ru 
+[10:50:56]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:50:56]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:50:56]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:50:56]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:50:56]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:50:56]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:50:59]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
