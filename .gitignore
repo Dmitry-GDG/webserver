@@ -15,5 +15,5 @@ main.sh
 *\ copy/
 *\ copy.*
 objs/
-webserver
+webserv
 test
