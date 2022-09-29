@@ -41,15 +41,16 @@ enum InputDataType
 	DATA_CONTIN
 };
 
-// enum RequestType
-// {
-// 	GET,
-// 	POST,
-// 	DELETE,
-// 	REDIRECT,
-// 	CGI_NET,
-// 	CGI_LOC
-// };
+enum ResponseType
+{
+	NOT_DEFINED,
+	GET,
+	POST,
+	DELETE,
+	REDIRECT,
+	CGI_NET,
+	CGI_LOC
+};
 
 typedef struct s_inputdata
 {
@@ -65,7 +66,7 @@ typedef struct s_inputdata
 typedef struct s_response
 {
 	std::string		responseStatusCode;
-	std::string		method; // GET, POST, DELETE, REDIRECT, CGI_NET, CGI_LOC
+	ResponseType	method; // NOT_DEFINED, GET, POST, DELETE, REDIRECT, CGI_NET, CGI_LOC
 
 } t_response;
 

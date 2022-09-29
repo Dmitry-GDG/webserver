@@ -590,22 +590,9 @@ void ServerRouter::_saveConnection(int sdFrom, int srvNbr, std::string fromIP, u
 	connection.fromIp = fromIP;
 	connection.fromPort = fromPort;
 	connection.clntSd = sdFrom;
-	connection.position = 0;
-	connection.status = READ;
-	connection.allowedMethods.clear();
 	connection.allowedMethods = _allowedMethods;
-	connection.responseStatusCodesAll.clear();
 	connection.responseStatusCodesAll = _responseStatusCodes;
-	connection.contentTypesAll.clear();
 	connection.contentTypesAll = _contentTypes;
-	connection.inputData.method = "";
-	connection.inputData.address = "";
-	connection.inputData.httpVersion = "";
-	connection.inputData.dataType = DATA_START;
-	connection.inputData.htmlFields.clear();
-	connection.inputData.inputStr.clear();
-	connection.responseData.responseStatusCode = "200";
-	connection.responseData.method.clear();
 	_setConnectionLastActivity(connection.lastActivityTime);
 	_connections.push_back(connection);
 }

@@ -128,7 +128,7 @@ bool parseInputData(char * buf, t_connection * connection)
 
 
 
-	connectionInputDataClear(connection);
+	connectionInputDataClear(* connection);
 	splitStrDelimeter(inpt, splitBuf, DELIMETER);
 	// #ifdef DEBUGMODE
 	// 	printVector(splitBuf, "DEBUGMODE parseInputData splitStrDelimeter");
