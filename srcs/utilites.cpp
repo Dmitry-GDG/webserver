@@ -191,15 +191,15 @@ void connectionInputDataClear(t_connection & connection)
 	connection.inputData.method = "";
 	connection.inputData.address = "";
 	connection.inputData.httpVersion = "";
-	connection.inputData.dataType = NOT_DEFINED_INPUT_DATA;
-	connection.inputData.htmlFields.clear();
+	connection.inputData.dataType = NOT_DEFINED_INPUT_DATA_TYPE;
+	connection.inputData.headerFields.clear();
 	// connection.inputData.inputStr.clear();
 }
 
 void connectionResponseDataClear(t_connection & connection)
 {
 	connection.responseData.statusCode = "200";
-	connection.responseData.type = NOT_DEFINED_RESPONSE_TYPE;
+	connection.responseData.type = NOT_DEFINED_RESPONSE_DATA_TYPE;
 }
 
 void connectionClear(t_connection & connection)

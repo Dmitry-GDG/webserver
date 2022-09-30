@@ -452,7 +452,7 @@ int ServerRouter::_readSd(t_connection * connection)
 	std::string msg;
 
 	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
-	if (qtyBytes == 0)
+	if (qtyBytes == 0) // ?? было ли всё полностью получено? не было ли разрыва?
 	{
 		msg = "finished reading data from sd ";
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
@@ -467,6 +467,36 @@ int ServerRouter::_readSd(t_connection * connection)
 		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+
+		std::string tmp = buf;
+		std::string tmpEnd = "";
+		size_t pos = tmp.find(DDELIMETER);
+		// std::cout << "pos: " << pos << "\tlenInputStr: " << tmp.size() << std::endl;
+		// втавить проверку статуса: были ли чтения раньше
+		if (connection->requestProcessingStep == NOT_DEFINED_REQUEST_PROCESSING_STEP)
+		{
+			connection->inputData.inputStrHeader = tmp.substr (0, pos);
+			connection->requestProcessingStep = READ;
+			if (pos < tmp.size() - 4)
+			{
+				tmpEnd = tmp.substr (pos + 4);
+				size_t posEnd = tmpEnd.find(DDELIMETER);
+				if (posEnd < tmpEnd.size())
+				{
+					connection->inputData.inputStrBody = tmpEnd.substr(0, posEnd);
+					connection->requestProcessingStep = READ_DONE;
+				}
+			}
+		}
+		else
+		{
+			connection->inputData.inputStrBody += tmp.substr (0, pos);
+			if (pos < tmp.size())
+				connection->requestProcessingStep = READ_DONE;
+
+		}
+
+
 		connection->inputData.inputStr += buf;
 		if (checkDelimeterAtTheEnd(connection->inputData.inputStr))
 		{

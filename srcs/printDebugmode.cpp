@@ -237,13 +237,17 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
 	std::cout << "Inputdata dataType:\t" << dtt[connection.inputData.dataType] << std::endl;
 	int i = 0;
-	for (std::map<std::string, std::string>::iterator iterM = connection.inputData.htmlFields.begin(); iterM != connection.inputData.htmlFields.end(); iterM++)
+	for (std::map<std::string, std::string>::iterator iterM = connection.inputData.headerFields.begin(); iterM != connection.inputData.headerFields.end(); iterM++)
 	{
-		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
+		std::cout << "inputdata.headerFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
 		i++;
 	}
 	if (connection.inputData.inputStr.size() > 0)
-		std::cout << "+++++++\nInput str:\n" << connection.inputData.inputStr << std::endl;
+		std::cout << "+++++++\n" << GREEN << "Input str:\n" << NC << connection.inputData.inputStr << std::endl;
+	if (connection.inputData.inputStrHeader.size() > 0)
+		std::cout << "+++++++\n" << GREEN << "Input str Header:\n" << NC << connection.inputData.inputStrHeader << std::endl;
+	if (connection.inputData.inputStrBody.size() > 0)
+		std::cout << "+++++++\n" << GREEN << "Input str Body:\n" << NC << connection.inputData.inputStrBody << std::endl;
 
 	std::cout << "+++++++\n----------------" << std::endl;
 }
@@ -291,9 +295,9 @@ void printConnection(t_connection connection, std::string msg, int sign)
 // 	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
 // 	std::cout << "Inputdata dataType:\t" << dtt[connection->inputdata.dataType] << std::endl;
 // 	int i = 0;
-// 	for (std::map<std::string, std::string>::iterator iterM = connection->inputdata.htmlFields.begin(); iterM != connection->inputdata.htmlFields.end(); iterM++)
+// 	for (std::map<std::string, std::string>::iterator iterM = connection->inputdata.headerFields.begin(); iterM != connection->inputdata.headerFields.end(); iterM++)
 // 	{
-// 		std::cout << "inputdata.htmlFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
+// 		std::cout << "inputdata.headerFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
 // 		i++;
 // 	}
 // 	if (connection->inputStr.size() > 0)

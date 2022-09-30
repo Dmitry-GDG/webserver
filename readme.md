@@ -62,6 +62,10 @@ git push
 - что такое cgi http://www.codenet.ru/webmast/cgi/cgidev.php
 
 ### Хронология изменений:
+30/9 #Д#
+- начал делить запрос на заголовок и тело ( через DDELIMETER ) - parseInputData
+- проверить _readsd : if (qtyBytes == 0)
+
 29/9 #Д#
 - добавил в структуру t_response поле метод
 - переименовал и упорядочил структуры данных во всех файлах

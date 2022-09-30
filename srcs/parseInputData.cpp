@@ -189,9 +189,9 @@ bool parseInputData(char * buf, t_connection * connection)
 			splitStr.clear();
 			splitStringColon(inptStr, ':', splitStr);
 			// #ifdef DEBUGMODE
-			// 	std::cout << "DEBUGMODE parseInputData nputdata.htmlFields\t" << splitStr[0] << "\t" << splitStr[1] << std::endl;
+			// 	std::cout << "DEBUGMODE parseInputData nputdata.headerFields\t" << splitStr[0] << "\t" << splitStr[1] << std::endl;
 			// #endif
-			connection->inputData.htmlFields[splitStr[0]] = splitStr[1];
+			connection->inputData.headerFields[splitStr[0]] = splitStr[1];
 		}
 	}
 	else

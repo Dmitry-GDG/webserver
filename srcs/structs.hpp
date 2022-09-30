@@ -37,13 +37,13 @@ enum RequestProcessingStep
 
 enum InputDataType
 {
-	NOT_DEFINED_INPUT_DATA,
+	NOT_DEFINED_INPUT_DATA_TYPE,
 	HTTP
 };
 
 enum ResponseType
 {
-	NOT_DEFINED_RESPONSE_TYPE,
+	NOT_DEFINED_RESPONSE_DATA_TYPE,
 	GET,
 	POST,
 	DELETE,
@@ -59,14 +59,16 @@ typedef struct s_inputdata
 	std::string		address;
 	std::string		httpVersion;
 	InputDataType	dataType; // HTTP
-	std::map<std::string, std::string>	htmlFields;
+	std::map<std::string, std::string>	headerFields;
 	std::string		inputStr;
+	std::string		inputStrHeader;
+	std::string		inputStrBody;
 } t_inputdata;
 
 typedef struct s_response
 {
 	std::string		statusCode;
-	ResponseType	type; // NOT_DEFINED_RESPONSE_TYPE, GET, POST, DELETE, REDIRECT, CGI_NET, CGI_LOC
+	ResponseType	type; // NOT_DEFINED_RESPONSE_DATA_TYPE, GET, POST, DELETE, REDIRECT, CGI_NET, CGI_LOC
 
 } t_response;
 
