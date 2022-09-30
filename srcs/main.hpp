@@ -4,7 +4,7 @@
 # define NAME "webserv"
 # define WEBSERV_NAME "Cool Webserver"
 # define WEBSERV_VERSION "0.01"
-# define WEBSERV_AUTHORS "trurgot, botilia               "
+# define WEBSERV_AUTHORS "trurgot, botilia\t\t"
 # define HOSTNAME_LENGTH 30
 # define SD_MAXCOUNT 1024
 # define BUF_SIZE 3000
@@ -21,10 +21,10 @@
 # define BLUS "\033[2;34m"
 # define GREEN "\033[0;32m"
 # define GREENS "\033[2;32m"
-// # define RED "\033[0;31m"
+# define RED "\033[0;31m"
 // # define REDB "\033[41m"
 # define REDS "\033[2;31m"
-// # define VIOLET "\033[0;35m"
+# define VIOLET "\033[0;35m"
 # define VIOLETS "\033[2;35m"
 # define AQUAMARINES "\033[2;36m"
 // # define YELLOW "\033[33m"
@@ -38,6 +38,7 @@
 # include <map>
 # include <netinet/in.h>
 # include <set>
+# include <sstream>
 # include <string>
 # include <strings.h>
 # include <sys/event.h>

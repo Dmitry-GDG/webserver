@@ -65,7 +65,8 @@ git push
 30/9 #Д#
 - Поделил запрос на заголовок и тело ( через DDELIMETER ) - parseInputData
 - переделал parseInputData в часть класса ServerRouter
-- работаю над parseInputData стр 110
+- ввёл connection->responseData.connectionAnswer
+- необходимо продолжить добавление файла (папки с файлами) в бинарном виде в ответ (SR line 473 = GT 45)
 
 29/9 #Д#
 - добавил в структуру t_response поле метод

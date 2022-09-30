@@ -200,6 +200,8 @@ void connectionResponseDataClear(t_connection & connection)
 {
 	connection.responseData.statusCode = "200";
 	connection.responseData.type = NOT_DEFINED_RESPONSE_DATA_TYPE;
+	connection.responseData.lenSent = 0;
+	connection.responseData.lenAnswer = 0;
 }
 
 void connectionClear(t_connection & connection)

@@ -66,6 +66,11 @@ typedef struct s_response
 {
 	std::string		statusCode;
 	ResponseType	type; // NOT_DEFINED_RESPONSE_DATA_TYPE, GET, POST, DELETE, REDIRECT, CGI_NET, CGI_LOC
+	// std::stringstream	connectionAnswer;
+	std::string		connectionAnswer;
+	ssize_t			lenAnswer;
+	ssize_t 		lenSent;
+	// char			buf[BUF_SIZE];
 
 } t_response;
 

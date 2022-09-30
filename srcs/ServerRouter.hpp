@@ -66,9 +66,9 @@ class ServerRouter
 		void	_responseStatusCodesInit();
 		void	_contentTypesInit();
 		// bool	_responseCheckMethod();
-		void	_prepareGetAnswer(std::string & answer, t_connection *);
-		void	_preparePostAnswer(std::string & answer, t_connection *);
-		void	_prepareDeleteAnswer(std::string & answer, t_connection *);
+		void	_prepareGetAnswer(t_connection *);
+		void	_preparePostAnswer(t_connection *);
+		void	_prepareDeleteAnswer(t_connection *);
 		void	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
 		// void	_addStatusCode(std::string & answer, t_connection * connection, std::string code);
 

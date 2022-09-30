@@ -147,9 +147,9 @@ bool ServerRouter::_parseInputData(t_connection * connection)
 	// #endif
 
 	_delWhiteSpacesStr(inptStr);
-	// #ifdef DEBUGMODE
-	// 	std::cout << "**** DEBUG delWhiteSpacesStr ****\n" << inptStr << "\n-----------------" << std::endl;
-	// #endif
+	#ifdef DEBUGMODE
+		std::cout << "**** DEBUG delWhiteSpacesStr ****\n" << inptStr << "\n-----------------" << std::endl;
+	#endif
 	if (inptStr.find("HTTP") != std::string::npos)
 	{
 		splitStr.clear();
