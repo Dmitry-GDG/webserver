@@ -1,6 +1,6 @@
-#include "main.hpp"
+#include "ServerRouter.hpp"
 
-bool checkDelimeterAtTheEnd(std::string str)
+bool ServerRouter::_checkDelimeterAtTheEnd(std::string str)
 {
 	std::string delim = DELIMETER;
 	if ((str.size() > 1) && (str[str.size() - 2] == delim[delim.size() - 2]) && (str[str.size() - 1] == delim[delim.size() - 1]))
@@ -8,7 +8,7 @@ bool checkDelimeterAtTheEnd(std::string str)
 	return false;
 }
 
-void delWhiteSpacesStr(std::string & inptStr)
+void ServerRouter::_delWhiteSpacesStr(std::string & inptStr)
 {
 	// _replace tabs into spaces
 	for (std::string::iterator iterS = inptStr.begin(); iterS < inptStr.end(); iterS++)
@@ -24,7 +24,7 @@ void delWhiteSpacesStr(std::string & inptStr)
 		inptStr.erase(inptStr.begin());
 }
 
-void splitStrDelimeter(std::string str, std::vector<std::string> & outp, std::string delim)
+void ServerRouter::_splitStrDelimeter(std::string str, std::vector<std::string> & outp, std::string delim)
 {
 	// std::string delim = DELIMETER;
 	// std::string delim = "\r\n";
@@ -92,44 +92,44 @@ void splitStrDelimeter(std::string str, std::vector<std::string> & outp, std::st
 // 	}
 // }
 
-void	parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * connection)
+void ServerRouter::_parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * connection)
 {
 	(void) splitBuf;
 	(void) connection;
 	std::cout << "parseMultiStringData" << std::endl;
 }
 
-bool parseInputData(char * buf, t_connection * connection)
+bool ServerRouter::_parseInputData(t_connection * connection)
 {
-	std::string inpt = buf;
+	std::string inpt = connection->inputStrHeader;
 	std::vector<std::string>	splitBuf;
 	std::vector<std::string>	splitStr;
 	std::string inptStr;
 	std::string msg;
 
-	delWhiteSpacesStr(inpt);
+	_delWhiteSpacesStr(inpt);
 	// #ifdef DEBUGMODE
 	// 	std::cout << "**** DEBUGMODE parseInputData ****\nInput: " << inpt << ", size: " << inpt.size() << "\n-------------" << std::endl;
 	// #endif
 
-	std::vector<std::string> headerBody;
-	splitStrDelimeter(inpt, headerBody, DDELIMETER);
-	// #ifdef DEBUGMODE
-	// 	std::cout << "**** DEBUGMODE parseInputData splitStrDelimeter headerBody ****" << std::endl;
-	// 	size_t jjj = 0;
-	// 	for (std::vector<std::string>::iterator iter = headerBody.begin(); iter < headerBody.end(); iter++)
-	// 	{
-	// 		std::cout << "headerBody[" << jjj << "]: " << *iter << std::endl;
-	// 		jjj++;
-	// 	}
-	// 	std::cout << "---- end of headerBody ----" << std::endl;
-	// #endif
+	// std::vector<std::string> headerBody;
+	// _splitStrDelimeter(inpt, headerBody, DDELIMETER);
+	// // #ifdef DEBUGMODE
+	// // 	std::cout << "**** DEBUGMODE parseInputData splitStrDelimeter headerBody ****" << std::endl;
+	// // 	size_t jjj = 0;
+	// // 	for (std::vector<std::string>::iterator iter = headerBody.begin(); iter < headerBody.end(); iter++)
+	// // 	{
+	// // 		std::cout << "headerBody[" << jjj << "]: " << *iter << std::endl;
+	// // 		jjj++;
+	// // 	}
+	// // 	std::cout << "---- end of headerBody ----" << std::endl;
+	// // #endif
 
 
 
 
 	connectionInputDataClear(* connection);
-	splitStrDelimeter(inpt, splitBuf, DELIMETER);
+	_splitStrDelimeter(inpt, splitBuf, DELIMETER);
 	// #ifdef DEBUGMODE
 	// 	printVector(splitBuf, "DEBUGMODE parseInputData splitStrDelimeter");
 	// #endif
@@ -146,7 +146,7 @@ bool parseInputData(char * buf, t_connection * connection)
 	// 	std::cout << "---------------" << std::endl;
 	// #endif
 
-	delWhiteSpacesStr(inptStr);
+	_delWhiteSpacesStr(inptStr);
 	// #ifdef DEBUGMODE
 	// 	std::cout << "**** DEBUG delWhiteSpacesStr ****\n" << inptStr << "\n-----------------" << std::endl;
 	// #endif
@@ -185,7 +185,7 @@ bool parseInputData(char * buf, t_connection * connection)
 		for (; iterVV < splitBuf.end(); iterVV++)
 		{
 			inptStr = *iterVV;
-			delWhiteSpacesStr(inptStr);
+			_delWhiteSpacesStr(inptStr);
 			splitStr.clear();
 			splitStringColon(inptStr, ':', splitStr);
 			// #ifdef DEBUGMODE
@@ -195,7 +195,7 @@ bool parseInputData(char * buf, t_connection * connection)
 		}
 	}
 	else
-		parseMultiStringData(splitBuf, connection);
+		_parseMultiStringData(splitBuf, connection);
 	// #ifdef DEBUGMODE
 	// 	printConnection(* connection, "DEBUGMODE parseInputData printConnection", 0);
 	// #endif

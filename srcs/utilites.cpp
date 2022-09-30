@@ -193,7 +193,7 @@ void connectionInputDataClear(t_connection & connection)
 	connection.inputData.httpVersion = "";
 	connection.inputData.dataType = NOT_DEFINED_INPUT_DATA_TYPE;
 	connection.inputData.headerFields.clear();
-	// connection.inputData.inputStr.clear();
+	// connection.inputStr.clear();
 }
 
 void connectionResponseDataClear(t_connection & connection)

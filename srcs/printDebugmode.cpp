@@ -242,12 +242,12 @@ void printConnection(t_connection connection, std::string msg, int sign)
 		std::cout << "inputdata.headerFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
 		i++;
 	}
-	if (connection.inputData.inputStr.size() > 0)
-		std::cout << "+++++++\n" << GREEN << "Input str:\n" << NC << connection.inputData.inputStr << std::endl;
-	if (connection.inputData.inputStrHeader.size() > 0)
-		std::cout << "+++++++\n" << GREEN << "Input str Header:\n" << NC << connection.inputData.inputStrHeader << std::endl;
-	if (connection.inputData.inputStrBody.size() > 0)
-		std::cout << "+++++++\n" << GREEN << "Input str Body:\n" << NC << connection.inputData.inputStrBody << std::endl;
+	if (connection.inputStr.size() > 0)
+		std::cout << "+++++++\n" << GREEN << "Input str:\n" << NC << connection.inputStr << std::endl;
+	if (connection.inputStrHeader.size() > 0)
+		std::cout << "+++++++\n" << GREEN << "Input str Header:\n" << NC << connection.inputStrHeader << std::endl;
+	if (connection.inputStrBody.size() > 0)
+		std::cout << "+++++++\n" << GREEN << "Input str Body:\n" << NC << connection.inputStrBody << std::endl;
 
 	std::cout << "+++++++\n----------------" << std::endl;
 }

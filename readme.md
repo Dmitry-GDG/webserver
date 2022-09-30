@@ -63,8 +63,9 @@ git push
 
 ### Хронология изменений:
 30/9 #Д#
-- начал делить запрос на заголовок и тело ( через DDELIMETER ) - parseInputData
-- проверить _readsd : if (qtyBytes == 0)
+- Поделил запрос на заголовок и тело ( через DDELIMETER ) - parseInputData
+- переделал parseInputData в часть класса ServerRouter
+- работаю над parseInputData стр 110
 
 29/9 #Д#
 - добавил в структуру t_response поле метод

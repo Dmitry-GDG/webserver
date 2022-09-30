@@ -60,9 +60,6 @@ typedef struct s_inputdata
 	std::string		httpVersion;
 	InputDataType	dataType; // HTTP
 	std::map<std::string, std::string>	headerFields;
-	std::string		inputStr;
-	std::string		inputStrHeader;
-	std::string		inputStrBody;
 } t_inputdata;
 
 typedef struct s_response
@@ -81,6 +78,9 @@ typedef struct s_connection
 	size_t				position;
 	pollfd				* pfd;
 	long int			lastActivityTime;
+	std::string			inputStr;
+	std::string			inputStrHeader;
+	std::string			inputStrBody;
 	RequestProcessingStep	requestProcessingStep;
 	// std::string			status; // 	READ, READ_DONE, WRITE, WRITE_DONE
 	std::vector<std::string> allowedMethods; // GET, POST, DELETE

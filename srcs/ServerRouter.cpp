@@ -161,7 +161,7 @@ void ServerRouter::start()
 			std::cout << "!_mainLoop()" << std::endl;
 			break;
 		}
-		// _checkTimeout(); //disconnect by timeout
+		_checkTimeout(); //disconnect by timeout
 		// std::cout << "Hi42!" << std::endl;
 	}
 
@@ -248,7 +248,7 @@ bool ServerRouter::_mainLoop()
 			// 	if (connection->status == WRITE_DONE)
 			// 	{
 			// 		connection->pfd->events = POLLIN;
-			// 		connection->inputdata.inputStr = "";
+			// 		connection->inputStr = "";
 			// 	}
 			// 	std::cout << "POLOUT2" << std::endl;
 			// }
@@ -454,12 +454,12 @@ int ServerRouter::_readSd(t_connection * connection)
 	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
 	if (qtyBytes == 0) // ?? было ли всё полностью получено? не было ли разрыва?
 	{
-		msg = "finished reading data from sd ";
-		printMsg(connection->srvNbr, connection->clntSd, msg, "");
-		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->requestProcessingStep = READ_DONE;
-		connection->responseData.statusCode = "200";
-		return qtyBytes;
+		// msg = "finished reading data from sd ";
+		// printMsg(connection->srvNbr, connection->clntSd, msg, "");
+		// printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		// connection->requestProcessingStep = READ_DONE;
+		// connection->responseData.statusCode = "200";
+		return 0;
 	}
 	else if (qtyBytes > 0)
 	{
@@ -472,47 +472,53 @@ int ServerRouter::_readSd(t_connection * connection)
 		std::string tmpEnd = "";
 		size_t pos = tmp.find(DDELIMETER);
 		// std::cout << "pos: " << pos << "\tlenInputStr: " << tmp.size() << std::endl;
-		// втавить проверку статуса: были ли чтения раньше
 		if (connection->requestProcessingStep == NOT_DEFINED_REQUEST_PROCESSING_STEP)
 		{
-			connection->inputData.inputStrHeader = tmp.substr (0, pos);
+			connection->inputStrHeader = tmp.substr (0, pos);
 			connection->requestProcessingStep = READ;
+			connection->responseData.statusCode = "100";
 			if (pos < tmp.size() - 4)
 			{
 				tmpEnd = tmp.substr (pos + 4);
 				size_t posEnd = tmpEnd.find(DDELIMETER);
 				if (posEnd < tmpEnd.size())
 				{
-					connection->inputData.inputStrBody = tmpEnd.substr(0, posEnd);
+					connection->inputStrBody = tmpEnd.substr(0, posEnd);
 					connection->requestProcessingStep = READ_DONE;
+					connection->responseData.statusCode = "200";
+					msg = "finished reading data from sd ";
+					printMsg(connection->srvNbr, connection->clntSd, msg, "");
+					printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 				}
+				else
+					connection->inputStrBody = tmpEnd;
 			}
 		}
 		else
 		{
-			connection->inputData.inputStrBody += tmp.substr (0, pos);
+			connection->inputStrBody += tmp.substr (0, pos);
 			if (pos < tmp.size())
+			{
 				connection->requestProcessingStep = READ_DONE;
-
+				connection->responseData.statusCode = "200";
+				msg = "finished reading data from sd ";
+				printMsg(connection->srvNbr, connection->clntSd, msg, "");
+				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+			}
 		}
-
-
-		connection->inputData.inputStr += buf;
-		if (checkDelimeterAtTheEnd(connection->inputData.inputStr))
+		connection->inputStr += buf;
+		if (connection->requestProcessingStep == READ_DONE)
 		{
-			connection->requestProcessingStep = READ_DONE;
-			if (!parseInputData(buf, connection))
+			if (!_parseInputData(connection))
 			{
 				while (qtyBytes > 0)
 					qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
-				// connection->status = READ_DONE;
-				// connection->inputData.inputStr = "";
+				// connection->inputStr = "";
+				connection->responseData.statusCode = "100";
 				return 0;
 			}
-			connection->responseData.statusCode = "200";
 			// connection->inputStr = "";
 		}
-		connection->responseData.statusCode = "100";
 
 
 
@@ -649,7 +655,15 @@ void ServerRouter::_checkTimeout()
 		// #ifdef DEBUGMODE
 		// 	std::cout << "**** DEBUGMODE _checkTimeout ****\ntime now: " << tm1.tv_sec << "\tlastActivityTime: " << (*iter).lastActivityTime << "\tTIMEOUT: " << TIMEOUT << "\n--------" << std::endl;
 		// #endif
-		if (tm1.tv_sec - (*iter).lastActivityTime >= TIMEOUT)
+		bool keepAlive = false;
+		for (std::map<std::string, std::string>::iterator iterF = (*iter).inputData.headerFields.begin(); iterF != (*iter).inputData.headerFields.end(); iterF++)
+		{
+			size_t pos = (*iterF).second.find("keep-alive");
+    		if (pos != std::string::npos)
+				keepAlive = true;
+			// if ((*iterF).second == "keep-alive")
+		}
+		if ((tm1.tv_sec - (*iter).lastActivityTime >= TIMEOUT) && !keepAlive)
 		{
 			msg = "closed sd ";
 			msg1 = " by timeout";

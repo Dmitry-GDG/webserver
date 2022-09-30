@@ -11,7 +11,7 @@
 # define DELIMETER "\r\n"
 # define DDELIMETER "\r\n\r\n"
 // # define DELIMETER "\\r\\n"
-# define TIMEOUT 180 // in seconds
+# define TIMEOUT 10 // in seconds
 
 # define NC "\033[0m"
 # define REV "\033[7m"
@@ -90,14 +90,14 @@ void	printConnection(t_connection connection, std::string msg, int sign);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);
-bool	parseInputData(char * buf, t_connection * connection);
 std::string unsignedToString99(unsigned x);
 std::string timestamp();
 std::string datastamp();
 uint16_t	atou16(const char *s);
 void	exitErr(std::string errmsg);
 void	ctrl_c_handler(int signum);
-void	delWhiteSpacesStr(std::string & inptStr);
-bool	checkDelimeterAtTheEnd(std::string str);
+// bool	parseInputData(char * buf, t_connection * connection);
+// void	delWhiteSpacesStr(std::string & inptStr);
+// bool	checkDelimeterAtTheEnd(std::string str);
 
 #endif
