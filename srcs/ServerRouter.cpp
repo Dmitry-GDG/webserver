@@ -236,9 +236,9 @@ bool ServerRouter::_mainLoop()
 				if (connection->requestProcessingStep == READ_DONE)
 					connection->pfd->events = POLLOUT;
 
-				#ifdef DEBUGMODE
-					printConnection(* connection, "DEBUGMODE _mainLoop printConnection 2", 1);
-				#endif
+				// #ifdef DEBUGMODE
+				// 	printConnection(* connection, "DEBUGMODE _mainLoop printConnection 2", 1);
+				// #endif
 
 				// _pollfds[i].revents = 0;
 			}
@@ -306,9 +306,9 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	}
 
 
-	#ifdef DEBUGMODE
-		std::cout << "**** DEBUGMODE ServerRouter//_sendanswer answer ****\nAnswer:\n" << connection->responseData.connectionAnswer << std::endl;
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << "**** DEBUGMODE ServerRouter//_sendanswer answer ****\nAnswer:\n" << connection->responseData.connectionAnswer << std::endl;
+	// #endif
 
 	// if (!connection->responseData.lenAnswer)
 	// 	connection->responseData.lenAnswer = connection->responseData.connectionAnswer.str().length();
@@ -343,7 +343,7 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 	connection->responseData.type = GET;
 	Server server = _getServer(connection->srvNbr);
 	bool correctAddr = false;
-	if (connection->inputData.address != "//")
+	if (connection->inputData.address != "/")
 	{
 		for (size_t i = 0; i < server.getConfig().locations.size(); i++)
 		{
@@ -394,31 +394,35 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 	std::string msg;
 	Server server = _getServer(connection->srvNbr);
 	// std::string path = server.getConfig().listen + connection->inputdata.address;
-	std::string path = "./" + connection->inputData.address;
+	// std::string path = "./" + connection->inputData.address;
+
+	std::string path = "./";
 
 	size_t i;
 	if (server.getConfig().root != "")
-		path += server.getConfig().root + "//";
+		path += server.getConfig().root + "/";
 	for (i = 0; i < server.getConfig().locations.size(); i++)
 	{
 		if (connection->inputData.address == server.getConfig().locations[i].path)
 		{
 			if (server.getConfig().locations[i].root != "")
-				path += server.getConfig().locations[i].root + "//";
-			if (server.getConfig().locations[i].index != "")
-				path += server.getConfig().locations[i].index;
-			else
-				path += "index.html";
-			break;
+				path += server.getConfig().locations[i].root + "/";
+	// 		if (server.getConfig().locations[i].index != "")
+	// 			path += server.getConfig().locations[i].index;
+	// 		else
+	// 			path += "index.html";
+	// 		break;
 		}
 	}
-	if (i == server.getConfig().locations.size())
-	{
-		if (server.getConfig().index != "")
-			path += server.getConfig().index;
-		else
-			path += "index.html";
-	}
+	// if (i == server.getConfig().locations.size())
+	// {
+	// 	if (server.getConfig().index != "")
+	// 		path += server.getConfig().index;
+	// 	else
+	// 		path += "index.html";
+	// }
+
+	path += connection->inputData.address;
 
 	// size_t i;
 	// for (i = 0; i < server.getConfig().locations.size(); i++)
@@ -445,16 +449,16 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 	
 	lstat(pathChar, & buf);
 	FILE * file = fopen(pathChar, "rb"); //r - read only, b - in binary
-	if (!S_ISREG(buf.st_mode) || file == NULL)
+	if (file == NULL)
 	{
 		msg = "Error! Can not open the file " + path + ", sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		connection->responseData.statusCode = "404";
 	}
-	else
+	else if (S_ISREG(buf.st_mode)) //it's path to file
 	{
-		msg = "The file " + path + " was sucsessfully opened, sd ";
+		msg = "the file " + path + " was sucsessfully opened, sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		connection->responseData.statusCode = "200";
@@ -462,8 +466,12 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 		fseek(file, 0L, SEEK_END); // перемотать на конец файла
 		size_t fileLength = ftell(file);
 
-		size_t dot = path.find(".");
-		std::string ext = path.substr(dot + 1, path.length() - dot);
+		std::string pathTmp = path;
+		pathTmp.erase(pathTmp.begin());
+		size_t dot = pathTmp.find('.');
+		std::string ext = pathTmp.substr(dot + 1, path.length() - dot);
+		// std::string ext = path.substr(path.find('.'), 6);
+		std::cout << RED << "ext = " << ext << NC << std::endl;
 		std::string contType;
 		if (connection->contentTypesAll.find(ext) != connection->contentTypesAll.end())
 			contType = connection->contentTypesAll[ext];
@@ -500,6 +508,102 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 		(void)fileLength;
 		fclose(file);
 		free( buffer );
+	}
+	else if (S_ISDIR(buf.st_mode)) //it's path to dir
+	{
+		//  + connection->inputData.address
+		size_t i;
+		for (i = 0; i < server.getConfig().locations.size(); i++)
+		{
+			if (connection->inputData.address == server.getConfig().locations[i].path)
+			{
+				// if (server.getConfig().locations[i].root != "")
+				// 	path += server.getConfig().locations[i].root + "//";
+				if (server.getConfig().locations[i].index != "")
+					path += server.getConfig().locations[i].index;
+				else
+					path += "index.html";
+				break;
+			}
+		}
+		if (i == server.getConfig().locations.size())
+		{
+			if (server.getConfig().index != "")
+				path += server.getConfig().index;
+			else
+				path += "index.html";
+		}
+		std::cout << RED << path << NC << std::endl;
+		fclose(file);
+
+		const char * pathChar2 = path.c_str();
+		struct stat buf2;
+		lstat(pathChar2, & buf2);
+		FILE * file2 = fopen(pathChar2, "rb"); //r - read only, b - in binary
+		if (file2 == NULL)
+		{
+			msg = "Error! Can not open the file " + path + ", sd ";
+			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+			connection->responseData.statusCode = "404";
+		}
+		if (S_ISREG(buf2.st_mode))  //it's path to file
+		{
+			std::cout << RED << "HI!!!" << NC << std::endl;
+			msg = "the file " + path + " was sucsessfully opened, sd ";
+			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+			connection->responseData.statusCode = "200";
+
+			fseek(file, 0L, SEEK_END); // перемотать на конец файла
+			size_t fileLength = ftell(file);
+
+			size_t dot = path.find(".");
+			std::string ext = path.substr(dot + 1, path.length() - dot);
+			std::string contType;
+			if (connection->contentTypesAll.find(ext) != connection->contentTypesAll.end())
+				contType = connection->contentTypesAll[ext];
+			else
+				contType = "text/html";
+
+			char * buffer = (char *)malloc(fileLength);
+			if( !buffer )
+			{
+				fclose( file );
+				// fputs( "Could not allocate memory for file buffer. File could be empty or too large.", stderr );
+				return false;
+			}
+			fseek(file, 0L, SEEK_SET); // перейти на начало файла
+			if( fileLength != fread( buffer, 1, fileLength, file ) )
+			{
+				free( buffer );
+				fclose( file );
+				// fputs( "Read data size is not equal to actual file size.", stderr );
+				return false;
+			}
+
+			connection->responseData.fileToSendInBinary = buffer;
+
+			std::string ff = "<!DOCTYPE html>\n<html lang=\"en\">\n\t<head>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n";
+			ff += "\t\t<title>The Periodic Table</title>\n\t</head>\n\t<body>\n";
+			ff += "\t\t<h2>Dmitri Mendeleev\'s periodic table of the elements</h2>\n\t\t<br>\n\t\t<table style = 'border: 1px blue solid;'>\n";
+			ff += "\t\t</table>\n\t</body>\n</html>";
+
+			contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+			// contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
+			// std::stringstream bufFile;
+			// bufFile << file.rdbuf();
+			(void)fileLength;
+			fclose(file2);
+			free( buffer );
+		}
+	}
+	else
+	{
+		msg = "Error! Can not open the file " + path + ", sd ";
+		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		connection->responseData.statusCode = "404";
 	}
 	return true;
 }
@@ -569,7 +673,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 // 	}
 // 	else
 // 	{
-// 		msg = "The file " + path + " was sucsessfully opened, sd ";
+// 		msg = "the file " + path + " was sucsessfully opened, sd ";
 // 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 // 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 // 		connection->responseData.statusCode = "200";
@@ -879,7 +983,7 @@ void ServerRouter::_contentTypesInit()
 		std::make_pair("png", "image/png"), std::make_pair("svg", "image/svg+xml"), std::make_pair("webp", "image/webp"), 
 		std::make_pair("ico", "image/vnd.microsoft.icon"), std::make_pair("css", "text/css"), std::make_pair("csv", "text/csv"), 
 		std::make_pair("html", "text/html"), std::make_pair("htm", "text/html"), std::make_pair("php", "text/php"), 
-		std::make_pair("xml", "text/xml"), std::make_pair("pdf", "application/pdf")
+		std::make_pair("xml", "text/xml"), std::make_pair("pdf", "application/pdf"), std::make_pair("mp3", "audio/mpeg")
 	};
 
 	#define ARRSIZE(arr) (sizeof((arr))/sizeof((arr)[0]))
