@@ -20,9 +20,9 @@ ServerRouter::ServerRouter(std::vector<t_config> configs)
 	std::vector<std::string> metods(std::begin(arr), std::end(arr));
 	_allowedMethods.clear();
 	_allowedMethods = metods;
-	#ifdef DEBUGMODE
-		printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
-	#endif
+	// #ifdef DEBUGMODE
+	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
+	// #endif
 }
 
 ServerRouter::~ServerRouter() {}
@@ -225,7 +225,7 @@ bool ServerRouter::_mainLoop()
 			char buf[BUF_SIZE + 1];
 			if (_pollfds[i].revents & POLLIN) // есть данные для чтения
 			{
-				std::cout << "_pollfds[i].revents & POLLIN" << std::endl;
+				// std::cout << "_pollfds[i].revents & POLLIN" << std::endl;
 				// _setConnectionLastActivity(connection->lastActivityTime);
 				_readSd(connection);
 
@@ -236,9 +236,9 @@ bool ServerRouter::_mainLoop()
 				if (connection->requestProcessingStep == READ_DONE)
 					connection->pfd->events = POLLOUT;
 
-				#ifdef DEBUGMODE
-					printConnection(* connection, "DEBUGMODE _mainLoop printConnection 2", 1);
-				#endif
+				// #ifdef DEBUGMODE
+				// 	printConnection(* connection, "DEBUGMODE _mainLoop printConnection 2", 1);
+				// #endif
 
 				// _pollfds[i].revents = 0;
 			}
@@ -360,7 +360,9 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 	}
 
 	std::string contentTypeAndLength = "";
-	_addFileToAnswer(contentTypeAndLength, connection);
+	// _addFileToAnswer(contentTypeAndLength, connection)
+	if (!_addFileToAnswer(contentTypeAndLength, connection))
+		; // Подумать, что вернуть, если не откроется файл
 
 	connection->responseData.connectionAnswer += connection->responseData.statusCode \
 	+ " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
@@ -387,7 +389,7 @@ void ServerRouter::_prepareDeleteAnswer(t_connection * connection)
 
 }
 
-void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connection * connection)
+bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connection * connection)
 {
 	std::string msg;
 	Server server = _getServer(connection->srvNbr);
@@ -457,10 +459,10 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		connection->responseData.statusCode = "200";
 
-		fseek(file, 0L, SEEK_END);
-		int fileLength = ftell(file);
+		fseek(file, 0L, SEEK_END); // перемотать на конец файла
+		size_t fileLength = ftell(file);
 
-		int dot = path.find(".");
+		size_t dot = path.find(".");
 		std::string ext = path.substr(dot + 1, path.length() - dot);
 		std::string contType;
 		if (connection->contentTypesAll.find(ext) != connection->contentTypesAll.end())
@@ -468,12 +470,134 @@ void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 		else
 			contType = "text/html";
 
-		contentTypeAndLength = "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER;
+		char * buffer = (char *)malloc(fileLength);
+		if( !buffer )
+		{
+			fclose( file );
+			// fputs( "Could not allocate memory for file buffer. File could be empty or too large.", stderr );
+			return false;
+		}
+		fseek(file, 0L, SEEK_SET); // перейти на начало файла
+		if( fileLength != fread( buffer, 1, fileLength, file ) )
+		{
+			free( buffer );
+			fclose( file );
+			// fputs( "Read data size is not equal to actual file size.", stderr );
+			return false;
+		}
+
+		connection->responseData.fileToSendInBinary = buffer;
+
+		std::string ff = "<!DOCTYPE html>\n<html lang=\"en\">\n\t<head>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n";
+		ff += "\t\t<title>The Periodic Table</title>\n\t</head>\n\t<body>\n";
+		ff += "\t\t<h2>Dmitri Mendeleev\'s periodic table of the elements</h2>\n\t\t<br>\n\t\t<table style = 'border: 1px blue solid;'>\n";
+		ff += "\t\t</table>\n\t</body>\n</html>";
+
+		contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+		// contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
 		// std::stringstream bufFile;
 		// bufFile << file.rdbuf();
+		(void)fileLength;
 		fclose(file);
+		free( buffer );
 	}
+	return true;
 }
+
+// void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connection * connection)
+// {
+// 	std::string msg;
+// 	Server server = _getServer(connection->srvNbr);
+// 	// std::string path = server.getConfig().listen + connection->inputdata.address;
+// 	std::string path = "." + connection->inputData.address;
+
+// 	size_t i;
+// 	if (server.getConfig().root != "")
+// 		path += server.getConfig().root;
+// 	for (i = 0; i < server.getConfig().locations.size(); i++)
+// 	{
+// 		if (connection->inputData.address == server.getConfig().locations[i].path)
+// 		{
+// 			if (server.getConfig().locations[i].root != "")
+// 				path += server.getConfig().locations[i].root;
+// 			if (server.getConfig().locations[i].index != "")
+// 				path += server.getConfig().locations[i].index;
+// 			else
+// 				path += "index.html";
+// 			break;
+// 		}
+// 	}
+// 	if (i == server.getConfig().locations.size())
+// 	{
+// 		if (server.getConfig().index != "")
+// 			path += server.getConfig().index;
+// 		else
+// 			path += "index.html";
+// 	}
+
+// 	// size_t i;
+// 	// for (i = 0; i < server.getConfig().locations.size(); i++)
+// 	// {
+// 	// 	if (connection->inputdata.address == server.getConfig().locations[i].path)
+// 	// 	{
+// 	// 		if (server.getConfig().locations[i].root != "")
+// 	// 			path += server.getConfig().locations[i].root;
+// 	// 		if (server.getConfig().locations[i].index != "")
+// 	// 			path += server.getConfig().locations[i].index;
+// 	// 		break;
+// 	// 	}
+// 	// }
+// 	// if (i == server.getConfig().locations.size())
+// 	// {
+// 	// 	if (server.getConfig().root != "")
+// 	// 		path += server.getConfig().root;
+// 	// 	if (server.getConfig().index != "")
+// 	// 		path += server.getConfig().index;
+// 	// }
+
+// 	const char * pathChar = path.c_str();
+// 	struct stat buf;
+	
+// 	lstat(pathChar, & buf);
+// 	FILE * file = fopen(pathChar, "rb"); //r - read only, b - in binary
+// 	if (!S_ISREG(buf.st_mode) || file == NULL)
+// 	{
+// 		msg = "Error! Can not open the file " + path + ", sd ";
+// 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+// 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+// 		connection->responseData.statusCode = "404";
+// 	}
+// 	else
+// 	{
+// 		msg = "The file " + path + " was sucsessfully opened, sd ";
+// 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+// 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+// 		connection->responseData.statusCode = "200";
+
+// 		fseek(file, 0L, SEEK_END);
+// 		int fileLength = ftell(file);
+
+// 		int dot = path.find(".");
+// 		std::string ext = path.substr(dot + 1, path.length() - dot);
+// 		std::string contType;
+// 		if (connection->contentTypesAll.find(ext) != connection->contentTypesAll.end())
+// 			contType = connection->contentTypesAll[ext];
+// 		else
+// 			contType = "text/html";
+
+// 		std::string ff = "<!DOCTYPE html>\n<html lang=\"en\">\n\t<head>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n";
+// 		ff += "\t\t<title>The Periodic Table</title>\n\t</head>\n\t<body>\n";
+// 		ff += "\t\t<h2>Dmitri Mendeleev\'s periodic table of the elements</h2>\n\t\t<br>\n\t\t<table style = 'border: 1px blue solid;'>\n";
+// 		ff += "\t\t</table>\n\t</body>\n</html>";
+
+// 		// contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER;
+// 		contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
+// 		// std::stringstream bufFile;
+// 		// bufFile << file.rdbuf();
+// 		(void)fileLength;
+// 		fclose(file);
+// 	}
+// }
 
 int ServerRouter::_readSd(t_connection * connection)
 {

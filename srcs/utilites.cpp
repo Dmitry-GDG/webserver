@@ -202,6 +202,8 @@ void connectionResponseDataClear(t_connection & connection)
 	connection.responseData.type = NOT_DEFINED_RESPONSE_DATA_TYPE;
 	connection.responseData.lenSent = 0;
 	connection.responseData.lenAnswer = 0;
+	connection.responseData.fileToSendInBinary.clear();
+	connection.responseData.connectionAnswer.clear();
 }
 
 void connectionClear(t_connection & connection)

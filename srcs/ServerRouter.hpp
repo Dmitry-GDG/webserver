@@ -69,7 +69,7 @@ class ServerRouter
 		void	_prepareGetAnswer(t_connection *);
 		void	_preparePostAnswer(t_connection *);
 		void	_prepareDeleteAnswer(t_connection *);
-		void	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
+		bool	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
 		// void	_addStatusCode(std::string & answer, t_connection * connection, std::string code);
 
 		bool	_checkDelimeterAtTheEnd(std::string str);

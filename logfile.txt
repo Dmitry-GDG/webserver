@@ -3852,3 +3852,610 @@
 [16:02:56]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
 [16:03:20]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[07:17:57]: 1 Oct. 2022 
+[07:17:57]: Starting... 
+[07:17:58]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[07:17:58]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[07:17:58]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[07:17:58]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[07:17:58]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[07:17:58]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[07:17:58]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[07:18:02]: server[0]: new connection from 127.0.0.1:60797, sd: 9
+[07:18:02]: server[0]: got 325 bytes from sd 9
+[07:18:02]: server[0]: finished reading data from sd 9
+[07:18:02]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[07:18:02]: server[0]: new connection from 127.0.0.1:60800, sd: 10
+[07:18:02]: server[0]: got 234 bytes from sd 10
+[07:18:02]: server[0]: finished reading data from sd 10
+[07:18:02]: server[0]: Error! Unknown location addr from sd 10
+[07:18:02]: server[0]: Error! Can not open the file ./apple-touch-icon-precomposed.pngindex.html, sd 10
+[07:18:04]: server[0]: new connection from 127.0.0.1:60801, sd: 11
+[07:18:04]: server[0]: got 356 bytes from sd 11
+[07:18:04]: server[0]: finished reading data from sd 11
+[07:18:04]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[07:18:04]: server[0]: new connection from 127.0.0.1:60802, sd: 13
+[07:18:04]: server[0]: got 234 bytes from sd 13
+[07:18:04]: server[0]: finished reading data from sd 13
+[07:18:04]: server[0]: Error! Unknown location addr from sd 13
+[07:18:04]: server[0]: Error! Can not open the file ./apple-touch-icon-precomposed.pngindex.html, sd 13
+[07:18:04]: server[0]: new connection from 127.0.0.1:60805, sd: 14
+[07:18:04]: server[0]: got 310 bytes from sd 14
+[07:18:04]: server[0]: finished reading data from sd 14
+[07:18:04]: server[0]: Error! Unknown location addr from sd 14
+[07:18:04]: server[0]: Error! Can not open the file ./favicon.icoindex.html, sd 14
+[07:18:10]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[07:21:20]: 1 Oct. 2022 
+[07:21:20]: Starting... 
+[07:21:21]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[07:21:21]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[07:21:21]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[07:21:21]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[07:21:21]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[07:21:21]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[07:21:21]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[07:21:24]: server[0]: new connection from 127.0.0.1:60862, sd: 9
+[07:21:24]: server[0]: got 356 bytes from sd 9
+[07:21:24]: server[0]: finished reading data from sd 9
+[07:21:24]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[07:21:24]: server[0]: new connection from 127.0.0.1:60863, sd: 10
+[07:21:24]: server[0]: got 234 bytes from sd 10
+[07:21:24]: server[0]: finished reading data from sd 10
+[07:21:24]: server[0]: Error! Unknown location addr from sd 10
+[07:21:24]: server[0]: Error! Can not open the file ./apple-touch-icon-precomposed.pngindex.html, sd 10
+[07:21:27]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[07:25:12]: 1 Oct. 2022 
+[07:25:12]: Starting... 
+[07:25:12]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[07:25:12]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[07:25:12]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[07:25:12]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[07:25:12]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[07:25:12]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[07:25:12]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[07:25:21]: server[0]: new connection from 127.0.0.1:60946, sd: 9
+[07:25:21]: server[0]: new connection from 127.0.0.1:60947, sd: 10
+[07:25:21]: server[2]: new connection from 127.0.0.1:60948, sd: 11
+[07:25:21]: server[0]: got 714 bytes from sd 9
+[07:25:21]: server[0]: finished reading data from sd 9
+[07:25:21]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[07:25:21]: server[0]: got 614 bytes from sd 10
+[07:25:21]: server[0]: finished reading data from sd 10
+[07:25:21]: server[0]: Error! Unknown location addr from sd 10
+[07:25:21]: server[0]: Error! Can not open the file ./favicon.icoindex.html, sd 10
+[07:25:31]: server[2]: closed sd 11 by timeout
+[07:26:09]: server[0]: new connection from 127.0.0.1:60960, sd: 11
+[07:26:09]: server[0]: got 614 bytes from sd 11
+[07:26:09]: server[0]: finished reading data from sd 11
+[07:26:09]: server[0]: Error! Unknown location addr from sd 11
+[07:26:09]: server[0]: Error! Can not open the file ./favicon.icoindex.html, sd 11
+[07:26:56]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[07:30:04]: 1 Oct. 2022 
+[07:30:04]: Starting... 
+[07:30:04]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[07:30:04]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[07:30:04]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[07:30:04]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[07:30:04]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[07:30:04]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[07:30:04]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[07:30:08]: server[0]: new connection from 127.0.0.1:61021, sd: 9
+[07:30:08]: server[0]: got 714 bytes from sd 9
+[07:30:08]: server[0]: finished reading data from sd 9
+[07:30:08]: server[0]: new connection from 127.0.0.1:61022, sd: 10
+[07:30:08]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[07:30:12]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[07:30:39]: 1 Oct. 2022 
+[07:30:39]: Starting... 
+[07:30:39]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[07:30:39]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[07:30:39]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[07:30:39]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[07:30:39]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[07:30:39]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[07:30:39]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[07:30:43]: server[0]: new connection from 127.0.0.1:61034, sd: 9
+[07:30:43]: server[0]: new connection from 127.0.0.1:61035, sd: 10
+[07:30:43]: server[0]: got 714 bytes from sd 9
+[07:30:43]: server[0]: finished reading data from sd 9
+[07:30:43]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[07:30:48]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[07:31:16]: 1 Oct. 2022 
+[07:31:16]: Starting... 
+[07:31:16]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[07:31:16]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[07:31:16]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[07:31:16]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[07:31:16]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[07:31:16]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[07:31:16]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[07:31:20]: server[0]: new connection from 127.0.0.1:61045, sd: 9
+[07:31:20]: server[0]: new connection from 127.0.0.1:61046, sd: 10
+[07:31:20]: server[0]: got 714 bytes from sd 9
+[07:31:20]: server[0]: finished reading data from sd 9
+[07:31:20]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[07:31:30]: server[0]: closed sd 10 by timeout
+[07:34:06]: server[0]: new connection from 127.0.0.1:61101, sd: 10
+[07:34:06]: server[0]: new connection from 127.0.0.1:61102, sd: 11
+[07:34:06]: server[0]: got 714 bytes from sd 10
+[07:34:06]: server[0]: finished reading data from sd 10
+[07:34:06]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 10
+[07:34:16]: server[0]: closed sd 11 by timeout
+[07:36:16]: server[0]: new connection from 127.0.0.1:61137, sd: 11
+[07:36:16]: server[0]: new connection from 127.0.0.1:61138, sd: 13
+[07:36:16]: server[0]: got 714 bytes from sd 11
+[07:36:16]: server[0]: finished reading data from sd 11
+[07:36:16]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[07:36:26]: server[0]: closed sd 13 by timeout
+[07:36:33]: server[0]: new connection from 127.0.0.1:61142, sd: 13
+[07:36:33]: server[0]: got 356 bytes from sd 13
+[07:36:33]: server[0]: finished reading data from sd 13
+[07:36:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 13
+[08:18:14]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:19:25]: 1 Oct. 2022 
+[08:19:25]: Starting... 
+[08:19:25]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:19:25]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:19:25]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:19:25]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:19:25]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:19:25]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:19:25]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:19:35]: server[0]: new connection from 127.0.0.1:64101, sd: 9
+[08:19:35]: server[0]: got 356 bytes from sd 9
+[08:19:35]: server[0]: finished reading data from sd 9
+[08:19:35]: server[0]: Error! Can not open the file ./resources/4242/index.html, sd 9
+[08:20:31]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:20:35]: 1 Oct. 2022 
+[08:20:35]: Starting... 
+[08:20:36]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:20:36]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:20:36]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:20:36]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:20:36]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:20:36]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:20:36]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:20:39]: server[0]: new connection from 127.0.0.1:64198, sd: 9
+[08:20:39]: server[0]: got 356 bytes from sd 9
+[08:20:39]: server[0]: finished reading data from sd 9
+[08:20:39]: server[0]: Error! Can not open the file ./resources/4242/index.html, sd 9
+[08:22:24]: server[0]: new connection from 127.0.0.1:64410, sd: 11
+[08:22:24]: server[0]: new connection from 127.0.0.1:64411, sd: 13
+[08:22:24]: server[0]: got 714 bytes from sd 11
+[08:22:24]: server[0]: finished reading data from sd 11
+[08:22:24]: server[0]: Error! Can not open the file ./resources/4242/index.html, sd 11
+[08:23:26]: server[0]: closed sd 13 by timeout
+[08:25:07]: server[0]: new connection from 127.0.0.1:64474, sd: 13
+[08:25:07]: server[0]: new connection from 127.0.0.1:64475, sd: 15
+[08:25:07]: server[0]: got 714 bytes from sd 13
+[08:25:07]: server[0]: finished reading data from sd 13
+[08:25:07]: server[0]: Error! Can not open the file ./resources/4242/index.html, sd 13
+[08:25:17]: server[0]: closed sd 15 by timeout
+[08:27:30]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:27:46]: 1 Oct. 2022 
+[08:27:46]: Starting... 
+[08:27:46]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:27:46]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:27:46]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:27:46]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:27:46]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:27:46]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:27:46]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:27:56]: server[0]: new connection from 127.0.0.1:64519, sd: 9
+[08:27:56]: server[0]: new connection from 127.0.0.1:64520, sd: 10
+[08:27:56]: server[0]: got 714 bytes from sd 9
+[08:27:56]: server[0]: finished reading data from sd 9
+[08:27:56]: server[0]: Error! Can not open the file ./resources/4242/index.html, sd 9
+[08:28:14]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:30:37]: 1 Oct. 2022 
+[08:30:37]: Starting... 
+[08:30:37]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:30:37]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:30:37]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:30:37]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:30:37]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:30:37]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:30:37]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:30:39]: server[0]: new connection from 127.0.0.1:64571, sd: 9
+[08:30:39]: server[0]: new connection from 127.0.0.1:64572, sd: 10
+[08:30:39]: server[0]: got 714 bytes from sd 9
+[08:30:39]: server[0]: finished reading data from sd 9
+[08:30:39]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:30:49]: server[0]: closed sd 10 by timeout
+[08:32:46]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:32:50]: 1 Oct. 2022 
+[08:32:50]: Starting... 
+[08:32:50]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:32:50]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:32:50]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:32:50]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:32:50]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:32:50]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:32:50]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:32:52]: server[0]: new connection from 127.0.0.1:64613, sd: 9
+[08:32:52]: server[0]: new connection from 127.0.0.1:64614, sd: 10
+[08:32:52]: server[0]: got 714 bytes from sd 9
+[08:32:52]: server[0]: finished reading data from sd 9
+[08:32:52]: server[0]: Error! Can not open the file ./resources/4242/index.html, sd 9
+[08:33:02]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:34:06]: 1 Oct. 2022 
+[08:34:06]: Starting... 
+[08:34:06]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:34:06]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:34:06]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:34:06]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:34:06]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:34:06]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:34:06]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:34:10]: server[0]: new connection from 127.0.0.1:64647, sd: 9
+[08:34:10]: server[0]: new connection from 127.0.0.1:64648, sd: 10
+[08:34:10]: server[0]: got 714 bytes from sd 9
+[08:34:10]: server[0]: finished reading data from sd 9
+[08:34:10]: server[0]: Error! Can not open the file ./resources/4242/index.html, sd 9
+[08:34:36]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:34:39]: 1 Oct. 2022 
+[08:34:39]: Starting... 
+[08:34:39]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:34:39]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:34:39]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:34:39]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:34:39]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:34:39]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:34:39]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:34:42]: server[0]: new connection from 127.0.0.1:64660, sd: 9
+[08:34:42]: server[0]: new connection from 127.0.0.1:64661, sd: 10
+[08:34:42]: server[0]: got 714 bytes from sd 9
+[08:34:42]: server[0]: finished reading data from sd 9
+[08:34:42]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:35:56]: server[0]: closed sd 10 by timeout
+[08:40:31]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:40:36]: 1 Oct. 2022 
+[08:40:36]: Starting... 
+[08:40:36]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:40:36]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:40:36]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:40:36]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:40:36]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:40:36]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:40:36]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:40:43]: server[0]: new connection from 127.0.0.1:65142, sd: 9
+[08:40:43]: server[0]: new connection from 127.0.0.1:65143, sd: 10
+[08:40:43]: server[0]: got 714 bytes from sd 9
+[08:40:43]: server[0]: finished reading data from sd 9
+[08:40:43]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:40:49]: server[0]: new connection from 127.0.0.1:65145, sd: 11
+[08:40:49]: server[0]: got 356 bytes from sd 11
+[08:40:49]: server[0]: finished reading data from sd 11
+[08:40:49]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:40:53]: server[0]: closed sd 10 by timeout
+[08:42:41]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:42:44]: 1 Oct. 2022 
+[08:42:44]: Starting... 
+[08:42:44]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:42:44]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:42:44]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:42:44]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:42:44]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:42:44]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:42:44]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:42:48]: server[0]: new connection from 127.0.0.1:65338, sd: 9
+[08:42:48]: server[0]: got 356 bytes from sd 9
+[08:42:48]: server[0]: finished reading data from sd 9
+[08:42:48]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:42:48]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:42:48]: server[0]: new connection from 127.0.0.1:65339, sd: 10
+[08:42:48]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:42:48]: server[0]: new connection from 127.0.0.1:65340, sd: 11
+[08:42:48]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:42:48]: server[0]: got 315 bytes from sd 10
+[08:42:48]: server[0]: finished reading data from sd 10
+[08:42:48]: server[0]: new connection from 127.0.0.1:65341, sd: 13
+[08:42:48]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:42:48]: server[0]: Error! Unknown location addr from sd 10
+[08:42:48]: server[0]: Error! Can not open the file ./site_files/f.txtindex.html, sd 10
+[08:42:48]: server[0]: got 312 bytes from sd 11
+[08:42:48]: server[0]: finished reading data from sd 11
+[08:42:48]: server[0]: new connection from 127.0.0.1:65342, sd: 14
+[08:42:48]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:42:48]: server[0]: Error! Unknown location addr from sd 11
+[08:42:48]: server[0]: Error! Can not open the file ./site_files/jsindex.html, sd 11
+[08:42:48]: server[0]: got 322 bytes from sd 13
+[08:42:48]: server[0]: finished reading data from sd 13
+[08:42:48]: server[0]: new connection from 127.0.0.1:65343, sd: 15
+[08:42:48]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:42:49]: server[0]: Error! Unknown location addr from sd 13
+[08:42:49]: server[0]: Error! Can not open the file ./site_files/analytics.jsindex.html, sd 13
+[08:42:49]: server[0]: got 315 bytes from sd 14
+[08:42:49]: server[0]: finished reading data from sd 14
+[08:42:49]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:42:49]: server[0]: Error! Unknown location addr from sd 14
+[08:42:49]: server[0]: Error! Can not open the file ./site_files/js(1)index.html, sd 14
+[08:42:49]: server[0]: got 366 bytes from sd 15
+[08:42:49]: server[0]: finished reading data from sd 15
+[08:42:49]: server[0]: Error! Unknown location addr from sd 15
+[08:42:49]: server[0]: Error! Can not open the file ./site_files/amplitude-5.2.2-min.gz.jsindex.html, sd 15
+[08:42:49]: server[0]: got 373 bytes from sd 9
+[08:42:49]: server[0]: finished reading data from sd 9
+[08:42:49]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 9
+[08:44:33]: server[0]: new connection from 127.0.0.1:65494, sd: 16
+[08:44:33]: server[0]: got 407 bytes from sd 16
+[08:44:33]: server[0]: finished reading data from sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:33]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 16
+[08:44:37]: server[4]: new connection from 127.0.0.1:65518, sd: 17
+[08:44:37]: server[4]: got 407 bytes from sd 17
+[08:44:37]: server[4]: finished reading data from sd 17
+[08:44:37]: server[4]: Error! Can not open the file ./resourcespet.html/, sd 17
+[08:47:14]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:47:17]: 1 Oct. 2022 
+[08:47:17]: Starting... 
+[08:47:17]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:47:17]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:47:17]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:47:17]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:47:17]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:47:17]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:47:17]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:47:20]: server[4]: new connection from 127.0.0.1:49388, sd: 9
+[08:47:20]: server[4]: got 699 bytes from sd 9
+[08:47:20]: server[4]: finished reading data from sd 9
+[08:47:20]: server[4]: Error! Can not open the file ./resourcespet.html/, sd 9
+[08:47:38]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:47:51]: 1 Oct. 2022 
+[08:47:51]: Starting... 
+[08:47:51]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:47:51]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:47:51]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:47:51]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:47:51]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:47:51]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:47:51]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:47:54]: server[1]: new connection from 127.0.0.1:49445, sd: 9
+[08:47:54]: server[1]: got 699 bytes from sd 9
+[08:47:54]: server[1]: finished reading data from sd 9
+[08:47:54]: server[1]: Error! Can not open the file ./resources/8080index.html, sd 9
+[08:48:05]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:48:08]: 1 Oct. 2022 
+[08:48:08]: Starting... 
+[08:48:08]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:48:08]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:48:08]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:48:08]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:48:08]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:48:08]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:48:08]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:48:11]: server[1]: new connection from 127.0.0.1:49487, sd: 9
+[08:48:11]: server[1]: got 699 bytes from sd 9
+[08:48:11]: server[1]: finished reading data from sd 9
+[08:48:11]: server[1]: Error! Can not open the file ./resources/8080/index.html, sd 9
+[08:48:43]: server[4]: new connection from 127.0.0.1:49528, sd: 10
+[08:48:43]: server[4]: got 699 bytes from sd 10
+[08:48:43]: server[4]: finished reading data from sd 10
+[08:48:43]: server[4]: Error! Can not open the file ./resourcespet.html/, sd 10
+[08:49:15]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:49:16]: 1 Oct. 2022 
+[08:49:16]: Starting... 
+[08:49:16]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:49:16]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:49:16]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:49:16]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:49:16]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:49:16]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:49:16]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:49:20]: server[4]: new connection from 127.0.0.1:49613, sd: 9
+[08:49:20]: server[4]: got 699 bytes from sd 9
+[08:49:20]: server[4]: finished reading data from sd 9
+[08:49:20]: server[4]: The file ./resources/8888/index.html was sucsessfully opened, sd 9
+[08:49:20]: server[4]: new connection from 127.0.0.1:49614, sd: 10
+[08:49:20]: server[4]: got 740 bytes from sd 10
+[08:49:20]: server[4]: finished reading data from sd 10
+[08:49:20]: server[4]: Error! Unknown location addr from sd 10
+[08:49:20]: server[4]: Error! Can not open the file ./image/evangelion-09-NERV.jpegindex.html, sd 10
+[08:49:20]: server[4]: new connection from 127.0.0.1:49615, sd: 11
+[08:49:20]: server[4]: got 829 bytes from sd 11
+[08:49:20]: server[4]: finished reading data from sd 11
+[08:49:20]: server[4]: Error! Unknown location addr from sd 11
+[08:49:20]: server[4]: Error! Can not open the file ./music/%D0%95%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D0%B8%D0%BE%D0%BD-%D0%9E%D0%BF%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3.mp3index.html, sd 11
+[08:49:20]: server[4]: new connection from 127.0.0.1:49616, sd: 13
+[08:49:20]: server[4]: got 828 bytes from sd 13
+[08:49:20]: server[4]: finished reading data from sd 13
+[08:49:20]: server[4]: Error! Unknown location addr from sd 13
+[08:49:20]: server[4]: Error! Can not open the file ./music/%D0%95%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D0%B8%D0%BE%D0%BD-%D0%9E%D0%BF%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3.mp3index.html, sd 13
+[08:49:30]: server[4]: closed sd 11 by timeout
+[08:49:30]: server[4]: closed sd 13 by timeout
+[08:49:56]: server[0]: new connection from 127.0.0.1:49694, sd: 11
+[08:49:56]: server[0]: new connection from 127.0.0.1:49695, sd: 13
+[08:49:56]: server[0]: got 714 bytes from sd 11
+[08:49:56]: server[0]: finished reading data from sd 11
+[08:49:56]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:49:56]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:49:56]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:49:57]: server[0]: got 559 bytes from sd 13
+[08:49:57]: server[0]: finished reading data from sd 13
+[08:49:57]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:49:57]: server[0]: Error! Unknown location addr from sd 13
+[08:49:57]: server[0]: Error! Can not open the file ./site_files/f.txtindex.html, sd 13
+[08:49:57]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:49:57]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:49:57]: server[0]: new connection from 127.0.0.1:49696, sd: 14
+[08:49:57]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:49:57]: server[0]: new connection from 127.0.0.1:49697, sd: 15
+[08:49:57]: server[0]: The file ./resources/4242/index.html was sucsessfully opened, sd 11
+[08:49:57]: server[0]: got 607 bytes from sd 14
+[08:49:57]: server[0]: finished reading data from sd 14
+[08:49:57]: server[0]: new connection from 127.0.0.1:49698, sd: 16
+[08:49:57]: server[0]: Error! Unknown location addr from sd 14
+[08:49:57]: server[0]: Error! Can not open the file ./site_files/jsindex.html, sd 14
+[08:49:57]: server[0]: got 632 bytes from sd 15
+[08:49:57]: server[0]: finished reading data from sd 15
+[08:49:57]: server[0]: Error! Unknown location addr from sd 15
+[08:49:57]: server[0]: Error! Can not open the file ./site_files/main-libs.cssindex.html, sd 15
+[08:49:57]: server[0]: got 617 bytes from sd 16
+[08:49:57]: server[0]: finished reading data from sd 16
+[08:49:57]: server[0]: Error! Unknown location addr from sd 16
+[08:49:57]: server[0]: Error! Can not open the file ./site_files/main-libs.jsindex.html, sd 16
+[08:50:08]: server[4]: new connection from 127.0.0.1:49711, sd: 17
+[08:50:08]: server[4]: new connection from 127.0.0.1:49712, sd: 18
+[08:50:08]: server[4]: got 739 bytes from sd 17
+[08:50:08]: server[4]: finished reading data from sd 17
+[08:50:08]: server[4]: The file ./resources/8888/index.html was sucsessfully opened, sd 17
+[08:50:08]: server[4]: got 683 bytes from sd 18
+[08:50:08]: server[4]: finished reading data from sd 18
+[08:50:08]: server[4]: Error! Unknown location addr from sd 18
+[08:50:08]: server[4]: Error! Can not open the file ./image/evangelion-09-NERV.jpegindex.html, sd 18
+[08:50:08]: server[4]: new connection from 127.0.0.1:49713, sd: 19
+[08:50:08]: server[4]: got 725 bytes from sd 19
+[08:50:08]: server[4]: finished reading data from sd 19
+[08:50:08]: server[0]: new connection from 127.0.0.1:49714, sd: 20
+[08:50:08]: server[4]: Error! Unknown location addr from sd 19
+[08:50:08]: server[4]: Error! Can not open the file ./music/%D0%95%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D0%B8%D0%BE%D0%BD-%D0%9E%D0%BF%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3.mp3index.html, sd 19
+[08:50:08]: server[0]: new connection from 127.0.0.1:49715, sd: 21
+[08:50:08]: server[0]: got 610 bytes from sd 20
+[08:50:08]: server[0]: finished reading data from sd 20
+[08:50:08]: server[0]: new connection from 127.0.0.1:49716, sd: 22
+[08:50:08]: server[0]: Error! Unknown location addr from sd 20
+[08:50:08]: server[0]: Error! Can not open the file ./site_files/js(1)index.html, sd 20
+[08:50:08]: server[0]: got 658 bytes from sd 21
+[08:50:08]: server[0]: finished reading data from sd 21
+[08:50:08]: server[0]: new connection from 127.0.0.1:49717, sd: 23
+[08:50:08]: server[0]: Error! Unknown location addr from sd 21
+[08:50:08]: server[0]: Error! Can not open the file ./site_files/amplitude-5.2.2-min.gz.jsindex.html, sd 21
+[08:50:08]: server[0]: got 687 bytes from sd 22
+[08:50:08]: server[0]: finished reading data from sd 22
+[08:50:08]: server[0]: new connection from 127.0.0.1:49718, sd: 24
+[08:50:08]: server[0]: Error! Unknown location addr from sd 22
+[08:50:08]: server[0]: Error! Can not open the file ./site_files/responsive-desktop.pngindex.html, sd 22
+[08:50:08]: server[0]: got 686 bytes from sd 23
+[08:50:08]: server[0]: finished reading data from sd 23
+[08:50:08]: server[0]: Error! Unknown location addr from sd 23
+[08:50:08]: server[0]: Error! Can not open the file ./site_files/responsive-laptop.pngindex.html, sd 23
+[08:50:08]: server[0]: got 685 bytes from sd 24
+[08:50:08]: server[0]: finished reading data from sd 24
+[08:50:08]: server[0]: Error! Unknown location addr from sd 24
+[08:50:08]: server[0]: Error! Can not open the file ./site_files/responsive-phone.pngindex.html, sd 24
+[08:51:56]: server[4]: new connection from 127.0.0.1:49757, sd: 25
+[08:51:56]: server[0]: new connection from 127.0.0.1:49759, sd: 26
+[08:51:56]: server[4]: new connection from 127.0.0.1:49758, sd: 28
+[08:51:56]: server[4]: got 765 bytes from sd 25
+[08:51:56]: server[4]: finished reading data from sd 25
+[08:51:56]: server[4]: The file ./resources/8888/index.html was sucsessfully opened, sd 25
+[08:51:56]: server[4]: new connection from 127.0.0.1:49760, sd: 29
+[08:51:56]: server[4]: got 683 bytes from sd 28
+[08:51:56]: server[4]: finished reading data from sd 28
+[08:51:56]: server[4]: Error! Unknown location addr from sd 28
+[08:51:56]: server[4]: Error! Can not open the file ./image/evangelion-09-NERV.jpegindex.html, sd 28
+[08:51:56]: server[4]: got 725 bytes from sd 29
+[08:51:56]: server[4]: finished reading data from sd 29
+[08:51:56]: server[4]: Error! Unknown location addr from sd 29
+[08:51:56]: server[4]: Error! Can not open the file ./music/%D0%95%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D0%B8%D0%BE%D0%BD-%D0%9E%D0%BF%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3.mp3index.html, sd 29
+[08:52:06]: server[0]: closed sd 26 by timeout
+[08:53:47]: server[4]: new connection from 127.0.0.1:49793, sd: 26
+[08:53:48]: server[0]: new connection from 127.0.0.1:49795, sd: 30
+[08:53:48]: server[4]: new connection from 127.0.0.1:49794, sd: 31
+[08:53:48]: server[4]: got 765 bytes from sd 26
+[08:53:48]: server[4]: finished reading data from sd 26
+[08:53:48]: server[4]: The file ./resources/8888/index.html was sucsessfully opened, sd 26
+[08:53:48]: server[4]: got 683 bytes from sd 31
+[08:53:48]: server[4]: finished reading data from sd 31
+[08:53:48]: server[4]: Error! Unknown location addr from sd 31
+[08:53:48]: server[4]: Error! Can not open the file ./image/evangelion-09-NERV.jpegindex.html, sd 31
+[08:53:48]: server[4]: new connection from 127.0.0.1:49796, sd: 32
+[08:53:48]: server[4]: got 725 bytes from sd 32
+[08:53:48]: server[4]: finished reading data from sd 32
+[08:53:48]: server[4]: Error! Unknown location addr from sd 32
+[08:53:48]: server[4]: Error! Can not open the file ./music/%D0%95%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D0%B8%D0%BE%D0%BD-%D0%9E%D0%BF%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3.mp3index.html, sd 32
+[08:53:58]: server[0]: closed sd 30 by timeout
+[08:54:04]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:54:09]: 1 Oct. 2022 
+[08:54:09]: Starting... 
+[08:54:09]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:54:09]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:54:09]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:54:09]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:54:09]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:54:09]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:54:09]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:54:13]: server[4]: new connection from 127.0.0.1:49813, sd: 9
+[08:54:13]: server[4]: new connection from 127.0.0.1:49814, sd: 10
+[08:54:13]: server[4]: got 765 bytes from sd 9
+[08:54:13]: server[4]: finished reading data from sd 9
+[08:54:13]: server[4]: The file ./resources/8888/index.html was sucsessfully opened, sd 9
+[08:54:13]: server[4]: got 683 bytes from sd 10
+[08:54:13]: server[4]: finished reading data from sd 10
+[08:54:13]: server[4]: Error! Unknown location addr from sd 10
+[08:54:13]: server[4]: Error! Can not open the file ./image/evangelion-09-NERV.jpegindex.html, sd 10
+[08:54:13]: server[4]: new connection from 127.0.0.1:49815, sd: 11
+[08:54:13]: server[4]: got 725 bytes from sd 11
+[08:54:13]: server[4]: finished reading data from sd 11
+[08:54:13]: server[4]: Error! Unknown location addr from sd 11
+[08:54:13]: server[4]: Error! Can not open the file ./music/%D0%95%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D0%B8%D0%BE%D0%BD-%D0%9E%D0%BF%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3.mp3index.html, sd 11
+[08:54:58]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:55:00]: 1 Oct. 2022 
+[08:55:00]: Starting... 
+[08:55:00]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:55:00]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:55:00]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:55:00]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:55:00]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:55:00]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:55:00]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:55:04]: server[4]: new connection from 127.0.0.1:49831, sd: 9
+[08:55:04]: server[4]: new connection from 127.0.0.1:49832, sd: 10
+[08:55:04]: server[4]: got 765 bytes from sd 9
+[08:55:04]: server[4]: finished reading data from sd 9
+[08:55:04]: server[4]: The file ./resources/8888/index.html was sucsessfully opened, sd 9
+[08:55:04]: server[4]: got 683 bytes from sd 10
+[08:55:04]: server[4]: finished reading data from sd 10
+[08:55:04]: server[4]: Error! Unknown location addr from sd 10
+[08:55:04]: server[4]: Error! Can not open the file ./image/evangelion-09-NERV.jpegindex.html, sd 10
+[08:55:04]: server[4]: new connection from 127.0.0.1:49833, sd: 11
+[08:55:04]: server[4]: got 629 bytes from sd 11
+[08:55:04]: server[4]: finished reading data from sd 11
+[08:55:04]: server[4]: Error! Unknown location addr from sd 11
+[08:55:04]: server[4]: Error! Can not open the file ./music/opening.mp3index.html, sd 11
+[08:56:10]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:56:15]: 1 Oct. 2022 
+[08:56:15]: Starting... 
+[08:56:15]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:56:15]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:56:15]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:56:15]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:56:15]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:56:15]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:56:15]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:56:18]: server[4]: new connection from 127.0.0.1:49869, sd: 9
+[08:56:18]: server[4]: got 765 bytes from sd 9
+[08:56:18]: server[4]: finished reading data from sd 9
+[08:56:18]: server[4]: Error! Can not open the file ./resources/8888/, sd 9
+[08:56:18]: server[4]: new connection from 127.0.0.1:49871, sd: 11
+[08:57:24]: server[4]: closed sd 11 by timeout
+[08:59:25]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
