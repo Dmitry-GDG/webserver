@@ -177,7 +177,7 @@ bool ServerRouter::_parseInputData(t_connection * connection)
 		// else
 			connection->inputData.method = *iter;
 
-		connection->inputData.address = *(iter + 1);
+		connection->inputData.address = correctSlashInAddress(*(iter + 1));
 		connection->inputData.httpVersion = *(iter + 2);
 
 		iterVV++;

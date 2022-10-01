@@ -97,6 +97,7 @@ std::string datastamp();
 uint16_t	atou16(const char *s);
 void	exitErr(std::string errmsg);
 void	ctrl_c_handler(int signum);
+std::string	correctSlashInAddress(std::string str);
 // bool	parseInputData(char * buf, t_connection * connection);
 // void	delWhiteSpacesStr(std::string & inptStr);
 // bool	checkDelimeterAtTheEnd(std::string str);

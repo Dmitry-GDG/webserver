@@ -137,32 +137,32 @@ void printServerConfig(t_config config, std::string msg)
 	{
 		for (size_t i = 0; i < config.locations.size(); i++)
 		{
-			std::cout << "  location Nr " << i << std::endl;
+			std::cout << "location Nr " << i << std::endl;
 			if (config.locations[i].path.size() > 0)
-				std::cout << "path:\t" << config.locations[i].path << std::endl;
+				std::cout << "   path:\t" << config.locations[i].path << std::endl;
 			if (config.locations[i].root.size() > 0)
-				std::cout << "root:\t" << config.locations[i].root << std::endl;
+				std::cout << "   root:\t" << config.locations[i].root << std::endl;
 			if (config.locations[i].index.size() > 0)
-				std::cout << "index:\t" << config.locations[i].index << std::endl;
+				std::cout << "   index:\t" << config.locations[i].index << std::endl;
 			if (config.locations[i].autoindex.size() > 0)
-				std::cout << "autoindex:\t" << config.locations[i].autoindex << std::endl;
+				std::cout << "   autoindex:\t" << config.locations[i].autoindex << std::endl;
 			if (config.locations[i].upload.size() > 0)
-				std::cout << "upload:\t" << config.locations[i].upload << std::endl;
+				std::cout << "   upload:\t" << config.locations[i].upload << std::endl;
 			if (config.locations[i].limit_size.size() > 0)
-				std::cout << "limit_size:\t" << config.locations[i].limit_size << std::endl;
+				std::cout << "   limit_size:\t" << config.locations[i].limit_size << std::endl;
 			if (config.locations[i].redirs.size() > 0)
-				std::cout << "redirs:\t" << config.locations[i].redirs << std::endl;
+				std::cout << "   redirs:\t" << config.locations[i].redirs << std::endl;
 			if (config.locations[i].methods.size() > 0)
 			{
 				for (size_t j = 0; j < config.locations[i].methods.size(); j++)
-					std::cout << "method " << j << ":\t" << config.locations[i].methods[j] << std::endl;
+					std::cout << "   method " << j << ":\t" << config.locations[i].methods[j] << std::endl;
 			}
 			if (config.locations[i].cgi.size() > 0)
 			{
 				size_t j = 1;
 				for(std::map<std::string, std::string>::iterator iter = config.locations[i].cgi.begin(); iter != config.locations[i].cgi.end(); iter++)
 				{
-					std::cout << "cgi " << j << ":\t" << (*iter).first << "  " << (*iter).second << std::endl;
+					std::cout << "   cgi " << j << ":\t" << (*iter).first << "  " << (*iter).second << std::endl;
 					j++;
 				}
 			}
@@ -171,7 +171,7 @@ void printServerConfig(t_config config, std::string msg)
 				size_t j = 1;
 				for(std::map<std::string, std::string>::iterator iter = config.locations[i].error_pages.begin(); iter != config.locations[i].error_pages.end(); iter++)
 				{
-					std::cout << "error_page " << j << ":\t" << (*iter).first << "  " << (*iter).second << std::endl;
+					std::cout << "   error_page " << j << ":\t" << (*iter).first << "  " << (*iter).second << std::endl;
 					j++;
 				}
 			}

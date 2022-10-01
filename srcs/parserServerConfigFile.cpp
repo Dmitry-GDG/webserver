@@ -72,6 +72,17 @@ void	checkBracketAndCorrectVector(std::vector<std::vector<std::string> >	& oneSe
 	oneServerConfigVectorSplit.clear();
 }
 
+std::string correctSlashInAddress(std::string str)
+{
+	std::string outp;
+	outp = str;
+	if (outp.size() > 0 && outp[outp.size() - 1] == '/')
+		outp.erase(outp.end() - 1);
+	if (outp.size() > 0 && outp[0] == '/')
+		outp.erase(outp.begin());
+	return outp;
+}
+
 // вектор парсится на структуру
 void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfigVectorSplit, std::vector<t_config> & configs)
 {
@@ -94,19 +105,19 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 		if (oneServerConfigVectorSplit[i][0] == "location")
 		{
 			locationClear(location);
-			location.path = oneServerConfigVectorSplit[i][1];
+			location.path = correctSlashInAddress(oneServerConfigVectorSplit[i][1]);
 			oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 			for (;i < oneServerConfigVectorSplit.size(); i++)
 			{
 				// std::cout << "oneServerConfigVectorSplit[i][0]" << oneServerConfigVectorSplit[i][0] <<std::endl;
 				if (oneServerConfigVectorSplit[i][0] == "root")
 				{
-					location.root = oneServerConfigVectorSplit[i][1];
+					location.root = correctSlashInAddress(oneServerConfigVectorSplit[i][1]);
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "index")
 				{
-					location.index = oneServerConfigVectorSplit[i][1];
+					location.index = correctSlashInAddress(oneServerConfigVectorSplit[i][1]);
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "autoindex")
@@ -116,7 +127,7 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "upload")
 				{
-					location.upload = oneServerConfigVectorSplit[i][1];
+					location.upload = correctSlashInAddress(oneServerConfigVectorSplit[i][1]);
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "limit_size")
@@ -137,7 +148,7 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "cgi")
 				{
-					location.cgi.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[i][1], oneServerConfigVectorSplit[i][2]) );
+					location.cgi.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[i][1], correctSlashInAddress(oneServerConfigVectorSplit[i][2])) );
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "error" || oneServerConfigVectorSplit[i][0] == "error_page" || oneServerConfigVectorSplit[i][0] == "errors" || oneServerConfigVectorSplit[i][0] == "error_pages")
@@ -188,13 +199,13 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 				if (oneServerConfigVectorSplit[j][0] == "limit_size")
 					oneServerConfig.limitSize = oneServerConfigVectorSplit[j][1];
 				if (oneServerConfigVectorSplit[j][0] == "root")
-					oneServerConfig.root = oneServerConfigVectorSplit[j][1];
+					oneServerConfig.root = correctSlashInAddress(oneServerConfigVectorSplit[j][1]);
 				if (oneServerConfigVectorSplit[j][0] == "index")
-					oneServerConfig.index = oneServerConfigVectorSplit[j][1];
+					oneServerConfig.index = correctSlashInAddress(oneServerConfigVectorSplit[j][1]);
 				if (oneServerConfigVectorSplit[j][0] == "autoindex")
 					oneServerConfig.autoindex = oneServerConfigVectorSplit[j][1];
 				if (oneServerConfigVectorSplit[j][0] == "cgi")
-					oneServerConfig.cgi.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[j][1], oneServerConfigVectorSplit[j][2]) );
+					oneServerConfig.cgi.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[j][1], correctSlashInAddress(oneServerConfigVectorSplit[j][2])) );
 				if (oneServerConfigVectorSplit[j][0] == "redir" || oneServerConfigVectorSplit[j][0] == "redirs" || oneServerConfigVectorSplit[j][0] == "redirection")
 					oneServerConfig.redirs = oneServerConfigVectorSplit[j][1];
 				if (oneServerConfigVectorSplit[j][0] == "error_page" || oneServerConfigVectorSplit[j][0] == "error_pages" || oneServerConfigVectorSplit[j][0] == "error" || oneServerConfigVectorSplit[j][0] == "errors")

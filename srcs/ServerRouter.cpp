@@ -236,9 +236,9 @@ bool ServerRouter::_mainLoop()
 				if (connection->requestProcessingStep == READ_DONE)
 					connection->pfd->events = POLLOUT;
 
-				// #ifdef DEBUGMODE
-				// 	printConnection(* connection, "DEBUGMODE _mainLoop printConnection 2", 1);
-				// #endif
+				#ifdef DEBUGMODE
+					printConnection(* connection, "DEBUGMODE _mainLoop printConnection 2", 1);
+				#endif
 
 				// _pollfds[i].revents = 0;
 			}
@@ -343,7 +343,7 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 	connection->responseData.type = GET;
 	Server server = _getServer(connection->srvNbr);
 	bool correctAddr = false;
-	if (connection->inputData.address != "\\")
+	if (connection->inputData.address != "//")
 	{
 		for (size_t i = 0; i < server.getConfig().locations.size(); i++)
 		{
@@ -394,17 +394,17 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 	std::string msg;
 	Server server = _getServer(connection->srvNbr);
 	// std::string path = server.getConfig().listen + connection->inputdata.address;
-	std::string path = "." + connection->inputData.address;
+	std::string path = "./" + connection->inputData.address;
 
 	size_t i;
 	if (server.getConfig().root != "")
-		path += server.getConfig().root;
+		path += server.getConfig().root + "//";
 	for (i = 0; i < server.getConfig().locations.size(); i++)
 	{
 		if (connection->inputData.address == server.getConfig().locations[i].path)
 		{
 			if (server.getConfig().locations[i].root != "")
-				path += server.getConfig().locations[i].root;
+				path += server.getConfig().locations[i].root + "//";
 			if (server.getConfig().locations[i].index != "")
 				path += server.getConfig().locations[i].index;
 			else
