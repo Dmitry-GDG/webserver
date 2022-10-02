@@ -7,7 +7,7 @@
 # define WEBSERV_AUTHORS "trurgot, botilia\t\t"
 # define HOSTNAME_LENGTH 30
 # define SD_MAXCOUNT 1024
-# define BUF_SIZE 3000
+# define BUF_SIZE 200000
 # define DELIMETER "\r\n"
 # define DDELIMETER "\r\n\r\n"
 // # define DELIMETER "\\r\\n"
