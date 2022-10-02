@@ -95,6 +95,7 @@ std::string unsignedToString99(unsigned x);
 std::string timestamp();
 std::string datastamp();
 uint16_t	atou16(const char *s);
+std::string	exec(const char *cmd);
 void	exitErr(std::string errmsg);
 void	ctrl_c_handler(int signum);
 std::string	correctSlashInAddress(std::string str);
