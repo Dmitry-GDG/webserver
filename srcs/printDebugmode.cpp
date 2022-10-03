@@ -36,12 +36,23 @@ void printVector(std::vector<std::string> data, std::string msg)
 		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
 	else
 		std::cout << VIOLET << "**** printVector ****" << NC << std::endl;
-	for (std::vector<std::string>::iterator iter = data.begin(); iter < data.end(); iter++)
+	std::vector<std::string>::iterator iter = data.begin();
+	if (iter < data.end())
 	{
-		std::cout << *iter;
-		if (iter + 1 < data.end())
-			std::cout << "\t";
+		while (iter < data.end())
+		{
+			std::cout << *iter;
+			iter++;
+			if (iter < data.end())
+				std::cout << "\t";
+		}
 	}
+	// for (std::vector<std::string>::iterator iter = data.begin(); iter < data.end(); iter++)
+	// {
+	// 	std::cout << *iter;
+	// 	if (iter + 1 < data.end())
+	// 		std::cout << "\t";
+	// }
 	std::cout << std::endl;
 	if (msg != "")
 		std::cout << "----------------" << std::endl;

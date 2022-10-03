@@ -175,10 +175,11 @@ bool ServerRouter::_parseInputData(t_connection * connection)
 		// 	return false;
 		// }
 		// else
-			connection->inputData.method = *iter;
-
-		connection->inputData.address = correctSlashInAddress(*(iter + 1));
-		connection->inputData.httpVersion = *(iter + 2);
+		connection->inputData.method = *iter;
+		iter++;
+		connection->inputData.address = correctSlashInAddress(*iter);
+		iter++;
+		connection->inputData.httpVersion = *iter;
 
 		iterVV++;
 		// std::cout << "iterVV: " << *iterVV << std::endl;

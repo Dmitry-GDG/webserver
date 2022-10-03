@@ -64,7 +64,7 @@ void splitString (std::string str, char seperator, std::vector<std::string> & st
 	{
 		if (endIndex == str.size() || str[endIndex] == seperator)  
 		{
-			subStr = "";  
+			subStr.clear();  
 			subStr.append(str, startIndex, endIndex - startIndex);  
 			strings.push_back(subStr);  
 			startIndex = endIndex + 1;  
@@ -103,7 +103,7 @@ void splitStringColon (std::string str, char seperator, std::vector<std::string>
 			strings.push_back(subStr);
 			if (endIndex != str.size())
 			{
-				subStr = "";
+				subStr.clear();
 				subStr.append(str, endIndex + 1, std::string::npos);
 				strings.push_back(subStr);
 			}
@@ -156,13 +156,13 @@ void printMsgErr(int srvNb, int clntSd, std::string msg1, std::string msg2)
 
 void locationClear(t_location & location)
 {
-	location.path = "";
-	location.root = "";
-	location.index = "";
-	location.autoindex = "";
-	location.upload = "";
-	location.limit_size = "";
-	location.redirs = "";
+	location.path.clear();
+	location.root.clear();
+	location.index.clear();
+	location.autoindex.clear();
+	location.upload.clear();
+	location.limit_size.clear();
+	location.redirs.clear();
 	location.methods.clear();
 	location.cgi.clear();
 	location.error_pages.clear();
@@ -170,16 +170,16 @@ void locationClear(t_location & location)
 
 void configClear(t_config & oneServerConfig)
 {
-	oneServerConfig.serverName = "";
-	oneServerConfig.listen = "";
-	oneServerConfig.ip = "";
-	oneServerConfig.port = "";
-	oneServerConfig.limitSize = "";
-	oneServerConfig.root = "";
-	oneServerConfig.index = "";
-	oneServerConfig.upload = "";
+	oneServerConfig.serverName.clear();
+	oneServerConfig.listen.clear();
+	oneServerConfig.ip.clear();
+	oneServerConfig.port.clear();
+	oneServerConfig.limitSize.clear();
+	oneServerConfig.root.clear();
+	oneServerConfig.index.clear();
+	oneServerConfig.upload.clear();
 	oneServerConfig.autoindex = "false";
-	oneServerConfig.redirs = "";
+	oneServerConfig.redirs.clear();
 	oneServerConfig.methods.clear();
 	oneServerConfig.locations.clear();
 	oneServerConfig.error_pages.clear();
@@ -188,9 +188,9 @@ void configClear(t_config & oneServerConfig)
 
 void connectionInputDataClear(t_connection & connection)
 {
-	connection.inputData.method = "";
-	connection.inputData.address = "";
-	connection.inputData.httpVersion = "";
+	connection.inputData.method.clear();
+	connection.inputData.address.clear();
+	connection.inputData.httpVersion.clear();
 	connection.inputData.dataType = NOT_DEFINED_INPUT_DATA_TYPE;
 	connection.inputData.headerFields.clear();
 	// connection.inputStr.clear();
@@ -209,7 +209,7 @@ void connectionResponseDataClear(t_connection & connection)
 void connectionClear(t_connection & connection)
 {
 	connection.srvNbr = 0;
-	connection.fromIp = "";
+	connection.fromIp.clear();
 	connection.fromPort = 0;
 	connection.clntSd = 0;
 	connection.position = 0;
@@ -247,4 +247,31 @@ std::string exec(const char* cmd)
     }
     pclose(pipe);
     return result;
+}
+
+void readFileToStrInBinary(const char * pathChar, std::string & outp)
+{
+	std::string line;
+	std::vector<std::string> outpVector;
+
+	outp.clear();
+	outpVector.clear();
+	std::ifstream in(pathChar, std::ios::binary);
+	if (in.is_open())
+	{
+		while (getline(in, line))
+			outpVector.push_back(line);
+	}
+	in.close();
+	std::vector<std::string>::iterator iter = outpVector.begin();
+	if  (iter != outpVector.end())
+	{
+		while (iter != outpVector.end())
+		{
+			outp += *iter;
+			iter++;
+			if (iter != outpVector.end())
+				outp += "\n";
+		}
+	}
 }

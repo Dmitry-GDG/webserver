@@ -21,7 +21,8 @@ CCFLAGS +=	-DDEBUGMODE
 RM =		rm -Rf
 
 # FILES
-MAIN =		main ServerRouter utilites parserServerConfigFile Server ServerRouter_parseInputData printDebugmode
+MAIN =		main ServerRouter utilites parserServerConfigFile Server ServerRouter_parseInputData \
+			printDebugmode ServerRouter_GET ServerRouter_POST ServerRouter_DELETE
 # WEBSERVCONFIG =	lexer parser
 # AUTOINDEX =	AutoIndexGenerator
 # CGI =		CgiHandler
