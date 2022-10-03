@@ -89,6 +89,7 @@ void 	printVector(std::vector<std::string> data, std::string msg);
 void 	printVVector(std::vector<std::vector<std::string> > data, std::string msg);
 void	printPollfds(const pollfd *pfds, std::string msg, size_t pSize);
 void	printConnection(t_connection connection, std::string msg, int sign);
+void	printAllConnections(std::vector<t_connection> connections, std::string msg);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);

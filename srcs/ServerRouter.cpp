@@ -215,6 +215,10 @@ bool ServerRouter::_mainLoop()
 			msg = "new connection from " + _getConnection(sd)->fromIp + ":" + std::to_string(_getConnection(sd)->fromPort) + ", sd: ";
 			printMsg(i, sd, msg, "");
 			printMsgToLogFile(i, sd, msg, "");
+			#ifdef DEBUGMODE
+				msg = "DEBUGMODE ServerRouter_GET _mainLoop printAllConnections";
+				printAllConnections(_connections, msg);
+			#endif
 		}
 		else
 		{
@@ -287,10 +291,9 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	std::string msg;
 	std::string delim = DELIMETER;
 	connection->responseData.connectionAnswer.clear();
-	// std::string answer = connection->inputData.httpVersion + " ";
-	connection->responseData.connectionAnswer = connection->inputData.httpVersion + " ";
 	if (connection->inputData.dataType == HTTP)
 	{
+		connection->responseData.connectionAnswer = connection->inputData.httpVersion + " ";
 		if (std::find(connection->allowedMethods.begin(), connection->allowedMethods.end(), connection->inputData.method) == connection->allowedMethods.end() )
 		{
 			msg = "Error! Unknown method from sd ";

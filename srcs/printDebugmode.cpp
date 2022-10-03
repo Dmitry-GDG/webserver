@@ -1,21 +1,6 @@
 #include "main.hpp"
 #include "ServerRouter.hpp"
 
-
-// static std::pair<std::string, std::string> responseStatusCodesArr[] =
-// {
-// 	// std::vector<std::pair<std::string, std::string> > vr = {{"100", "Continue"}, {"101", "Switching Protocols"}, {"102", "Processing"}, {"103", "Early Hints"}, {"200", "OK"}, {"201", "Created"}, {"202", "Accepted"}, {"203", "Non-Authoritative Information"}, {"204", "No Content"}, {"205", "Reset Content"}, {"206", "Partial Content"}, {"207", "Multi-Status"}, {"208", "Already Reported"}, {"226", "IM Used"}, {"300", "Multiple Choices"}, {"301", "Moved Permanently"}, {"302", "Found"}, {"303", "See Other"}, {"304", "Not Modified"}, {"305", "Use Proxy"}, {"307", "Temporary Redirect"}, {"308", "Permanent Redirect"}, {"400", "Bad Request"}, {"401", "Unauthorized"}, {"402", "Payment Required"}, {"403", "Forbidden"}, {"404", "Not Found"}, {"405", "Method Not Allowed"}, {"406", "Not Acceptable"}, {"407", "Proxy Authentication Required"}, {"408", "Request Timeout"}, {"409", "Conflict"}, {"410", "Gone"}, {"411", "Length Required"}, {"412", "Precondition Failed"}, {"413", "Payload Too Large"}, {"414", "URI Too Long"}, {"415", "Unsupported Media Type"}, {"416", "Range Not Satisfiable"}, {"417", "Expectation Failed"}, {"418", "I'm a teapot"}, {"421", "Misdirected Request"}, {"422", "Unprocessable Content"}, {"423", "Locked"}, {"424", "Failed Dependency"}, {"425", "Too Early"}, {"426", "Upgrade Required"}, {"428", "Precondition Required"}, {"429", "Too Many Requests"}, {"431", "Request Header Fields Too Large"}, {"451", "Unavailable For Legal Reasons"}, {"500", "Internal Server Error"}, {"501", "Not Implemented"}, {"502", "Bad Gateway"}, {"503", "Service Unavailable"}, {"504", "Gateway Timeout"}, {"505", "HTTP Version Not Supported"}, {"506", "Variant Also Negotiates"}, {"507", "Insufficient Storage"}, {"508", "Loop Detected"}, {"510", "Not Extended"}, {"511", "Network Authentication Required"}};
-//     std::make_pair("100", "Continue"), std::make_pair("101", "Switching Protocols") //, и т.д.
-// };
- 
-// #define ARRSIZE(arr) (sizeof((arr))/sizeof((arr)[0]))
- 
-// std::map<std::string, std::string> responseStatusCodes(responseStatusCodesArr, responseStatusCodesArr + ARRSIZE(responseStatusCodesArr));
- 
-// #undef  ARRSIZE
-
-
-
 void printAllServersConfig(std::vector<t_config> configs, std::string msg)
 {
 	if (msg != "")
@@ -28,6 +13,7 @@ void printAllServersConfig(std::vector<t_config> configs, std::string msg)
 		printServerConfig(configs[i], "");
 		std::cout << "-------------------------" << std::endl;
 	}
+	std::cout << "----------------" << std::endl;
 }
 
 void printVector(std::vector<std::string> data, std::string msg)
@@ -84,6 +70,7 @@ void printAllServersVector(std::vector<Server> servers, std::string msg)
 		std::cout << "-------------------------" << std::endl;
 		i++;
 	}
+	std::cout << "----------------" << std::endl;
 }
 
 void printPollfds(const pollfd *pfds, std::string msg, size_t pSize)
@@ -188,6 +175,7 @@ void printServerConfig(t_config config, std::string msg)
 			}
 		}
 	}
+	std::cout << "----------------" << std::endl;
 }
 
 void printConnection(t_connection connection, std::string msg, int sign)
@@ -207,20 +195,20 @@ void printConnection(t_connection connection, std::string msg, int sign)
 		for (size_t i = 0; i < connection.allowedMethods.size(); i++)
 			std::cout << "allowedMethods[" << i << "]:\t" << connection.allowedMethods[i] << std::endl;
 	}
-	if (connection.responseStatusCodesAll.size() > 0)
-	{
-		std::cout << "Response status codes:" << std::endl;
-		for(std::map<std::string, std::string>::iterator iter = connection.responseStatusCodesAll.begin(); iter != connection.responseStatusCodesAll.end(); iter++)
-			std::cout << (*iter).first << ":" << (*iter).second << "\t";
-		std::cout << std::endl;
-	}
-	if (connection.contentTypesAll.size() > 0)
-	{
-		std::cout << "Content types:" << std::endl;
-		for(std::map<std::string, std::string>::iterator iter = connection.contentTypesAll.begin(); iter != connection.contentTypesAll.end(); iter++)
-			std::cout << (*iter).first << ":" << (*iter).second << "\t";
-		std::cout << std::endl;
-	}
+	// if (connection.responseStatusCodesAll.size() > 0)
+	// {
+	// 	std::cout << "Response status codes:" << std::endl;
+	// 	for(std::map<std::string, std::string>::iterator iter = connection.responseStatusCodesAll.begin(); iter != connection.responseStatusCodesAll.end(); iter++)
+	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
+	// 	std::cout << std::endl;
+	// }
+	// if (connection.contentTypesAll.size() > 0)
+	// {
+	// 	std::cout << "Content types:" << std::endl;
+	// 	for(std::map<std::string, std::string>::iterator iter = connection.contentTypesAll.begin(); iter != connection.contentTypesAll.end(); iter++)
+	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
+	// 	std::cout << std::endl;
+	// }
 	std::cout << "Request Processing Step:\t" << RED << sts[connection.requestProcessingStep] << NC << std::endl;
 	if (sign == 1)
 	{
@@ -241,12 +229,12 @@ void printConnection(t_connection connection, std::string msg, int sign)
 		}
 	}
 	std::cout << "Position:\t" << connection.position << std::endl;
-	std::cout << "Inputdata method:\t" << connection.inputData.method << std::endl;
-	std::cout << "Inputdata address:\t" << connection.inputData.address << std::endl;
-	std::cout << "Inputdata httpVersion:\t" << connection.inputData.httpVersion << std::endl;
 	std::string arr2[] = {"NOT_DEFINED_INPUT_DATA", "HTTP"};
 	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
 	std::cout << "Inputdata dataType:\t" << dtt[connection.inputData.dataType] << std::endl;
+	std::cout << "Inputdata method:\t" << connection.inputData.method << std::endl;
+	std::cout << "Inputdata address:\t" << connection.inputData.address << std::endl;
+	std::cout << "Inputdata httpVersion:\t" << connection.inputData.httpVersion << std::endl;
 	int i = 0;
 	for (std::map<std::string, std::string>::iterator iterM = connection.inputData.headerFields.begin(); iterM != connection.inputData.headerFields.end(); iterM++)
 	{
@@ -317,6 +305,20 @@ void printConnection(t_connection connection, std::string msg, int sign)
 // 	std::cout << "----------------" << std::endl;
 // }
 
+void printAllConnections(std::vector<t_connection> connections, std::string msg)
+{
+	if (msg != "")
+		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+	else
+		std::cout << VIOLET << "**** printAllConnections ****" << NC << std::endl;
+	if (connections.size() > 0)
+	{
+		for (std::vector<t_connection>::iterator iter = connections.begin(); iter < connections.end(); iter++)
+			printConnection((*iter), "", 0);
+	}
+	std::cout << "----------------" << std::endl;
+}
+
 void printWebServer(ServerRouter data, std::string msg)
 {
 	if (msg != "")
@@ -334,26 +336,27 @@ void printWebServer(ServerRouter data, std::string msg)
 		for (std::vector<t_connection>::iterator iter = tmp.begin(); iter < tmp.end(); iter++)
 			printConnection((*iter), "", 0);
 	}
-	if (data.getResponseStatusCodes().size() > 0)
-	{
-		std::cout << "Response status codes:" << std::endl;
-		std::map<std::string, std::string> tmp;
-		tmp.clear();
-		tmp = data.getResponseStatusCodes();
-		for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
-			std::cout << (*iter).first << ":" << (*iter).second << "\t";
-		std::cout << std::endl;
-	}
-	if (data.getContentTypes().size() > 0)
-	{
-		std::cout << "Content types:" << std::endl;
-		std::map<std::string, std::string> tmp;
-		tmp.clear();
-		tmp = data.getContentTypes();
-		for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
-			std::cout << (*iter).first << ":" << (*iter).second << "\t";
-		std::cout << std::endl;
-	}
+	// if (data.getResponseStatusCodes().size() > 0)
+	// {
+	// 	std::cout << "Response status codes:" << std::endl;
+	// 	std::map<std::string, std::string> tmp;
+	// 	tmp.clear();
+	// 	tmp = data.getResponseStatusCodes();
+	// 	for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
+	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
+	// 	std::cout << std::endl;
+	// }
+	// if (data.getContentTypes().size() > 0)
+	// {
+	// 	std::cout << "Content types:" << std::endl;
+	// 	std::map<std::string, std::string> tmp;
+	// 	tmp.clear();
+	// 	tmp = data.getContentTypes();
+	// 	for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
+	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
+	// 	std::cout << std::endl;
+	// }
 	std::cout << "Quantuty of poiifds:\t" << data.getPollfdsQty() << std::endl;
 	printPollfds(data.getPollfds(), "",  data.getPollfdsQty());
+	std::cout << "----------------" << std::endl;
 }

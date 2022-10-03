@@ -5,15 +5,15 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 	std::string msg;
 	connection->responseData.type = GET;
 	Server server = _getServer(connection->srvNbr);
-	bool correctAddr = false;
-	if (connection->inputData.address != "/")
-	{
-		for (size_t i = 0; i < server.getConfig().locations.size(); i++)
-		{
-			if (connection->inputData.address == server.getConfig().locations[i].path)
-				correctAddr = true;
-		}
-	}
+	// bool correctAddr = false;
+	// if (connection->inputData.address != "")
+	// {
+	// 	for (size_t i = 0; i < server.getConfig().locations.size(); i++)
+	// 	{
+	// 		if (connection->inputData.address == server.getConfig().locations[i].path)
+	// 			correctAddr = true;
+	// 	}
+	// }
 	// if (!correctAddr)
 	// {
 	// 	msg = "Error! Unknown location addr from sd ";
