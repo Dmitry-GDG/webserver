@@ -24,9 +24,11 @@ bool ServerRouter::_acceptFile(std::string & contentTypeAndLength, t_connection 
 	splitString(connection->inputData.address, ':', splitInputDataAddr);
 	std::string pathInsideServer = splitInputDataAddr[1];
 
-	std::ofstream outFile;
-	struct stat file;
-	bool isExists = true;
+	(void) contentTypeAndLength;
+
+	// std::ofstream outFile;
+	// struct stat file;
+	// bool isExists = true;
 
 	// // Заполнение информации о файле и проверка на его существование
 	// if (stat(_parsedURI.upload.c_str(), &file))
@@ -66,4 +68,5 @@ bool ServerRouter::_acceptFile(std::string & contentTypeAndLength, t_connection 
 	// 	outFile.close();
 	// 	_resBodyType = "";
 	// }
+	return true;
 }

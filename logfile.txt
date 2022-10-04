@@ -25129,3 +25129,179 @@
 [13:16:13]: server[5]: sent 50581/50581 bytes to sd 11
 [15:26:07]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[07:09:04]: 4 Oct. 2022 
+[07:09:04]: Starting... 
+[07:09:04]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[07:09:04]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[07:09:04]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[07:09:04]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[07:09:04]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[07:09:04]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[07:09:04]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[07:09:33]: server[0]: new connection from 127.0.0.1:63494, sd: 9
+[07:09:33]: server[0]: new connection from 127.0.0.1:63495, sd: 10
+[07:09:33]: server[0]: got 1211 bytes from sd 9
+[07:09:33]: server[0]: finished reading data from sd 9
+[07:09:33]: server[0]: the file ./resources/4242/index.html was sucsessfully opened, sd 9
+[07:09:33]: server[0]: sent 23344/23344 bytes to sd 9
+[07:09:34]: server[0]: got 1082 bytes from sd 10
+[07:09:34]: server[0]: finished reading data from sd 10
+[07:09:34]: server[0]: the file ./resources/4242/site_files/f.txt was sucsessfully opened, sd 10
+[07:09:34]: server[0]: sent 40563/40563 bytes to sd 10
+[07:09:34]: server[0]: new connection from 127.0.0.1:63496, sd: 11
+[07:09:34]: server[0]: new connection from 127.0.0.1:63497, sd: 13
+[07:09:34]: server[0]: got 1104 bytes from sd 11
+[07:09:34]: server[0]: finished reading data from sd 11
+[07:09:34]: server[0]: the file ./resources/4242/site_files/main-libs.css was sucsessfully opened, sd 11
+[07:09:34]: server[0]: sent 177363/177363 bytes to sd 11
+[07:09:34]: server[0]: got 1089 bytes from sd 13
+[07:09:34]: server[0]: finished reading data from sd 13
+[07:09:34]: server[0]: the file ./resources/4242/site_files/main-libs.js was sucsessfully opened, sd 13
+[07:09:34]: server[0]: sent 200000/484637 bytes to sd 13
+[07:09:34]: server[0]: new connection from 127.0.0.1:63498, sd: 14
+[07:09:34]: server[0]: the file ./resources/4242/site_files/main-libs.js was sucsessfully opened, sd 13
+[07:09:34]: server[0]: sent 400000/484637 bytes to sd 13
+[07:09:34]: server[0]: the file ./resources/4242/site_files/main-libs.js was sucsessfully opened, sd 13
+[07:09:34]: server[0]: sent 484637/484637 bytes to sd 13
+[07:09:34]: server[0]: got 1079 bytes from sd 14
+[07:09:34]: server[0]: finished reading data from sd 14
+[07:09:34]: server[0]: the file ./resources/4242/site_files/js was sucsessfully opened, sd 14
+[07:09:34]: server[0]: sent 159469/159469 bytes to sd 14
+[07:09:34]: server[0]: new connection from 127.0.0.1:63499, sd: 15
+[07:09:34]: server[0]: new connection from 127.0.0.1:63500, sd: 16
+[07:09:34]: server[0]: got 1089 bytes from sd 15
+[07:09:34]: server[0]: finished reading data from sd 15
+[07:09:34]: server[0]: new connection from 127.0.0.1:63501, sd: 17
+[07:09:34]: server[0]: the file ./resources/4242/site_files/analytics.js was sucsessfully opened, sd 15
+[07:09:34]: server[0]: sent 50322/50322 bytes to sd 15
+[07:09:34]: server[0]: got 1082 bytes from sd 16
+[07:09:34]: server[0]: finished reading data from sd 16
+[07:09:34]: server[0]: new connection from 127.0.0.1:63503, sd: 18
+[07:09:34]: server[0]: the file ./resources/4242/site_files/js(1) was sucsessfully opened, sd 16
+[07:09:34]: server[0]: sent 197810/197810 bytes to sd 16
+[07:09:34]: server[0]: got 1130 bytes from sd 17
+[07:09:34]: server[0]: finished reading data from sd 17
+[07:09:34]: server[0]: new connection from 127.0.0.1:63504, sd: 19
+[07:09:34]: server[0]: the file ./resources/4242/site_files/amplitude-5.2.2-min.gz.js was sucsessfully opened, sd 17
+[07:09:34]: server[0]: sent 55190/55190 bytes to sd 17
+[07:09:34]: server[0]: got 1082 bytes from sd 18
+[07:09:34]: server[0]: finished reading data from sd 18
+[07:09:34]: server[0]: new connection from 127.0.0.1:63505, sd: 20
+[07:09:34]: server[0]: the file ./resources/4242/site_files/js(2) was sucsessfully opened, sd 18
+[07:09:34]: server[0]: sent 108520/108520 bytes to sd 18
+[07:09:34]: server[0]: got 1085 bytes from sd 19
+[07:09:34]: server[0]: finished reading data from sd 19
+[07:09:34]: server[0]: new connection from 127.0.0.1:63507, sd: 21
+[07:09:34]: server[0]: the file ./resources/4242/site_files/f(1).txt was sucsessfully opened, sd 19
+[07:09:34]: server[0]: sent 2794/2794 bytes to sd 19
+[07:09:34]: server[0]: got 1159 bytes from sd 20
+[07:09:34]: server[0]: finished reading data from sd 20
+[07:09:34]: server[0]: new connection from 127.0.0.1:63510, sd: 22
+[07:09:34]: server[0]: the file ./resources/4242/site_files/responsive-desktop.png was sucsessfully opened, sd 20
+[07:09:34]: server[0]: sent 1461/1461 bytes to sd 20
+[07:09:34]: server[0]: got 1269 bytes from sd 21
+[07:09:34]: server[0]: finished reading data from sd 21
+[07:09:34]: server[0]: new connection from 127.0.0.1:63511, sd: 23
+[07:09:34]: server[0]: the file ./resources/4242/site_files/Page.html was sucsessfully opened, sd 21
+[07:09:34]: server[0]: sent 9074/9074 bytes to sd 21
+[07:09:34]: server[0]: got 1151 bytes from sd 22
+[07:09:34]: server[0]: finished reading data from sd 22
+[07:09:34]: server[0]: new connection from 127.0.0.1:63512, sd: 24
+[07:09:34]: server[0]: the file ./resources/4242/site_files/icon-close.png was sucsessfully opened, sd 22
+[07:09:34]: server[0]: sent 1435/1435 bytes to sd 22
+[07:09:34]: server[0]: got 1158 bytes from sd 23
+[07:09:34]: server[0]: finished reading data from sd 23
+[07:09:34]: server[0]: new connection from 127.0.0.1:63513, sd: 25
+[07:09:34]: server[0]: the file ./resources/4242/site_files/responsive-laptop.png was sucsessfully opened, sd 23
+[07:09:34]: server[0]: sent 1739/1739 bytes to sd 23
+[07:09:34]: server[0]: got 1158 bytes from sd 24
+[07:09:34]: server[0]: finished reading data from sd 24
+[07:09:34]: server[0]: new connection from 127.0.0.1:63514, sd: 27
+[07:09:34]: server[0]: the file ./resources/4242/site_files/responsive-tablet.png was sucsessfully opened, sd 24
+[07:09:34]: server[0]: sent 1737/1737 bytes to sd 24
+[07:09:34]: server[0]: got 1157 bytes from sd 25
+[07:09:34]: server[0]: finished reading data from sd 25
+[07:09:34]: server[0]: new connection from 127.0.0.1:63515, sd: 28
+[07:09:34]: server[0]: the file ./resources/4242/site_files/responsive-phone.png was sucsessfully opened, sd 25
+[07:09:34]: server[0]: sent 1733/1733 bytes to sd 25
+[07:09:34]: server[0]: got 1168 bytes from sd 27
+[07:09:34]: server[0]: finished reading data from sd 27
+[07:09:34]: server[0]: new connection from 127.0.0.1:63516, sd: 29
+[07:09:35]: server[0]: the file ./resources/4242/site_files/responsive-phone-horizontal.png was sucsessfully opened, sd 27
+[07:09:35]: server[0]: sent 1237/1237 bytes to sd 27
+[07:09:35]: server[0]: got 1150 bytes from sd 28
+[07:09:35]: server[0]: finished reading data from sd 28
+[07:09:35]: server[0]: new connection from 127.0.0.1:63517, sd: 30
+[07:09:35]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[07:09:35]: server[0]: sent 200000/938279 bytes to sd 28
+[07:09:35]: server[0]: got 1145 bytes from sd 29
+[07:09:35]: server[0]: finished reading data from sd 29
+[07:09:35]: server[0]: new connection from 127.0.0.1:63518, sd: 31
+[07:09:35]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[07:09:35]: server[0]: sent 400000/938279 bytes to sd 28
+[07:09:35]: server[0]: the file ./resources/4242/site_files/css.css was sucsessfully opened, sd 29
+[07:09:35]: server[0]: sent 51850/51850 bytes to sd 29
+[07:09:35]: server[0]: got 1143 bytes from sd 30
+[07:09:35]: server[0]: finished reading data from sd 30
+[07:09:35]: server[0]: new connection from 127.0.0.1:63519, sd: 32
+[07:09:35]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[07:09:35]: server[0]: sent 600000/938279 bytes to sd 28
+[07:09:35]: server[0]: the file ./resources/4242/site_files/jquery-1.9.1.min.js was sucsessfully opened, sd 30
+[07:09:35]: server[0]: sent 92741/92741 bytes to sd 30
+[07:09:35]: server[0]: got 1135 bytes from sd 31
+[07:09:35]: server[0]: finished reading data from sd 31
+[07:09:35]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[07:09:35]: server[0]: sent 800000/938279 bytes to sd 28
+[07:09:35]: server[0]: the file ./resources/4242/site_files/nicepage.js was sucsessfully opened, sd 31
+[07:09:35]: server[0]: sent 147053/147053 bytes to sd 31
+[07:09:35]: server[0]: got 1196 bytes from sd 32
+[07:09:35]: server[0]: finished reading data from sd 32
+[07:09:35]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[07:09:35]: server[0]: sent 938279/938279 bytes to sd 28
+[07:09:35]: server[0]: the file ./resources/4242/site_files/logo_big.png was sucsessfully opened, sd 32
+[07:09:35]: server[0]: sent 70018/70018 bytes to sd 32
+[07:09:42]: server[5]: new connection from 127.0.0.1:63522, sd: 33
+[07:09:42]: server[5]: new connection from 127.0.0.1:63523, sd: 34
+[07:09:42]: server[5]: got 1238 bytes from sd 33
+[07:09:42]: server[5]: finished reading data from sd 33
+[07:09:42]: server[5]: the file ./resources/1234/periodic_table.html was sucsessfully opened, sd 33
+[07:09:42]: server[5]: sent 15841/15841 bytes to sd 33
+[07:09:42]: server[5]: got 1167 bytes from sd 34
+[07:09:42]: server[5]: finished reading data from sd 34
+[07:09:42]: server[5]: the file ./resources/1234/mendeleev.jpeg was sucsessfully opened, sd 34
+[07:09:42]: server[5]: sent 36853/36853 bytes to sd 34
+[07:09:44]: server[4]: new connection from 127.0.0.1:63524, sd: 35
+[07:09:44]: server[4]: new connection from 127.0.0.1:63525, sd: 36
+[07:09:44]: server[4]: got 1238 bytes from sd 35
+[07:09:44]: server[4]: finished reading data from sd 35
+[07:09:44]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 35
+[07:09:44]: server[4]: sent 832/832 bytes to sd 35
+[07:09:44]: server[4]: got 1182 bytes from sd 36
+[07:09:44]: server[4]: finished reading data from sd 36
+[07:09:44]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 36
+[07:09:44]: server[4]: sent 200000/423345 bytes to sd 36
+[07:09:44]: server[4]: new connection from 127.0.0.1:63526, sd: 37
+[07:09:44]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 36
+[07:09:44]: server[4]: sent 400000/423345 bytes to sd 36
+[07:09:44]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 36
+[07:09:44]: server[4]: sent 423345/423345 bytes to sd 36
+[07:09:44]: server[4]: got 1128 bytes from sd 37
+[07:09:44]: server[4]: finished reading data from sd 37
+[07:09:44]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 37
+[07:09:45]: server[4]: sent 200000/1598854 bytes to sd 37
+[07:09:45]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 37
+[07:09:45]: server[4]: sent 400000/1598854 bytes to sd 37
+[07:09:45]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 37
+[07:09:45]: server[4]: sent 600000/1598854 bytes to sd 37
+[07:09:45]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 37
+[07:09:45]: server[4]: sent 800000/1598854 bytes to sd 37
+[07:09:45]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 37
+[07:09:45]: server[4]: sent 1000000/1598854 bytes to sd 37
+[07:09:45]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 37
+[07:09:45]: server[4]: sent 1200000/1598854 bytes to sd 37
+[07:09:45]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 37
+[07:09:45]: server[4]: sent 1400000/1598854 bytes to sd 37
+[07:09:45]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 37
+[07:09:45]: server[4]: sent 1598854/1598854 bytes to sd 37
+[07:09:53]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

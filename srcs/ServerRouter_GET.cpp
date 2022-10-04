@@ -22,21 +22,21 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 	// 	connection->responseData.statusCode = "404";
 	// }
 
-	std::string contentTypeAndLength = "";
-	// _addFileToAnswer(contentTypeAndLength, connection)
-	if (!_addFileToAnswer(contentTypeAndLength, connection))
+	std::string contentTypeAndLengthAndData = "";
+	// _addFileToAnswer(contentTypeAndLengthAndData, connection)
+	if (!_addFileToAnswer(contentTypeAndLengthAndData, connection))
 		; // Подумать, что вернуть, если не откроется файл
 
 	connection->responseData.connectionAnswer += connection->responseData.statusCode \
 	+ " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
 	+ DELIMETER + "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER \
-	+ contentTypeAndLength + DDELIMETER;
+	+ contentTypeAndLengthAndData;
 
 
 
 }
 
-bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connection * connection)
+bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t_connection * connection)
 {
 	std::string msg;
 	Server server = _getServer(connection->srvNbr);
@@ -129,7 +129,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 
 		readFileToStrInBinary(pathChar, connection->responseData.fileToSendInBinary);
 
-		contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+		contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
 	}
 	else if (S_ISDIR(buf.st_mode)) //it's path to dir
 	{
@@ -193,7 +193,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 
 			readFileToStrInBinary(pathChar2, connection->responseData.fileToSendInBinary);
 
-			contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+			contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
 		}
 	}
 	else
@@ -206,7 +206,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 	return true;
 }
 
-// bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connection * connection)
+// bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t_connection * connection)
 // {
 // 	std::string msg;
 // 	Server server = _getServer(connection->srvNbr);
@@ -339,7 +339,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 
 // 		// readFileToStrInBinary(pathChar, connection->responseData.fileToSendInBinary);
 
-// 		contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+// 		contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
 // 	}
 // 	else if (S_ISDIR(buf.st_mode)) //it's path to dir
 // 	{
@@ -421,7 +421,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 
 // 			readFileToStrInBinary(pathChar2, connection->responseData.fileToSendInBinary);
 
-// 			contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+// 			contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
 // 		}
 // 	}
 // 	else
@@ -434,7 +434,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 // 	return true;
 // }
 
-// bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connection * connection)
+// bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t_connection * connection)
 // {
 // 	std::string msg;
 // 	Server server = _getServer(connection->srvNbr);
@@ -588,8 +588,8 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 // 		// ff += "\t\t<h2>Dmitri Mendeleev\'s periodic table of the elements</h2>\n\t\t<br>\n\t\t<table style = 'border: 1px blue solid;'>\n";
 // 		// ff += "\t\t</table>\n\t</body>\n</html>";
 
-// 		contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
-// 		// contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
+// 		contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+// 		// contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
 // 		// std::stringstream bufFile;
 // 		// bufFile << fileOpen.rdbuf();
 // 	}
@@ -676,8 +676,8 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 // 			// ff += "\t\t<h2>Dmitri Mendeleev\'s periodic table of the elements</h2>\n\t\t<br>\n\t\t<table style = 'border: 1px blue solid;'>\n";
 // 			// ff += "\t\t</table>\n\t</body>\n</html>";
 
-// 			contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
-// 			// contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
+// 			contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+// 			// contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
 // 			// std::stringstream bufFile;
 // 			// bufFile << fileOpen2.rdbuf();
 // 		}
@@ -692,7 +692,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 // 	return true;
 // }
 
-// void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connection * connection)
+// void ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t_connection * connection)
 // {
 // 	std::string msg;
 // 	Server server = _getServer(connection->srvNbr);
@@ -778,8 +778,8 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLength, t_connec
 // 		ff += "\t\t<h2>Dmitri Mendeleev\'s periodic table of the elements</h2>\n\t\t<br>\n\t\t<table style = 'border: 1px blue solid;'>\n";
 // 		ff += "\t\t</table>\n\t</body>\n</html>";
 
-// 		// contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER;
-// 		contentTypeAndLength += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
+// 		// contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER;
+// 		contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(ff.size()) + DDELIMETER + ff + DDELIMETER;
 // 		// std::stringstream bufFile;
 // 		// bufFile << file.rdbuf();
 // 		(void)fileLength;
