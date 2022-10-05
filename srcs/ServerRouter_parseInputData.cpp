@@ -105,7 +105,7 @@ bool ServerRouter::_parseInputData(t_connection * connection)
 	std::vector<std::string>	splitBuf;
 	std::vector<std::string>	splitStr;
 	std::string inptStr;
-	std::string msg;
+	std::string msg, msg1;
 
 	_delWhiteSpacesStr(inpt);
 	// #ifdef DEBUGMODE
@@ -147,9 +147,12 @@ bool ServerRouter::_parseInputData(t_connection * connection)
 	// #endif
 
 	_delWhiteSpacesStr(inptStr);
-	msg = "data from sd ";
-	printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + inptStr);
-	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + inptStr);
+	// #ifdef DEBUGMODE
+	// 	std::cout << "****DEBUGMODE parseInputData _delWhiteSpacesStr(inptStr)/n/tintpstr: " << inptstr << "\n------------\n";
+	// #endif
+	// msg = "data from sd ";
+	// printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + inptStr);
+	// printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + inptStr);
 
 	if (inptStr.find("HTTP") != std::string::npos)
 	{
@@ -195,6 +198,12 @@ bool ServerRouter::_parseInputData(t_connection * connection)
 			// #endif
 			connection->inputData.headerFields[splitStr[0]] = splitStr[1];
 		}
+		msg = "data from sd ";
+		msg1 = connection->inputData.method + " " + connection->inputData.address + " " + connection->inputData.httpVersion + "\n";
+		for (std::map<std::string, std::string>::iterator iter = connection->inputData.headerFields.begin(); iter != connection->inputData.headerFields.end(); iter++)
+			msg1 += (*iter).first + ": " + (*iter).second + "\n";
+		printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
 	}
 	else
 		_parseMultiStringData(splitBuf, connection);

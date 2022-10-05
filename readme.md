@@ -67,7 +67,11 @@ git push
 
 ### Хронология изменений:
 5/10 #Д#
-- переделал печать зхапосов и ответов в терминал и логфайл: теперь это выводится в обычном режиме и через табы
+- переделал печать запросов и ответов в терминал и в логфайл: теперь это выводится в обычном режиме (не в дебаге) и через табы
+- научился слать запрос POST через nc (head="POST localhost:4242 HTTP/1.1\r\nHost: localhost\r\nAuthorization: Basic myname:passwordinbs64\r\nContent-type: application/x-www-form-urlencoded\r\nContent-length: 10\r\nConnection: Close\r\n\r\nstatus=mymessage\r\n\r\n" ; echo $head | nc localhost 4242)
+- разобрался, почему POST печатает только первую строку, и пофиксил
+- необх изменить логику поиска конца строки запроса (сейчас ищется DDELIMETER, надо длину сверять???) SR-401
+- необх выделить из запроса inputStrBody
 
 3/10 #Д#
 - доделал GET (вроде не сегается)

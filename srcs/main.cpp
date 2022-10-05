@@ -33,3 +33,4 @@ int	main(int argc, char **argv)
 }
 
 // make && ./webserver
+// head="POST localhost:4242 HTTP/1.1\r\nHost: localhost\r\nAuthorization: Basic myname:passwordinbs64\r\nContent-type: application/x-www-form-urlencoded\r\nContent-length: 10\r\nConnection: Close\r\n\r\nstatus=mymessage\r\n\r\n" ; echo $head | nc localhost 4242

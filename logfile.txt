@@ -26678,3 +26678,871 @@
 [10:46:59]: server[0]: sent 938279/938279 bytes to sd 29
 [10:48:38]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[13:08:29]: 5 Oct. 2022 
+[13:08:29]: Starting... 
+[13:08:29]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[13:08:29]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:08:29]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:08:29]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:08:29]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:08:29]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:08:29]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:43:16]: server[0]: new connection from 127.0.0.1:53591, sd: 9
+[13:45:24]: server[0]: got 146 bytes from sd 9
+[13:45:24]: server[0]: finished reading data from sd 9
+[13:45:24]: server[0]: data from sd 9:
+	POST /submit HTTP/1.1\r\nHost site.com\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\nname=Sergey&last_name=Ivanov&birthday=1990-10-05
+[13:45:24]: server[0]: closed sd 9 by timeout
+[13:45:39]: server[0]: new connection from 127.0.0.1:53624, sd: 9
+[13:45:41]: server[0]: got 146 bytes from sd 9
+[13:45:41]: server[0]: finished reading data from sd 9
+[13:45:41]: server[0]: data from sd 9:
+	POST /submit HTTP/1.1\r\nHost site.com\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\nname=Sergey&last_name=Ivanov&birthday=1990-10-05
+[13:45:41]: server[0]: prepared answer to sd 9:
+	HTTP/1.1\r\nHost 200 OK
+	Connection: Close
+[13:45:41]: server[0]: sent 46/46 bytes to sd 9
+[13:46:19]: server[0]: closed sd 9 by timeout
+[13:46:21]: server[0]: new connection from 127.0.0.1:53635, sd: 9
+[13:46:25]: server[0]: got 154 bytes from sd 9
+[13:46:25]: server[0]: finished reading data from sd 9
+[13:46:25]: server[0]: data from sd 9:
+	POST /submit HTTP/1.1\\r\\nHost site.com\\r\\nContent-Type: application/x-www-form-urlencoded\\r\\n\\r\\nname=Sergey&last_name=Ivanov&birthday=1990-10-05
+[13:46:25]: server[0]: prepared answer to sd 9:
+	HTTP/1.1\\r\\nHost 200 OK
+	Connection: Close
+[13:46:25]: server[0]: sent 48/48 bytes to sd 9
+[13:47:11]: server[0]: got 146 bytes from sd 9
+[13:47:11]: server[0]: closed sd 9 by timeout
+[13:47:16]: server[0]: new connection from 127.0.0.1:53644, sd: 9
+[13:47:18]: server[0]: got 146 bytes from sd 9
+[13:47:18]: server[0]: finished reading data from sd 9
+[13:47:18]: server[0]: data from sd 9:
+	POST /submit HTTP/1.1\r\nHost site.com\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\nname=Sergey&last_name=Ivanov&birthday=1990-10-05
+[13:47:18]: server[0]: prepared answer to sd 9:
+	HTTP/1.1\r\nHost 200 OK
+	Connection: Close
+[13:47:18]: server[0]: sent 46/46 bytes to sd 9
+[13:52:52]: server[0]: got 38 bytes from sd 9
+[13:52:52]: server[0]: closed sd 9 by timeout
+[13:52:57]: server[0]: new connection from 127.0.0.1:53694, sd: 9
+[13:53:01]: server[0]: got 38 bytes from sd 9
+[13:53:01]: server[0]: finished reading data from sd 9
+[13:53:01]: server[0]: data from sd 9:
+	GET /site_files/nicepage.css HTTP/1.1
+[13:53:01]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 9
+[13:53:01]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[13:53:01]: server[0]: sent 200000/938279 bytes to sd 9
+[13:53:01]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 9
+[13:53:01]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[13:53:01]: server[0]: sent 400000/938279 bytes to sd 9
+[13:53:01]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 9
+[13:53:01]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[13:53:01]: server[0]: sent 600000/938279 bytes to sd 9
+[13:53:01]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 9
+[13:53:01]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[13:53:01]: server[0]: sent 800000/938279 bytes to sd 9
+[13:53:01]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 9
+[13:53:01]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[13:53:01]: server[0]: sent 938279/938279 bytes to sd 9
+[13:53:47]: server[0]: got 22 bytes from sd 9
+[13:53:47]: server[0]: closed sd 9 by timeout
+[13:53:52]: server[0]: new connection from 127.0.0.1:53711, sd: 9
+[13:53:55]: server[0]: got 22 bytes from sd 9
+[13:53:55]: server[0]: finished reading data from sd 9
+[13:53:55]: server[0]: data from sd 9:
+	POST /submit HTTP/1.1
+[13:53:55]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[13:53:55]: server[0]: sent 38/38 bytes to sd 9
+[14:03:16]: server[0]: closed sd 9 by timeout
+[14:04:07]: server[0]: new connection from 127.0.0.1:53809, sd: 9
+[14:04:07]: server[0]: got 225 bytes from sd 9
+[14:04:17]: server[0]: closed sd 9 by timeout
+[14:04:29]: server[0]: new connection from 127.0.0.1:53814, sd: 9
+[14:04:29]: server[0]: got 225 bytes from sd 9
+[14:04:39]: server[0]: closed sd 9 by timeout
+[14:06:14]: server[0]: new connection from 127.0.0.1:53832, sd: 9
+[14:06:14]: server[0]: got 198 bytes from sd 9
+[14:06:24]: server[0]: closed sd 9 by timeout
+[14:09:26]: server[0]: new connection from 127.0.0.1:53867, sd: 9
+[14:09:26]: server[0]: got 202 bytes from sd 9
+[14:09:26]: server[0]: finished reading data from sd 9
+[14:09:26]: server[0]: data from sd 9:
+	POST localhost:4242 HTTP/1.1
+[14:09:26]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[14:09:26]: server[0]: sent 38/38 bytes to sd 9
+[14:09:36]: server[0]: closed sd 9 by timeout
+[14:37:04]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[14:37:17]: 5 Oct. 2022 
+[14:37:17]: Starting... 
+[14:37:17]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[14:37:17]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[14:37:17]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[14:37:17]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[14:37:17]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[14:37:17]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[14:37:17]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[14:37:21]: server[0]: new connection from 127.0.0.1:54225, sd: 9
+[14:37:21]: server[0]: got 202 bytes from sd 9
+[14:37:21]: server[0]: finished reading data from sd 9
+[14:37:21]: server[0]: data from sd 9:
+	POST localhost:4242 HTTP/1.1
+[14:37:21]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[14:37:21]: server[0]: sent 38/38 bytes to sd 9
+[14:37:31]: server[0]: closed sd 9 by timeout
+[14:57:44]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[14:59:04]: 5 Oct. 2022 
+[14:59:04]: Starting... 
+[14:59:04]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[14:59:04]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[14:59:04]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[14:59:04]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[14:59:04]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[14:59:04]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[14:59:04]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[14:59:10]: server[0]: new connection from 127.0.0.1:54498, sd: 9
+[14:59:10]: server[0]: got 202 bytes from sd 9
+[14:59:10]: server[0]: finished reading data from sd 9
+[14:59:10]: server[0]: data from sd Authorization  Basic myname:passwordinbs64
+Connection  Close
+Content-length  10
+Content-type  application/x-www-form-urlencoded
+Host  localhost
+9:
+	POST localhost:4242 HTTP/1.1
+	
+[14:59:10]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[14:59:10]: server[0]: sent 38/38 bytes to sd 9
+[14:59:20]: server[0]: closed sd 9 by timeout
+[15:04:43]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[15:04:47]: 5 Oct. 2022 
+[15:04:47]: Starting... 
+[15:04:47]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[15:04:47]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[15:04:47]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[15:04:47]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[15:04:47]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[15:04:47]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[15:04:47]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[15:04:50]: server[0]: new connection from 127.0.0.1:54566, sd: 9
+[15:04:50]: server[0]: got 202 bytes from sd 9
+[15:04:50]: server[0]: finished reading data from sd 9
+[15:04:50]: server[0]: data from sd Authorization:  Basic myname:passwordinbs64
+Connection:  Close
+Content-length:  10
+Content-type:  application/x-www-form-urlencoded
+Host:  localhost
+9:
+	POST localhost:4242 HTTP/1.1
+	
+[15:04:50]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[15:04:50]: server[0]: sent 38/38 bytes to sd 9
+[15:05:00]: server[0]: closed sd 9 by timeout
+[15:12:35]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[15:12:38]: 5 Oct. 2022 
+[15:12:38]: Starting... 
+[15:12:38]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[15:12:38]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[15:12:38]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[15:12:38]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[15:12:38]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[15:12:38]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[15:12:38]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[15:12:42]: server[0]: new connection from 127.0.0.1:54637, sd: 9
+[15:12:42]: server[0]: got 202 bytes from sd 9
+[15:12:42]: server[0]: finished reading data from sd 9
+[15:12:42]: server[0]: data from sd 9:
+	POST localhost:4242 HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[15:12:42]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[15:12:42]: server[0]: sent 38/38 bytes to sd 9
+[15:12:52]: server[0]: closed sd 9 by timeout
+[15:15:04]: server[0]: new connection from 127.0.0.1:54665, sd: 9
+[15:15:04]: server[0]: got 871 bytes from sd 9
+[15:15:04]: server[0]: finished reading data from sd 9
+[15:15:04]: server[0]: data from sd 9:
+	GET  HTTP/1.1
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1664956018.8.0.1664956019.0; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: the file ./resources/4242/index.html was sucsessfully opened, sd 9
+[15:15:04]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 23232
+[15:15:04]: server[0]: sent 23344/23344 bytes to sd 9
+[15:15:04]: server[0]: got 830 bytes from sd 9
+[15:15:04]: server[0]: finished reading data from sd 9
+[15:15:04]: server[0]: data from sd 9:
+	GET  HTTP/1.1
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1664956018.8.0.1664956019.0; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: the file ./resources/4242/index.html was sucsessfully opened, sd 9
+[15:15:04]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 23232
+[15:15:04]: server[0]: sent 23344/23344 bytes to sd 9
+[15:15:04]: server[0]: new connection from 127.0.0.1:54667, sd: 10
+[15:15:04]: server[0]: new connection from 127.0.0.1:54668, sd: 11
+[15:15:04]: server[0]: new connection from 127.0.0.1:54669, sd: 13
+[15:15:04]: server[0]: new connection from 127.0.0.1:54670, sd: 14
+[15:15:04]: server[0]: new connection from 127.0.0.1:54671, sd: 15
+[15:15:04]: server[0]: got 827 bytes from sd 10
+[15:15:04]: server[0]: finished reading data from sd 10
+[15:15:04]: server[0]: data from sd 10:
+	GET site_files/js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: got 837 bytes from sd 11
+[15:15:04]: server[0]: finished reading data from sd 11
+[15:15:04]: server[0]: data from sd 11:
+	GET site_files/analytics.js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: got 830 bytes from sd 13
+[15:15:04]: server[0]: finished reading data from sd 13
+[15:15:04]: server[0]: data from sd 13:
+	GET site_files/js(1) HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: got 881 bytes from sd 14
+[15:15:04]: server[0]: finished reading data from sd 14
+[15:15:04]: server[0]: data from sd 14:
+	GET site_files/amplitude-5.2.2-min.gz.js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Origin:  http://127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: new connection from 127.0.0.1:54672, sd: 16
+[15:15:04]: server[0]: the file ./resources/4242/site_files/js was sucsessfully opened, sd 10
+[15:15:04]: server[0]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 159357
+[15:15:04]: server[0]: sent 159469/159469 bytes to sd 10
+[15:15:04]: server[0]: the file ./resources/4242/site_files/analytics.js was sucsessfully opened, sd 11
+[15:15:04]: server[0]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 50205
+[15:15:04]: server[0]: sent 50322/50322 bytes to sd 11
+[15:15:04]: server[0]: the file ./resources/4242/site_files/js(1) was sucsessfully opened, sd 13
+[15:15:04]: server[0]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 197698
+[15:15:04]: server[0]: sent 197810/197810 bytes to sd 13
+[15:15:04]: server[0]: the file ./resources/4242/site_files/amplitude-5.2.2-min.gz.js was sucsessfully opened, sd 14
+[15:15:04]: server[0]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 55079
+[15:15:04]: server[0]: sent 55190/55190 bytes to sd 14
+[15:15:04]: server[0]: got 830 bytes from sd 15
+[15:15:04]: server[0]: finished reading data from sd 15
+[15:15:04]: server[0]: data from sd 15:
+	GET site_files/js(2) HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: new connection from 127.0.0.1:54677, sd: 17
+[15:15:04]: server[0]: got 853 bytes from sd 10
+[15:15:04]: server[0]: finished reading data from sd 10
+[15:15:04]: server[0]: data from sd 10:
+	GET site_files/js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: got 853 bytes from sd 11
+[15:15:04]: server[0]: finished reading data from sd 11
+[15:15:04]: server[0]: data from sd 11:
+	GET site_files/analytics.js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: got 853 bytes from sd 13
+[15:15:04]: server[0]: finished reading data from sd 13
+[15:15:04]: server[0]: data from sd 13:
+	GET site_files/js(1) HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: got 915 bytes from sd 14
+[15:15:04]: server[0]: finished reading data from sd 14
+[15:15:04]: server[0]: data from sd 14:
+	GET site_files/amplitude-5.2.2-min.gz.js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Origin:  http://127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: the file ./resources/4242/site_files/js(2) was sucsessfully opened, sd 15
+[15:15:04]: server[0]: prepared answer to sd 15:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 108408
+[15:15:04]: server[0]: sent 108520/108520 bytes to sd 15
+[15:15:04]: server[0]: got 837 bytes from sd 16
+[15:15:04]: server[0]: finished reading data from sd 16
+[15:15:04]: server[0]: data from sd 16:
+	GET site_files/main-libs.js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: new connection from 127.0.0.1:54678, sd: 18
+[15:15:04]: server[0]: the file ./resources/4242/site_files/js was sucsessfully opened, sd 10
+[15:15:04]: server[0]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 159357
+[15:15:04]: server[0]: sent 159469/159469 bytes to sd 10
+[15:15:04]: server[0]: the file ./resources/4242/site_files/analytics.js was sucsessfully opened, sd 11
+[15:15:04]: server[0]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 50205
+[15:15:04]: server[0]: sent 50322/50322 bytes to sd 11
+[15:15:04]: server[0]: the file ./resources/4242/site_files/js(1) was sucsessfully opened, sd 13
+[15:15:04]: server[0]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 197698
+[15:15:04]: server[0]: sent 197810/197810 bytes to sd 13
+[15:15:04]: server[0]: the file ./resources/4242/site_files/amplitude-5.2.2-min.gz.js was sucsessfully opened, sd 14
+[15:15:04]: server[0]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 55079
+[15:15:04]: server[0]: sent 55190/55190 bytes to sd 14
+[15:15:04]: server[0]: got 914 bytes from sd 15
+[15:15:04]: server[0]: finished reading data from sd 15
+[15:15:04]: server[0]: data from sd 15:
+	GET site_files/js(2) HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: the file ./resources/4242/site_files/main-libs.js was sucsessfully opened, sd 16
+[15:15:04]: server[0]: prepared answer to sd 16:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 484518
+[15:15:04]: server[0]: sent 200000/484637 bytes to sd 16
+[15:15:04]: server[0]: got 833 bytes from sd 17
+[15:15:04]: server[0]: finished reading data from sd 17
+[15:15:04]: server[0]: data from sd 17:
+	GET site_files/f(1).txt HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: new connection from 127.0.0.1:54679, sd: 19
+[15:15:04]: server[0]: the file ./resources/4242/site_files/js(2) was sucsessfully opened, sd 15
+[15:15:04]: server[0]: prepared answer to sd 15:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 108408
+[15:15:04]: server[0]: sent 108520/108520 bytes to sd 15
+[15:15:04]: server[0]: the file ./resources/4242/site_files/main-libs.js was sucsessfully opened, sd 16
+[15:15:04]: server[0]: prepared answer to sd 16:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 484518
+[15:15:04]: server[0]: sent 400000/484637 bytes to sd 16
+[15:15:04]: server[0]: the file ./resources/4242/site_files/f(1).txt was sucsessfully opened, sd 17
+[15:15:04]: server[0]: prepared answer to sd 17:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/plain; charset=utf-8
+	Content-Length: 2682
+[15:15:04]: server[0]: sent 2794/2794 bytes to sd 17
+[15:15:04]: server[0]: got 916 bytes from sd 18
+[15:15:04]: server[0]: finished reading data from sd 18
+[15:15:04]: server[0]: data from sd 18:
+	GET site_files/responsive-desktop.png HTTP/1.1
+	Accept:  image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: new connection from 127.0.0.1:54680, sd: 20
+[15:15:04]: server[0]: the file ./resources/4242/site_files/main-libs.js was sucsessfully opened, sd 16
+[15:15:04]: server[0]: prepared answer to sd 16:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 484518
+[15:15:04]: server[0]: sent 484637/484637 bytes to sd 16
+[15:15:04]: server[0]: the file ./resources/4242/site_files/responsive-desktop.png was sucsessfully opened, sd 18
+[15:15:04]: server[0]: prepared answer to sd 18:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1350
+[15:15:04]: server[0]: sent 1461/1461 bytes to sd 18
+[15:15:04]: server[0]: got 915 bytes from sd 19
+[15:15:04]: server[0]: finished reading data from sd 19
+[15:15:04]: server[0]: data from sd 19:
+	GET site_files/responsive-laptop.png HTTP/1.1
+	Accept:  image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: new connection from 127.0.0.1:54681, sd: 21
+[15:15:04]: server[0]: got 915 bytes from sd 16
+[15:15:04]: server[0]: finished reading data from sd 16
+[15:15:04]: server[0]: data from sd 16:
+	GET site_files/main-libs.js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: the file ./resources/4242/site_files/responsive-laptop.png was sucsessfully opened, sd 19
+[15:15:04]: server[0]: prepared answer to sd 19:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1628
+[15:15:04]: server[0]: sent 1739/1739 bytes to sd 19
+[15:15:04]: server[0]: got 925 bytes from sd 20
+[15:15:04]: server[0]: finished reading data from sd 20
+[15:15:04]: server[0]: data from sd 20:
+	GET site_files/responsive-phone-horizontal.png HTTP/1.1
+	Accept:  image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:04]: server[0]: new connection from 127.0.0.1:54682, sd: 22
+[15:15:04]: server[0]: the file ./resources/4242/site_files/main-libs.js was sucsessfully opened, sd 16
+[15:15:05]: server[0]: prepared answer to sd 16:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 484518
+[15:15:05]: server[0]: sent 484637/484637 bytes to sd 16
+[15:15:05]: server[0]: the file ./resources/4242/site_files/responsive-phone-horizontal.png was sucsessfully opened, sd 20
+[15:15:05]: server[0]: prepared answer to sd 20:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1126
+[15:15:05]: server[0]: sent 1237/1237 bytes to sd 20
+[15:15:05]: server[0]: got 908 bytes from sd 21
+[15:15:05]: server[0]: finished reading data from sd 21
+[15:15:05]: server[0]: data from sd 21:
+	GET site_files/icon-close.png HTTP/1.1
+	Accept:  image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: new connection from 127.0.0.1:54683, sd: 23
+[15:15:05]: server[0]: the file ./resources/4242/site_files/icon-close.png was sucsessfully opened, sd 21
+[15:15:05]: server[0]: prepared answer to sd 21:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1324
+[15:15:05]: server[0]: sent 1435/1435 bytes to sd 21
+[15:15:05]: server[0]: got 830 bytes from sd 22
+[15:15:05]: server[0]: finished reading data from sd 22
+[15:15:05]: server[0]: data from sd 22:
+	GET site_files/f.txt HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: new connection from 127.0.0.1:54684, sd: 24
+[15:15:05]: server[0]: the file ./resources/4242/site_files/f.txt was sucsessfully opened, sd 22
+[15:15:05]: server[0]: prepared answer to sd 22:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/plain; charset=utf-8
+	Content-Length: 40451
+[15:15:05]: server[0]: sent 40563/40563 bytes to sd 22
+[15:15:05]: server[0]: got 914 bytes from sd 23
+[15:15:05]: server[0]: finished reading data from sd 23
+[15:15:05]: server[0]: data from sd 23:
+	GET site_files/responsive-phone.png HTTP/1.1
+	Accept:  image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: new connection from 127.0.0.1:54689, sd: 25
+[15:15:05]: server[0]: the file ./resources/4242/site_files/responsive-phone.png was sucsessfully opened, sd 23
+[15:15:05]: server[0]: prepared answer to sd 23:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1622
+[15:15:05]: server[0]: sent 1733/1733 bytes to sd 23
+[15:15:05]: server[0]: got 915 bytes from sd 24
+[15:15:05]: server[0]: finished reading data from sd 24
+[15:15:05]: server[0]: data from sd 24:
+	GET site_files/responsive-tablet.png HTTP/1.1
+	Accept:  image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: the file ./resources/4242/site_files/responsive-tablet.png was sucsessfully opened, sd 24
+[15:15:05]: server[0]: prepared answer to sd 24:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1626
+[15:15:05]: server[0]: sent 1737/1737 bytes to sd 24
+[15:15:05]: server[0]: got 924 bytes from sd 25
+[15:15:05]: server[0]: finished reading data from sd 25
+[15:15:05]: server[0]: data from sd 25:
+	GET site_files/Page.html HTTP/1.1
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk3MjEwNDk1MCwibGFzdEV2ZW50VGltZSI6MTY2NDk3MjEwNDk1MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: the file ./resources/4242/site_files/Page.html was sucsessfully opened, sd 25
+[15:15:05]: server[0]: prepared answer to sd 25:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 8963
+[15:15:05]: server[0]: sent 9074/9074 bytes to sd 25
+[15:15:05]: server[0]: got 899 bytes from sd 22
+[15:15:05]: server[0]: finished reading data from sd 22
+[15:15:05]: server[0]: data from sd 22:
+	GET site_files/f.txt HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972104.0; _ga=GA1.1.1114375521.1664684174; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk1NjAxODk4NiwibGFzdEV2ZW50VGltZSI6MTY2NDk1NjAxODk4NiwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: the file ./resources/4242/site_files/f.txt was sucsessfully opened, sd 22
+[15:15:05]: server[0]: prepared answer to sd 22:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/plain; charset=utf-8
+	Content-Length: 40451
+[15:15:05]: server[0]: sent 40563/40563 bytes to sd 22
+[15:15:05]: server[0]: new connection from 127.0.0.1:54694, sd: 26
+[15:15:05]: server[0]: new connection from 127.0.0.1:54695, sd: 28
+[15:15:05]: server[0]: got 891 bytes from sd 26
+[15:15:05]: server[0]: finished reading data from sd 26
+[15:15:05]: server[0]: data from sd 26:
+	GET site_files/jquery-1.9.1.min.js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972105.0; _gat_gtag_UA_88868916_2=1; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk3MjEwNDk1MCwibGFzdEV2ZW50VGltZSI6MTY2NDk3MjEwNDk1MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/site_files/Page.html
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: new connection from 127.0.0.1:54696, sd: 29
+[15:15:05]: server[0]: the file ./resources/4242/site_files/jquery-1.9.1.min.js was sucsessfully opened, sd 26
+[15:15:05]: server[0]: prepared answer to sd 26:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 92629
+[15:15:05]: server[0]: sent 92741/92741 bytes to sd 26
+[15:15:05]: server[0]: got 883 bytes from sd 28
+[15:15:05]: server[0]: finished reading data from sd 28
+[15:15:05]: server[0]: data from sd 28:
+	GET site_files/nicepage.js HTTP/1.1
+	Accept:  */*
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972105.0; _gat_gtag_UA_88868916_2=1; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk3MjEwNDk1MCwibGFzdEV2ZW50VGltZSI6MTY2NDk3MjEwNDk1MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/site_files/Page.html
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: new connection from 127.0.0.1:54697, sd: 30
+[15:15:05]: server[0]: the file ./resources/4242/site_files/nicepage.js was sucsessfully opened, sd 28
+[15:15:05]: server[0]: prepared answer to sd 28:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 146934
+[15:15:05]: server[0]: sent 147053/147053 bytes to sd 28
+[15:15:05]: server[0]: got 894 bytes from sd 29
+[15:15:05]: server[0]: finished reading data from sd 29
+[15:15:05]: server[0]: data from sd 29:
+	GET site_files/css.css HTTP/1.1
+	Accept:  text/css,*/*;q=0.1
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972105.0; _gat_gtag_UA_88868916_2=1; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk3MjEwNDk1MCwibGFzdEV2ZW50VGltZSI6MTY2NDk3MjEwNDk1MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/site_files/Page.html
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: new connection from 127.0.0.1:54698, sd: 31
+[15:15:05]: server[0]: the file ./resources/4242/site_files/css.css was sucsessfully opened, sd 29
+[15:15:05]: server[0]: prepared answer to sd 29:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 51740
+[15:15:05]: server[0]: sent 51850/51850 bytes to sd 29
+[15:15:05]: server[0]: got 953 bytes from sd 30
+[15:15:05]: server[0]: finished reading data from sd 30
+[15:15:05]: server[0]: data from sd 30:
+	GET site_files/logo_big.png HTTP/1.1
+	Accept:  image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972105.0; _gat_gtag_UA_88868916_2=1; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk3MjEwNDk1MCwibGFzdEV2ZW50VGltZSI6MTY2NDk3MjEwNDk1MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/site_files/Page.html
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: the file ./resources/4242/site_files/logo_big.png was sucsessfully opened, sd 30
+[15:15:05]: server[0]: prepared answer to sd 30:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 69906
+[15:15:05]: server[0]: sent 70018/70018 bytes to sd 30
+[15:15:05]: server[0]: got 899 bytes from sd 31
+[15:15:05]: server[0]: finished reading data from sd 31
+[15:15:05]: server[0]: data from sd 31:
+	GET site_files/nicepage.css HTTP/1.1
+	Accept:  text/css,*/*;q=0.1
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1664972104.9.0.1664972105.0; _gat_gtag_UA_88868916_2=1; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NDk3MjEwNDk1MCwibGFzdEV2ZW50VGltZSI6MTY2NDk3MjEwNDk1MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=a1f577a1fa0b4486705cd1eb298ff50; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:4242
+	Referer:  http://127.0.0.1:4242/site_files/Page.html
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[15:15:05]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 31
+[15:15:05]: server[0]: prepared answer to sd 31:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[15:15:05]: server[0]: sent 200000/938279 bytes to sd 31
+[15:15:05]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 31
+[15:15:05]: server[0]: prepared answer to sd 31:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[15:15:05]: server[0]: sent 400000/938279 bytes to sd 31
+[15:15:05]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 31
+[15:15:05]: server[0]: prepared answer to sd 31:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[15:15:05]: server[0]: sent 600000/938279 bytes to sd 31
+[15:15:05]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 31
+[15:15:05]: server[0]: prepared answer to sd 31:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[15:15:05]: server[0]: sent 800000/938279 bytes to sd 31
+[15:15:05]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 31
+[15:15:05]: server[0]: prepared answer to sd 31:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[15:15:05]: server[0]: sent 938279/938279 bytes to sd 31
+[15:20:09]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

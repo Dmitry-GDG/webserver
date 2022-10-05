@@ -377,6 +377,9 @@ int ServerRouter::_readSd(t_connection * connection)
 		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		// #ifdef DEBUGMODE
+		// 	std::cout << "**** DEBUGMODE _readSd ****\nbuf: " << buf << "\n------------" << std::endl;
+		// #endif
 
 		std::string tmp = buf;
 		std::string tmpEnd = "";
