@@ -25305,3 +25305,1376 @@
 [07:09:45]: server[4]: sent 1598854/1598854 bytes to sd 37
 [07:09:53]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[09:33:02]: 5 Oct. 2022 
+[09:33:02]: Starting... 
+[09:33:02]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[09:33:02]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[09:33:02]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[09:33:02]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[09:33:02]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[09:33:02]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[09:33:02]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[09:33:08]: server[4]: new connection from 127.0.0.1:50488, sd: 9
+[09:33:08]: server[4]: new connection from 127.0.0.1:50489, sd: 10
+[09:33:08]: server[4]: got 1239 bytes from sd 9
+[09:33:08]: server[4]: finished reading data from sd 9
+[09:33:08]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[09:33:08]: server[4]: sent 832/832 bytes to sd 9
+[09:33:08]: server[4]: new connection from 127.0.0.1:50490, sd: 11
+[09:33:08]: server[4]: got 1157 bytes from sd 10
+[09:33:08]: server[4]: finished reading data from sd 10
+[09:33:08]: server[4]: got 1103 bytes from sd 11
+[09:33:08]: server[4]: finished reading data from sd 11
+[09:33:08]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[09:33:10]: server[4]: sent 200000/423345 bytes to sd 10
+[09:33:10]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:33:12]: server[4]: sent 200000/1598854 bytes to sd 11
+[09:33:12]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[09:33:14]: server[4]: sent 400000/423345 bytes to sd 10
+[09:33:14]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:33:16]: server[4]: sent 400000/1598854 bytes to sd 11
+[09:33:16]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[09:33:17]: server[4]: sent 423345/423345 bytes to sd 10
+[09:33:17]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:33:19]: server[4]: sent 600000/1598854 bytes to sd 11
+[09:33:19]: server[4]: new connection from 127.0.0.1:50491, sd: 13
+[09:33:19]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:33:21]: server[4]: sent 800000/1598854 bytes to sd 11
+[09:33:21]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:33:23]: server[4]: sent 1000000/1598854 bytes to sd 11
+[09:33:23]: server[4]: got 1139 bytes from sd 13
+[09:33:23]: server[4]: finished reading data from sd 13
+[09:33:23]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:33:25]: server[4]: sent 1200000/1598854 bytes to sd 11
+[09:33:25]: server[4]: the file ./resources/8888/favicon.ico was sucsessfully opened, sd 13
+[09:33:25]: server[4]: sent 50577/50577 bytes to sd 13
+[09:33:25]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:33:26]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[09:55:22]: 5 Oct. 2022 
+[09:55:22]: Starting... 
+[09:55:22]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[09:55:22]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[09:55:22]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[09:55:22]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[09:55:22]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[09:55:22]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[09:55:22]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[09:55:29]: server[4]: new connection from 127.0.0.1:50990, sd: 9
+[09:55:29]: server[4]: new connection from 127.0.0.1:50991, sd: 10
+[09:55:29]: server[4]: got 1239 bytes from sd 9
+[09:55:29]: server[4]: finished reading data from sd 9
+[09:55:29]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[09:55:29]: server[4]: sent 832/832 bytes to sd 9
+[09:55:29]: server[4]: got 1157 bytes from sd 10
+[09:55:29]: server[4]: finished reading data from sd 10
+[09:55:29]: server[4]: new connection from 127.0.0.1:50992, sd: 11
+[09:55:29]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[09:55:29]: server[4]: sent 200000/423345 bytes to sd 10
+[09:55:29]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[09:55:29]: server[4]: sent 400000/423345 bytes to sd 10
+[09:55:29]: server[4]: got 1103 bytes from sd 11
+[09:55:29]: server[4]: finished reading data from sd 11
+[09:55:29]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[09:55:29]: server[4]: sent 423345/423345 bytes to sd 10
+[09:55:29]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:55:29]: server[4]: sent 200000/1598854 bytes to sd 11
+[09:55:29]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:55:30]: server[4]: sent 400000/1598854 bytes to sd 11
+[09:55:30]: server[4]: new connection from 127.0.0.1:50993, sd: 13
+[09:55:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:55:30]: server[4]: sent 600000/1598854 bytes to sd 11
+[09:55:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:55:30]: server[4]: sent 800000/1598854 bytes to sd 11
+[09:55:30]: server[4]: got 1139 bytes from sd 13
+[09:55:30]: server[4]: finished reading data from sd 13
+[09:55:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:55:30]: server[4]: sent 1000000/1598854 bytes to sd 11
+[09:55:30]: server[4]: the file ./resources/8888/favicon.ico was sucsessfully opened, sd 13
+[09:55:30]: server[4]: sent 50577/50577 bytes to sd 13
+[09:55:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:55:30]: server[4]: sent 1200000/1598854 bytes to sd 11
+[09:55:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:55:30]: server[4]: sent 1400000/1598854 bytes to sd 11
+[09:55:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[09:55:30]: server[4]: sent 1598854/1598854 bytes to sd 11
+[09:57:28]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[09:57:32]: 5 Oct. 2022 
+[09:57:32]: Starting... 
+[09:57:32]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[09:57:32]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[09:57:32]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[09:57:32]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[09:57:32]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[09:57:32]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[09:57:32]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[09:57:55]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[09:57:58]: 5 Oct. 2022 
+[09:57:58]: Starting... 
+[09:57:58]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[09:57:58]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[09:57:58]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[09:57:58]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[09:57:58]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[09:57:58]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[09:57:58]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[09:58:05]: server[0]: new connection from 127.0.0.1:51021, sd: 9
+[09:58:05]: server[0]: got 837 bytes from sd 9
+[09:58:05]: server[0]: finished reading data from sd 9
+[09:58:05]: server[0]: the file ./resources/4242/index.html was sucsessfully opened, sd 9
+[09:58:05]: server[0]: sent 23344/23344 bytes to sd 9
+[09:58:05]: server[0]: got 796 bytes from sd 9
+[09:58:05]: server[0]: finished reading data from sd 9
+[09:58:05]: server[0]: the file ./resources/4242/index.html was sucsessfully opened, sd 9
+[09:58:05]: server[0]: sent 23344/23344 bytes to sd 9
+[09:58:05]: server[0]: new connection from 127.0.0.1:51022, sd: 10
+[09:58:05]: server[0]: new connection from 127.0.0.1:51023, sd: 11
+[09:58:05]: server[0]: new connection from 127.0.0.1:51024, sd: 13
+[09:58:05]: server[0]: new connection from 127.0.0.1:51025, sd: 14
+[09:58:05]: server[0]: got 793 bytes from sd 10
+[09:58:05]: server[0]: finished reading data from sd 10
+[09:58:05]: server[0]: got 796 bytes from sd 13
+[09:58:05]: server[0]: finished reading data from sd 13
+[09:58:05]: server[0]: new connection from 127.0.0.1:51026, sd: 15
+[09:58:06]: server[0]: the file ./resources/4242/site_files/js was sucsessfully opened, sd 10
+[09:58:06]: server[0]: sent 159469/159469 bytes to sd 10
+[09:58:06]: server[0]: got 803 bytes from sd 11
+[09:58:06]: server[0]: finished reading data from sd 11
+[09:58:06]: server[0]: the file ./resources/4242/site_files/js(1) was sucsessfully opened, sd 13
+[09:58:06]: server[0]: sent 197810/197810 bytes to sd 13
+[09:58:06]: server[0]: got 847 bytes from sd 14
+[09:58:06]: server[0]: finished reading data from sd 14
+[09:58:06]: server[0]: new connection from 127.0.0.1:51027, sd: 16
+[09:58:06]: server[0]: got 803 bytes from sd 10
+[09:58:06]: server[0]: finished reading data from sd 10
+[09:58:06]: server[0]: the file ./resources/4242/site_files/analytics.js was sucsessfully opened, sd 11
+[09:58:06]: server[0]: sent 50322/50322 bytes to sd 11
+[09:58:06]: server[0]: got 803 bytes from sd 13
+[09:58:06]: server[0]: finished reading data from sd 13
+[09:58:06]: server[0]: the file ./resources/4242/site_files/amplitude-5.2.2-min.gz.js was sucsessfully opened, sd 14
+[09:58:06]: server[0]: sent 55190/55190 bytes to sd 14
+[09:58:06]: server[0]: got 796 bytes from sd 15
+[09:58:06]: server[0]: finished reading data from sd 15
+[09:58:06]: server[0]: new connection from 127.0.0.1:51033, sd: 17
+[09:58:06]: server[0]: the file ./resources/4242/site_files/js was sucsessfully opened, sd 10
+[09:58:06]: server[0]: sent 159469/159469 bytes to sd 10
+[09:58:06]: server[0]: got 803 bytes from sd 11
+[09:58:06]: server[0]: finished reading data from sd 11
+[09:58:06]: server[0]: the file ./resources/4242/site_files/js(1) was sucsessfully opened, sd 13
+[09:58:06]: server[0]: sent 197810/197810 bytes to sd 13
+[09:58:06]: server[0]: got 881 bytes from sd 14
+[09:58:06]: server[0]: finished reading data from sd 14
+[09:58:06]: server[0]: the file ./resources/4242/site_files/f.txt was sucsessfully opened, sd 15
+[09:58:06]: server[0]: sent 40563/40563 bytes to sd 15
+[09:58:06]: server[0]: got 796 bytes from sd 16
+[09:58:06]: server[0]: finished reading data from sd 16
+[09:58:06]: server[0]: new connection from 127.0.0.1:51034, sd: 18
+[09:58:06]: server[0]: the file ./resources/4242/site_files/analytics.js was sucsessfully opened, sd 11
+[09:58:06]: server[0]: sent 50322/50322 bytes to sd 11
+[09:58:06]: server[0]: the file ./resources/4242/site_files/amplitude-5.2.2-min.gz.js was sucsessfully opened, sd 14
+[09:58:06]: server[0]: sent 55190/55190 bytes to sd 14
+[09:58:06]: server[0]: got 891 bytes from sd 15
+[09:58:06]: server[0]: finished reading data from sd 15
+[09:58:06]: server[0]: the file ./resources/4242/site_files/js(2) was sucsessfully opened, sd 16
+[09:58:06]: server[0]: sent 108520/108520 bytes to sd 16
+[09:58:06]: server[0]: got 819 bytes from sd 17
+[09:58:06]: server[0]: finished reading data from sd 17
+[09:58:06]: server[0]: new connection from 127.0.0.1:51035, sd: 19
+[09:58:06]: server[0]: the file ./resources/4242/site_files/f.txt was sucsessfully opened, sd 15
+[09:58:06]: server[0]: sent 40563/40563 bytes to sd 15
+[09:58:06]: server[0]: got 874 bytes from sd 16
+[09:58:06]: server[0]: finished reading data from sd 16
+[09:58:06]: server[0]: the file ./resources/4242/site_files/main-libs.css was sucsessfully opened, sd 17
+[09:58:06]: server[0]: sent 177363/177363 bytes to sd 17
+[09:58:06]: server[0]: got 799 bytes from sd 18
+[09:58:06]: server[0]: finished reading data from sd 18
+[09:58:06]: server[0]: new connection from 127.0.0.1:51036, sd: 20
+[09:58:06]: server[0]: the file ./resources/4242/site_files/js(2) was sucsessfully opened, sd 16
+[09:58:06]: server[0]: sent 108520/108520 bytes to sd 16
+[09:58:06]: server[0]: got 891 bytes from sd 17
+[09:58:06]: server[0]: finished reading data from sd 17
+[09:58:06]: server[0]: the file ./resources/4242/site_files/f(1).txt was sucsessfully opened, sd 18
+[09:58:06]: server[0]: sent 2794/2794 bytes to sd 18
+[09:58:06]: server[0]: got 882 bytes from sd 19
+[09:58:06]: server[0]: finished reading data from sd 19
+[09:58:06]: server[0]: new connection from 127.0.0.1:51037, sd: 21
+[09:58:06]: server[0]: the file ./resources/4242/site_files/main-libs.css was sucsessfully opened, sd 17
+[09:58:06]: server[0]: sent 177363/177363 bytes to sd 17
+[09:58:06]: server[0]: the file ./resources/4242/site_files/responsive-desktop.png was sucsessfully opened, sd 19
+[09:58:06]: server[0]: sent 1461/1461 bytes to sd 19
+[09:58:06]: server[0]: got 881 bytes from sd 20
+[09:58:06]: server[0]: finished reading data from sd 20
+[09:58:06]: server[0]: new connection from 127.0.0.1:51038, sd: 22
+[09:58:06]: server[0]: the file ./resources/4242/site_files/responsive-tablet.png was sucsessfully opened, sd 20
+[09:58:06]: server[0]: sent 1737/1737 bytes to sd 20
+[09:58:06]: server[0]: got 880 bytes from sd 21
+[09:58:06]: server[0]: finished reading data from sd 21
+[09:58:06]: server[0]: new connection from 127.0.0.1:51039, sd: 23
+[09:58:06]: server[0]: the file ./resources/4242/site_files/responsive-phone.png was sucsessfully opened, sd 21
+[09:58:06]: server[0]: sent 1733/1733 bytes to sd 21
+[09:58:06]: server[0]: got 881 bytes from sd 22
+[09:58:06]: server[0]: finished reading data from sd 22
+[09:58:06]: server[0]: new connection from 127.0.0.1:51040, sd: 24
+[09:58:06]: server[0]: the file ./resources/4242/site_files/responsive-laptop.png was sucsessfully opened, sd 22
+[09:58:06]: server[0]: sent 1739/1739 bytes to sd 22
+[09:58:06]: server[0]: got 874 bytes from sd 23
+[09:58:06]: server[0]: finished reading data from sd 23
+[09:58:06]: server[0]: new connection from 127.0.0.1:51041, sd: 25
+[09:58:06]: server[0]: the file ./resources/4242/site_files/icon-close.png was sucsessfully opened, sd 23
+[09:58:06]: server[0]: sent 1435/1435 bytes to sd 23
+[09:58:06]: server[0]: got 891 bytes from sd 24
+[09:58:06]: server[0]: finished reading data from sd 24
+[09:58:06]: server[0]: the file ./resources/4242/site_files/responsive-phone-horizontal.png was sucsessfully opened, sd 24
+[09:58:06]: server[0]: sent 1237/1237 bytes to sd 24
+[09:58:06]: server[0]: got 890 bytes from sd 25
+[09:58:06]: server[0]: finished reading data from sd 25
+[09:58:06]: server[0]: the file ./resources/4242/site_files/Page.html was sucsessfully opened, sd 25
+[09:58:06]: server[0]: sent 9074/9074 bytes to sd 25
+[09:58:06]: server[0]: new connection from 127.0.0.1:51047, sd: 26
+[09:58:06]: server[0]: new connection from 127.0.0.1:51048, sd: 28
+[09:58:06]: server[0]: got 830 bytes from sd 26
+[09:58:06]: server[0]: finished reading data from sd 26
+[09:58:06]: server[0]: new connection from 127.0.0.1:51049, sd: 29
+[09:58:06]: server[0]: the file ./resources/4242/site_files/jquery-1.9.1.min.js was sucsessfully opened, sd 26
+[09:58:06]: server[0]: sent 92741/92741 bytes to sd 26
+[09:58:06]: server[0]: got 838 bytes from sd 28
+[09:58:06]: server[0]: finished reading data from sd 28
+[09:58:06]: server[0]: new connection from 127.0.0.1:51050, sd: 30
+[09:58:06]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[09:58:06]: server[0]: sent 200000/938279 bytes to sd 28
+[09:58:06]: server[0]: got 822 bytes from sd 29
+[09:58:06]: server[0]: finished reading data from sd 29
+[09:58:06]: server[0]: new connection from 127.0.0.1:51051, sd: 31
+[09:58:06]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[09:58:06]: server[0]: sent 400000/938279 bytes to sd 28
+[09:58:06]: server[0]: the file ./resources/4242/site_files/nicepage.js was sucsessfully opened, sd 29
+[09:58:06]: server[0]: sent 147053/147053 bytes to sd 29
+[09:58:06]: server[0]: got 833 bytes from sd 30
+[09:58:06]: server[0]: finished reading data from sd 30
+[09:58:06]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[09:58:06]: server[0]: sent 600000/938279 bytes to sd 28
+[09:58:06]: server[0]: the file ./resources/4242/site_files/css.css was sucsessfully opened, sd 30
+[09:58:06]: server[0]: sent 51850/51850 bytes to sd 30
+[09:58:06]: server[0]: got 892 bytes from sd 31
+[09:58:06]: server[0]: finished reading data from sd 31
+[09:58:06]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[09:58:06]: server[0]: sent 800000/938279 bytes to sd 28
+[09:58:06]: server[0]: the file ./resources/4242/site_files/logo_big.png was sucsessfully opened, sd 31
+[09:58:06]: server[0]: sent 70018/70018 bytes to sd 31
+[09:58:06]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 28
+[09:58:06]: server[0]: sent 938279/938279 bytes to sd 28
+[09:58:06]: server[0]: new connection from 127.0.0.1:51057, sd: 32
+[09:58:06]: server[0]: got 852 bytes from sd 32
+[09:58:06]: server[0]: finished reading data from sd 32
+[09:58:06]: server[0]: the file ./resources/4242/favicon.ico was sucsessfully opened, sd 32
+[09:58:06]: server[0]: sent 50577/50577 bytes to sd 32
+[09:59:52]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[09:59:56]: 5 Oct. 2022 
+[09:59:56]: Starting... 
+[09:59:56]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[09:59:56]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[09:59:56]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[09:59:56]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[09:59:56]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[09:59:56]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[09:59:56]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:00:02]: server[4]: new connection from 127.0.0.1:51090, sd: 9
+[10:00:02]: server[4]: got 871 bytes from sd 9
+[10:00:02]: server[4]: finished reading data from sd 9
+[10:00:02]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[10:00:02]: server[4]: sent 832/832 bytes to sd 9
+[10:00:02]: server[4]: new connection from 127.0.0.1:51091, sd: 10
+[10:00:02]: server[4]: got 912 bytes from sd 10
+[10:00:02]: server[4]: finished reading data from sd 10
+[10:00:02]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:00:02]: server[4]: sent 200000/423345 bytes to sd 10
+[10:00:02]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:00:02]: server[4]: sent 400000/423345 bytes to sd 10
+[10:00:02]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:00:02]: server[4]: sent 423345/423345 bytes to sd 10
+[10:00:02]: server[4]: got 905 bytes from sd 10
+[10:00:02]: server[4]: finished reading data from sd 10
+[10:00:02]: server[4]: new connection from 127.0.0.1:51092, sd: 11
+[10:00:02]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:00:02]: server[4]: sent 423345/423345 bytes to sd 10
+[10:00:02]: server[4]: got 905 bytes from sd 11
+[10:00:02]: server[4]: finished reading data from sd 11
+[10:00:02]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:00:02]: server[4]: sent 200000/1598854 bytes to sd 11
+[10:00:02]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:00:02]: server[4]: client closed sd 11
+[10:00:02]: server[4]: new connection from 127.0.0.1:51093, sd: 11
+[10:00:02]: server[4]: sent 0/0 bytes to sd 11
+[10:00:02]: server[4]: got 904 bytes from sd 11
+[10:00:02]: server[4]: finished reading data from sd 11
+[10:22:48]: 5 Oct. 2022 
+[10:22:48]: Starting... 
+[10:22:48]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:22:48]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:22:48]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:22:48]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:22:48]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:22:48]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:22:48]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:23:27]: server[4]: new connection from 127.0.0.1:51371, sd: 9
+[10:23:27]: server[4]: got 871 bytes from sd 9
+[10:23:27]: server[4]: finished reading data from sd 9
+[10:23:27]: server[4]: DEBUG delWhiteSpacesStr9GET / HTTP/1.1
+[10:23:27]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[10:23:27]: server[4]: sent 832/832 bytes to sd 9
+[10:23:27]: server[4]: new connection from 127.0.0.1:51372, sd: 10
+[10:23:27]: server[4]: got 912 bytes from sd 10
+[10:23:27]: server[4]: finished reading data from sd 10
+[10:23:27]: server[4]: DEBUG delWhiteSpacesStr10GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:23:27]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:23:27]: server[4]: sent 200000/423345 bytes to sd 10
+[10:23:27]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:23:27]: server[4]: sent 400000/423345 bytes to sd 10
+[10:23:28]: server[4]: new connection from 127.0.0.1:51373, sd: 11
+[10:23:28]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:23:28]: server[4]: sent 423345/423345 bytes to sd 10
+[10:23:28]: server[4]: got 905 bytes from sd 11
+[10:23:28]: server[4]: finished reading data from sd 11
+[10:23:28]: server[4]: DEBUG delWhiteSpacesStr11GET /music/opening.mp3 HTTP/1.1
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:23:28]: server[4]: sent 200000/1598854 bytes to sd 11
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:23:28]: server[4]: sent 400000/1598854 bytes to sd 11
+[10:23:28]: server[4]: new connection from 127.0.0.1:51374, sd: 13
+[10:23:28]: server[4]: got 904 bytes from sd 10
+[10:23:28]: server[4]: finished reading data from sd 10
+[10:23:28]: server[4]: DEBUG delWhiteSpacesStr10GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:23:28]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:23:28]: server[4]: sent 423345/423345 bytes to sd 10
+[10:23:28]: server[4]: got 904 bytes from sd 13
+[10:23:28]: server[4]: finished reading data from sd 13
+[10:23:28]: server[4]: DEBUG delWhiteSpacesStr13GET /music/opening.mp3 HTTP/1.1
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:23:28]: server[4]: sent 200000/1598854 bytes to sd 13
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:23:28]: server[4]: sent 400000/1598854 bytes to sd 13
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:23:28]: server[4]: sent 600000/1598854 bytes to sd 13
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:23:28]: server[4]: sent 800000/1598854 bytes to sd 13
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:23:28]: server[4]: sent 1000000/1598854 bytes to sd 13
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:23:28]: server[4]: sent 1200000/1598854 bytes to sd 13
+[10:23:28]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:23:29]: server[4]: sent 1400000/1598854 bytes to sd 13
+[10:23:29]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:23:29]: server[4]: sent 1598854/1598854 bytes to sd 13
+[10:23:29]: server[4]: new connection from 127.0.0.1:51375, sd: 14
+[10:23:29]: server[4]: got 825 bytes from sd 14
+[10:23:29]: server[4]: finished reading data from sd 14
+[10:23:29]: server[4]: DEBUG delWhiteSpacesStr14GET /favicon.ico HTTP/1.1
+[10:23:29]: server[4]: the file ./resources/8888/favicon.ico was sucsessfully opened, sd 14
+[10:23:29]: server[4]: sent 50577/50577 bytes to sd 14
+[10:23:37]: server[4]: closed sd 11 by timeout
+[10:23:38]: server[4]: closed sd 13 by timeout
+[10:28:06]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:28:10]: 5 Oct. 2022 
+[10:28:10]: Starting... 
+[10:28:10]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:28:10]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:28:10]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:28:10]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:28:10]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:28:10]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:28:10]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:28:49]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:28:53]: 5 Oct. 2022 
+[10:28:53]: Starting... 
+[10:28:53]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:28:53]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:28:53]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:28:53]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:28:53]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:28:53]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:28:53]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:29:00]: server[4]: new connection from 127.0.0.1:51436, sd: 9
+[10:29:00]: server[4]: got 871 bytes from sd 9
+[10:29:00]: server[4]: finished reading data from sd 9
+[10:29:00]: server[4]: DEBUG delWhiteSpacesStr9GET / HTTP/1.1
+[10:29:00]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[10:29:00]: server[4]: sent 832/832 bytes to sd 9
+[10:29:00]: server[4]: new connection from 127.0.0.1:51437, sd: 10
+[10:29:00]: server[4]: got 912 bytes from sd 10
+[10:29:00]: server[4]: finished reading data from sd 10
+[10:29:00]: server[4]: DEBUG delWhiteSpacesStr10GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:29:00]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:29:00]: server[4]: sent 200000/423345 bytes to sd 10
+[10:29:00]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:29:00]: server[4]: sent 400000/423345 bytes to sd 10
+[10:29:01]: server[4]: new connection from 127.0.0.1:51438, sd: 11
+[10:29:01]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:29:01]: server[4]: sent 423345/423345 bytes to sd 10
+[10:29:01]: server[4]: got 905 bytes from sd 11
+[10:29:01]: server[4]: finished reading data from sd 11
+[10:29:01]: server[4]: DEBUG delWhiteSpacesStr11GET /music/opening.mp3 HTTP/1.1
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:29:01]: server[4]: sent 200000/1598854 bytes to sd 11
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:29:01]: server[4]: sent 400000/1598854 bytes to sd 11
+[10:29:01]: server[4]: new connection from 127.0.0.1:51441, sd: 13
+[10:29:01]: server[4]: got 904 bytes from sd 10
+[10:29:01]: server[4]: finished reading data from sd 10
+[10:29:01]: server[4]: DEBUG delWhiteSpacesStr10GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:29:01]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:29:01]: server[4]: sent 423345/423345 bytes to sd 10
+[10:29:01]: server[4]: got 904 bytes from sd 13
+[10:29:01]: server[4]: finished reading data from sd 13
+[10:29:01]: server[4]: DEBUG delWhiteSpacesStr13GET /music/opening.mp3 HTTP/1.1
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:29:01]: server[4]: sent 200000/1598854 bytes to sd 13
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:29:01]: server[4]: sent 400000/1598854 bytes to sd 13
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:29:01]: server[4]: sent 600000/1598854 bytes to sd 13
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:29:01]: server[4]: sent 800000/1598854 bytes to sd 13
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:29:01]: server[4]: sent 1000000/1598854 bytes to sd 13
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:29:01]: server[4]: sent 1200000/1598854 bytes to sd 13
+[10:29:01]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:29:02]: server[4]: sent 1400000/1598854 bytes to sd 13
+[10:29:02]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:29:02]: server[4]: sent 1598854/1598854 bytes to sd 13
+[10:29:11]: server[4]: closed sd 11 by timeout
+[10:29:11]: server[4]: closed sd 13 by timeout
+[10:33:22]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:33:26]: 5 Oct. 2022 
+[10:33:26]: Starting... 
+[10:33:26]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:33:26]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:33:26]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:33:26]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:33:26]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:33:26]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:33:26]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:33:30]: server[4]: new connection from 127.0.0.1:51510, sd: 9
+[10:33:30]: server[4]: got 871 bytes from sd 9
+[10:33:30]: server[4]: finished reading data from sd 9
+[10:33:30]: server[4]: DEBUG delWhiteSpacesStr on sd 9
+	str:
+	GET / HTTP/1.1
+[10:33:30]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 9
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 722
+[10:33:30]: server[4]: sent 832/832 bytes to sd 9
+[10:33:30]: server[4]: new connection from 127.0.0.1:51511, sd: 10
+[10:33:30]: server[4]: got 912 bytes from sd 10
+[10:33:30]: server[4]: finished reading data from sd 10
+[10:33:30]: server[4]: DEBUG delWhiteSpacesStr on sd 10
+	str:
+	GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:33:30]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 10
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:33:30]: server[4]: sent 200000/423345 bytes to sd 10
+[10:33:30]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 10
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:33:30]: server[4]: sent 400000/423345 bytes to sd 10
+[10:33:30]: server[4]: new connection from 127.0.0.1:51512, sd: 11
+[10:33:30]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 10
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:33:30]: server[4]: sent 423345/423345 bytes to sd 10
+[10:33:30]: server[4]: got 905 bytes from sd 11
+[10:33:30]: server[4]: finished reading data from sd 11
+[10:33:30]: server[4]: DEBUG delWhiteSpacesStr on sd 11
+	str:
+	GET /music/opening.mp3 HTTP/1.1
+[10:33:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 11
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:30]: server[4]: sent 200000/1598854 bytes to sd 11
+[10:33:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 11
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:30]: server[4]: sent 400000/1598854 bytes to sd 11
+[10:33:30]: server[4]: new connection from 127.0.0.1:51513, sd: 13
+[10:33:30]: server[4]: got 904 bytes from sd 10
+[10:33:30]: server[4]: finished reading data from sd 10
+[10:33:30]: server[4]: DEBUG delWhiteSpacesStr on sd 10
+	str:
+	GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:33:30]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 10
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:33:30]: server[4]: sent 423345/423345 bytes to sd 10
+[10:33:30]: server[4]: got 904 bytes from sd 13
+[10:33:30]: server[4]: finished reading data from sd 13
+[10:33:30]: server[4]: DEBUG delWhiteSpacesStr on sd 13
+	str:
+	GET /music/opening.mp3 HTTP/1.1
+[10:33:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 13
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:30]: server[4]: sent 200000/1598854 bytes to sd 13
+[10:33:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 13
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:30]: server[4]: sent 400000/1598854 bytes to sd 13
+[10:33:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:33:30]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 13
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:30]: server[4]: sent 600000/1598854 bytes to sd 13
+[10:33:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:33:31]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 13
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:31]: server[4]: sent 800000/1598854 bytes to sd 13
+[10:33:31]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:33:31]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 13
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:31]: server[4]: sent 1000000/1598854 bytes to sd 13
+[10:33:31]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:33:31]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 13
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:31]: server[4]: sent 1200000/1598854 bytes to sd 13
+[10:33:31]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:33:31]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 13
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:31]: server[4]: sent 1400000/1598854 bytes to sd 13
+[10:33:31]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:33:31]: server[4]: DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp on sd 13
+	Answer:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:33:31]: server[4]: sent 1598854/1598854 bytes to sd 13
+[10:33:40]: server[4]: closed sd 11 by timeout
+[10:33:40]: server[4]: closed sd 13 by timeout
+[10:39:23]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:39:27]: 5 Oct. 2022 
+[10:39:27]: Starting... 
+[10:39:27]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:39:27]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:39:27]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:39:27]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:39:27]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:39:27]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:39:27]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:39:38]: server[4]: new connection from 127.0.0.1:51583, sd: 9
+[10:39:38]: server[4]: got 871 bytes from sd 9
+[10:39:38]: server[4]: finished reading data from sd 9
+[10:39:38]: server[4]: data on sd 9
+	GET / HTTP/1.1
+[10:39:38]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[10:39:38]: server[4]: prepared answer to sd 9
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 722
+[10:39:38]: server[4]: sent 832/832 bytes to sd 9
+[10:39:38]: server[4]: new connection from 127.0.0.1:51584, sd: 10
+[10:39:38]: server[4]: got 912 bytes from sd 10
+[10:39:38]: server[4]: finished reading data from sd 10
+[10:39:38]: server[4]: data on sd 10
+	GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:39:38]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:39:38]: server[4]: prepared answer to sd 10
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:39:38]: server[4]: sent 200000/423345 bytes to sd 10
+[10:39:38]: server[4]: new connection from 127.0.0.1:51585, sd: 11
+[10:39:38]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:39:38]: server[4]: prepared answer to sd 10
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:39:38]: server[4]: sent 400000/423345 bytes to sd 10
+[10:39:38]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:39:39]: server[4]: prepared answer to sd 10
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:39:39]: server[4]: sent 423345/423345 bytes to sd 10
+[10:39:39]: server[4]: got 905 bytes from sd 11
+[10:39:39]: server[4]: finished reading data from sd 11
+[10:39:39]: server[4]: data on sd 11
+	GET /music/opening.mp3 HTTP/1.1
+[10:39:39]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:39:39]: server[4]: prepared answer to sd 11
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:39]: server[4]: sent 200000/1598854 bytes to sd 11
+[10:39:39]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:39:39]: server[4]: prepared answer to sd 11
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:39]: server[4]: sent 400000/1598854 bytes to sd 11
+[10:39:39]: server[4]: new connection from 127.0.0.1:51587, sd: 13
+[10:39:39]: server[4]: got 904 bytes from sd 10
+[10:39:39]: server[4]: finished reading data from sd 10
+[10:39:39]: server[4]: data on sd 10
+	GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:39:39]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:39:39]: server[4]: prepared answer to sd 11
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:39]: server[4]: sent 600000/1598854 bytes to sd 11
+[10:39:39]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:39:39]: server[4]: prepared answer to sd 10
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:39:39]: server[4]: sent 423345/423345 bytes to sd 10
+[10:39:39]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:39:39]: server[4]: prepared answer to sd 11
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:39]: server[4]: sent 800000/1598854 bytes to sd 11
+[10:39:39]: server[4]: got 904 bytes from sd 13
+[10:39:39]: server[4]: finished reading data from sd 13
+[10:39:39]: server[4]: data on sd 13
+	GET /music/opening.mp3 HTTP/1.1
+[10:39:39]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:39:39]: server[4]: prepared answer to sd 11
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:39]: server[4]: sent 1000000/1598854 bytes to sd 11
+[10:39:39]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:39:39]: server[4]: prepared answer to sd 13
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:39]: server[4]: sent 200000/1598854 bytes to sd 13
+[10:39:39]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:39:39]: server[4]: prepared answer to sd 11
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:39]: server[4]: sent 1200000/1598854 bytes to sd 11
+[10:39:39]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:39:40]: server[4]: prepared answer to sd 13
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:40]: server[4]: sent 400000/1598854 bytes to sd 13
+[10:39:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:39:40]: server[4]: prepared answer to sd 11
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:40]: server[4]: sent 1400000/1598854 bytes to sd 11
+[10:39:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:39:40]: server[4]: prepared answer to sd 13
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:40]: server[4]: sent 600000/1598854 bytes to sd 13
+[10:39:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:39:40]: server[4]: prepared answer to sd 11
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:40]: server[4]: sent 1598854/1598854 bytes to sd 11
+[10:39:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:39:40]: server[4]: prepared answer to sd 13
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:40]: server[4]: sent 800000/1598854 bytes to sd 13
+[10:39:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:39:40]: server[4]: prepared answer to sd 13
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:40]: server[4]: sent 1000000/1598854 bytes to sd 13
+[10:39:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:39:40]: server[4]: prepared answer to sd 13
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:40]: server[4]: sent 1200000/1598854 bytes to sd 13
+[10:39:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:39:40]: server[4]: prepared answer to sd 13
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:40]: server[4]: sent 1400000/1598854 bytes to sd 13
+[10:39:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:39:41]: server[4]: prepared answer to sd 13
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:39:41]: server[4]: sent 1598854/1598854 bytes to sd 13
+[10:39:48]: server[4]: closed sd 11 by timeout
+[10:39:49]: server[4]: closed sd 13 by timeout
+[10:41:56]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:42:04]: 5 Oct. 2022 
+[10:42:04]: Starting... 
+[10:42:04]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:42:04]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:42:04]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:42:04]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:42:04]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:42:04]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:42:04]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:42:08]: server[4]: new connection from 127.0.0.1:51622, sd: 9
+[10:42:08]: server[4]: got 871 bytes from sd 9
+[10:42:08]: server[4]: finished reading data from sd 9
+[10:42:08]: server[4]: data on sd 9:
+	GET / HTTP/1.1
+[10:42:08]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[10:42:08]: server[4]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 722
+[10:42:08]: server[4]: sent 832/832 bytes to sd 9
+[10:42:08]: server[4]: new connection from 127.0.0.1:51623, sd: 10
+[10:42:08]: server[4]: got 912 bytes from sd 10
+[10:42:08]: server[4]: finished reading data from sd 10
+[10:42:08]: server[4]: data on sd 10:
+	GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:42:08]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:42:08]: server[4]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:42:08]: server[4]: sent 200000/423345 bytes to sd 10
+[10:42:08]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:42:08]: server[4]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:42:08]: server[4]: sent 400000/423345 bytes to sd 10
+[10:42:08]: server[4]: new connection from 127.0.0.1:51624, sd: 11
+[10:42:08]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:42:08]: server[4]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:42:08]: server[4]: sent 423345/423345 bytes to sd 10
+[10:42:08]: server[4]: got 905 bytes from sd 11
+[10:42:08]: server[4]: finished reading data from sd 11
+[10:42:08]: server[4]: data on sd 11:
+	GET /music/opening.mp3 HTTP/1.1
+[10:42:08]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:42:09]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 200000/1598854 bytes to sd 11
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[10:42:09]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 400000/1598854 bytes to sd 11
+[10:42:09]: server[4]: new connection from 127.0.0.1:51625, sd: 13
+[10:42:09]: server[4]: got 904 bytes from sd 10
+[10:42:09]: server[4]: finished reading data from sd 10
+[10:42:09]: server[4]: data on sd 10:
+	GET /image/evangelion-09-NERV.jpeg HTTP/1.1
+[10:42:09]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[10:42:09]: server[4]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[10:42:09]: server[4]: sent 423345/423345 bytes to sd 10
+[10:42:09]: server[4]: got 904 bytes from sd 13
+[10:42:09]: server[4]: finished reading data from sd 13
+[10:42:09]: server[4]: data on sd 13:
+	GET /music/opening.mp3 HTTP/1.1
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:42:09]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 200000/1598854 bytes to sd 13
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:42:09]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 400000/1598854 bytes to sd 13
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:42:09]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 600000/1598854 bytes to sd 13
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:42:09]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 800000/1598854 bytes to sd 13
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:42:09]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 1000000/1598854 bytes to sd 13
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:42:09]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 1200000/1598854 bytes to sd 13
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:42:09]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 1400000/1598854 bytes to sd 13
+[10:42:09]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[10:42:09]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[10:42:09]: server[4]: sent 1598854/1598854 bytes to sd 13
+[10:42:18]: server[4]: closed sd 11 by timeout
+[10:42:19]: server[4]: closed sd 13 by timeout
+[10:44:42]: server[5]: new connection from 127.0.0.1:51652, sd: 11
+[10:44:42]: server[5]: got 871 bytes from sd 11
+[10:44:42]: server[5]: finished reading data from sd 11
+[10:44:42]: server[5]: data on sd 11:
+	GET / HTTP/1.1
+[10:44:42]: server[5]: the file ./resources/1234/periodic_table.html was sucsessfully opened, sd 11
+[10:44:42]: server[5]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 15729
+[10:44:42]: server[5]: sent 15841/15841 bytes to sd 11
+[10:44:42]: server[5]: new connection from 127.0.0.1:51653, sd: 13
+[10:44:42]: server[5]: got 897 bytes from sd 13
+[10:44:42]: server[5]: finished reading data from sd 13
+[10:44:42]: server[5]: data on sd 13:
+	GET /mendeleev.jpeg HTTP/1.1
+[10:44:42]: server[5]: the file ./resources/1234/mendeleev.jpeg was sucsessfully opened, sd 13
+[10:44:42]: server[5]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 36739
+[10:44:42]: server[5]: sent 36853/36853 bytes to sd 13
+[10:44:42]: server[5]: new connection from 127.0.0.1:51654, sd: 14
+[10:44:42]: server[5]: got 825 bytes from sd 14
+[10:44:42]: server[5]: finished reading data from sd 14
+[10:44:42]: server[5]: data on sd 14:
+	GET /favicon.ico HTTP/1.1
+[10:44:42]: server[5]: the file ./resources/1234/favicon.ico was sucsessfully opened, sd 14
+[10:44:43]: server[5]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/x-icon; charset=utf-8
+	Content-Length: 50462
+[10:44:43]: server[5]: sent 50577/50577 bytes to sd 14
+[10:46:34]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:46:37]: 5 Oct. 2022 
+[10:46:37]: Starting... 
+[10:46:37]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:46:37]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:46:37]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:46:37]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:46:37]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:46:37]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:46:37]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:46:40]: server[5]: new connection from 127.0.0.1:51677, sd: 9
+[10:46:40]: server[5]: got 871 bytes from sd 9
+[10:46:40]: server[5]: finished reading data from sd 9
+[10:46:40]: server[5]: data from sd 9:
+	GET / HTTP/1.1
+[10:46:40]: server[5]: the file ./resources/1234/periodic_table.html was sucsessfully opened, sd 9
+[10:46:40]: server[5]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 15729
+[10:46:40]: server[5]: sent 15841/15841 bytes to sd 9
+[10:46:40]: server[5]: new connection from 127.0.0.1:51678, sd: 10
+[10:46:40]: server[5]: got 897 bytes from sd 10
+[10:46:40]: server[5]: finished reading data from sd 10
+[10:46:40]: server[5]: data from sd 10:
+	GET /mendeleev.jpeg HTTP/1.1
+[10:46:40]: server[5]: the file ./resources/1234/mendeleev.jpeg was sucsessfully opened, sd 10
+[10:46:40]: server[5]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 36739
+[10:46:40]: server[5]: sent 36853/36853 bytes to sd 10
+[10:46:58]: server[0]: new connection from 127.0.0.1:51681, sd: 11
+[10:46:58]: server[0]: got 871 bytes from sd 11
+[10:46:58]: server[0]: finished reading data from sd 11
+[10:46:58]: server[0]: data from sd 11:
+	GET / HTTP/1.1
+[10:46:58]: server[0]: the file ./resources/4242/index.html was sucsessfully opened, sd 11
+[10:46:58]: server[0]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 23232
+[10:46:58]: server[0]: sent 23344/23344 bytes to sd 11
+[10:46:58]: server[0]: got 830 bytes from sd 11
+[10:46:58]: server[0]: finished reading data from sd 11
+[10:46:58]: server[0]: data from sd 11:
+	GET / HTTP/1.1
+[10:46:58]: server[0]: the file ./resources/4242/index.html was sucsessfully opened, sd 11
+[10:46:58]: server[0]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 23232
+[10:46:58]: server[0]: sent 23344/23344 bytes to sd 11
+[10:46:58]: server[0]: new connection from 127.0.0.1:51683, sd: 13
+[10:46:58]: server[0]: new connection from 127.0.0.1:51684, sd: 14
+[10:46:58]: server[0]: new connection from 127.0.0.1:51685, sd: 15
+[10:46:58]: server[0]: got 827 bytes from sd 13
+[10:46:58]: server[0]: finished reading data from sd 13
+[10:46:58]: server[0]: data from sd 13:
+	GET /site_files/js HTTP/1.1
+[10:46:58]: server[0]: new connection from 127.0.0.1:51686, sd: 16
+[10:46:58]: server[0]: the file ./resources/4242/site_files/js was sucsessfully opened, sd 13
+[10:46:58]: server[0]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 159357
+[10:46:58]: server[0]: sent 159469/159469 bytes to sd 13
+[10:46:58]: server[0]: got 837 bytes from sd 14
+[10:46:58]: server[0]: finished reading data from sd 14
+[10:46:58]: server[0]: data from sd 14:
+	GET /site_files/analytics.js HTTP/1.1
+[10:46:58]: server[0]: got 830 bytes from sd 15
+[10:46:58]: server[0]: finished reading data from sd 15
+[10:46:58]: server[0]: data from sd 15:
+	GET /site_files/js(1) HTTP/1.1
+[10:46:58]: server[0]: new connection from 127.0.0.1:51687, sd: 17
+[10:46:58]: server[0]: got 837 bytes from sd 13
+[10:46:58]: server[0]: finished reading data from sd 13
+[10:46:58]: server[0]: data from sd 13:
+	GET /site_files/js HTTP/1.1
+[10:46:58]: server[0]: the file ./resources/4242/site_files/analytics.js was sucsessfully opened, sd 14
+[10:46:58]: server[0]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 50205
+[10:46:58]: server[0]: sent 50322/50322 bytes to sd 14
+[10:46:58]: server[0]: the file ./resources/4242/site_files/js(1) was sucsessfully opened, sd 15
+[10:46:58]: server[0]: prepared answer to sd 15:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 197698
+[10:46:58]: server[0]: sent 197810/197810 bytes to sd 15
+[10:46:58]: server[0]: got 881 bytes from sd 16
+[10:46:58]: server[0]: finished reading data from sd 16
+[10:46:58]: server[0]: data from sd 16:
+	GET /site_files/amplitude-5.2.2-min.gz.js HTTP/1.1
+[10:46:58]: server[0]: new connection from 127.0.0.1:51688, sd: 18
+[10:46:58]: server[0]: the file ./resources/4242/site_files/js was sucsessfully opened, sd 13
+[10:46:58]: server[0]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 159357
+[10:46:58]: server[0]: sent 159469/159469 bytes to sd 13
+[10:46:58]: server[0]: got 837 bytes from sd 14
+[10:46:58]: server[0]: finished reading data from sd 14
+[10:46:58]: server[0]: data from sd 14:
+	GET /site_files/analytics.js HTTP/1.1
+[10:46:58]: server[0]: the file ./resources/4242/site_files/amplitude-5.2.2-min.gz.js was sucsessfully opened, sd 16
+[10:46:58]: server[0]: prepared answer to sd 16:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 55079
+[10:46:58]: server[0]: sent 55190/55190 bytes to sd 16
+[10:46:58]: server[0]: got 830 bytes from sd 17
+[10:46:58]: server[0]: finished reading data from sd 17
+[10:46:58]: server[0]: data from sd 17:
+	GET /site_files/f.txt HTTP/1.1
+[10:46:58]: server[0]: new connection from 127.0.0.1:51689, sd: 19
+[10:46:58]: server[0]: the file ./resources/4242/site_files/analytics.js was sucsessfully opened, sd 14
+[10:46:58]: server[0]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 50205
+[10:46:58]: server[0]: sent 50322/50322 bytes to sd 14
+[10:46:58]: server[0]: got 837 bytes from sd 15
+[10:46:58]: server[0]: finished reading data from sd 15
+[10:46:58]: server[0]: data from sd 15:
+	GET /site_files/js(1) HTTP/1.1
+[10:46:58]: server[0]: the file ./resources/4242/site_files/f.txt was sucsessfully opened, sd 17
+[10:46:58]: server[0]: prepared answer to sd 17:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/plain; charset=utf-8
+	Content-Length: 40451
+[10:46:58]: server[0]: sent 40563/40563 bytes to sd 17
+[10:46:58]: server[0]: got 830 bytes from sd 18
+[10:46:58]: server[0]: finished reading data from sd 18
+[10:46:58]: server[0]: data from sd 18:
+	GET /site_files/js(2) HTTP/1.1
+[10:46:58]: server[0]: new connection from 127.0.0.1:51690, sd: 20
+[10:46:58]: server[0]: the file ./resources/4242/site_files/js(1) was sucsessfully opened, sd 15
+[10:46:58]: server[0]: prepared answer to sd 15:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 197698
+[10:46:58]: server[0]: sent 197810/197810 bytes to sd 15
+[10:46:58]: server[0]: got 915 bytes from sd 16
+[10:46:58]: server[0]: finished reading data from sd 16
+[10:46:58]: server[0]: data from sd 16:
+	GET /site_files/amplitude-5.2.2-min.gz.js HTTP/1.1
+[10:46:58]: server[0]: got 925 bytes from sd 17
+[10:46:58]: server[0]: finished reading data from sd 17
+[10:46:58]: server[0]: data from sd 17:
+	GET /site_files/f.txt HTTP/1.1
+[10:46:58]: server[0]: the file ./resources/4242/site_files/js(2) was sucsessfully opened, sd 18
+[10:46:58]: server[0]: prepared answer to sd 18:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 108408
+[10:46:58]: server[0]: sent 108520/108520 bytes to sd 18
+[10:46:58]: server[0]: got 853 bytes from sd 19
+[10:46:58]: server[0]: finished reading data from sd 19
+[10:46:58]: server[0]: data from sd 19:
+	GET /site_files/main-libs.css HTTP/1.1
+[10:46:58]: server[0]: new connection from 127.0.0.1:51693, sd: 21
+[10:46:58]: server[0]: the file ./resources/4242/site_files/amplitude-5.2.2-min.gz.js was sucsessfully opened, sd 16
+[10:46:58]: server[0]: prepared answer to sd 16:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 55079
+[10:46:58]: server[0]: sent 55190/55190 bytes to sd 16
+[10:46:58]: server[0]: the file ./resources/4242/site_files/f.txt was sucsessfully opened, sd 17
+[10:46:58]: server[0]: prepared answer to sd 17:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/plain; charset=utf-8
+	Content-Length: 40451
+[10:46:58]: server[0]: sent 40563/40563 bytes to sd 17
+[10:46:58]: server[0]: got 908 bytes from sd 18
+[10:46:58]: server[0]: finished reading data from sd 18
+[10:46:58]: server[0]: data from sd 18:
+	GET /site_files/js(2) HTTP/1.1
+[10:46:58]: server[0]: the file ./resources/4242/site_files/main-libs.css was sucsessfully opened, sd 19
+[10:46:58]: server[0]: prepared answer to sd 19:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 177251
+[10:46:58]: server[0]: sent 177363/177363 bytes to sd 19
+[10:46:58]: server[0]: got 833 bytes from sd 20
+[10:46:58]: server[0]: finished reading data from sd 20
+[10:46:58]: server[0]: data from sd 20:
+	GET /site_files/f(1).txt HTTP/1.1
+[10:46:58]: server[0]: new connection from 127.0.0.1:51695, sd: 22
+[10:46:58]: server[0]: the file ./resources/4242/site_files/js(2) was sucsessfully opened, sd 18
+[10:46:58]: server[0]: prepared answer to sd 18:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 108408
+[10:46:58]: server[0]: sent 108520/108520 bytes to sd 18
+[10:46:58]: server[0]: got 925 bytes from sd 19
+[10:46:58]: server[0]: finished reading data from sd 19
+[10:46:58]: server[0]: data from sd 19:
+	GET /site_files/main-libs.css HTTP/1.1
+[10:46:58]: server[0]: the file ./resources/4242/site_files/f(1).txt was sucsessfully opened, sd 20
+[10:46:58]: server[0]: prepared answer to sd 20:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/plain; charset=utf-8
+	Content-Length: 2682
+[10:46:58]: server[0]: sent 2794/2794 bytes to sd 20
+[10:46:58]: server[0]: got 916 bytes from sd 21
+[10:46:58]: server[0]: finished reading data from sd 21
+[10:46:58]: server[0]: data from sd 21:
+	GET /site_files/responsive-desktop.png HTTP/1.1
+[10:46:58]: server[0]: new connection from 127.0.0.1:51696, sd: 23
+[10:46:58]: server[0]: the file ./resources/4242/site_files/main-libs.css was sucsessfully opened, sd 19
+[10:46:58]: server[0]: prepared answer to sd 19:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 177251
+[10:46:58]: server[0]: sent 177363/177363 bytes to sd 19
+[10:46:58]: server[0]: the file ./resources/4242/site_files/responsive-desktop.png was sucsessfully opened, sd 21
+[10:46:59]: server[0]: prepared answer to sd 21:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1350
+[10:46:59]: server[0]: sent 1461/1461 bytes to sd 21
+[10:46:59]: server[0]: got 915 bytes from sd 22
+[10:46:59]: server[0]: finished reading data from sd 22
+[10:46:59]: server[0]: data from sd 22:
+	GET /site_files/responsive-tablet.png HTTP/1.1
+[10:46:59]: server[0]: new connection from 127.0.0.1:51697, sd: 24
+[10:46:59]: server[0]: the file ./resources/4242/site_files/responsive-tablet.png was sucsessfully opened, sd 22
+[10:46:59]: server[0]: prepared answer to sd 22:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1626
+[10:46:59]: server[0]: sent 1737/1737 bytes to sd 22
+[10:46:59]: server[0]: got 914 bytes from sd 23
+[10:46:59]: server[0]: finished reading data from sd 23
+[10:46:59]: server[0]: data from sd 23:
+	GET /site_files/responsive-phone.png HTTP/1.1
+[10:46:59]: server[0]: new connection from 127.0.0.1:51698, sd: 25
+[10:46:59]: server[0]: the file ./resources/4242/site_files/responsive-phone.png was sucsessfully opened, sd 23
+[10:46:59]: server[0]: prepared answer to sd 23:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1622
+[10:46:59]: server[0]: sent 1733/1733 bytes to sd 23
+[10:46:59]: server[0]: got 915 bytes from sd 24
+[10:46:59]: server[0]: finished reading data from sd 24
+[10:46:59]: server[0]: data from sd 24:
+	GET /site_files/responsive-laptop.png HTTP/1.1
+[10:46:59]: server[0]: new connection from 127.0.0.1:51699, sd: 26
+[10:46:59]: server[0]: the file ./resources/4242/site_files/responsive-laptop.png was sucsessfully opened, sd 24
+[10:46:59]: server[0]: prepared answer to sd 24:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1628
+[10:46:59]: server[0]: sent 1739/1739 bytes to sd 24
+[10:46:59]: server[0]: got 908 bytes from sd 25
+[10:46:59]: server[0]: finished reading data from sd 25
+[10:46:59]: server[0]: data from sd 25:
+	GET /site_files/icon-close.png HTTP/1.1
+[10:46:59]: server[0]: the file ./resources/4242/site_files/icon-close.png was sucsessfully opened, sd 25
+[10:46:59]: server[0]: prepared answer to sd 25:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1324
+[10:46:59]: server[0]: sent 1435/1435 bytes to sd 25
+[10:46:59]: server[0]: got 925 bytes from sd 26
+[10:46:59]: server[0]: finished reading data from sd 26
+[10:46:59]: server[0]: data from sd 26:
+	GET /site_files/responsive-phone-horizontal.png HTTP/1.1
+[10:46:59]: server[0]: the file ./resources/4242/site_files/responsive-phone-horizontal.png was sucsessfully opened, sd 26
+[10:46:59]: server[0]: prepared answer to sd 26:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 1126
+[10:46:59]: server[0]: sent 1237/1237 bytes to sd 26
+[10:46:59]: server[0]: new connection from 127.0.0.1:51701, sd: 28
+[10:46:59]: server[0]: got 924 bytes from sd 28
+[10:46:59]: server[0]: finished reading data from sd 28
+[10:46:59]: server[0]: data from sd 28:
+	GET /site_files/Page.html HTTP/1.1
+[10:46:59]: server[0]: the file ./resources/4242/site_files/Page.html was sucsessfully opened, sd 28
+[10:46:59]: server[0]: prepared answer to sd 28:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 8963
+[10:46:59]: server[0]: sent 9074/9074 bytes to sd 28
+[10:46:59]: server[0]: new connection from 127.0.0.1:51703, sd: 29
+[10:46:59]: server[0]: new connection from 127.0.0.1:51704, sd: 30
+[10:46:59]: server[0]: new connection from 127.0.0.1:51705, sd: 31
+[10:46:59]: server[0]: new connection from 127.0.0.1:51706, sd: 32
+[10:46:59]: server[0]: new connection from 127.0.0.1:51707, sd: 33
+[10:46:59]: server[0]: got 899 bytes from sd 29
+[10:46:59]: server[0]: finished reading data from sd 29
+[10:46:59]: server[0]: data from sd 29:
+	GET /site_files/nicepage.css HTTP/1.1
+[10:46:59]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 29
+[10:46:59]: server[0]: prepared answer to sd 29:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[10:46:59]: server[0]: sent 200000/938279 bytes to sd 29
+[10:46:59]: server[0]: got 883 bytes from sd 31
+[10:46:59]: server[0]: finished reading data from sd 31
+[10:46:59]: server[0]: data from sd 31:
+	GET /site_files/nicepage.js HTTP/1.1
+[10:46:59]: server[0]: got 894 bytes from sd 32
+[10:46:59]: server[0]: finished reading data from sd 32
+[10:46:59]: server[0]: data from sd 32:
+	GET /site_files/css.css HTTP/1.1
+[10:46:59]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 29
+[10:46:59]: server[0]: prepared answer to sd 29:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[10:46:59]: server[0]: sent 400000/938279 bytes to sd 29
+[10:46:59]: server[0]: got 891 bytes from sd 30
+[10:46:59]: server[0]: finished reading data from sd 30
+[10:46:59]: server[0]: data from sd 30:
+	GET /site_files/jquery-1.9.1.min.js HTTP/1.1
+[10:46:59]: server[0]: the file ./resources/4242/site_files/nicepage.js was sucsessfully opened, sd 31
+[10:46:59]: server[0]: prepared answer to sd 31:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/ecmascript; charset=utf-8
+	Content-Length: 146934
+[10:46:59]: server[0]: sent 147053/147053 bytes to sd 31
+[10:46:59]: server[0]: the file ./resources/4242/site_files/css.css was sucsessfully opened, sd 32
+[10:46:59]: server[0]: prepared answer to sd 32:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 51740
+[10:46:59]: server[0]: sent 51850/51850 bytes to sd 32
+[10:46:59]: server[0]: got 953 bytes from sd 33
+[10:46:59]: server[0]: finished reading data from sd 33
+[10:46:59]: server[0]: data from sd 33:
+	GET /site_files/logo_big.png HTTP/1.1
+[10:46:59]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 29
+[10:46:59]: server[0]: prepared answer to sd 29:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[10:46:59]: server[0]: sent 600000/938279 bytes to sd 29
+[10:46:59]: server[0]: the file ./resources/4242/site_files/jquery-1.9.1.min.js was sucsessfully opened, sd 30
+[10:46:59]: server[0]: prepared answer to sd 30:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 92629
+[10:46:59]: server[0]: sent 92741/92741 bytes to sd 30
+[10:46:59]: server[0]: the file ./resources/4242/site_files/logo_big.png was sucsessfully opened, sd 33
+[10:46:59]: server[0]: prepared answer to sd 33:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 69906
+[10:46:59]: server[0]: sent 70018/70018 bytes to sd 33
+[10:46:59]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 29
+[10:46:59]: server[0]: prepared answer to sd 29:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[10:46:59]: server[0]: sent 800000/938279 bytes to sd 29
+[10:46:59]: server[0]: the file ./resources/4242/site_files/nicepage.css was sucsessfully opened, sd 29
+[10:46:59]: server[0]: prepared answer to sd 29:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/css; charset=utf-8
+	Content-Length: 938168
+[10:46:59]: server[0]: sent 938279/938279 bytes to sd 29
+[10:48:38]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

@@ -119,6 +119,18 @@ std::string timestamp()
 	return("[" + unsignedToString99(ltm->tm_hour) +  ":" + unsignedToString99(ltm->tm_min) + ":" +  unsignedToString99(ltm->tm_sec) + "]: ");
 }
 
+void replaceAllStrings(std::string & msg, const std::string & search, const std::string & replace)
+{
+	size_t pos = 0;
+	while ((pos = msg.find(search, pos)) != std::string::npos)
+	{
+			msg.replace(pos, search.length(), replace);
+			pos += replace.length();
+	}
+	// if (msg != "")
+	// 	std::cout << "MSG test: " << msg << std::endl;
+}
+
 void printMsgToLogFile(int srvNb, int clntSd, std::string msg1, std::string msg2)
 {
 	std::string msg = timestamp();
@@ -126,6 +138,7 @@ void printMsgToLogFile(int srvNb, int clntSd, std::string msg1, std::string msg2
 		msg += "server[" + std::to_string(srvNb) + "]: ";
 	msg += msg1;
 	clntSd >= 0 ? msg += std::to_string(clntSd) : msg += " ";
+	replaceAllStrings(msg2, "\n", "\n\t");
 	msg += msg2;
     std::ofstream fout("logfile.txt", std::ofstream::app);
     fout << msg << std::endl; 
@@ -139,6 +152,7 @@ void printMsg(int srvNb, int clntSd, std::string msg1, std::string msg2)
 		msg += "server[" + std::to_string(srvNb) + "]: ";
 	msg += msg1;
 	clntSd >= 0 ? msg += NC + std::to_string(clntSd) + YELLOS : msg += " ";
+	replaceAllStrings(msg2, "\n", "\n\t");
 	msg += msg2 + NC;
 	std::cout << msg << std::endl;
 }

@@ -147,9 +147,10 @@ bool ServerRouter::_parseInputData(t_connection * connection)
 	// #endif
 
 	_delWhiteSpacesStr(inptStr);
-	#ifdef DEBUGMODE
-		std::cout << "**** DEBUG delWhiteSpacesStr ****\n" << inptStr << "\n-----------------" << std::endl;
-	#endif
+	msg = "data from sd ";
+	printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + inptStr);
+	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + inptStr);
+
 	if (inptStr.find("HTTP") != std::string::npos)
 	{
 		splitStr.clear();

@@ -215,10 +215,10 @@ bool ServerRouter::_mainLoop()
 			msg = "new connection from " + _getConnection(sd)->fromIp + ":" + std::to_string(_getConnection(sd)->fromPort) + ", sd: ";
 			printMsg(i, sd, msg, "");
 			printMsgToLogFile(i, sd, msg, "");
-			#ifdef DEBUGMODE
-				msg = "DEBUGMODE ServerRouter_GET _mainLoop printAllConnections";
-				printAllConnections(_connections, msg);
-			#endif
+			// #ifdef DEBUGMODE
+			// 	msg = "DEBUGMODE ServerRouter_GET _mainLoop printAllConnections";
+			// 	printAllConnections(_connections, msg);
+			// #endif
 		}
 		else
 		{
@@ -313,7 +313,12 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 
 
 	// #ifdef DEBUGMODE
-	// 	std::cout << "**** DEBUGMODE ServerRouter//_sendanswer answer ****\nAnswer:\n" << connection->responseData.connectionAnswer << std::endl;
+		size_t posTmp = connection->responseData.connectionAnswer.find(DDELIMETER);
+		std::string answerHeaderTmp = connection->responseData.connectionAnswer.substr(0, posTmp);
+		// std::cout << GREEN << "**** DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp ****\nAnswer:\n" << answerHeaderTmp << "\n--------" << NC << std::endl;
+		msg = "prepared answer to sd ";
+		printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
 	// #endif
 
 	// if (!connection->responseData.lenAnswer)
