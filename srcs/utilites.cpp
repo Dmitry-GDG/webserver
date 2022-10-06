@@ -204,6 +204,7 @@ void connectionInputDataClear(t_connection & connection)
 {
 	connection.inputData.method.clear();
 	connection.inputData.address.clear();
+	connection.inputData.addressParamsStr.clear();
 	connection.inputData.httpVersion.clear();
 	connection.inputData.dataType = NOT_DEFINED_INPUT_DATA_TYPE;
 	connection.inputData.headerFields.clear();

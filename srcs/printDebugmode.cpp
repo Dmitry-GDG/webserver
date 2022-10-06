@@ -234,6 +234,7 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::cout << "Inputdata dataType:\t" << dtt[connection.inputData.dataType] << std::endl;
 	std::cout << "Inputdata method:\t" << connection.inputData.method << std::endl;
 	std::cout << "Inputdata address:\t" << connection.inputData.address << std::endl;
+	std::cout << "Inputdata address params:\t" << connection.inputData.addressParamsStr << std::endl;
 	std::cout << "Inputdata httpVersion:\t" << connection.inputData.httpVersion << std::endl;
 	int i = 0;
 	for (std::map<std::string, std::string>::iterator iterM = connection.inputData.headerFields.begin(); iterM != connection.inputData.headerFields.end(); iterM++)

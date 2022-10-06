@@ -5,9 +5,17 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	std::string msg;
 	connection->responseData.type = POST;
 	Server server = _getServer(connection->srvNbr);
+	std::string path = "./";
+	if (server.getConfig().root != "")
+		path += server.getConfig().root + "/";
+	path += _extractLocalAddress(connection->inputData.address);
+	#ifdef DEBUGMODE
+		std::cout << "**** DEBUGMODE SR_POST _preparePostAnswer ****\npath: " << path << "\n--------\n";
+	#endif
+
 
 	std::string contentTypeAndLength = "";
-	if (!_acceptFile(contentTypeAndLength, connection))
+	if (!_acceptFile(contentTypeAndLength, connection, path))
 		; // Подумать, что вернуть, если не примется файл
 
 	connection->responseData.connectionAnswer += connection->responseData.statusCode \
@@ -16,13 +24,15 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 
 }
 
-bool ServerRouter::_acceptFile(std::string & contentTypeAndLength, t_connection * connection)
+bool ServerRouter::_acceptFile(std::string & contentTypeAndLength, t_connection * connection, std::string const & path)
 {
+	(void) path;
 	// Проверить, возможно, такой файл уже существует -> еррор
-	std::string path = "./";
 	std::vector<std::string> splitInputDataAddr;
 	splitString(connection->inputData.address, ':', splitInputDataAddr);
 	std::string pathInsideServer = splitInputDataAddr[1];
+
+	// std::string saveName = 
 
 	(void) contentTypeAndLength;
 

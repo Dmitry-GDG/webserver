@@ -58,6 +58,7 @@ typedef struct s_inputdata
 	std::string		method; // GET, POST, DELETE
 	// RequestType		requestType;
 	std::string		address;
+	std::string		addressParamsStr; // POST request's params
 	std::string		httpVersion;
 	InputDataType	dataType; // HTTP
 	std::map<std::string, std::string>	headerFields;

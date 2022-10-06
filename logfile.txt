@@ -30896,3 +30896,469 @@ Host:  localhost
 [10:35:40]: server[0]: closed sd 34 by Connection condition
 [10:38:33]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[13:35:50]: 6 Oct. 2022 
+[13:35:50]: Starting... 
+[13:35:50]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[13:35:50]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:35:50]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:35:50]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:35:50]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:35:50]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:35:50]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:36:08]: server[0]: new connection from 127.0.0.1:50644, sd: 9
+[13:36:08]: server[0]: got 202 bytes from sd 9
+[13:36:08]: server[0]: data from sd 9:
+	POST localhost:4242 HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[13:36:08]: server[0]: finished reading data from sd 9
+[13:36:08]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[13:36:08]: server[0]: sent 38/38 bytes to sd 9
+[13:36:08]: server[0]: closed sd 9 by Connection condition
+[13:37:55]: server[0]: new connection from 127.0.0.1:50660, sd: 9
+[13:37:55]: server[0]: got 214 bytes from sd 9
+[13:37:55]: server[0]: data from sd 9:
+	POST localhost:4242/newfile.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[13:37:55]: server[0]: finished reading data from sd 9
+[13:37:55]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[13:37:55]: server[0]: sent 38/38 bytes to sd 9
+[13:37:55]: server[0]: closed sd 9 by Connection condition
+[13:38:41]: server[0]: new connection from 127.0.0.1:50670, sd: 9
+[13:38:41]: server[0]: got 214 bytes from sd 9
+[13:38:41]: server[0]: data from sd 9:
+	POST localhost:8080/newfile.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[13:38:41]: server[0]: finished reading data from sd 9
+[13:38:41]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[13:38:41]: server[0]: sent 38/38 bytes to sd 9
+[13:38:41]: server[0]: closed sd 9 by Connection condition
+[13:40:12]: server[0]: new connection from 127.0.0.1:50681, sd: 9
+[13:40:12]: server[0]: got 202 bytes from sd 9
+[13:40:12]: server[0]: data from sd 9:
+	POST localhost:8080 HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[13:40:12]: server[0]: finished reading data from sd 9
+[13:40:12]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[13:40:12]: server[0]: sent 38/38 bytes to sd 9
+[13:40:12]: server[0]: closed sd 9 by Connection condition
+[13:40:51]: server[1]: new connection from 127.0.0.1:50688, sd: 9
+[13:40:51]: server[1]: got 202 bytes from sd 9
+[13:40:51]: server[1]: data from sd 9:
+	POST localhost:8080 HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[13:40:51]: server[1]: finished reading data from sd 9
+[13:40:51]: server[1]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[13:40:51]: server[1]: sent 38/38 bytes to sd 9
+[13:40:51]: server[1]: closed sd 9 by Connection condition
+[14:02:33]: server[0]: new connection from 127.0.0.1:51493, sd: 9
+[14:02:33]: server[0]: got 243 bytes from sd 9
+[14:02:33]: server[0]: data from sd 9:
+	POST localhost:4242/ 43A 43E 440 43E 432 430.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[14:02:33]: server[0]: finished reading data from sd 9
+[14:02:33]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[14:02:33]: server[0]: sent 38/38 bytes to sd 9
+[14:02:33]: server[0]: closed sd 9 by Connection condition
+[14:04:37]: server[0]: new connection from 127.0.0.1:51510, sd: 9
+[14:04:37]: server[0]: got 243 bytes from sd 9
+[14:04:37]: server[0]: data from sd 9:
+	POST localhost:4242/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[14:04:37]: server[0]: finished reading data from sd 9
+[14:04:37]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[14:04:37]: server[0]: sent 38/38 bytes to sd 9
+[14:04:37]: server[0]: closed sd 9 by Connection condition
+[14:41:40]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[14:41:51]: 6 Oct. 2022 
+[14:41:51]: Starting... 
+[14:41:51]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[14:41:51]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[14:41:51]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[14:41:51]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[14:41:51]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[14:41:51]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[14:41:51]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[14:42:33]: server[0]: new connection from 127.0.0.1:51954, sd: 9
+[14:42:33]: server[0]: got 243 bytes from sd 9
+[14:42:33]: server[0]: data from sd 9:
+	POST localhost:4242/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[14:42:33]: server[0]: finished reading data from sd 9
+[14:42:33]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[14:42:33]: server[0]: sent 38/38 bytes to sd 9
+[14:42:33]: server[0]: closed sd 9 by Connection condition
+[15:29:19]: server[0]: new connection from 127.0.0.1:52776, sd: 9
+[15:29:19]: server[0]: got 253 bytes from sd 9
+[15:29:19]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[15:29:19]: server[0]: finished reading data from sd 9
+[15:29:19]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[15:29:19]: server[0]: sent 38/38 bytes to sd 9
+[15:29:19]: server[0]: closed sd 9 by Connection condition
+[15:45:36]: server[0]: new connection from 127.0.0.1:52997, sd: 9
+[15:45:36]: server[0]: got 273 bytes from sd 9
+[15:45:36]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[15:45:36]: server[0]: finished reading data from sd 9
+[15:45:36]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[15:45:36]: server[0]: sent 38/38 bytes to sd 9
+[15:45:36]: server[0]: closed sd 9 by Connection condition
+[15:46:21]: server[0]: new connection from 127.0.0.1:53008, sd: 9
+[15:46:21]: server[0]: got 274 bytes from sd 9
+[15:46:21]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[15:46:21]: server[0]: finished reading data from sd 9
+[15:46:21]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[15:46:21]: server[0]: sent 38/38 bytes to sd 9
+[15:46:21]: server[0]: closed sd 9 by Connection condition
+[15:48:01]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[15:48:46]: 6 Oct. 2022 
+[15:48:46]: Starting... 
+[15:48:46]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[15:48:46]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[15:48:46]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[15:48:46]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[15:48:46]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[15:48:46]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[15:48:46]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[15:48:56]: server[0]: new connection from 127.0.0.1:53038, sd: 9
+[15:48:56]: server[0]: got 274 bytes from sd 9
+[15:48:56]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[15:48:56]: server[0]: finished reading data from sd 9
+[15:48:56]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[15:48:56]: server[0]: sent 38/38 bytes to sd 9
+[15:48:56]: server[0]: closed sd 9 by Connection condition
+[15:57:04]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[15:57:13]: 6 Oct. 2022 
+[15:57:13]: Starting... 
+[15:57:13]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[15:57:13]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[15:57:13]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[15:57:13]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[15:57:13]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[15:57:13]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[15:57:13]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[15:57:17]: server[0]: new connection from 127.0.0.1:53151, sd: 9
+[15:57:17]: server[0]: got 274 bytes from sd 9
+[15:57:17]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[15:57:17]: server[0]: finished reading data from sd 9
+[15:57:17]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[15:57:17]: server[0]: sent 38/38 bytes to sd 9
+[15:57:17]: server[0]: closed sd 9 by Connection condition
+[16:00:38]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[16:00:47]: 6 Oct. 2022 
+[16:00:47]: Starting... 
+[16:00:47]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[16:00:47]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[16:00:47]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[16:00:47]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[16:00:47]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[16:00:47]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[16:00:47]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[16:00:48]: server[0]: new connection from 127.0.0.1:53194, sd: 9
+[16:00:48]: server[0]: got 253 bytes from sd 9
+[16:00:48]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[16:00:48]: server[0]: finished reading data from sd 9
+[16:00:48]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[16:00:48]: server[0]: sent 38/38 bytes to sd 9
+[16:00:48]: server[0]: closed sd 9 by Connection condition
+[16:01:57]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[16:01:59]: 6 Oct. 2022 
+[16:01:59]: Starting... 
+[16:01:59]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[16:01:59]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[16:01:59]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[16:01:59]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[16:01:59]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[16:01:59]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[16:01:59]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[16:02:03]: server[0]: new connection from 127.0.0.1:53209, sd: 9
+[16:02:03]: server[0]: got 253 bytes from sd 9
+[16:02:03]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[16:02:03]: server[0]: finished reading data from sd 9
+[16:02:03]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[16:02:03]: server[0]: sent 38/38 bytes to sd 9
+[16:02:03]: server[0]: closed sd 9 by Connection condition
+[16:02:16]: server[0]: new connection from 127.0.0.1:53211, sd: 9
+[16:02:16]: server[0]: got 274 bytes from sd 9
+[16:02:16]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[16:02:16]: server[0]: finished reading data from sd 9
+[16:02:16]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[16:02:16]: server[0]: sent 38/38 bytes to sd 9
+[16:02:16]: server[0]: closed sd 9 by Connection condition
+[16:04:16]: server[0]: new connection from 127.0.0.1:53241, sd: 9
+[16:04:16]: server[0]: got 274 bytes from sd 9
+[16:04:16]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[16:04:16]: server[0]: finished reading data from sd 9
+[16:04:16]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[16:04:16]: server[0]: sent 38/38 bytes to sd 9
+[16:04:16]: server[0]: closed sd 9 by Connection condition
+[16:06:57]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[16:07:01]: 6 Oct. 2022 
+[16:07:01]: Starting... 
+[16:07:01]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[16:07:01]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[16:07:01]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[16:07:01]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[16:07:01]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[16:07:01]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[16:07:01]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[16:07:04]: server[0]: new connection from 127.0.0.1:53276, sd: 9
+[16:07:04]: server[0]: got 274 bytes from sd 9
+[16:07:04]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt?log=User&pass=123456 HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[16:07:04]: server[0]: finished reading data from sd 9
+[16:07:04]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[16:07:04]: server[0]: sent 38/38 bytes to sd 9
+[16:07:04]: server[0]: closed sd 9 by Connection condition
+[16:07:17]: server[0]: new connection from 127.0.0.1:53278, sd: 9
+[16:07:17]: server[0]: got 253 bytes from sd 9
+[16:07:17]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[16:07:17]: server[0]: finished reading data from sd 9
+[16:07:17]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[16:07:17]: server[0]: sent 38/38 bytes to sd 9
+[16:07:17]: server[0]: closed sd 9 by Connection condition
+[16:15:10]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[16:15:14]: 6 Oct. 2022 
+[16:15:14]: Starting... 
+[16:15:14]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[16:15:14]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[16:15:14]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[16:15:14]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[16:15:14]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[16:15:14]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[16:15:14]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[16:15:19]: server[0]: new connection from 127.0.0.1:53374, sd: 9
+[16:15:19]: server[0]: got 253 bytes from sd 9
+[16:15:19]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[16:15:19]: server[0]: finished reading data from sd 9
+[16:15:19]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[16:15:19]: server[0]: sent 38/38 bytes to sd 9
+[16:15:19]: server[0]: closed sd 9 by Connection condition
+[16:15:35]: server[0]: new connection from 127.0.0.1:53379, sd: 9
+[16:15:35]: server[0]: got 274 bytes from sd 9
+[16:15:35]: server[0]: data from sd 9:
+	POST localhost:4242/downloads/корова.txt?log=User&pass=123456 HTTP/1.1
+	Authorization:  Basic myname:passwordinbs64
+	Connection:  Close
+	Content-length:  10
+	Content-type:  application/x-www-form-urlencoded
+	Host:  localhost
+	
+[16:15:35]: server[0]: finished reading data from sd 9
+[16:15:35]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Connection: Close
+[16:15:35]: server[0]: sent 38/38 bytes to sd 9
+[16:15:35]: server[0]: closed sd 9 by Connection condition
+[16:17:06]: server[5]: new connection from 127.0.0.1:53394, sd: 9
+[16:17:06]: server[5]: got 872 bytes from sd 9
+[16:17:06]: server[5]: data from sd 9:
+	GET  HTTP/1.1
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1665040471.11.0.1665040472.0; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTA0MDQ3MjE4MSwibGFzdEV2ZW50VGltZSI6MTY2NTA0MDQ3MjE4MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=e06a8656e0885b940572e68c4e19dea; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:1234
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[16:17:06]: server[5]: finished reading data from sd 9
+[16:17:06]: server[5]: the file ./resources/1234/periodic_table.html was sucsessfully opened, sd 9
+[16:17:06]: server[5]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 15729
+[16:17:06]: server[5]: sent 15841/15841 bytes to sd 9
+[16:17:06]: server[5]: new connection from 127.0.0.1:53395, sd: 10
+[16:17:06]: server[5]: got 898 bytes from sd 10
+[16:17:06]: server[5]: data from sd 10:
+	GET mendeleev.jpeg HTTP/1.1
+	Accept:  image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5
+	Accept-Encoding:  gzip, deflate
+	Accept-Language:  en-us
+	Connection:  keep-alive
+	Cookie:  _ga=GA1.1.1114375521.1664684174; _ga_T7WWB0T53W=GS1.1.1665040471.11.0.1665040472.0; _gid=GA1.1.1351591410.1664953086; amplitude_id_878f4709123a5451aff838c1f870b849=eyJkZXZpY2VJZCI6IjFhMGVlOWFhLTg3ZjUtNGQzNS05MWRhLWZjMGQ1ZGMyMDhmYlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTA0MDQ3MjE4MSwibGFzdEV2ZW50VGltZSI6MTY2NTA0MDQ3MjE4MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; np_userId=e06a8656e0885b940572e68c4e19dea; UserCountryCode=RU; _gcl_au=1.1.1423065367.1664684174
+	Host:  127.0.0.1:1234
+	Referer:  http://127.0.0.1:1234/
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+	
+[16:17:06]: server[5]: finished reading data from sd 10
+[16:17:06]: server[5]: the file ./resources/1234/mendeleev.jpeg was sucsessfully opened, sd 10
+[16:17:06]: server[5]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 36739
+[16:17:06]: server[5]: sent 36853/36853 bytes to sd 10
+[16:20:43]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

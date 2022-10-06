@@ -181,7 +181,21 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 		// else
 		connection->inputData.method = *iter;
 		iter++;
-		connection->inputData.address = correctSlashInAddress(*iter);
+		// connection->inputData.address = correctSlashInAddress(*iter);
+		std::string addr = correctSlashInAddress(*iter);
+		#ifdef DEBUGMODE
+			std::cout << "**** DEBUGMODE SR_parse _parseInputDataHeader ****\naddr: " << addr << "\n--------\n";
+		#endif
+		size_t pos = addr.find('?');
+		if (pos != std::string::npos)
+			connection->inputData.addressParamsStr = addr.substr(pos + 1);
+		#ifdef DEBUGMODE
+			std::cout << "**** DEBUGMODE SR_parse _parseInputDataHeader ****\nconnection->inputData.addressParamsStr: " << connection->inputData.addressParamsStr << "\n--------\n";
+		#endif
+		connection->inputData.address = _addressDecode(addr);
+		#ifdef DEBUGMODE
+			std::cout << "**** DEBUGMODE SR_parse _parseInputDataHeader ****\nconnection->inputData.address: " << connection->inputData.address << "\n--------\n";
+		#endif
 		iter++;
 		connection->inputData.httpVersion = *iter;
 
@@ -199,7 +213,10 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 			connection->inputData.headerFields[splitStr[0]] = splitStr[1];
 		}
 		msg = "data from sd ";
-		msg1 = connection->inputData.method + " " + connection->inputData.address + " " + connection->inputData.httpVersion + "\n";
+		msg1 = connection->inputData.method + " " + connection->inputData.address;
+		if (connection->inputData.addressParamsStr != "")
+			msg1 += "?" + connection->inputData.addressParamsStr;
+		msg1 += " " + connection->inputData.httpVersion + "\n";
 		for (std::map<std::string, std::string>::iterator iter = connection->inputData.headerFields.begin(); iter != connection->inputData.headerFields.end(); iter++)
 			msg1 += (*iter).first + ": " + (*iter).second + "\n";
 		printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);

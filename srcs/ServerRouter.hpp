@@ -70,8 +70,10 @@ class ServerRouter
 		void	_preparePostAnswer(t_connection *);
 		void	_prepareDeleteAnswer(t_connection *);
 		bool	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
-		bool	_acceptFile(std::string & contentTypeAndLength, t_connection * connection);
+		bool	_acceptFile(std::string & contentTypeAndLength, t_connection * connection, std::string const & path);
 		void	_findConnectionLenBody(t_connection *);
+		std::string	_addressDecode(std::string const & address);
+		std::string	_extractLocalAddress(std::string const & address);
 		// void	_addStatusCode(std::string & answer, t_connection * connection, std::string code);
 
 		bool	_checkDelimeterAtTheEnd(std::string str);
