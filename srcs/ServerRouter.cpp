@@ -173,7 +173,8 @@ bool ServerRouter::_mainLoop()
 	// int sd = -1;
 	socklen_t socklen = sizeof(struct sockaddr_in);
 	struct sockaddr_in addrNew;
-	std::string msg;
+	std::string msg, msg1;
+	int err;
 
 	// std::cout << "_mainLoop()" << std::endl;
 	int ret = poll(_pollfds, _pollfdsQty, -1);
@@ -231,13 +232,18 @@ bool ServerRouter::_mainLoop()
 			{
 				// std::cout << "_pollfds[i].revents & POLLIN" << std::endl;
 				// _setConnectionLastActivity(connection->lastActivityTime);
-				_readSd(connection);
+				err = _readSd(connection);
+
+				if (err < 0)
+				{
+					continue ;
+				}
 
 				// #ifdef DEBUGMODE
 				// 	printConnection(* connection, "DEBUGMODE _mainLoop printConnection 1", 1);
 				// #endif
 
-				if (connection->requestProcessingStep == READ_DONE)
+				if (connection->requestProcessingStep == READING_DONE)
 					connection->pfd->events = POLLOUT;
 
 				// #ifdef DEBUGMODE
@@ -249,20 +255,41 @@ bool ServerRouter::_mainLoop()
 			else if (_pollfds[i].revents & POLLOUT) // запись возможна
 			{
 				std::cout << "POLOUT" << std::endl;
-				int err = _sendAnswer(connection);
+				err = _sendAnswer(connection);
+				bool connectionClosed;
 
-				if (connection->requestProcessingStep == WRITE_DONE)
+				connectionClosed = false;
+				if (connection->requestProcessingStep == WRITING_DONE)
 				{
 					connection->pfd->events = POLLIN;
 					connection->inputStr.clear();
 					// _closeConnection (clntSd);
+
+					for (std::map<std::string, std::string>::iterator iterF = connection->inputData.headerFields.begin(); iterF != connection->inputData.headerFields.end(); iterF++)
+					{
+						if ((*iterF).first.find("Connection") != std::string::npos && (*iterF).second.find("Close") != std::string::npos)
+						{
+							connection->pfd->revents = POLLIN;
+							connectionClosed = true;
+						}
+					}
+
 				}
 
-				if (err < 0)
+				if (err < 0 || connectionClosed)
 				{
-					msg = "client closed sd ";
-					printMsg(connection->srvNbr, clntSd, msg, "");
-					printMsgToLogFile(connection->srvNbr, clntSd, msg, "");
+					if (!connectionClosed)
+					{
+						msg = "client closed sd ";
+						msg1 = "";
+					}
+					else
+					{
+						msg = "closed sd ";
+						msg1 = " by Connection condition";
+					}
+					printMsg(connection->srvNbr, clntSd, msg, msg1);
+					printMsgToLogFile(connection->srvNbr, clntSd, msg, msg1);
 					_closeConnection (clntSd);
 					continue ;
 				}
@@ -312,14 +339,11 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	}
 
 
-	// #ifdef DEBUGMODE
-		size_t posTmp = connection->responseData.connectionAnswer.find(DDELIMETER);
-		std::string answerHeaderTmp = connection->responseData.connectionAnswer.substr(0, posTmp);
-		// std::cout << GREEN << "**** DEBUGMODE ServerRouter//_sendanswer answerHeaderTmp ****\nAnswer:\n" << answerHeaderTmp << "\n--------" << NC << std::endl;
-		msg = "prepared answer to sd ";
-		printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
-		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
-	// #endif
+	size_t posTmp = connection->responseData.connectionAnswer.find(DDELIMETER);
+	std::string answerHeaderTmp = connection->responseData.connectionAnswer.substr(0, posTmp);
+	msg = "prepared answer to sd ";
+	printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
+	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
 
 	// if (!connection->responseData.lenAnswer)
 	// 	connection->responseData.lenAnswer = connection->responseData.connectionAnswer.str().length();
@@ -349,7 +373,7 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 	if (connection->responseData.lenAnswer <= connection->responseData.lenSent)
 	{
-		connection->requestProcessingStep = WRITE_DONE;
+		connection->requestProcessingStep = WRITING_DONE;
 		connection->responseData.lenAnswer = 0;
 	}
 	// _setConnectionLastActivity(connection->lastActivityTime);
@@ -381,64 +405,119 @@ int ServerRouter::_readSd(t_connection * connection)
 		// 	std::cout << "**** DEBUGMODE _readSd ****\nbuf: " << buf << "\n------------" << std::endl;
 		// #endif
 
+		connection->inputStr += buf;
 		std::string tmp = buf;
 		std::string tmpEnd = "";
 		size_t pos = tmp.find(DDELIMETER);
 		// std::cout << "pos: " << pos << "\tlenInputStr: " << tmp.size() << std::endl;
-		if (connection->requestProcessingStep == NOT_DEFINED_REQUEST_PROCESSING_STEP)
+		if (pos != std::string::npos)
 		{
-			connection->inputStrHeader = tmp.substr (0, pos);
-			connection->requestProcessingStep = READ_DONE;
-			connection->responseData.statusCode = "200";
-			if (pos < tmp.size() - 4)
+			if (connection->requestProcessingStep < READING_BODY)
 			{
-				tmpEnd = tmp.substr (pos + 4);
-				size_t posEnd = tmpEnd.find(DDELIMETER);
-				if (posEnd < tmpEnd.size())
+				connection->inputStrHeader += tmp.substr (0, pos);
+				connection->requestProcessingStep = READING_BODY;
+				connection->responseData.statusCode = "100";
+
+				if (!_parseInputDataHeader(connection))
 				{
-					connection->inputStrBody = tmpEnd.substr(0, posEnd);
+					while (qtyBytes > 0)
+						qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+					// connection->inputStr = "";
+					return -1;
+				}
+
+				_findConnectionLenBody(connection);
+				if (connection->lenBody > 0)
+				{
+					connection->requestProcessingStep = READING_BODY;
+					connection->responseData.statusCode = "100";
+					if (pos < tmp.size() - 4)
+					{
+						tmpEnd = tmp.substr (pos + 4);
+						size_t posEnd = tmpEnd.find(DDELIMETER);
+						if (posEnd < tmpEnd.size())
+						{
+							connection->inputStrBody = tmpEnd.substr(0, posEnd);
+							msg = "finished reading data from sd ";
+							connection->requestProcessingStep = READING_DONE;
+							connection->responseData.statusCode = "200";
+							printMsg(connection->srvNbr, connection->clntSd, msg, "");
+							printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+						}
+						else
+						{
+							// проверить по длине, все ли данные скачали
+							size_t headerDataSize = connection->lenBody <= tmpEnd.size() ? connection->lenBody : tmpEnd.size();
+							connection->inputStrBody = tmpEnd.substr (0, headerDataSize);
+							if (connection->inputStrBody.size() == connection->lenBody)
+							{
+								msg = "finished reading data from sd ";
+								connection->requestProcessingStep = READING_DONE;
+								connection->responseData.statusCode = "200";
+								printMsg(connection->srvNbr, connection->clntSd, msg, "");
+								printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+							}
+						}
+					}
+
+				}
+				else
+				{
+					connection->requestProcessingStep = READING_DONE;
+					connection->responseData.statusCode = "200";
 					msg = "finished reading data from sd ";
 					printMsg(connection->srvNbr, connection->clntSd, msg, "");
 					printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 				}
-				else
-				{
-					connection->inputStrBody = tmpEnd;
-					connection->requestProcessingStep = READ;
-					connection->responseData.statusCode = "100";
-				}
 			}
 			else
 			{
-				msg = "finished reading data from sd ";
-				printMsg(connection->srvNbr, connection->clntSd, msg, "");
-				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-			}
-		}
-		else
-		{
-			connection->inputStrBody += tmp.substr (0, pos);
-			if (pos < tmp.size())
-			{
-				connection->requestProcessingStep = READ_DONE;
+				connection->inputStrBody += tmp.substr (0, pos);
+				connection->requestProcessingStep = READING_DONE;
 				connection->responseData.statusCode = "200";
 				msg = "finished reading data from sd ";
 				printMsg(connection->srvNbr, connection->clntSd, msg, "");
 				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+				// if (pos < tmp.size())
+				// {
+				// 	connection->requestProcessingStep = READING_DONE;
+				// 	connection->responseData.statusCode = "200";
+				// 	msg = "finished reading data from sd ";
+				// 	printMsg(connection->srvNbr, connection->clntSd, msg, "");
+				// 	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+				// }
 			}
+			// if (connection->requestProcessingStep == READING_DONE)
+			// {
+			// 	// if (!_parseInputData(connection))
+			// 	// {
+			// 	// 	while (qtyBytes > 0)
+			// 	// 		qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+			// 	// 	// connection->inputStr = "";
+			// 	// 	connection->responseData.statusCode = "204";
+			// 	// 	return 0;
+			// 	// }
+			// 	// connection->inputStr = "";
+			// }
 		}
-		connection->inputStr += buf;
-		if (connection->requestProcessingStep == READ_DONE)
+		else
 		{
-			if (!_parseInputData(connection))
+			if (connection->requestProcessingStep == READING_BODY)
 			{
-				while (qtyBytes > 0)
-					qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
-				// connection->inputStr = "";
-				connection->responseData.statusCode = "100";
-				return 0;
+				// проверить, достаточно ли размер бади соотв Content-Length
+				size_t headerDataSize = (connection->lenBody - connection->inputStrBody.size()) <= tmp.size() ? (connection->lenBody - connection->inputStrBody.size()) : tmp.size();
+				connection->inputStrBody += tmp.substr (0, headerDataSize);
+				if (connection->inputStrBody.size() == connection->lenBody)
+				{
+					msg = "finished reading data from sd ";
+					connection->requestProcessingStep = READING_DONE;
+					connection->responseData.statusCode = "200";
+					printMsg(connection->srvNbr, connection->clntSd, msg, "");
+					printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+				}
 			}
-			// connection->inputStr = "";
+			else
+				connection->inputStrHeader += tmp;
 		}
 
 
@@ -582,7 +661,14 @@ void ServerRouter::_checkTimeout()
 			size_t pos = (*iterF).second.find("keep-alive");
     		if (pos != std::string::npos)
 				keepAlive = true;
-			// if ((*iterF).second == "keep-alive")
+			// if ((*iterF).first == "Connection" && (*iterF).second == "Close")
+			// {
+			// 	msg = "closed sd ";
+			// 	msg1 = " by Connection condition";
+			// 	printMsg((*iter).srvNbr, (*iter).clntSd, msg, msg1);
+			// 	printMsgToLogFile((*iter).srvNbr, (*iter).clntSd, msg, msg1);
+			// 	_closeConnection((*iter).clntSd);
+			// }
 		}
 		if ((tm1.tv_sec - (*iter).lastActivityTime >= TIMEOUT) && !keepAlive)
 		{

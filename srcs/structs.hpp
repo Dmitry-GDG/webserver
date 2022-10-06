@@ -29,10 +29,11 @@
 enum RequestProcessingStep
 {
 	NOT_DEFINED_REQUEST_PROCESSING_STEP,
-	READ,
-	READ_DONE,
-	WRITE,
-	WRITE_DONE
+	READING_HEADER,
+	READING_BODY,
+	READING_DONE,
+	WRITING,
+	WRITING_DONE
 };
 
 enum InputDataType
@@ -84,11 +85,12 @@ typedef struct s_connection
 	size_t				position;
 	pollfd				* pfd;
 	long int			lastActivityTime;
-	std::string			inputStr;
+	std::string			inputStr; // the whole request
 	std::string			inputStrHeader;
 	std::string			inputStrBody;
+	unsigned long		lenBody;
 	RequestProcessingStep	requestProcessingStep;
-	// std::string			status; // 	READ, READ_DONE, WRITE, WRITE_DONE
+	// std::string			status; // 	READING, READING_DONE, WRITING, WRITING_DONE
 	std::vector<std::string> allowedMethods; // GET, POST, DELETE
 	std::map<std::string, std::string> responseStatusCodesAll;
 	std::map<std::string, std::string>	contentTypesAll;

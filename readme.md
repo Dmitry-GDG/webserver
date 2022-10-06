@@ -66,6 +66,13 @@ git push
 - добавление файла (папки с файлами) в бинарном виде в ответ (GT 45)
 
 ### Хронология изменений:
+6/10 #Д#
+- изменил RequestProcessingSteps
+- _findConnectionLenBody;
+- полностью изменил алгоритм парсинга входного буфера (_readSd), сделал заполнение отдельно header и body, проверку размера body на соответствие Content-length
+- добавил закрытие sd по условию Connection:  Close (SR-_mainLoop()-270)
+
+
 5/10 #Д#
 - переделал печать запросов и ответов в терминал и в логфайл: теперь это выводится в обычном режиме (не в дебаге) и через табы
 - научился слать запрос POST через nc (head="POST localhost:4242 HTTP/1.1\r\nHost: localhost\r\nAuthorization: Basic myname:passwordinbs64\r\nContent-type: application/x-www-form-urlencoded\r\nContent-length: 10\r\nConnection: Close\r\n\r\nstatus=mymessage\r\n\r\n" ; echo $head | nc localhost 4242)

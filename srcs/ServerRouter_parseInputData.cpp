@@ -99,7 +99,7 @@ void ServerRouter::_parseMultiStringData(std::vector<std::string>	splitBuf, t_co
 	std::cout << "parseMultiStringData" << std::endl;
 }
 
-bool ServerRouter::_parseInputData(t_connection * connection)
+bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 {
 	std::string inpt = connection->inputStrHeader;
 	std::vector<std::string>	splitBuf;
@@ -211,4 +211,13 @@ bool ServerRouter::_parseInputData(t_connection * connection)
 	// 	printConnection(* connection, "DEBUGMODE parseInputData printConnection", 0);
 	// #endif
 	return true;
+}
+
+void ServerRouter::_findConnectionLenBody(t_connection * connection)
+{
+	for (std::map<std::string, std::string>::iterator iterM = connection->inputData.headerFields.begin(); iterM != connection->inputData.headerFields.end(); iterM++)
+	{
+		if ((*iterM).first == "Content-Length")
+			connection->lenBody = stoll ((*iterM).second);
+	}
 }

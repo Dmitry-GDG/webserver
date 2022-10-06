@@ -188,7 +188,7 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::cout << "Client from:\t" << connection.fromIp << ":" << connection.fromPort << std::endl;
 	std::cout << "Client Sd:\t" << connection.clntSd << std::endl;
 	std::cout << "Last Connection time:\t" << connection.lastActivityTime << " sec" << std::endl;
-	std::string arr[] = {"NOT_DEFINED_REQUEST_PROCESSING_STEP", "READ", "READ_DONE", "WRITE", "WRITE_DONE"};
+	std::string arr[] = {"NOT_DEFINED_REQUEST_PROCESSING_STEP", "READING_HEADER", "READING_HEADER_DONE", "READING_BODY", "READING_BODY_DONE", "WRITING", "WRITING_DONE"};
 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
 	if (connection.allowedMethods.size() > 0)
 	{
