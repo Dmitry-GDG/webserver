@@ -266,7 +266,8 @@ bool ServerRouter::_mainLoop()
 					connection->inputStr.clear();
 					// _closeConnection (clntSd);
 
-					for (std::map<std::string, std::string>::iterator iterF = connection->inputData.headerFields.begin(); iterF != connection->inputData.headerFields.end(); iterF++)
+					// for (std::map<std::string, std::string>::iterator iterF = connection->inputData.headerFields.begin(); iterF != connection->inputData.headerFields.end(); iterF++)
+					for (std::vector<std::pair<std::string, std::string> >::iterator iterF = connection->inputData.headerFieldsVec.begin(); iterF != connection->inputData.headerFieldsVec.end(); iterF++)
 					{
 						if ((*iterF).first.find("Connection") != std::string::npos && (*iterF).second.find("Close") != std::string::npos)
 						{
@@ -690,7 +691,8 @@ void ServerRouter::_checkTimeout()
 		// 	std::cout << "**** DEBUGMODE _checkTimeout ****\ntime now: " << tm1.tv_sec << "\tlastActivityTime: " << (*iter).lastActivityTime << "\tTIMEOUT: " << TIMEOUT << "\n--------" << std::endl;
 		// #endif
 		bool keepAlive = false;
-		for (std::map<std::string, std::string>::iterator iterF = (*iter).inputData.headerFields.begin(); iterF != (*iter).inputData.headerFields.end(); iterF++)
+		// for (std::map<std::string, std::string>::iterator iterF = (*iter).inputData.headerFields.begin(); iterF != (*iter).inputData.headerFields.end(); iterF++)
+		for (std::vector<std::pair<std::string, std::string> >::iterator iterF = (*iter).inputData.headerFieldsVec.begin(); iterF != (*iter).inputData.headerFieldsVec.end(); iterF++)
 		{
 			size_t pos = (*iterF).second.find("keep-alive");
     		if (pos != std::string::npos)

@@ -210,15 +210,24 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 			// #ifdef DEBUGMODE
 			// 	std::cout << "DEBUGMODE parseInputData nputdata.headerFields\t" << splitStr[0] << "\t" << splitStr[1] << std::endl;
 			// #endif
-			connection->inputData.headerFields[splitStr[0]] = splitStr[1];
+			// connection->inputData.headerFields[splitStr[0]] = splitStr[1];
+			if (splitStr.size() == 1)
+				connection->inputData.headerFieldsVec.push_back(std::make_pair(splitStr[0], ""));
+			else if (splitStr.size() == 2)
+				connection->inputData.headerFieldsVec.push_back(std::make_pair(splitStr[0], splitStr[1]));
 		}
 		msg = "data from sd ";
 		msg1 = connection->inputData.method + " " + connection->inputData.address;
 		if (connection->inputData.addressParamsStr != "")
 			msg1 += "?" + connection->inputData.addressParamsStr;
 		msg1 += " " + connection->inputData.httpVersion + "\n";
-		for (std::map<std::string, std::string>::iterator iter = connection->inputData.headerFields.begin(); iter != connection->inputData.headerFields.end(); iter++)
-			msg1 += (*iter).first + ": " + (*iter).second + "\n";
+		// for (std::map<std::string, std::string>::iterator iter = connection->inputData.headerFields.begin(); iter != connection->inputData.headerFields.end(); iter++)
+		// 	msg1 += (*iter).first + ": " + (*iter).second + "\n";
+		for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter != connection->inputData.headerFieldsVec.end(); iter++)
+		{	msg1 += (*iter).first;
+			if ((*iter).second != "")
+				msg1 += ": " + (*iter).second + "\n";
+		}
 		printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
 	}
@@ -232,7 +241,12 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 
 void ServerRouter::_findConnectionLenBody(t_connection * connection)
 {
-	for (std::map<std::string, std::string>::iterator iterM = connection->inputData.headerFields.begin(); iterM != connection->inputData.headerFields.end(); iterM++)
+	// for (std::map<std::string, std::string>::iterator iterM = connection->inputData.headerFields.begin(); iterM != connection->inputData.headerFields.end(); iterM++)
+	// {
+	// 	if ((*iterM).first == "Content-Length")
+	// 		connection->lenBody = stoll ((*iterM).second);
+	// }
+	for (std::vector<std::pair<std::string, std::string> >::iterator iterM = connection->inputData.headerFieldsVec.begin(); iterM != connection->inputData.headerFieldsVec.end(); iterM++)
 	{
 		if ((*iterM).first == "Content-Length")
 			connection->lenBody = stoll ((*iterM).second);

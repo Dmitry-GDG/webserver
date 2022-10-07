@@ -53,6 +53,14 @@ enum ResponseType
 	CGI_LOC
 };
 
+enum PostContentTypes
+{
+	NOT_DEFINED_POST_CONTENT_TYPE,
+	URLENCODED,
+	FORM_DATA,
+	MIXED
+};
+
 typedef struct s_inputdata
 {
 	std::string		method; // GET, POST, DELETE
@@ -61,7 +69,8 @@ typedef struct s_inputdata
 	std::string		addressParamsStr; // POST request's params in line, separator between params '&', separator between key and value '='
 	std::string		httpVersion;
 	InputDataType	dataType; // HTTP
-	std::map<std::string, std::string>	headerFields;
+	// std::map<std::string, std::string>	headerFields;
+	std::vector<std::pair<std::string, std::string> >	headerFieldsVec; //map - notacceptable, some keys repeated witn other values
 } t_inputdata;
 
 typedef struct s_response

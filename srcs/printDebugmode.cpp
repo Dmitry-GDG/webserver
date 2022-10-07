@@ -237,9 +237,17 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::cout << "Inputdata address params:\t" << connection.inputData.addressParamsStr << std::endl;
 	std::cout << "Inputdata httpVersion:\t" << connection.inputData.httpVersion << std::endl;
 	int i = 0;
-	for (std::map<std::string, std::string>::iterator iterM = connection.inputData.headerFields.begin(); iterM != connection.inputData.headerFields.end(); iterM++)
+	// for (std::map<std::string, std::string>::iterator iterM = connection.inputData.headerFields.begin(); iterM != connection.inputData.headerFields.end(); iterM++)
+	// {
+	// 	std::cout << "inputdata.headerFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
+	// 	i++;
+	// }
+	for (std::vector<std::pair<std::string, std::string> >::iterator iterM = connection.inputData.headerFieldsVec.begin(); iterM != connection.inputData.headerFieldsVec.end(); iterM++)
 	{
-		std::cout << "inputdata.headerFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
+		std::cout << "inputdata.headerFieldsVec[" << std::to_string(i) << "]:\t" << (*iterM).first;
+		if ((*iterM).second != "")
+			std::cout << ":\t" << (*iterM).second;
+		std::cout << std::endl;
 		i++;
 	}
 	if (connection.inputStr.size() > 0)

@@ -68,6 +68,9 @@ git push
 ### Хронология изменений:
 7/10 #Д#
 - сделал клиента для посылки запроса на сервер и получения ответа от него (в папке testClient)
+- поменял структуру connection.inputData.headerFields на вектор пар (могли быть повторения, map не годилась)
+- необх разобраться с multipart/form-data и multipart/mixed
+- не правильно парсятся вх данные при нескольких DDELIMETERs SR-441
 
 6/10 #Д#
 - изменил RequestProcessingSteps

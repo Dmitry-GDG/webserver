@@ -10,8 +10,12 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 		path += server.getConfig().root + "/";
 	path += _extractLocalAddress(connection->inputData.address);
 	#ifdef DEBUGMODE
-		std::cout << "**** DEBUGMODE SR_POST _preparePostAnswer ****\npath: " << path << "\n--------\n";
+		std::cout << "**** DEBUGMODE SR_POST _preparePostAnswer path ****\npath: " << path << "\n--------\n";
 	#endif
+	#ifdef DEBUGMODE
+		std::cout << "**** DEBUGMODE SR_POST _preparePostAnswer body ****\nbody: " << connection->inputStrBody << "\n--------\n";
+	#endif
+
 
 
 	// std::string contentTypeAndLength = "";
