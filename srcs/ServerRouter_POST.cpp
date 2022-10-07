@@ -14,27 +14,28 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	#endif
 
 
-	std::string contentTypeAndLength = "";
-	if (!_acceptFile(contentTypeAndLength, connection, path))
-		; // Подумать, что вернуть, если не примется файл
+	// std::string contentTypeAndLength = "";
+	// if (!_acceptFile(contentTypeAndLength, connection, path))
+	// 	; // Подумать, что вернуть, если не примется файл
 
-	connection->responseData.connectionAnswer += connection->responseData.statusCode \
-	+ " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
-	+ DELIMETER + "Connection: Close" + DDELIMETER;
+	// connection->responseData.connectionAnswer += connection->responseData.statusCode \
+	// + " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
+	// + DELIMETER + "Connection: Close" + DDELIMETER;
 
 }
 
 bool ServerRouter::_acceptFile(std::string & contentTypeAndLength, t_connection * connection, std::string const & path)
 {
 	(void) path;
+	(void) connection;
+	(void) contentTypeAndLength;
 	// Проверить, возможно, такой файл уже существует -> еррор
-	std::vector<std::string> splitInputDataAddr;
-	splitString(connection->inputData.address, ':', splitInputDataAddr);
-	std::string pathInsideServer = splitInputDataAddr[1];
+	// std::vector<std::string> splitInputDataAddr;
+	// splitString(connection->inputData.address, ':', splitInputDataAddr);
+	// std::string pathInsideServer = splitInputDataAddr[1];
 
 	// std::string saveName = 
 
-	(void) contentTypeAndLength;
 
 	// std::ofstream outFile;
 	// struct stat file;

@@ -1,8 +1,9 @@
 #include "ServerRouter.hpp"
 
-ServerRouter::ServerRouter(std::vector<t_config> configs)
+ServerRouter::ServerRouter(std::vector<t_config> configs, std::string configFile)
 {
 	_configs = configs;
+	_configFile = configFile;
 	_responseStatusCodesInit();
 	_contentTypesInit();
 	char hostname[HOSTNAME_LENGTH];
@@ -128,7 +129,7 @@ void ServerRouter::start()
 
 	std::cout << NC << timestamp() << YELLOS << NAME << ": Welcome to the " << WEBSERV_NAME << " v."<< WEBSERV_VERSION << " by " \
 	<< WEBSERV_AUTHORS << "\nIt was tested on MAC OS.\n" \
-	<< "It was launched at " << NC << _hostname << "\n";
+	<< "It was launched at " << NC << _hostname << YELLOS << ", using settings " << NC "'" << _configFile << "'" << YELLOS << "\nQuit the server with CONTROL-C.\n" << NC;
 	// std::cout << "\nTo connect via this Mac use " \
 	// << NC << "localhost" << YELLOS << " (or 127.0.0.1), port: " \
 	// << NC << _port << YELLOS << " and password: " << NC << _password \
@@ -344,6 +345,8 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	msg = "prepared answer to sd ";
 	printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
 	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
+
+	// connection->responseData.connectionAnswer += "BLA-bla-bla\n\rbla-bla-bla\n\r";
 
 	// if (!connection->responseData.lenAnswer)
 	// 	connection->responseData.lenAnswer = connection->responseData.connectionAnswer.str().length();

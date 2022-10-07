@@ -8,6 +8,7 @@ class Server;
 class ServerRouter
 {
 	private:
+		std::string				_configFile; //config file name
 		std::vector<t_config>	_configs; //store vector of all server configs
 		std::vector<Server>		_servers;
 		std::string				_hostname; // il-a3.msk.21-school.ru
@@ -27,7 +28,7 @@ class ServerRouter
 		std::vector<std::string> _allowedMethods; // GET, POST, DELETE
 
 	public:
-		ServerRouter(std::vector<t_config> configs);
+		ServerRouter(std::vector<t_config> configs, std::string confifFile);
 		~ServerRouter();
 
 		// void launch();
