@@ -487,7 +487,7 @@ int ServerRouter::_readSd(t_connection * connection)
 		}
 		else
 		{
-			if (connection->requestProcessingStep == READING_BODY)
+			if (connection->requestProcessingStep > READING_HEADER)
 			{
 				// проверить, достаточно ли размер бади соотв Content-Length
 				size_t bodySize = ((connection->lenBody - connection->inputStrBody.size()) <= tmp.size()) ? (connection->lenBody - connection->inputStrBody.size()) : tmp.size();
@@ -496,7 +496,10 @@ int ServerRouter::_readSd(t_connection * connection)
 					connection->requestProcessingStep = READING_DONE;
 			}
 			else
+			{
 				connection->inputStrHeader += tmp;
+				connection->requestProcessingStep = READING_HEADER;
+			}
 		}
 		if (connection->requestProcessingStep == READING_DONE)
 		{
