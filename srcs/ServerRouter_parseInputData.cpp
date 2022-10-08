@@ -216,20 +216,20 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 			else if (splitStr.size() == 2)
 				connection->inputData.headerFieldsVec.push_back(std::make_pair(splitStr[0], splitStr[1]));
 		}
-		msg = "data from sd ";
-		msg1 = connection->inputData.method + " " + connection->inputData.address;
-		if (connection->inputData.addressParamsStr != "")
-			msg1 += "?" + connection->inputData.addressParamsStr;
-		msg1 += " " + connection->inputData.httpVersion + "\n";
-		// for (std::map<std::string, std::string>::iterator iter = connection->inputData.headerFields.begin(); iter != connection->inputData.headerFields.end(); iter++)
-		// 	msg1 += (*iter).first + ": " + (*iter).second + "\n";
-		for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter != connection->inputData.headerFieldsVec.end(); iter++)
-		{	msg1 += (*iter).first;
-			if ((*iter).second != "")
-				msg1 += ": " + (*iter).second + "\n";
-		}
-		printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
-		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
+		// msg = "data from sd ";
+		// msg1 = connection->inputData.method + " " + connection->inputData.address;
+		// if (connection->inputData.addressParamsStr != "")
+		// 	msg1 += "?" + connection->inputData.addressParamsStr;
+		// msg1 += " " + connection->inputData.httpVersion + "\n";
+		// // for (std::map<std::string, std::string>::iterator iter = connection->inputData.headerFields.begin(); iter != connection->inputData.headerFields.end(); iter++)
+		// // 	msg1 += (*iter).first + ": " + (*iter).second + "\n";
+		// for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter != connection->inputData.headerFieldsVec.end(); iter++)
+		// {	msg1 += (*iter).first;
+		// 	if ((*iter).second != "")
+		// 		msg1 += ": " + (*iter).second + "\n";
+		// }
+		// printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
+		// printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
 	}
 	else
 		_parseMultiStringData(splitBuf, connection);
@@ -248,7 +248,13 @@ void ServerRouter::_findConnectionLenBody(t_connection * connection)
 	// }
 	for (std::vector<std::pair<std::string, std::string> >::iterator iterM = connection->inputData.headerFieldsVec.begin(); iterM != connection->inputData.headerFieldsVec.end(); iterM++)
 	{
-		if ((*iterM).first == "Content-Length")
+		if ((*iterM).first == "Content-length")
+		{
 			connection->lenBody = stoll ((*iterM).second);
+			// #ifdef DEBUGMODE
+			// 	std::cout << "**** DEBUGMODE SR_PID _findConnectionLenBody ****\n(*iterM).second: " << (*iterM).second << "\n------------" << std::endl;
+			// 	std::cout << "**** DEBUGMODE SR_PID _findConnectionLenBody ****\nconnection->lenBody: " << connection->lenBody << "\n------------" << std::endl;
+			// #endif
+		}
 	}
 }

@@ -34388,3 +34388,231 @@ Host:  localhost
 [15:12:37]: server[0]: sent 9/9 bytes to sd 9
 [15:14:23]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[07:33:35]: 8 Oct. 2022 
+[07:33:35]: Starting... 
+[07:33:35]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[07:33:35]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[07:33:35]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[07:33:35]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[07:33:35]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[07:33:35]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[07:33:35]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[07:34:24]: server[0]: new connection from 127.0.0.1:58751, sd: 9
+[07:34:24]: server[0]: got 199 bytes from sd 9
+[07:34:24]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  1000
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	
+[07:34:24]: server[0]: finished reading data from sd 9
+[07:34:24]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[07:34:24]: server[0]: sent 9/9 bytes to sd 9
+[08:10:19]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:11:05]: 8 Oct. 2022 
+[08:11:05]: Starting... 
+[08:11:05]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:11:05]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:11:05]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:11:05]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:11:05]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:11:05]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:11:05]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:11:10]: server[0]: new connection from 127.0.0.1:59169, sd: 9
+[08:11:10]: server[0]: got 199 bytes from sd 9
+[08:11:10]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  1000
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	
+[08:11:10]: server[0]: finished reading data from sd 9
+[08:11:10]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  1000
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	
+[08:11:10]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:11:10]: server[0]: sent 9/9 bytes to sd 9
+[08:11:43]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:11:46]: 8 Oct. 2022 
+[08:11:46]: Starting... 
+[08:11:46]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:11:46]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:11:46]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:11:46]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:11:46]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:11:46]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:11:46]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:11:49]: server[0]: new connection from 127.0.0.1:59177, sd: 9
+[08:11:49]: server[0]: got 199 bytes from sd 9
+[08:11:49]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  1000
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	
+[08:11:49]: server[0]: finished reading data from sd 9
+[08:11:49]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:11:49]: server[0]: sent 9/9 bytes to sd 9
+[08:12:00]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:12:03]: 8 Oct. 2022 
+[08:12:03]: Starting... 
+[08:12:03]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:12:03]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:12:03]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:12:03]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:12:03]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:12:03]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:12:03]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:12:07]: server[0]: new connection from 127.0.0.1:59182, sd: 9
+[08:12:07]: server[0]: got 199 bytes from sd 9
+[08:12:07]: server[0]: finished reading data from sd 9
+[08:12:07]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:12:07]: server[0]: sent 9/9 bytes to sd 9
+[08:12:35]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:12:38]: 8 Oct. 2022 
+[08:12:38]: Starting... 
+[08:12:38]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:12:38]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:12:38]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:12:38]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:12:38]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:12:38]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:12:38]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:12:42]: server[0]: new connection from 127.0.0.1:59192, sd: 9
+[08:12:42]: server[0]: got 199 bytes from sd 9
+[08:12:42]: server[0]: finished reading data from sd 9
+[08:12:42]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  1000
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	
+[08:12:42]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:12:42]: server[0]: sent 9/9 bytes to sd 9
+[08:13:15]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:13:18]: 8 Oct. 2022 
+[08:13:18]: Starting... 
+[08:13:18]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:13:18]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:13:18]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:13:18]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:13:18]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:13:18]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:13:18]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:13:23]: server[0]: new connection from 127.0.0.1:59201, sd: 9
+[08:13:23]: server[0]: got 199 bytes from sd 9
+[08:13:23]: server[0]: finished reading data from sd 9
+[08:13:23]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:13:23]: server[0]: sent 9/9 bytes to sd 9
+[08:14:08]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:14:12]: 8 Oct. 2022 
+[08:14:12]: Starting... 
+[08:14:12]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:14:12]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:14:12]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:14:12]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:14:12]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:14:12]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:14:12]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:14:19]: server[0]: new connection from 127.0.0.1:59210, sd: 9
+[08:14:19]: server[0]: got 199 bytes from sd 9
+[08:14:19]: server[0]: finished reading data from sd 9
+[08:14:19]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  1000
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	
+[08:14:19]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:14:19]: server[0]: sent 9/9 bytes to sd 9
+[08:42:02]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:42:07]: 8 Oct. 2022 
+[08:42:07]: Starting... 
+[08:42:07]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:42:07]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:42:07]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:42:07]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:42:07]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:42:07]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:42:07]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:42:14]: server[0]: new connection from 127.0.0.1:49501, sd: 9
+[08:42:14]: server[0]: got 199 bytes from sd 9
+[08:42:14]: server[0]: finished reading data from sd 9
+[08:42:14]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  1000
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	
+[08:42:14]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:42:14]: server[0]: sent 9/9 bytes to sd 9
+[08:45:27]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:45:30]: 8 Oct. 2022 
+[08:45:30]: Starting... 
+[08:45:30]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:45:30]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:45:30]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:45:30]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:45:30]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:45:30]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:45:30]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:45:35]: server[0]: new connection from 127.0.0.1:50352, sd: 9
+[08:45:35]: server[0]: got 199 bytes from sd 9
+[08:45:35]: server[0]: finished reading data from sd 9
+[08:45:35]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  1000
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	
+[08:45:35]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:45:35]: server[0]: sent 9/9 bytes to sd 9
+[08:48:02]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[08:48:05]: 8 Oct. 2022 
+[08:48:05]: Starting... 
+[08:48:05]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[08:48:05]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[08:48:05]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[08:48:05]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[08:48:05]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[08:48:05]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[08:48:05]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[08:48:10]: server[0]: new connection from 127.0.0.1:50999, sd: 9
+[08:48:10]: server[0]: got 199 bytes from sd 9
+[08:49:27]: server[0]: closed sd 9 by timeout
+[08:50:10]: server[0]: new connection from 127.0.0.1:51502, sd: 9
+[08:50:10]: server[0]: got 199 bytes from sd 9
+[08:50:10]: server[0]: finished reading data from sd 9
+[08:50:10]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  36
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	--AaB03x
+	Content-Disposition: form-
+[08:50:10]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[08:50:10]: server[0]: sent 9/9 bytes to sd 9
+[09:07:33]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
