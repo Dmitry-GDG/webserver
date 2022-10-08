@@ -82,6 +82,7 @@ class ServerRouter
 		void	_splitStrDelimeter(std::string str, std::vector<std::string> & outp, std::string delim);
 		void	_parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * connection);
 		bool	_parseInputDataHeader(t_connection * connection);
+		void	_parseInputBodyStr(t_connection * connection);
 
 };
 

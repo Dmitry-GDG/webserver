@@ -91,6 +91,63 @@ void splitString (std::string str, char seperator, std::vector<std::string> & st
 	// }
 }
 
+void splitStringStr(std::string str, std::string seperator, std::vector<std::string> & strings)  
+{
+	strings.clear();
+	std::string subStr;
+	size_t pos = 0;
+	size_t startIndex = 0;
+
+	for (pos = str.find(seperator, pos++); pos != std::string::npos; pos = str.find(seperator, pos + 1)) //????
+	{
+		subStr.clear();
+		subStr.append(str, startIndex, pos - startIndex);
+		strings.push_back(subStr);
+		startIndex = pos + seperator.size();
+	}
+
+
+	// while (pos != std::string::npos)
+	// {
+
+	// }
+
+	// std::string str1 = str.substr (0, pos);
+	// std::string str2 = (pos < str.size() - 4) ? str.substr (pos + 4) : "";
+
+	// std::string subStr; 
+	// size_t startIndex = 0;  
+	// for (size_t endIndex = 0; endIndex <= str.size(); endIndex++)  
+	// {
+	// 	if (endIndex == str.size() || str[endIndex] == seperator)  
+	// 	{
+	// 		subStr.clear();  
+	// 		subStr.append(str, startIndex, endIndex - startIndex);  
+	// 		strings.push_back(subStr);  
+	// 		startIndex = endIndex + 1;  
+	// 	}  
+	// }
+
+
+
+	// size_t currIndex = 0;
+	// size_t i = 0;
+	// size_t startIndex = 0, endIndex = 0;  
+	// while (i <= str.size())  
+	// {
+	// 	if (str[i] == seperator || i == str.size())  
+	// 	{
+	// 		endIndex = i;  
+	// 		std::string subStr = "";  
+	// 		subStr.append(str, startIndex, endIndex - startIndex);  
+	// 		strings.push_back(subStr);  
+	// 		// currIndex += 1;  
+	// 		startIndex = endIndex + 1;  
+	// 	}  
+	// 	i++;
+	// }
+}
+
 void splitStringColon (std::string str, char seperator, std::vector<std::string> & strings)  
 {
 	strings.clear();
@@ -209,6 +266,7 @@ void connectionInputDataClear(t_connection & connection)
 	connection.inputData.dataType = NOT_DEFINED_INPUT_DATA_TYPE;
 	// connection.inputData.headerFields.clear();
 	connection.inputData.headerFieldsVec.clear();
+	connection.inputData.bodyFieldsVec.clear();
 	// connection.inputStr.clear();
 }
 

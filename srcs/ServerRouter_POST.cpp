@@ -16,6 +16,10 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 		std::cout << "**** DEBUGMODE SR_POST _preparePostAnswer body ****\nbody:\n" << connection->inputStrBody << "\n--------\n";
 	#endif
 
+	_parseInputBodyStr(connection);
+	// _choosePostContentType
+	// if 
+
 
 
 	// std::string contentTypeAndLength = "";
@@ -84,4 +88,11 @@ bool ServerRouter::_acceptFile(std::string & contentTypeAndLength, t_connection 
 	// 	_resBodyType = "";
 	// }
 	return true;
+}
+
+void ServerRouter::_parseInputBodyStr(t_connection * connection)
+{
+	std::vector<std::string> inputStrVec;
+	splitStringStr (connection->inputStrBody, DELIMETER, inputStrVec);
+	// bodyFieldsVec =
 }

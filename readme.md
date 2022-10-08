@@ -70,7 +70,10 @@ git push
 - испраил парсинг вх данных: теперь в inputStrBody записывается весь остаток, после извлечения оттуда inputStrHead
 - в соответствие с этим изменил печать в терминал и лог-файл
 - временно пофикшен DDELIMETER in connectionAnswer SR-345
-- переделаны клиенты для тестов
+- переделаны клиенты client_multipart и client_urlencoded для тестов
+- новое поле std::vector<std::pair<std::string, std::string> >	bodyFieldsVec; 
+- необх: _parseInputBoduStr(connection) SR_POST-93;
+- необх: splitStringStr  u-94
 
 
 7/10 #Д#

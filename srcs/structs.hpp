@@ -71,6 +71,7 @@ typedef struct s_inputdata
 	InputDataType	dataType; // HTTP
 	// std::map<std::string, std::string>	headerFields;
 	std::vector<std::pair<std::string, std::string> >	headerFieldsVec; //map - notacceptable, some keys repeated witn other values
+	std::vector<std::pair<std::string, std::string> >	bodyFieldsVec;
 } t_inputdata;
 
 typedef struct s_response
