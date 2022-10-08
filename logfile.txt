@@ -34616,3 +34616,453 @@ Host:  localhost
 [08:50:10]: server[0]: sent 9/9 bytes to sd 9
 [09:07:33]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[10:12:51]: 8 Oct. 2022 
+[10:12:51]: Starting... 
+[10:12:51]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:12:51]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:12:51]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:12:51]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:12:51]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:12:51]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:12:51]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:13:05]: server[0]: new connection from 127.0.0.1:55743, sd: 9
+[10:13:05]: server[0]: got 199 bytes from sd 9
+[10:14:37]: server[0]: closed sd 9 by timeout
+[10:14:43]: server[0]: new connection from 127.0.0.1:56157, sd: 9
+[10:14:43]: server[0]: got 599 bytes from sd 9
+[10:14:53]: server[0]: closed sd 9 by timeout
+[10:15:01]: server[0]: new connection from 127.0.0.1:56234, sd: 9
+[10:15:01]: server[0]: got 609 bytes from sd 9
+[10:15:01]: server[0]: finished reading data from sd 9
+[10:15:01]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  465
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	--AaB03x
+	Content-Disposition: form-data; name='submit-name'
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name=files
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename=file1.txt
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename=file2.gif
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[10:15:01]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[10:15:01]: server[0]: sent 9/9 bytes to sd 9
+[10:15:01]: server[0]: closed sd 9 by Connection condition
+[10:17:35]: server[0]: new connection from 127.0.0.1:56878, sd: 9
+[10:17:35]: server[0]: got 176 bytes from sd 9
+[10:17:35]: server[0]: finished reading data from sd 9
+[10:17:35]: server[0]: data from sd 9:
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-type:  application/x-www-form-urlencoded
+	Content-length:  36
+	Connection:  Close
+	mode=login&user=test&password=test
+	
+[10:17:35]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[10:17:35]: server[0]: sent 9/9 bytes to sd 9
+[10:17:35]: server[0]: closed sd 9 by Connection condition
+[10:20:23]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:20:38]: 8 Oct. 2022 
+[10:20:38]: Starting... 
+[10:20:38]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:20:38]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:20:38]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:20:38]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:20:38]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:20:38]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:20:38]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:20:44]: server[0]: new connection from 127.0.0.1:57669, sd: 9
+[10:20:44]: server[0]: got 176 bytes from sd 9
+[10:20:44]: server[0]: finished reading data from sd 9
+[10:20:44]: server[0]: data from sd 9:
+	----header:----
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-type:  application/x-www-form-urlencoded
+	Content-length:  36
+	Connection:  Close
+	----body:----
+	mode=login&user=test&password=test
+	
+[10:20:44]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[10:20:44]: server[0]: sent 9/9 bytes to sd 9
+[10:20:44]: server[0]: closed sd 9 by Connection condition
+[10:21:21]: server[0]: new connection from 127.0.0.1:57820, sd: 9
+[10:21:21]: server[0]: got 609 bytes from sd 9
+[10:21:21]: server[0]: finished reading data from sd 9
+[10:21:21]: server[0]: data from sd 9:
+	----header:----
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  465
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	----body:----
+	--AaB03x
+	Content-Disposition: form-data; name='submit-name'
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name=files
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename=file1.txt
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename=file2.gif
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[10:21:21]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[10:21:21]: server[0]: sent 9/9 bytes to sd 9
+[10:21:21]: server[0]: closed sd 9 by Connection condition
+[10:23:04]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[10:23:07]: 8 Oct. 2022 
+[10:23:07]: Starting... 
+[10:23:07]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[10:23:07]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[10:23:07]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[10:23:07]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[10:23:07]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[10:23:07]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[10:23:07]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[10:23:20]: server[0]: new connection from 127.0.0.1:58319, sd: 9
+[10:23:20]: server[0]: got 176 bytes from sd 9
+[10:23:20]: server[0]: finished reading data from sd 9
+[10:23:20]: server[0]: data from sd 9:
+	-+-+-header:-+-+-
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-type:  application/x-www-form-urlencoded
+	Content-length:  36
+	Connection:  Close
+	-+-+-body:-+-+-
+	mode=login&user=test&password=test
+	
+[10:23:20]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[10:23:20]: server[0]: sent 9/9 bytes to sd 9
+[10:23:20]: server[0]: closed sd 9 by Connection condition
+[10:23:42]: server[0]: new connection from 127.0.0.1:58425, sd: 9
+[10:23:42]: server[0]: got 609 bytes from sd 9
+[10:23:42]: server[0]: finished reading data from sd 9
+[10:23:42]: server[0]: data from sd 9:
+	-+-+-header:-+-+-
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  465
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	-+-+-body:-+-+-
+	--AaB03x
+	Content-Disposition: form-data; name='submit-name'
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name=files
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename=file1.txt
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename=file2.gif
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[10:23:42]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[10:23:42]: server[0]: sent 9/9 bytes to sd 9
+[10:23:42]: server[0]: closed sd 9 by Connection condition
+[11:12:31]: server[0]: new connection from 127.0.0.1:61678, sd: 9
+[11:12:31]: server[0]: got 663 bytes from sd 9
+[11:12:31]: server[0]: finished reading data from sd 9
+[11:12:31]: server[0]: data from sd 9:
+	-+-+-header:-+-+-
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  519
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	-+-+-body:-+-+-
+	--AaB03x
+	 		Content-Disposition: form-data; name="submit-name"
+	
+	 		Larry
+	 		--AaB03x
+	 		Content-Disposition: form-data; name="files"
+	 		Content-Type: multipart/mixed; boundary=BbC04y
+	
+	 		--BbC04y
+	 		Content-Disposition: file; filename="file1.txt"
+	 		Content-Type: text/plain
+	
+	 		... contents of file1.txt ...
+	 		--BbC04y
+	 		Content-Disposition: file; filename="file2.gif"
+	 		Content-Type: image/gif
+	 		Content-Transfer-Encoding: binary
+	
+	 		...contents of file2.gif...
+	 		--BbC04y--
+	 		--AaB03x--
+	
+	
+[11:12:31]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[11:12:31]: server[0]: sent 9/9 bytes to sd 9
+[11:12:31]: server[0]: closed sd 9 by Connection condition
+[11:12:55]: server[0]: new connection from 127.0.0.1:61684, sd: 9
+[11:12:55]: server[0]: got 631 bytes from sd 9
+[11:12:55]: server[0]: finished reading data from sd 9
+[11:12:55]: server[0]: data from sd 9:
+	-+-+-header:-+-+-
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  487
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	-+-+-body:-+-+-
+	--AaB03x
+	 Content-Disposition: form-data; name="submit-name"
+	
+	 Larry
+	 --AaB03x
+	 Content-Disposition: form-data; name="files"
+	 Content-Type: multipart/mixed; boundary=BbC04y
+	
+	 --BbC04y
+	 Content-Disposition: file; filename="file1.txt"
+	 Content-Type: text/plain
+	
+	 ... contents of file1.txt ...
+	 --BbC04y
+	 Content-Disposition: file; filename="file2.gif"
+	 Content-Type: image/gif
+	 Content-Transfer-Encoding: binary
+	
+	 ...contents of file2.gif...
+	 --BbC04y--
+	 --AaB03x--
+	
+	
+[11:12:55]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[11:12:55]: server[0]: sent 9/9 bytes to sd 9
+[11:12:55]: server[0]: closed sd 9 by Connection condition
+[11:16:24]: server[0]: new connection from 127.0.0.1:61724, sd: 9
+[11:16:24]: server[0]: got 615 bytes from sd 9
+[11:16:24]: server[0]: finished reading data from sd 9
+[11:16:24]: server[0]: data from sd 9:
+	-+-+-header:-+-+-
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  471
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	-+-+-body:-+-+-
+	--AaB03x
+	Content-Disposition: form-data; name="submit-name"
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name="files"
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename="file1.txt"
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename="file2.gif"
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[11:16:24]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[11:16:24]: server[0]: sent 9/9 bytes to sd 9
+[11:16:24]: server[0]: closed sd 9 by Connection condition
+[11:23:54]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[11:23:58]: 8 Oct. 2022 
+[11:23:58]: Starting... 
+[11:23:58]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[11:23:58]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[11:23:58]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[11:23:58]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[11:23:58]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[11:23:58]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[11:23:58]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[11:24:05]: server[0]: new connection from 127.0.0.1:61796, sd: 9
+[11:24:05]: server[0]: got 615 bytes from sd 9
+[11:24:05]: server[0]: finished reading data from sd 9
+[11:24:05]: server[0]: data from sd 9:
+	-+-+-header:-+-+-
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  471
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	-+-+-body:-+-+-
+	--AaB03x
+	Content-Disposition: form-data; name="submit-name"
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name="files"
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename="file1.txt"
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename="file2.gif"
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[11:24:05]: server[0]: prepared answer to sd 9:
+	HTTP/1.1
+[11:24:05]: server[0]: sent 8/8 bytes to sd 9
+[11:24:05]: server[0]: closed sd 9 by Connection condition
+[11:25:14]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
+[11:25:17]: 8 Oct. 2022 
+[11:25:17]: Starting... 
+[11:25:18]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[11:25:18]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[11:25:18]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[11:25:18]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[11:25:18]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[11:25:18]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[11:25:18]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[11:25:24]: server[0]: new connection from 127.0.0.1:61819, sd: 9
+[11:25:24]: server[0]: got 615 bytes from sd 9
+[11:25:24]: server[0]: finished reading data from sd 9
+[11:25:24]: server[0]: data from sd 9:
+	-+-+-header:-+-+-
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  471
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	-+-+-body:-+-+-
+	--AaB03x
+	Content-Disposition: form-data; name="submit-name"
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name="files"
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename="file1.txt"
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename="file2.gif"
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[11:25:24]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[11:25:24]: server[0]: sent 13/13 bytes to sd 9
+[11:25:24]: server[0]: closed sd 9 by Connection condition
+[11:26:45]: server[0]: new connection from 127.0.0.1:61835, sd: 9
+[11:26:45]: server[0]: got 615 bytes from sd 9
+[11:26:45]: server[0]: finished reading data from sd 9
+[11:26:45]: server[0]: data from sd 9:
+	-+-+-header:-+-+-
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-length:  471
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	-+-+-body:-+-+-
+	--AaB03x
+	Content-Disposition: form-data; name="submit-name"
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name="files"
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename="file1.txt"
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename="file2.gif"
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[11:26:45]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[11:26:45]: server[0]: sent 13/13 bytes to sd 9
+[11:26:45]: server[0]: closed sd 9 by Connection condition
+[11:27:04]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 

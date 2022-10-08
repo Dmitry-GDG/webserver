@@ -323,6 +323,7 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	if (connection->inputData.dataType == HTTP)
 	{
 		connection->responseData.connectionAnswer = connection->inputData.httpVersion + " ";
+		// connection->responseData.connectionAnswer = connection->inputData.httpVersion;
 		if (std::find(connection->allowedMethods.begin(), connection->allowedMethods.end(), connection->inputData.method) == connection->allowedMethods.end() )
 		{
 			msg = "Error! Unknown method from sd ";
@@ -339,6 +340,9 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 		else if (connection->inputData.method == "DELETE")
 			_prepareDeleteAnswer(connection);
 	}
+
+
+	connection->responseData.connectionAnswer += DDELIMETER; // TEMPORARY SOLUTION. It must be fixed when answer prepared
 
 
 	size_t posTmp = connection->responseData.connectionAnswer.find(DDELIMETER);
@@ -502,7 +506,7 @@ int ServerRouter::_readSd(t_connection * connection)
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 			#ifdef DEBUGMODE
 				msg = "data from sd ";
-				msg1 = connection->inputData.method + " " + connection->inputData.address;
+				msg1 = "-+-+-header:-+-+-\n" + connection->inputData.method + " " + connection->inputData.address;
 				if (connection->inputData.addressParamsStr != "")
 					msg1 += "?" + connection->inputData.addressParamsStr;
 				msg1 += " " + connection->inputData.httpVersion + "\n";
@@ -513,6 +517,7 @@ int ServerRouter::_readSd(t_connection * connection)
 					if ((*iter).second != "")
 						msg1 += ": " + (*iter).second + "\n";
 				}
+				msg1 += "-+-+-body:-+-+-\n";
 				msg1 += connection->inputStrBody;
 				printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
 				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);

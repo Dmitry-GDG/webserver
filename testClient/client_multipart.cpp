@@ -16,7 +16,7 @@
 
 #define SA      struct sockaddr
 #define MAXLINE 4096
-#define MAXSUB  200
+#define MAXSUB  1000
 #define BUFSIZE 1024
 
 // #define LISTENQ         1024
@@ -39,32 +39,8 @@ ssize_t process_http(int sockfd, char *host, char *page, char *poststr)
 		"Host: %s\r\n"
 		"Content-length: %d\r\n"
 		"Content-Type: multipart/form-data; boundary=AaB03x\r\n"
-		"\r\n"
-		"--AaB03x\r\n"
-		"Content-Disposition: form-data; name=\"submit-name\"\r\n"
-		"\r\n"
-		"Larry\r\n"
-		"--AaB03x\r\n"
-		"Content-Disposition: form-data; name=\"files\"\r\n"
-		"Content-Type: multipart/mixed; boundary=BbC04y\r\n"
-		"\r\n"
-		"--BbC04y\r\n"
-		"Content-Disposition: file; filename=\"file1.txt\"\r\n"
-		"Content-Type: text/plain\r\n"
-		"\r\n"
-		"... contents of file1.txt ...\r\n"
-		"--BbC04y\r\n"
-		"Content-Disposition: file; filename=\"file2.gif\"\r\n"
-		"Content-Type: image/gif\r\n"
-		"Content-Transfer-Encoding: binary\r\n"
-		"\r\n"
-		"...contents of file2.gif...\r\n"
-		"--BbC04y--\r\n"
-		"--AaB03x--\r\n"
-		"\r\n"
 		"Connection: Close\r\n\r\n"
 		"%s", page, host, (int)strlen(poststr), poststr);
-		// "%s", page, host, 1000, poststr);
 
 	// fcntl(sockfd, F_SETFL, O_NONBLOCK);
 	std::cout << "\033[0;32m\tClient request:\n\033[0m" <<  sendline << std::endl;
@@ -98,7 +74,25 @@ int main(void)
 	char *hname = (char *)("localhost");
 	int	port = 4242;
 	char *page = (char *)("/chirico/test.php");
-	char *poststr = (char *)("mode=login&user=test&password=test\r\n");
+	// char *poststr = ("--AaB03x\r\nContent-Disposition: form-data; name='submit-name'\r\n\r\nLarry\r\n--AaB03x\r\nContent-Disposition: form-data; name=files\r\nContent-Type: multipart/mixed; boundary=BbC04y\r\n\r\n--BbC04y\r\nContent-Disposition: file; filename=file1.txt\r\nContent-Type: text/plain\r\n\r\n... contents of file1.txt ...\r\n--BbC04y\r\nContent-Disposition: file; filename=file2.gif\r\nContent-Type: image/gif\r\nContent-Transfer-Encoding: binary\r\n\r\n...contents of file2.gif...\r\n--BbC04y--\r\n--AaB03x--\r\n\r\n").c_str();
+	std::string strPost = "--AaB03x\r\n\
+Content-Disposition: form-data; name=\"submit-name\"\r\n\r\n\
+Larry\r\n\
+--AaB03x\r\n\
+Content-Disposition: form-data; name=\"files\"\r\n\
+Content-Type: multipart/mixed; boundary=BbC04y\r\n\r\n\
+--BbC04y\r\n\
+Content-Disposition: file; filename=\"file1.txt\"\r\n\
+Content-Type: text/plain\r\n\r\n\
+... contents of file1.txt ...\r\n\
+--BbC04y\r\n\
+Content-Disposition: file; filename=\"file2.gif\"\r\n\
+Content-Type: image/gif\r\n\
+Content-Transfer-Encoding: binary\r\n\r\n\
+...contents of file2.gif...\r\n\
+--BbC04y--\r\n\
+--AaB03x--\r\n\r\n";
+	char *poststr = (char *)strPost.c_str();
 	//*******************************************************
 
 	char str[50];
@@ -130,4 +124,4 @@ int main(void)
 // https://souptonuts.sourceforge.net/code/http_post.c.html
 // https://www.cyberforum.ru/post2446230.html
 
-// c++ client.cpp && ./a.out && rm a.out
+// c++ client_multipart.cpp && ./a.out && rm a.out

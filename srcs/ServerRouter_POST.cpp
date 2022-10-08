@@ -13,7 +13,7 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 		std::cout << "**** DEBUGMODE SR_POST _preparePostAnswer path ****\npath: " << path << "\n--------\n";
 	#endif
 	#ifdef DEBUGMODE
-		std::cout << "**** DEBUGMODE SR_POST _preparePostAnswer body ****\nbody: " << connection->inputStrBody << "\n--------\n";
+		std::cout << "**** DEBUGMODE SR_POST _preparePostAnswer body ****\nbody:\n" << connection->inputStrBody << "\n--------\n";
 	#endif
 
 
