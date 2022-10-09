@@ -25,6 +25,7 @@ class Server
 		Server & operator=(const Server & server);
 		
 		const t_config	& getConfig() const;
+		void	setConfig(t_config);
 		int		getSd() const;
 		void	setSd(int);
 		int		getServNbr() const;

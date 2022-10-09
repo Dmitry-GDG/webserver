@@ -4,9 +4,9 @@
 void printAllServersConfig(std::vector<t_config> configs, std::string msg)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	else
-		std::cout << VIOLET << "**** printAllServersConfig ****" << NC << std::endl;
+		std::cout << VIOLET << " printAllServersConfig " << NC << std::endl;
 	for (size_t i = 0; i < configs.size(); i++)
 	{
 		std::cout << "Server Nr " << i << std::endl;
@@ -19,9 +19,9 @@ void printAllServersConfig(std::vector<t_config> configs, std::string msg)
 void printVector(std::vector<std::string> data, std::string msg)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	else
-		std::cout << VIOLET << "**** printVector ****" << NC << std::endl;
+		std::cout << VIOLET << " printVector " << NC << std::endl;
 	std::vector<std::string>::iterator iter = data.begin();
 	if (iter < data.end())
 	{
@@ -44,12 +44,34 @@ void printVector(std::vector<std::string> data, std::string msg)
 		std::cout << "----------------" << std::endl;
 }
 
+void printVectorEnter(std::vector<std::string> data, std::string msg)
+{
+	if (msg != "")
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
+	else
+		std::cout << VIOLET << " printVector " << NC << std::endl;
+	std::vector<std::string>::iterator iter = data.begin();
+	if (iter < data.end())
+	{
+		while (iter < data.end())
+		{
+			std::cout << *iter;
+			iter++;
+			if (iter < data.end())
+				std::cout << "\n";
+		}
+	}
+	std::cout << std::endl;
+	if (msg != "")
+		std::cout << "----------------" << std::endl;
+}
+
 void printVVector(std::vector<std::vector<std::string> > data, std::string msg)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	else
-		std::cout << VIOLET << "**** printVVector ****" << NC << std::endl;
+		std::cout << VIOLET << " printVVector " << NC << std::endl;
 	for (std::vector<std::vector<std::string> >::iterator iter = data.begin(); iter < data.end(); iter++)
 		printVector(*iter, "");
 	std::cout << std::endl;
@@ -59,9 +81,9 @@ void printVVector(std::vector<std::vector<std::string> > data, std::string msg)
 void printAllServersVector(std::vector<Server> servers, std::string msg)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	else
-		std::cout << VIOLET << "**** printAllServersVector ****" << NC << std::endl;
+		std::cout << VIOLET << " printAllServersVector " << NC << std::endl;
 	int i = 0;
 	for (std::vector<Server>::iterator iter = servers.begin(); iter < servers.end(); iter++)
 	{
@@ -76,9 +98,9 @@ void printAllServersVector(std::vector<Server> servers, std::string msg)
 void printPollfds(const pollfd *pfds, std::string msg, size_t pSize)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	else
-		std::cout << VIOLET << "**** printPollfds ****" << NC << std::endl;
+		std::cout << VIOLET << " printPollfds " << NC << std::endl;
 	for (size_t i = 0; i < pSize; i++)
 		std::cout << "_pollfds[" << i << "]: sd=_pollfds.fd = " << pfds[i].fd << ", _pollfds.events = " << pfds[i].events << ", _pollfds.revents = " << pfds[i].revents << std::endl;
 	std::cout << "----------------" << std::endl;
@@ -87,7 +109,7 @@ void printPollfds(const pollfd *pfds, std::string msg, size_t pSize)
 void printServerConfig(t_config config, std::string msg)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	if (config.serverName.size() > 0)
 		std::cout << "server name:\t" << config.serverName << std::endl;
 	if (config.listen.size() > 0)
@@ -181,9 +203,9 @@ void printServerConfig(t_config config, std::string msg)
 void printConnection(t_connection connection, std::string msg, int sign)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	else
-		std::cout << VIOLET << "**** printConnection ****" << NC << std::endl;
+		std::cout << VIOLET << " printConnection " << NC << std::endl;
 	std::cout << "server Nbr:\t" << connection.srvNbr << std::endl;
 	std::cout << "Client from:\t" << connection.fromIp << ":" << connection.fromPort << std::endl;
 	std::cout << "Client Sd:\t" << connection.clntSd << std::endl;
@@ -263,9 +285,9 @@ void printConnection(t_connection connection, std::string msg, int sign)
 // void printConnection(t_connection * connection, std::string msg, int sign)
 // {
 // 	if (msg != "")
-// 		std::cout << "**** " << msg << " ****" << std::endl;
+// 		std::cout << " " << msg << " " << std::endl;
 // 	else
-// 		std::cout << "**** printConnection ****" << std::endl;
+// 		std::cout << " printConnection " << std::endl;
 // 	std::cout << "server Nbr:\t" << connection->srvNbr << std::endl;
 // 	std::cout << "Client from:\t" << connection->fromIp << ":" << connection->fromPort << std::endl;
 // 	std::cout << "Client Sd:\t" << connection->clntSd << std::endl;
@@ -317,9 +339,9 @@ void printConnection(t_connection connection, std::string msg, int sign)
 void printAllConnections(std::vector<t_connection> connections, std::string msg)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	else
-		std::cout << VIOLET << "**** printAllConnections ****" << NC << std::endl;
+		std::cout << VIOLET << " printAllConnections " << NC << std::endl;
 	if (connections.size() > 0)
 	{
 		for (std::vector<t_connection>::iterator iter = connections.begin(); iter < connections.end(); iter++)
@@ -331,9 +353,9 @@ void printAllConnections(std::vector<t_connection> connections, std::string msg)
 void printWebServer(ServerRouter data, std::string msg)
 {
 	if (msg != "")
-		std::cout << VIOLET << "**** " << msg << " ****" << NC << std::endl;
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
 	else
-		std::cout << VIOLET << "**** printWebServer ****" << NC << std::endl;
+		std::cout << VIOLET << " printWebServer " << NC << std::endl;
 	std::cout << "Host name: " << data.getHostname() << std::endl;
 	// if (data.getConfigs().size() > 0)
 	// 	printAllServersConfig(data.getConfigs(), "");
@@ -368,4 +390,19 @@ void printWebServer(ServerRouter data, std::string msg)
 	std::cout << "Quantuty of poiifds:\t" << data.getPollfdsQty() << std::endl;
 	printPollfds(data.getPollfds(), "",  data.getPollfdsQty());
 	std::cout << "----------------" << std::endl;
+}
+
+void printVectorPair(std::vector<std::pair<std::string, std::string> > vec, std::string msg)
+{
+	if (msg != "")
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
+	else
+		std::cout << VIOLET << " printVectorPair " << NC << std::endl;
+	for (std::vector<std::pair<std::string, std::string> >::iterator iterM = vec.begin(); iterM != vec.end(); iterM++)
+	{
+		std::cout << (*iterM).first;
+		if ((*iterM).second != "")
+			std::cout << ":\t" << (*iterM).second;
+		std::cout << std::endl;
+	}
 }

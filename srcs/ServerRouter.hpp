@@ -71,6 +71,7 @@ class ServerRouter
 		void	_preparePostAnswer(t_connection *);
 		void	_prepareDeleteAnswer(t_connection *);
 		bool	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
+		void	_addFile404(std::string & contentTypeAndLength, t_connection *);
 		bool	_acceptFile(std::string & contentTypeAndLength, t_connection * connection, std::string const & path);
 		void	_findConnectionLenBody(t_connection *);
 		std::string	_addressDecode(std::string const & address);
@@ -83,6 +84,7 @@ class ServerRouter
 		void	_parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * connection);
 		bool	_parseInputDataHeader(t_connection * connection);
 		void	_parseInputBodyStr(t_connection * connection);
+		void	_choosePostContentType(t_connection * connection);
 
 };
 

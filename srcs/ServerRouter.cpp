@@ -11,7 +11,7 @@ ServerRouter::ServerRouter(std::vector<t_config> configs, std::string configFile
 	// _pollfds.clear();
 
 	// #ifdef DEBUGMODE
-	// 	printAllServersConfig(_configs, "DEBUG ServerRouter AllServersConfig");
+	// 	printAllServersConfig(_configs, "DEBUGMODE SR ServerRouter AllServersConfig:");
 	// #endif
 	for (std::vector<t_config>::iterator iter = _configs.begin(); iter < _configs.end(); iter++)
 		_servers.push_back(Server(*iter));
@@ -22,7 +22,7 @@ ServerRouter::ServerRouter(std::vector<t_config> configs, std::string configFile
 	_allowedMethods.clear();
 	_allowedMethods = metods;
 	// #ifdef DEBUGMODE
-	// 	printAllServersVector(_servers, "DEBUG ServerRouter AllServersVector");
+	// 	printAllServersVector(_servers, "DEBUGMODE SR ServerRouter AllServersVector:");
 	// #endif
 }
 
@@ -152,14 +152,14 @@ void ServerRouter::start()
 	}
 
 	// #ifdef DEBUGMODE
-	// printPollfds(_pollfds, "DEBUG _pollfds", _pollfdsQty);
+	// printPollfds(_pollfds, "DEBUGMODE SR start _pollfds:", _pollfdsQty);
 	// #endif
 
 	while (42)
 	{
 		if (!_mainLoop())
 		{
-			std::cout << "!_mainLoop()" << std::endl;
+			// std::cout << "!_mainLoop()" << std::endl;
 			break;
 		}
 		_checkTimeout(); //disconnect by timeout
@@ -196,7 +196,7 @@ bool ServerRouter::_mainLoop()
 		}
 		if (_isSocketServer(_pollfds[i].fd))
 		{
-			std::cout << "_isSocketServer" << std::endl;
+			// std::cout << "_isSocketServer" << std::endl;
 			int sd = accept(_pollfds[i].fd, (struct sockaddr *)&addrNew, &socklen);
 			fcntl(sd, F_SETFL, O_NONBLOCK);
 			if (sd < 0)
@@ -218,7 +218,7 @@ bool ServerRouter::_mainLoop()
 			printMsg(i, sd, msg, "");
 			printMsgToLogFile(i, sd, msg, "");
 			// #ifdef DEBUGMODE
-			// 	msg = "DEBUGMODE ServerRouter_GET _mainLoop printAllConnections";
+			// 	msg = "DEBUGMODE SR _mainLoop printAllConnections";
 			// 	printAllConnections(_connections, msg);
 			// #endif
 		}
@@ -241,21 +241,21 @@ bool ServerRouter::_mainLoop()
 				}
 
 				// #ifdef DEBUGMODE
-				// 	printConnection(* connection, "DEBUGMODE _mainLoop printConnection 1", 1);
+				// 	printConnection(* connection, "DEBUGMODE SR _mainLoop printConnection 1", 1);
 				// #endif
 
 				if (connection->requestProcessingStep == READING_DONE)
 					connection->pfd->events = POLLOUT;
 
 				// #ifdef DEBUGMODE
-				// 	printConnection(* connection, "DEBUGMODE _mainLoop printConnection 2", 1);
+				// 	printConnection(* connection, "DEBUGMODE SR _mainLoop printConnection 2", 1);
 				// #endif
 
 				// _pollfds[i].revents = 0;
 			}
 			else if (_pollfds[i].revents & POLLOUT) // запись возможна
 			{
-				std::cout << "POLOUT" << std::endl;
+				// std::cout << "POLOUT" << std::endl;
 				err = _sendAnswer(connection);
 				bool connectionClosed;
 
@@ -296,7 +296,7 @@ bool ServerRouter::_mainLoop()
 					continue ;
 				}
 
-				std::cout << "POLOUT2" << std::endl;
+				// std::cout << "POLOUT2" << std::endl;
 
 			}
 			else if (recv(clntSd, buf, BUF_SIZE, MSG_PEEK) == 0)
@@ -410,7 +410,7 @@ int ServerRouter::_readSd(t_connection * connection)
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		// #ifdef DEBUGMODE
-		// 	std::cout << "**** DEBUGMODE _readSd buf ****\nbuf: " << buf << "\n------------" << std::endl;
+		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd buf \nbuf: " << NC << buf << "\n------------" << std::endl;
 		// #endif
 
 		connection->inputStr += buf;
@@ -436,7 +436,7 @@ int ServerRouter::_readSd(t_connection * connection)
 
 				_findConnectionLenBody(connection);
 				#ifdef DEBUGMODE
-					std::cout << "**** DEBUGMODE _readSd connection->lenBody ****\nconnection->lenBody: " << connection->lenBody << "\n------------" << std::endl;
+					std::cout << VIOLET << " DEBUGMODE SR _readSd connection->lenBody \nconnection->lenBody: " << NC << connection->lenBody << "\n------------" << std::endl;
 				#endif
 				if (connection->lenBody > 0)
 				{
@@ -507,9 +507,9 @@ int ServerRouter::_readSd(t_connection * connection)
 			msg = "finished reading data from sd ";
 			printMsg(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-			#ifdef DEBUGMODE
+			// #ifdef DEBUGMODE
 				msg = "data from sd ";
-				msg1 = "-+-+-header:-+-+-\n" + connection->inputData.method + " " + connection->inputData.address;
+				msg1 = "✧✧✧✧✧header:✧✧✧✧✧\n" + connection->inputData.method + " " + connection->inputData.address;
 				if (connection->inputData.addressParamsStr != "")
 					msg1 += "?" + connection->inputData.addressParamsStr;
 				msg1 += " " + connection->inputData.httpVersion + "\n";
@@ -520,11 +520,11 @@ int ServerRouter::_readSd(t_connection * connection)
 					if ((*iter).second != "")
 						msg1 += ": " + (*iter).second + "\n";
 				}
-				msg1 += "-+-+-body:-+-+-\n";
+				msg1 += "✧✧✧✧✧body:✧✧✧✧✧\n";
 				msg1 += connection->inputStrBody;
 				printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
 				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
-			#endif	
+			// #endif	
 		}
 
 
@@ -598,12 +598,12 @@ void ServerRouter::_closeConnection(int clntSd)
 bool ServerRouter::_isSocketServer(int fd)
 {
 	// #ifdef DEBUGMODE
-	// 	std::cout << "**** DEBUG _isSocketServer ****\nfd: " << fd << std::endl;
+	// 	std::cout << VIOLET << " DEBUGMODE SR _isSocketServer \nfd: " << NC << fd << std::endl;
 	// #endif
 	for (std::vector<Server>::iterator iter = _servers.begin(); iter < _servers.end(); iter++)
 	{
 		// #ifdef DEBUGMODE
-		// 	std::cout << "_sd: " << (*iter).getSd() << std::endl;
+		// 	std::cout << VIOLET << "_sd: " << NC << (*iter).getSd() << std::endl;
 		// #endif
 		if ((*iter).getSd() == fd)
 		{
@@ -690,7 +690,7 @@ void ServerRouter::_checkTimeout()
 	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
 	{
 		// #ifdef DEBUGMODE
-		// 	std::cout << "**** DEBUGMODE _checkTimeout ****\ntime now: " << tm1.tv_sec << "\tlastActivityTime: " << (*iter).lastActivityTime << "\tTIMEOUT: " << TIMEOUT << "\n--------" << std::endl;
+		// 	std::cout << VIOLET << " DEBUGMODE SR _checkTimeout \ntime now: " << NC << tm1.tv_sec << "\tlastActivityTime: " << (*iter).lastActivityTime << "\tTIMEOUT: " << TIMEOUT << "\n--------" << std::endl;
 		// #endif
 		bool keepAlive = false;
 		// for (std::map<std::string, std::string>::iterator iterF = (*iter).inputData.headerFields.begin(); iterF != (*iter).inputData.headerFields.end(); iterF++)

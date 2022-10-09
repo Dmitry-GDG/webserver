@@ -60,19 +60,27 @@ git push
 - Не понял, для чего у Аси в конфиге параметр client_max_body_size
 - Не понял, для чего у Аси в конфиге параметр cgi_dir
 - что такое cgi http://www.codenet.ru/webmast/cgi/cgidev.php
+- возможно, надо перевести поля в uppercase перед сравнением Content-Type и Content-Length (https://stackoverflow.com/questions/735204/convert-a-string-in-c-to-upper-case)
 
 ### Пометки
 - парсится uri - cu-29
 - добавление файла (папки с файлами) в бинарном виде в ответ (GT 45)
 
 ### Хронология изменений:
+9/10 #Д#
+- сделал splitStringStr;
+- _parseInputBodyStr(connection);
+- printVectorPair;
+- необх доделать GET 404 (SR_GET-39)
+
+
 8/10 #Д#
 - испраил парсинг вх данных: теперь в inputStrBody записывается весь остаток, после извлечения оттуда inputStrHead
 - в соответствие с этим изменил печать в терминал и лог-файл
 - временно пофикшен DDELIMETER in connectionAnswer SR-345
 - переделаны клиенты client_multipart и client_urlencoded для тестов
 - новое поле std::vector<std::pair<std::string, std::string> >	bodyFieldsVec; 
-- необх: _parseInputBoduStr(connection) SR_POST-93;
+- необх: _parseInputBodyStr(connection) SR_POST-93;
 - необх: splitStringStr  u-94
 
 

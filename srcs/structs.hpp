@@ -53,7 +53,7 @@ enum ResponseType
 	CGI_LOC
 };
 
-enum PostContentTypes
+enum PostContentType
 {
 	NOT_DEFINED_POST_CONTENT_TYPE,
 	URLENCODED,
@@ -69,8 +69,10 @@ typedef struct s_inputdata
 	std::string		addressParamsStr; // POST request's params in line, separator between params '&', separator between key and value '='
 	std::string		httpVersion;
 	InputDataType	dataType; // HTTP
+	PostContentType	postContentType;
 	// std::map<std::string, std::string>	headerFields;
 	std::vector<std::pair<std::string, std::string> >	headerFieldsVec; //map - notacceptable, some keys repeated witn other values
+	std::vector<std::string>							inputStrBodyVec;
 	std::vector<std::pair<std::string, std::string> >	bodyFieldsVec;
 } t_inputdata;
 

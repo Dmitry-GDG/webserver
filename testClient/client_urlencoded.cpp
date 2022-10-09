@@ -30,8 +30,8 @@ ssize_t process_http(int sockfd, char *host, char *page, char *poststr)
 	snprintf(sendline, MAXSUB,
 		 "POST %s HTTP/1.1\r\n"
 		 "Host: %s\r\n"
-		 "Content-type: application/x-www-form-urlencoded\r\n"
-		 "Content-length: %d\r\n"
+		 "Content-Type: application/x-www-form-urlencoded\r\n"
+		 "Content-Length: %d\r\n"
 		 "Connection: Close\r\n\r\n"
 		 "%s", page, host, (int)strlen(poststr), poststr);
 

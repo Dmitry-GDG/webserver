@@ -104,7 +104,12 @@ void splitStringStr(std::string str, std::string seperator, std::vector<std::str
 		subStr.append(str, startIndex, pos - startIndex);
 		strings.push_back(subStr);
 		startIndex = pos + seperator.size();
+		if (pos + seperator.size() != std::string::npos)
+			pos += (seperator.size() - 1);
 	}
+	subStr.clear();
+	subStr.append(str, startIndex, std::string::npos);
+	strings.push_back(subStr);
 
 
 	// while (pos != std::string::npos)
@@ -148,7 +153,7 @@ void splitStringStr(std::string str, std::string seperator, std::vector<std::str
 	// }
 }
 
-void splitStringColon (std::string str, char seperator, std::vector<std::string> & strings)  
+void splitStringColon(std::string str, char seperator, std::vector<std::string> & strings)  
 {
 	strings.clear();
 	for (size_t endIndex = 0; endIndex <= str.size(); endIndex++)
@@ -158,12 +163,12 @@ void splitStringColon (std::string str, char seperator, std::vector<std::string>
 			std::string subStr = "";
 			subStr.append(str, 0, endIndex);
 			strings.push_back(subStr);
+			subStr.clear();
 			if (endIndex != str.size())
-			{
-				subStr.clear();
 				subStr.append(str, endIndex + 1, std::string::npos);
-				strings.push_back(subStr);
-			}
+			else
+				subStr = "";
+			strings.push_back(subStr);
 			return ;
 		}
 	}
@@ -264,6 +269,7 @@ void connectionInputDataClear(t_connection & connection)
 	connection.inputData.addressParamsStr.clear();
 	connection.inputData.httpVersion.clear();
 	connection.inputData.dataType = NOT_DEFINED_INPUT_DATA_TYPE;
+	connection.inputData.postContentType = NOT_DEFINED_POST_CONTENT_TYPE;
 	// connection.inputData.headerFields.clear();
 	connection.inputData.headerFieldsVec.clear();
 	connection.inputData.bodyFieldsVec.clear();
