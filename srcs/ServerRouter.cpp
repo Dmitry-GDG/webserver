@@ -10,9 +10,9 @@ ServerRouter::ServerRouter(std::vector<t_config> configs, std::string configFile
 	_hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
 	// _pollfds.clear();
 
-	// #ifdef DEBUGMODE
-	// 	printAllServersConfig(_configs, "DEBUGMODE SR ServerRouter AllServersConfig:");
-	// #endif
+	#ifdef DEBUGMODE
+		printAllServersConfig(_configs, "DEBUGMODE SR ServerRouter AllServersConfig:");
+	#endif
 	for (std::vector<t_config>::iterator iter = _configs.begin(); iter < _configs.end(); iter++)
 		_servers.push_back(Server(*iter));
 	_pollfdsQty = _servers.size();
