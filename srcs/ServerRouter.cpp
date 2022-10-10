@@ -708,7 +708,7 @@ void ServerRouter::_checkTimeout()
 			// 	_closeConnection((*iter).clntSd);
 			// }
 		}
-		if ((tm1.tv_sec - (*iter).lastActivityTime >= TIMEOUT) && !keepAlive)
+		if ((tm1.tv_sec - (*iter).lastActivityTime >= TIMEOUT))
 		{
 			msg = "closed sd ";
 			msg1 = " by timeout";
@@ -716,8 +716,24 @@ void ServerRouter::_checkTimeout()
 			printMsgToLogFile((*iter).srvNbr, (*iter).clntSd, msg, msg1);
 			_closeConnection((*iter).clntSd);
 		}
+
+		// if ((tm1.tv_sec - (*iter).lastActivityTime >= TIMEOUT) && !keepAlive)
+		// {
+		// 	msg = "closed sd ";
+		// 	msg1 = " by timeout";
+		// 	printMsg((*iter).srvNbr, (*iter).clntSd, msg, msg1);
+		// 	printMsgToLogFile((*iter).srvNbr, (*iter).clntSd, msg, msg1);
+		// 	_closeConnection((*iter).clntSd);
+		// }
 	}
 }
+
+// bool ServerRouter::_ifErrPages(t_connection * connection)
+// {
+// 	if (connection->responseData.statusCode == "404" || connection->responseData.statusCode == "403")
+// 		return true;
+// 	return false;
+// }
 
 void ServerRouter::_responseStatusCodesInit()
 {

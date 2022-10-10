@@ -85,6 +85,8 @@ typedef struct s_response
 	std::string		fileToSendInBinary;
 	ssize_t			lenAnswer;
 	ssize_t 		lenSent;
+	std::string		pathExcludeInErr;
+	std::string		pathIncludeBeginInErr;
 	// char			buf[BUF_SIZE];
 
 } t_response;

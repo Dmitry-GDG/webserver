@@ -284,6 +284,8 @@ void connectionResponseDataClear(t_connection & connection)
 	connection.responseData.lenAnswer = 0;
 	connection.responseData.fileToSendInBinary.clear();
 	connection.responseData.connectionAnswer.clear();
+	connection.responseData.pathExcludeInErr.clear();
+	connection.responseData.pathIncludeBeginInErr.clear();
 }
 
 void connectionClear(t_connection & connection)

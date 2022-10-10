@@ -28,6 +28,11 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 	{
 		// std::cout << RED << "_prepareGetAnswer\n" << NC;
 		_addFile404(contentTypeAndLengthAndData, connection); // Подумать, что вернуть, если не откроется файл
+		// connection->responseData.connectionAnswer += "404 " \
+		// + connection->responseStatusCodesAll["404"] + DELIMETER \
+		// + "Location: resources/8080/404/404.html" + DELIMETER \
+  		// + "Connection: Close\r\n\r\n";
+
 	}
 
 	connection->responseData.connectionAnswer += connection->responseData.statusCode \
@@ -59,9 +64,7 @@ void ServerRouter::_addFile404(std::string & contentTypeAndLengthAndData, t_conn
 	// }
 
 	for ( pos = connection->inputData.address.find("/", pos++); pos != std::string::npos; pos = connection->inputData.address.find("/", pos + 1))
-	{
 		posLast = pos;
-	}
 	// std::cout << RED << "posLast: " << posLast << NC << "\n";
 	std::string addressFolder = connection->inputData.address.substr(0, posLast);
 
@@ -109,6 +112,16 @@ void ServerRouter::_addFile404(std::string & contentTypeAndLengthAndData, t_conn
 	std::cout << RED << "path == " << path << NC << "\n";
 	std::cout << RED << "connection->inputData.address == " << connection->inputData.address << NC << "\n";
 	std::cout << RED << "addressFolder == " << addressFolder << NC << "\n";
+	connection->responseData.pathExcludeInErr = addressFolder;
+	pos = 0;
+	posLast = 0;
+	for ( pos = path.find("/", pos++); pos != std::string::npos; pos = path.find("/", pos + 1))
+		posLast = pos;
+	// std::cout << RED << "posLast: " << posLast << NC << "\n";
+	connection->responseData.pathIncludeBeginInErr = path.substr(0, posLast);
+
+	// std::string seperator = 
+	//  splitStringStr(path, std::string seperator, connection->responseData.pathIncludeInErr);
 
 	struct stat buf;
 	std::string contType;
@@ -237,10 +250,20 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t
 	FILE * fileOpen = fopen(pathChar, "rb"); //r - read only, b - in binary
 	if (fileOpen == NULL)
 	{
-		msg = "Error! Can not open the file " + path + ", sd ";
-		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
-		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		connection->responseData.statusCode = "404";
+		// if (_ifErrPages(connection))
+		// {
+		// 	std::vector<std::string> errPathParts;
+	 	// 	splitStringStr(path, connection->responseData.pathExcludeInErr, errPathParts);
+		// 	path = "./" + connection->responseData.pathIncludeBeginInErr + "/" + errPathParts[1];
+		// 	std::cout << GREEN << "PATH in ERR: " << NC << path << std::endl;
+		// }
+		// else
+		// {
+			msg = "1Error! Can not open the file " + path + ", sd ";
+			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+			connection->responseData.statusCode = "404";
+		// }
 		return false;
 	}
 	else if (S_ISREG(buf.st_mode)) //it's path to file
@@ -301,7 +324,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t
 		FILE * fileOpen2 = fopen(pathChar2, "rb"); //r - read only, b - in binary
 		if (fileOpen2 == NULL)
 		{
-			msg = "Error! Can not open the file " + path + ", sd ";
+			msg = "2Error! Can not open the file " + path + ", sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 			connection->responseData.statusCode = "404";
@@ -339,7 +362,7 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t
 	}
 	else
 	{
-		msg = "Error! Can not open the file " + path + ", sd ";
+		msg = "3Error! Can not open the file " + path + ", sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		connection->responseData.statusCode = "404";

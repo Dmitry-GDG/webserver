@@ -85,6 +85,7 @@ class ServerRouter
 		bool	_parseInputDataHeader(t_connection * connection);
 		void	_parseInputBodyStr(t_connection * connection);
 		void	_choosePostContentType(t_connection * connection);
+		// bool	_ifErrPages(t_connection * connection);
 
 };
 
