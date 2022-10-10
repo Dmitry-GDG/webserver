@@ -344,8 +344,9 @@ void readFileToStrInBinary(const char * pathChar, std::string & outp)
 	{
 		while (getline(in, line))
 			outpVector.push_back(line);
+		in.close();
 	}
-	in.close();
+	// in.close();
 	std::vector<std::string>::iterator iter = outpVector.begin();
 	if  (iter != outpVector.end())
 	{

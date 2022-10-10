@@ -50805,3 +50805,1964 @@ Host:  localhost
 [09:55:47]: server[1]: closed sd 10 by timeout
 [10:05:00]: Webserver stopped by Ctrl+C. Buy!
  ---------------------- 
+[13:27:57]: 10 Oct. 2022 
+[13:27:57]: Starting... 
+[13:27:57]: Webserver Cool Webserver started at oa-a3.msk.21-school.ru 
+[13:27:57]: On sd 3 the 'jhhj' server[0] started successfully and is listening on 127.0.0.1:4242 
+[13:27:57]: On sd 4 the 'server' server[1] started successfully and is listening on 127.0.0.1:8080 
+[13:27:57]: On sd 5 the 'server2' server[2] started successfully and is listening on 127.0.0.1:8081 
+[13:27:57]: On sd 6 the 'cookie' server[3] started successfully and is listening on 127.0.0.1:9999 
+[13:27:57]: On sd 7 the 'test' server[4] started successfully and is listening on 127.0.0.1:8888 
+[13:27:57]: On sd 8 the 'test2' server[5] started successfully and is listening on 127.0.0.1:1234 
+[13:30:14]: server[4]: new connection from 127.0.0.1:50494, sd: 9
+[13:30:40]: server[4]: new connection from 127.0.0.1:50607, sd: 10
+[13:30:40]: server[4]: closed sd 9 by timeout
+[13:30:40]: server[1]: new connection from 127.0.0.1:50609, sd: 9
+[13:30:40]: server[4]: new connection from 127.0.0.1:50608, sd: 11
+[13:30:40]: server[4]: got 1240 bytes from sd 10
+[13:30:40]: server[4]: finished reading data from sd 10
+[13:30:40]: server[4]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8888
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[13:30:40]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 10
+[13:30:40]: server[4]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 722
+[13:30:40]: server[4]: sent 836/836 bytes to sd 10
+[13:30:40]: server[4]: got 1158 bytes from sd 11
+[13:30:40]: server[4]: finished reading data from sd 11
+[13:30:40]: server[4]: data from sd 11:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET image/evangelion-09-NERV.jpeg HTTP/1.1
+	Host:  127.0.0.1:8888
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8888/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[13:30:40]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 11
+[13:30:40]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[13:30:40]: server[4]: sent 200000/423349 bytes to sd 11
+[13:30:40]: server[4]: new connection from 127.0.0.1:50610, sd: 13
+[13:30:40]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 11
+[13:30:40]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[13:30:40]: server[4]: sent 400000/423349 bytes to sd 11
+[13:30:40]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 11
+[13:30:40]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[13:30:40]: server[4]: sent 423349/423349 bytes to sd 11
+[13:30:40]: server[4]: got 1104 bytes from sd 13
+[13:30:40]: server[4]: finished reading data from sd 13
+[13:30:40]: server[4]: data from sd 13:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET music/opening.mp3 HTTP/1.1
+	Host:  127.0.0.1:8888
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	Accept-Encoding:  identity;q=1, *;q=0
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  */*
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  audio
+	Referer:  http://127.0.0.1:8888/
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	Range:  bytes=0-
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[13:30:40]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[13:30:41]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[13:30:41]: server[4]: sent 200000/1598858 bytes to sd 13
+[13:30:41]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[13:30:41]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[13:30:41]: server[4]: sent 400000/1598858 bytes to sd 13
+[13:30:41]: server[4]: new connection from 127.0.0.1:50611, sd: 14
+[13:30:41]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[13:30:41]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[13:30:41]: server[4]: sent 600000/1598858 bytes to sd 13
+[13:30:41]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[13:30:41]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[13:30:41]: server[4]: sent 800000/1598858 bytes to sd 13
+[13:30:41]: server[4]: got 1140 bytes from sd 14
+[13:30:41]: server[4]: finished reading data from sd 14
+[13:30:41]: server[4]: data from sd 14:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET favicon.ico HTTP/1.1
+	Host:  127.0.0.1:8888
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8888/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[13:30:41]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[13:30:41]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[13:30:41]: server[4]: sent 1000000/1598858 bytes to sd 13
+[13:30:41]: server[4]: the file ./resources/8888/favicon.ico was sucsessfully opened, sd 14
+[13:30:41]: server[4]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/x-icon; charset=utf-8
+	Content-Length: 50462
+[13:30:41]: server[4]: sent 50581/50581 bytes to sd 14
+[13:30:41]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[13:30:41]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[13:30:41]: server[4]: sent 1200000/1598858 bytes to sd 13
+[13:30:41]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[13:30:41]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[13:30:41]: server[4]: sent 1400000/1598858 bytes to sd 13
+[13:30:41]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 13
+[13:30:41]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[13:30:41]: server[4]: sent 1598858/1598858 bytes to sd 13
+[13:30:50]: server[4]: closed sd 10 by timeout
+[13:30:50]: server[4]: closed sd 11 by timeout
+[13:30:50]: server[1]: closed sd 9 by timeout
+[13:30:50]: server[4]: closed sd 13 by timeout
+[13:30:51]: server[4]: closed sd 14 by timeout
+[13:31:43]: server[0]: new connection from 127.0.0.1:50870, sd: 9
+[13:31:43]: server[0]: got 615 bytes from sd 9
+[13:31:43]: server[0]: finished reading data from sd 9
+[13:31:43]: server[0]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-Length:  471
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	✧✧✧✧✧body:✧✧✧✧✧
+	--AaB03x
+	Content-Disposition: form-data; name="submit-name"
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name="files"
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename="file1.txt"
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename="file2.gif"
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[13:31:43]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[13:31:43]: server[0]: sent 13/13 bytes to sd 9
+[13:31:43]: server[0]: closed sd 9 by Connection condition
+[14:20:25]: server[0]: new connection from 127.0.0.1:63055, sd: 9
+[14:20:25]: server[0]: got 615 bytes from sd 9
+[14:20:25]: server[0]: finished reading data from sd 9
+[14:20:25]: server[0]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	POST chirico/test.php HTTP/1.1
+	Host:  localhost
+	Content-Length:  471
+	Content-Type:  multipart/form-data; boundary=AaB03x
+	Connection:  Close
+	✧✧✧✧✧body:✧✧✧✧✧
+	--AaB03x
+	Content-Disposition: form-data; name="submit-name"
+	
+	Larry
+	--AaB03x
+	Content-Disposition: form-data; name="files"
+	Content-Type: multipart/mixed; boundary=BbC04y
+	
+	--BbC04y
+	Content-Disposition: file; filename="file1.txt"
+	Content-Type: text/plain
+	
+	... contents of file1.txt ...
+	--BbC04y
+	Content-Disposition: file; filename="file2.gif"
+	Content-Type: image/gif
+	Content-Transfer-Encoding: binary
+	
+	...contents of file2.gif...
+	--BbC04y--
+	--AaB03x--
+	
+	
+[14:20:25]: server[0]: prepared answer to sd 9:
+	HTTP/1.1 
+[14:20:25]: server[0]: sent 13/13 bytes to sd 9
+[14:20:25]: server[0]: closed sd 9 by Connection condition
+[14:39:29]: server[4]: new connection from 127.0.0.1:51513, sd: 9
+[14:39:29]: server[4]: got 1240 bytes from sd 9
+[14:39:29]: server[4]: finished reading data from sd 9
+[14:39:29]: server[4]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8888
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:29]: server[4]: new connection from 127.0.0.1:51514, sd: 10
+[14:39:29]: server[4]: the file ./resources/8888/index.html was sucsessfully opened, sd 9
+[14:39:29]: server[4]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 722
+[14:39:29]: server[4]: sent 836/836 bytes to sd 9
+[14:39:29]: server[4]: got 1158 bytes from sd 10
+[14:39:29]: server[4]: finished reading data from sd 10
+[14:39:29]: server[4]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET image/evangelion-09-NERV.jpeg HTTP/1.1
+	Host:  127.0.0.1:8888
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8888/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:29]: server[4]: new connection from 127.0.0.1:51515, sd: 11
+[14:39:29]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[14:39:29]: server[4]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[14:39:29]: server[4]: sent 200000/423349 bytes to sd 10
+[14:39:29]: server[4]: got 1104 bytes from sd 11
+[14:39:29]: server[4]: finished reading data from sd 11
+[14:39:29]: server[4]: data from sd 11:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET music/opening.mp3 HTTP/1.1
+	Host:  127.0.0.1:8888
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	Accept-Encoding:  identity;q=1, *;q=0
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  */*
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  audio
+	Referer:  http://127.0.0.1:8888/
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	Range:  bytes=0-
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:29]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[14:39:29]: server[4]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[14:39:29]: server[4]: sent 400000/423349 bytes to sd 10
+[14:39:29]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[14:39:29]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[14:39:29]: server[4]: sent 200000/1598858 bytes to sd 11
+[14:39:29]: server[4]: the file ./resources/8888/image/evangelion-09-NERV.jpeg was sucsessfully opened, sd 10
+[14:39:29]: server[4]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 423230
+[14:39:29]: server[4]: sent 423349/423349 bytes to sd 10
+[14:39:29]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[14:39:30]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[14:39:30]: server[4]: sent 400000/1598858 bytes to sd 11
+[14:39:30]: server[4]: new connection from 127.0.0.1:51516, sd: 13
+[14:39:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[14:39:30]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[14:39:30]: server[4]: sent 600000/1598858 bytes to sd 11
+[14:39:30]: server[4]: got 1140 bytes from sd 13
+[14:39:30]: server[4]: finished reading data from sd 13
+[14:39:30]: server[4]: data from sd 13:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET favicon.ico HTTP/1.1
+	Host:  127.0.0.1:8888
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8888/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[14:39:30]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[14:39:30]: server[4]: sent 800000/1598858 bytes to sd 11
+[14:39:30]: server[4]: the file ./resources/8888/favicon.ico was sucsessfully opened, sd 13
+[14:39:30]: server[4]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/x-icon; charset=utf-8
+	Content-Length: 50462
+[14:39:30]: server[4]: sent 50581/50581 bytes to sd 13
+[14:39:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[14:39:30]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[14:39:30]: server[4]: sent 1000000/1598858 bytes to sd 11
+[14:39:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[14:39:30]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[14:39:30]: server[4]: sent 1200000/1598858 bytes to sd 11
+[14:39:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[14:39:30]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[14:39:30]: server[4]: sent 1400000/1598858 bytes to sd 11
+[14:39:30]: server[4]: the file ./resources/8888/music/opening.mp3 was sucsessfully opened, sd 11
+[14:39:30]: server[4]: prepared answer to sd 11:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: audio/mpeg3; charset=utf-8
+	Content-Length: 1598738
+[14:39:30]: server[4]: sent 1598858/1598858 bytes to sd 11
+[14:39:34]: server[5]: new connection from 127.0.0.1:51533, sd: 14
+[14:39:34]: server[5]: got 1240 bytes from sd 14
+[14:39:34]: server[5]: finished reading data from sd 14
+[14:39:34]: server[5]: data from sd 14:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:1234
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:34]: server[5]: new connection from 127.0.0.1:51534, sd: 15
+[14:39:34]: server[5]: the file ./resources/1234/periodic_table.html was sucsessfully opened, sd 14
+[14:39:34]: server[5]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 15729
+[14:39:34]: server[5]: sent 15845/15845 bytes to sd 14
+[14:39:34]: server[5]: got 1143 bytes from sd 15
+[14:39:34]: server[5]: finished reading data from sd 15
+[14:39:34]: server[5]: data from sd 15:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET mendeleev.jpeg HTTP/1.1
+	Host:  127.0.0.1:1234
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:1234/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:34]: server[5]: the file ./resources/1234/mendeleev.jpeg was sucsessfully opened, sd 15
+[14:39:34]: server[5]: prepared answer to sd 15:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 36739
+[14:39:34]: server[5]: sent 36857/36857 bytes to sd 15
+[14:39:34]: server[5]: new connection from 127.0.0.1:51535, sd: 16
+[14:39:34]: server[5]: got 1140 bytes from sd 16
+[14:39:34]: server[5]: finished reading data from sd 16
+[14:39:34]: server[5]: data from sd 16:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET favicon.ico HTTP/1.1
+	Host:  127.0.0.1:1234
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:1234/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:34]: server[5]: the file ./resources/1234/favicon.ico was sucsessfully opened, sd 16
+[14:39:34]: server[5]: prepared answer to sd 16:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/x-icon; charset=utf-8
+	Content-Length: 50462
+[14:39:34]: server[5]: sent 50581/50581 bytes to sd 16
+[14:39:38]: server[1]: new connection from 127.0.0.1:51552, sd: 17
+[14:39:38]: server[1]: new connection from 127.0.0.1:51553, sd: 18
+[14:39:38]: server[1]: got 1240 bytes from sd 17
+[14:39:38]: server[1]: finished reading data from sd 17
+[14:39:38]: server[1]: data from sd 17:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:38]: server[1]: the file ./resources/8080/index.html was sucsessfully opened, sd 17
+[14:39:38]: server[1]: prepared answer to sd 17:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 1354
+[14:39:38]: server[1]: sent 1469/1469 bytes to sd 17
+[14:39:38]: server[1]: got 1137 bytes from sd 18
+[14:39:38]: server[1]: finished reading data from sd 18
+[14:39:38]: server[1]: data from sd 18:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET logo.jpg HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8080/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:39:38]: server[1]: the file ./resources/8080/logo.jpg was sucsessfully opened, sd 18
+[14:39:38]: server[1]: prepared answer to sd 18:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 6001
+[14:39:38]: server[1]: sent 6118/6118 bytes to sd 18
+[14:39:39]: server[4]: closed sd 9 by timeout
+[14:39:39]: server[4]: closed sd 11 by timeout
+[14:39:39]: server[4]: closed sd 10 by timeout
+[14:39:40]: server[4]: closed sd 13 by timeout
+[14:39:44]: server[5]: closed sd 14 by timeout
+[14:39:44]: server[5]: closed sd 16 by timeout
+[14:39:44]: server[5]: closed sd 15 by timeout
+[14:39:48]: server[1]: closed sd 17 by timeout
+[14:39:48]: server[1]: closed sd 18 by timeout
+[14:41:39]: server[2]: new connection from 127.0.0.1:52069, sd: 9
+[14:41:39]: server[2]: got 1214 bytes from sd 9
+[14:41:39]: server[2]: finished reading data from sd 9
+[14:41:39]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:41:39]: server[2]: new connection from 127.0.0.1:52070, sd: 10
+[14:41:39]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:41:39]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 6327
+[14:41:39]: server[2]: sent 6442/6442 bytes to sd 9
+[14:41:39]: server[2]: got 1140 bytes from sd 10
+[14:41:39]: server[2]: finished reading data from sd 10
+[14:41:39]: server[2]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET favicon.ico HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8081/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:41:39]: server[2]: 1Error! Can not open the file ./resources/8081/favicon.ico, sd 10
+[14:41:39]: server[2]: prepared answer to sd 10:
+	HTTP/1.1 404 Not Found
+	Server: "Cool Webserver"
+	Content-Type: ; charset=utf-8
+	Content-Length: 1311
+[14:41:39]: server[2]: sent 1424/1424 bytes to sd 10
+[14:41:49]: server[2]: closed sd 9 by timeout
+[14:41:49]: server[2]: closed sd 10 by timeout
+[14:45:38]: server[2]: new connection from 127.0.0.1:53268, sd: 9
+[14:45:38]: server[2]: got 1240 bytes from sd 9
+[14:45:38]: server[2]: finished reading data from sd 9
+[14:45:38]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:38]: server[2]: new connection from 127.0.0.1:53269, sd: 10
+[14:45:38]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:45:38]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:38]: server[2]: sent 9749/9749 bytes to sd 9
+[14:45:48]: server[2]: closed sd 9 by timeout
+[14:45:48]: server[2]: new connection from 127.0.0.1:53317, sd: 9
+[14:45:48]: server[2]: closed sd 10 by timeout
+[14:45:48]: server[2]: got 1240 bytes from sd 9
+[14:45:48]: server[2]: finished reading data from sd 9
+[14:45:48]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:48]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:45:48]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:48]: server[2]: sent 9749/9749 bytes to sd 9
+[14:45:49]: server[2]: new connection from 127.0.0.1:53322, sd: 10
+[14:45:49]: server[2]: new connection from 127.0.0.1:53323, sd: 13
+[14:45:49]: server[2]: got 1240 bytes from sd 10
+[14:45:49]: server[2]: finished reading data from sd 10
+[14:45:49]: server[2]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:49]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 10
+[14:45:49]: server[2]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:49]: server[2]: sent 9749/9749 bytes to sd 10
+[14:45:49]: server[2]: new connection from 127.0.0.1:53329, sd: 14
+[14:45:50]: server[2]: got 1240 bytes from sd 13
+[14:45:50]: server[2]: finished reading data from sd 13
+[14:45:50]: server[2]: data from sd 13:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:50]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 13
+[14:45:50]: server[2]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:50]: server[2]: sent 9749/9749 bytes to sd 13
+[14:45:50]: server[2]: new connection from 127.0.0.1:53337, sd: 15
+[14:45:50]: server[2]: got 1240 bytes from sd 14
+[14:45:50]: server[2]: finished reading data from sd 14
+[14:45:50]: server[2]: data from sd 14:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:50]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 14
+[14:45:50]: server[2]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:50]: server[2]: sent 9749/9749 bytes to sd 14
+[14:45:51]: server[2]: got 1240 bytes from sd 15
+[14:45:51]: server[2]: finished reading data from sd 15
+[14:45:51]: server[2]: data from sd 15:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:51]: server[2]: new connection from 127.0.0.1:53345, sd: 16
+[14:45:51]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 15
+[14:45:51]: server[2]: prepared answer to sd 15:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:51]: server[2]: sent 9749/9749 bytes to sd 15
+[14:45:52]: server[2]: new connection from 127.0.0.1:53348, sd: 17
+[14:45:52]: server[2]: got 1240 bytes from sd 16
+[14:45:52]: server[2]: finished reading data from sd 16
+[14:45:52]: server[2]: data from sd 16:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:52]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 16
+[14:45:52]: server[2]: prepared answer to sd 16:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:52]: server[2]: sent 9749/9749 bytes to sd 16
+[14:45:52]: server[2]: new connection from 127.0.0.1:53353, sd: 18
+[14:45:52]: server[2]: got 1240 bytes from sd 17
+[14:45:52]: server[2]: finished reading data from sd 17
+[14:45:52]: server[2]: data from sd 17:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:52]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 17
+[14:45:52]: server[2]: prepared answer to sd 17:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:52]: server[2]: sent 9749/9749 bytes to sd 17
+[14:45:58]: server[2]: closed sd 9 by timeout
+[14:45:58]: server[2]: new connection from 127.0.0.1:53383, sd: 9
+[14:45:58]: server[2]: got 1254 bytes from sd 18
+[14:45:58]: server[2]: finished reading data from sd 18
+[14:45:58]: server[2]: data from sd 18:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Referer:  http://127.0.0.1:8081/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:45:58]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 18
+[14:45:58]: server[2]: prepared answer to sd 18:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 9634
+[14:45:58]: server[2]: sent 9749/9749 bytes to sd 18
+[14:45:59]: server[2]: closed sd 10 by timeout
+[14:45:59]: server[2]: closed sd 14 by timeout
+[14:45:59]: server[2]: closed sd 13 by timeout
+[14:46:00]: server[2]: closed sd 15 by timeout
+[14:46:01]: server[2]: closed sd 16 by timeout
+[14:46:02]: server[2]: closed sd 17 by timeout
+[14:46:02]: server[2]: closed sd 18 by timeout
+[14:46:25]: server[2]: new connection from 127.0.0.1:53521, sd: 10
+[14:46:25]: server[2]: closed sd 9 by timeout
+[14:46:25]: server[2]: got 1240 bytes from sd 10
+[14:46:25]: server[2]: finished reading data from sd 10
+[14:46:25]: server[2]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:46:25]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 10
+[14:46:25]: server[2]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19861
+[14:46:25]: server[2]: sent 19977/19977 bytes to sd 10
+[14:46:30]: server[2]: new connection from 127.0.0.1:53538, sd: 9
+[14:46:30]: server[2]: new connection from 127.0.0.1:53539, sd: 13
+[14:46:30]: server[2]: got 1240 bytes from sd 9
+[14:46:30]: server[2]: finished reading data from sd 9
+[14:46:30]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:46:30]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:46:30]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19861
+[14:46:30]: server[2]: sent 19977/19977 bytes to sd 9
+[14:46:31]: server[2]: new connection from 127.0.0.1:53544, sd: 14
+[14:46:31]: server[2]: got 1240 bytes from sd 13
+[14:46:31]: server[2]: finished reading data from sd 13
+[14:46:31]: server[2]: data from sd 13:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:46:31]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 13
+[14:46:31]: server[2]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19861
+[14:46:31]: server[2]: sent 19977/19977 bytes to sd 13
+[14:46:31]: server[2]: new connection from 127.0.0.1:53549, sd: 15
+[14:46:31]: server[2]: got 1240 bytes from sd 14
+[14:46:31]: server[2]: finished reading data from sd 14
+[14:46:31]: server[2]: data from sd 14:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:46:31]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 14
+[14:46:31]: server[2]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19861
+[14:46:31]: server[2]: sent 19977/19977 bytes to sd 14
+[14:46:35]: server[2]: closed sd 10 by timeout
+[14:46:40]: server[2]: closed sd 9 by timeout
+[14:46:40]: server[2]: closed sd 13 by timeout
+[14:46:40]: server[2]: new connection from 127.0.0.1:53594, sd: 9
+[14:46:40]: server[2]: got 1240 bytes from sd 15
+[14:46:40]: server[2]: finished reading data from sd 15
+[14:46:40]: server[2]: data from sd 15:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:46:40]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 15
+[14:46:40]: server[2]: prepared answer to sd 15:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 7300
+[14:46:40]: server[2]: sent 7415/7415 bytes to sd 15
+[14:46:41]: server[2]: closed sd 14 by timeout
+[14:46:41]: server[2]: closed sd 15 by timeout
+[14:47:01]: server[2]: new connection from 127.0.0.1:53708, sd: 10
+[14:47:01]: server[2]: closed sd 9 by timeout
+[14:47:01]: server[2]: got 1240 bytes from sd 10
+[14:47:01]: server[2]: finished reading data from sd 10
+[14:47:01]: server[2]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:47:01]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 10
+[14:47:01]: server[2]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19861
+[14:47:01]: server[2]: sent 19977/19977 bytes to sd 10
+[14:47:11]: server[2]: closed sd 10 by timeout
+[14:47:15]: server[2]: new connection from 127.0.0.1:53772, sd: 9
+[14:47:15]: server[2]: got 1240 bytes from sd 9
+[14:47:15]: server[2]: finished reading data from sd 9
+[14:47:15]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:47:15]: server[2]: new connection from 127.0.0.1:53773, sd: 10
+[14:47:15]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:47:15]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19444
+[14:47:15]: server[2]: sent 19560/19560 bytes to sd 9
+[14:47:25]: server[2]: closed sd 9 by timeout
+[14:47:47]: server[2]: new connection from 127.0.0.1:53931, sd: 9
+[14:47:47]: server[2]: closed sd 10 by timeout
+[14:47:47]: server[2]: got 1240 bytes from sd 9
+[14:47:47]: server[2]: finished reading data from sd 9
+[14:47:47]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:47:47]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:47:47]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19263
+[14:47:47]: server[2]: sent 19379/19379 bytes to sd 9
+[14:47:48]: server[2]: new connection from 127.0.0.1:53940, sd: 10
+[14:47:48]: server[2]: new connection from 127.0.0.1:53941, sd: 13
+[14:47:48]: server[2]: got 1240 bytes from sd 10
+[14:47:48]: server[2]: finished reading data from sd 10
+[14:47:48]: server[2]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:47:48]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 10
+[14:47:48]: server[2]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19263
+[14:47:48]: server[2]: sent 19379/19379 bytes to sd 10
+[14:47:49]: server[2]: new connection from 127.0.0.1:53942, sd: 14
+[14:47:49]: server[2]: got 1240 bytes from sd 13
+[14:47:49]: server[2]: finished reading data from sd 13
+[14:47:49]: server[2]: data from sd 13:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:47:49]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 13
+[14:47:49]: server[2]: prepared answer to sd 13:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19263
+[14:47:49]: server[2]: sent 19379/19379 bytes to sd 13
+[14:47:50]: server[2]: new connection from 127.0.0.1:53947, sd: 15
+[14:47:50]: server[2]: got 1240 bytes from sd 14
+[14:47:50]: server[2]: finished reading data from sd 14
+[14:47:50]: server[2]: data from sd 14:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:47:50]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 14
+[14:47:50]: server[2]: prepared answer to sd 14:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19263
+[14:47:50]: server[2]: sent 19379/19379 bytes to sd 14
+[14:47:50]: server[2]: new connection from 127.0.0.1:53948, sd: 16
+[14:47:50]: server[2]: got 1240 bytes from sd 15
+[14:47:50]: server[2]: finished reading data from sd 15
+[14:47:50]: server[2]: data from sd 15:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:47:50]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 15
+[14:47:50]: server[2]: prepared answer to sd 15:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19263
+[14:47:50]: server[2]: sent 19379/19379 bytes to sd 15
+[14:47:57]: server[2]: closed sd 9 by timeout
+[14:47:58]: server[2]: closed sd 10 by timeout
+[14:47:58]: server[2]: closed sd 13 by timeout
+[14:47:59]: server[2]: closed sd 14 by timeout
+[14:48:00]: server[2]: closed sd 15 by timeout
+[14:48:15]: server[2]: new connection from 127.0.0.1:54065, sd: 9
+[14:48:15]: server[2]: closed sd 16 by timeout
+[14:48:15]: server[2]: got 1240 bytes from sd 9
+[14:48:15]: server[2]: finished reading data from sd 9
+[14:48:15]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:48:15]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:48:15]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19093
+[14:48:15]: server[2]: sent 19209/19209 bytes to sd 9
+[14:48:25]: server[2]: closed sd 9 by timeout
+[14:48:28]: server[2]: new connection from 127.0.0.1:54124, sd: 9
+[14:48:28]: server[2]: got 1240 bytes from sd 9
+[14:48:28]: server[2]: finished reading data from sd 9
+[14:48:28]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:48:28]: server[2]: new connection from 127.0.0.1:54125, sd: 10
+[14:48:28]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:48:28]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 14767
+[14:48:28]: server[2]: sent 14883/14883 bytes to sd 9
+[14:48:38]: server[2]: closed sd 9 by timeout
+[14:48:48]: server[2]: new connection from 127.0.0.1:54219, sd: 9
+[14:48:48]: server[2]: closed sd 10 by timeout
+[14:48:48]: server[2]: got 1240 bytes from sd 9
+[14:48:48]: server[2]: finished reading data from sd 9
+[14:48:48]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:48:48]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:48:48]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 15274
+[14:48:48]: server[2]: sent 15390/15390 bytes to sd 9
+[14:48:58]: server[2]: closed sd 9 by timeout
+[14:48:59]: server[2]: new connection from 127.0.0.1:54272, sd: 9
+[14:48:59]: server[2]: got 1240 bytes from sd 9
+[14:48:59]: server[2]: finished reading data from sd 9
+[14:48:59]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:48:59]: server[2]: new connection from 127.0.0.1:54273, sd: 10
+[14:48:59]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:48:59]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19289
+[14:48:59]: server[2]: sent 19405/19405 bytes to sd 9
+[14:49:09]: server[2]: closed sd 9 by timeout
+[14:49:18]: server[2]: new connection from 127.0.0.1:54369, sd: 9
+[14:49:18]: server[2]: closed sd 10 by timeout
+[14:49:18]: server[2]: got 1240 bytes from sd 9
+[14:49:18]: server[2]: finished reading data from sd 9
+[14:49:18]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:49:18]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:49:18]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 19903
+[14:49:18]: server[2]: sent 20019/20019 bytes to sd 9
+[14:49:28]: server[2]: closed sd 9 by timeout
+[14:49:44]: server[2]: new connection from 127.0.0.1:54495, sd: 9
+[14:49:44]: server[2]: got 1240 bytes from sd 9
+[14:49:44]: server[2]: finished reading data from sd 9
+[14:49:44]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:49:44]: server[2]: new connection from 127.0.0.1:54496, sd: 10
+[14:49:44]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:49:44]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 17763
+[14:49:44]: server[2]: sent 17879/17879 bytes to sd 9
+[14:49:54]: server[2]: closed sd 9 by timeout
+[14:50:26]: server[2]: new connection from 127.0.0.1:54693, sd: 9
+[14:50:26]: server[2]: got 1240 bytes from sd 10
+[14:50:26]: server[2]: finished reading data from sd 10
+[14:50:26]: server[2]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:50:26]: server[2]: closed sd 10 by timeout
+[14:50:26]: server[2]: got 1240 bytes from sd 9
+[14:50:26]: server[2]: finished reading data from sd 9
+[14:50:26]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:50:26]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:50:26]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 18384
+[14:50:26]: server[2]: sent 18500/18500 bytes to sd 9
+[14:50:36]: server[2]: closed sd 9 by timeout
+[14:53:25]: server[2]: new connection from 127.0.0.1:55567, sd: 9
+[14:53:25]: server[2]: got 1240 bytes from sd 9
+[14:53:25]: server[2]: finished reading data from sd 9
+[14:53:25]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:53:25]: server[2]: new connection from 127.0.0.1:55568, sd: 10
+[14:53:25]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:53:25]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 6793
+[14:53:25]: server[2]: sent 6908/6908 bytes to sd 9
+[14:53:35]: server[2]: closed sd 9 by timeout
+[14:54:29]: server[2]: new connection from 127.0.0.1:55849, sd: 9
+[14:54:29]: server[2]: closed sd 10 by timeout
+[14:54:29]: server[2]: new connection from 127.0.0.1:55850, sd: 10
+[14:54:29]: server[2]: got 1254 bytes from sd 9
+[14:54:29]: server[2]: finished reading data from sd 9
+[14:54:29]: server[2]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8081
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Referer:  http://127.0.0.1:8081/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:54:29]: server[2]: the file ./resources/8081/22.png was sucsessfully opened, sd 9
+[14:54:29]: server[2]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/png; charset=utf-8
+	Content-Length: 6793
+[14:54:29]: server[2]: sent 6908/6908 bytes to sd 9
+[14:54:39]: server[2]: closed sd 9 by timeout
+[14:54:39]: server[1]: new connection from 127.0.0.1:55895, sd: 9
+[14:54:39]: server[2]: closed sd 10 by timeout
+[14:54:39]: server[1]: new connection from 127.0.0.1:55896, sd: 10
+[14:54:39]: server[1]: got 1214 bytes from sd 9
+[14:54:39]: server[1]: finished reading data from sd 9
+[14:54:39]: server[1]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET  HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:54:39]: server[1]: the file ./resources/8080/index.html was sucsessfully opened, sd 9
+[14:54:39]: server[1]: prepared answer to sd 9:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 1354
+[14:54:39]: server[1]: sent 1469/1469 bytes to sd 9
+[14:54:39]: server[1]: got 1137 bytes from sd 10
+[14:54:39]: server[1]: finished reading data from sd 10
+[14:54:39]: server[1]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET logo.jpg HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8080/
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:54:39]: server[1]: the file ./resources/8080/logo.jpg was sucsessfully opened, sd 10
+[14:54:39]: server[1]: prepared answer to sd 10:
+	HTTP/1.1 200 OK
+	Server: "Cool Webserver"
+	Content-Type: image/pjpeg; charset=utf-8
+	Content-Length: 6001
+[14:54:39]: server[1]: sent 6118/6118 bytes to sd 10
+[14:54:49]: server[1]: closed sd 9 by timeout
+[14:54:49]: server[1]: closed sd 10 by timeout
+[14:56:47]: server[1]: new connection from 127.0.0.1:56442, sd: 9
+[14:56:47]: server[1]: got 1229 bytes from sd 9
+[14:56:47]: server[1]: finished reading data from sd 9
+[14:56:47]: server[1]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET uhoijlkjh/nvbjn HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:56:47]: server[1]: new connection from 127.0.0.1:56443, sd: 10
+[14:56:47]: server[1]: 1Error! Can not open the file ./resources/8080/uhoijlkjh/nvbjn, sd 9
+[14:56:47]: server[1]: prepared answer to sd 9:
+	HTTP/1.1 404 Not Found
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 2310
+[14:56:47]: server[1]: sent 2431/2431 bytes to sd 9
+[14:56:48]: server[1]: got 1162 bytes from sd 10
+[14:56:48]: server[1]: finished reading data from sd 10
+[14:56:48]: server[1]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET uhoijlkjh/logo.jpg HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8080/uhoijlkjh/nvbjn
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:56:48]: server[1]: 1Error! Can not open the file ./resources/8080/uhoijlkjh/logo.jpg, sd 10
+[14:56:48]: server[1]: prepared answer to sd 10:
+	HTTP/1.1 404 Not Found
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 2310
+[14:56:48]: server[1]: sent 2431/2431 bytes to sd 10
+[14:56:57]: server[1]: closed sd 9 by timeout
+[14:56:57]: server[1]: closed sd 10 by timeout
+[14:58:46]: server[1]: new connection from 127.0.0.1:56942, sd: 9
+[14:58:46]: server[1]: got 1255 bytes from sd 9
+[14:58:46]: server[1]: finished reading data from sd 9
+[14:58:46]: server[1]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET uhoijlkjh/nvbjn HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:58:46]: server[1]: new connection from 127.0.0.1:56943, sd: 10
+[14:58:46]: server[1]: 1Error! Can not open the file ./resources/8080/uhoijlkjh/nvbjn, sd 9
+[14:58:46]: server[1]: prepared answer to sd 9:
+	HTTP/1.1 404 Not Found
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 2310
+[14:58:46]: server[1]: sent 2431/2431 bytes to sd 9
+[14:58:46]: server[1]: got 1162 bytes from sd 10
+[14:58:46]: server[1]: finished reading data from sd 10
+[14:58:46]: server[1]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET uhoijlkjh/logo.jpg HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8080/uhoijlkjh/nvbjn
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[14:58:46]: server[1]: 1Error! Can not open the file ./resources/8080/uhoijlkjh/logo.jpg, sd 10
+[14:58:46]: server[1]: prepared answer to sd 10:
+	HTTP/1.1 404 Not Found
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 2310
+[14:58:46]: server[1]: sent 2431/2431 bytes to sd 10
+[14:58:55]: server[1]: closed sd 9 by timeout
+[14:58:56]: server[1]: closed sd 10 by timeout
+[15:00:25]: server[1]: new connection from 127.0.0.1:57365, sd: 9
+[15:00:25]: server[1]: got 1255 bytes from sd 9
+[15:00:25]: server[1]: finished reading data from sd 9
+[15:00:25]: server[1]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET uhoijlkjh/nvbjn HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[15:00:25]: server[1]: new connection from 127.0.0.1:57366, sd: 10
+[15:00:25]: server[1]: 1Error! Can not open the file ./resources/8080/uhoijlkjh/nvbjn, sd 9
+[15:00:25]: server[1]: prepared answer to sd 9:
+	HTTP/1.1 404 Not Found
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 2319
+[15:00:25]: server[1]: sent 2440/2440 bytes to sd 9
+[15:00:35]: server[1]: closed sd 9 by timeout
+[15:00:53]: server[1]: new connection from 127.0.0.1:57487, sd: 9
+[15:00:53]: server[1]: closed sd 10 by timeout
+[15:00:53]: server[1]: got 1255 bytes from sd 9
+[15:00:53]: server[1]: finished reading data from sd 9
+[15:00:53]: server[1]: data from sd 9:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET uhoijlkjh/nvbjn HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	Cache-Control:  max-age=0
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	sec-ch-ua-platform:  "macOS"
+	Upgrade-Insecure-Requests:  1
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+	Sec-Fetch-Site:  none
+	Sec-Fetch-Mode:  navigate
+	Sec-Fetch-User:  ?1
+	Sec-Fetch-Dest:  document
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[15:00:53]: server[1]: 1Error! Can not open the file ./resources/8080/uhoijlkjh/nvbjn, sd 9
+[15:00:53]: server[1]: prepared answer to sd 9:
+	HTTP/1.1 404 Not Found
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 2310
+[15:00:53]: server[1]: sent 2431/2431 bytes to sd 9
+[15:00:53]: server[1]: new connection from 127.0.0.1:57488, sd: 10
+[15:00:53]: server[1]: got 1162 bytes from sd 10
+[15:00:53]: server[1]: finished reading data from sd 10
+[15:00:53]: server[1]: data from sd 10:
+	✧✧✧✧✧header:✧✧✧✧✧
+	GET uhoijlkjh/logo.jpg HTTP/1.1
+	Host:  127.0.0.1:8080
+	Connection:  keep-alive
+	sec-ch-ua:  " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"
+	sec-ch-ua-mobile:  ?0
+	User-Agent:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36
+	sec-ch-ua-platform:  "macOS"
+	Accept:  image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+	Sec-Fetch-Site:  same-origin
+	Sec-Fetch-Mode:  no-cors
+	Sec-Fetch-Dest:  image
+	Referer:  http://127.0.0.1:8080/uhoijlkjh/nvbjn
+	Accept-Encoding:  gzip, deflate, br
+	Accept-Language:  ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+	Cookie:  np_userId=fdf0737c5e690bb11182b6b60b60975; _gcl_au=1.1.1520047730.1664704572; _ga=GA1.1.1628093634.1664704572; _fbp=fb.3.1664940538629.984875021; amplitude_id_878f4709123a5451aff838c1f870b849127.0.0.1=eyJkZXZpY2VJZCI6IjY5NjkyM2M3LTJkNjctNDJkOC05ZWUyLWFhZDRjNTI2MTdkZlIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NTMwMjc3MDc3MSwibGFzdEV2ZW50VGltZSI6MTY2NTMwMjc3MDc3MSwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; UserCountryCode=RU; _ga_T7WWB0T53W=GS1.1.1665302770.16.0.1665302855.0
+	✧✧✧✧✧body:✧✧✧✧✧
+	
+[15:00:53]: server[1]: 1Error! Can not open the file ./resources/8080/uhoijlkjh/logo.jpg, sd 10
+[15:00:53]: server[1]: prepared answer to sd 10:
+	HTTP/1.1 404 Not Found
+	Server: "Cool Webserver"
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 2310
+[15:00:53]: server[1]: sent 2431/2431 bytes to sd 10
+[15:01:03]: server[1]: closed sd 9 by timeout
+[15:01:03]: server[1]: closed sd 10 by timeout
+[15:02:07]: Webserver stopped by Ctrl+C. Buy!
+ ---------------------- 
