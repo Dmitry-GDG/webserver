@@ -118,7 +118,7 @@ clean:
 #	@rm -rf client
 #	@rm -rf YoupiBanane/put_here
 #	@echo "\033[0m"
-	@echo "\t$(GRNS) $(TICK) $(NAME) was cleaned!$(END)] $(NC)"
+	@echo "\t$(GRNS) $(TICK) $(NAME) was cleaned!$(END) $(NC)"
 #	@make -C bonus clean
 
 fclean: clean
@@ -127,7 +127,7 @@ fclean: clean
 	@rm -f $(NAME)
 #	@echo "\033[0m"
 #	@echo "\033[0mDone !"
-	@echo "\t$(GRNS) $(TICK) $(NAME) was fcleaned!$(END)] $(NC)"
+	@echo "\t$(GRNS) $(TICK) $(NAME) was fcleaned!$(END) $(NC)"
 #	@make -C bonus ffclean
 
 re: fclean all
