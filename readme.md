@@ -67,6 +67,12 @@ git push
 - добавление файла (папки с файлами) в бинарном виде в ответ (GT 45)
 
 ### Хронология изменений:
+11/10 #Д#
+Работаю над картинками в 404:
+- findLastSlashInAddress
+- _findReferer;
+- надо: использовать connection->referer в случае 404 (SR_GET-265);
+
 10/10 #Д#
 - браузхеры с keep-alive засоряют sd: я решил их отключать по таймауту, чтоб чистить sd (# define TIMEOUT в main.hpp)
 - пофиксил readFileToStrInBinary в utility

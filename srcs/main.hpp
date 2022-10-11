@@ -81,6 +81,7 @@ void	printMsg(int srvNb, int clntSd, std::string msg1, std::string msg2);
 void	printMsgErr(int srvNb, int clntSd, std::string msg1, std::string msg2);
 void	printMsgToLogFile(int srvNb, int clntSd, std::string msg1, std::string msg2);
 void	readFileToStrInBinary(const char * path, std::string & outp);
+size_t	findLastSlashInAddress(std::string addr);
 
 void	printServerConfig(t_config config, std::string msg);
 void	printWebServer(ServerRouter, std::string msg);

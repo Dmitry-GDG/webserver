@@ -85,8 +85,8 @@ typedef struct s_response
 	std::string		fileToSendInBinary;
 	ssize_t			lenAnswer;
 	ssize_t 		lenSent;
-	std::string		pathExcludeInErr;
-	std::string		pathIncludeBeginInErr;
+	// std::string		pathExcludeInErr;
+	// std::string		pathIncludeBeginInErr;
 	// char			buf[BUF_SIZE];
 
 } t_response;
@@ -111,6 +111,7 @@ typedef struct s_connection
 	std::map<std::string, std::string>	contentTypesAll;
 	t_inputdata			inputData;
 	t_response			responseData;
+	std::string			referer;
 } t_connection;
 
 typedef struct s_location

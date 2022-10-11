@@ -425,6 +425,11 @@ int ServerRouter::_readSd(t_connection * connection)
 				connection->inputStrHeader += tmp.substr (0, pos);
 				connection->requestProcessingStep = READING_BODY;
 				connection->responseData.statusCode = "100";
+				#ifdef DEBUGMODE
+					std::vector<std::string> tmpInputStrHeaderVec;
+					splitString(connection->inputStrHeader, '\n', tmpInputStrHeaderVec);
+					std::cout << VIOLET << " DEBUGMODE SR _readSd connection->inputStrHeader \nconnection->inputStrHeader[0]: " << NC << tmpInputStrHeaderVec[0] << "\n------------" << std::endl;
+				#endif
 
 				if (!_parseInputDataHeader(connection))
 				{
@@ -644,10 +649,19 @@ std::string	ServerRouter::_addressDecode(std::string const & address)
 	return outp;
 }
 
-std::string	ServerRouter::_extractLocalAddress(std::string const & address)
+std::string ServerRouter::_extractLocalAddress(std::string const & address)
 {
 	size_t pos = address.find('/');
 	return address.substr(pos + 1);
+}
+
+void ServerRouter::_findReferer(t_connection * connection)
+{
+	for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter < connection->inputData.headerFieldsVec.end(); iter++)
+	{
+		if ((*iter).first.find("Referer") != std::string::npos)
+			connection->referer = (*iter).second;
+	}
 }
 
 t_connection * ServerRouter::_getConnection(int clntSd)

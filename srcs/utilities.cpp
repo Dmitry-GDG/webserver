@@ -284,8 +284,8 @@ void connectionResponseDataClear(t_connection & connection)
 	connection.responseData.lenAnswer = 0;
 	connection.responseData.fileToSendInBinary.clear();
 	connection.responseData.connectionAnswer.clear();
-	connection.responseData.pathExcludeInErr.clear();
-	connection.responseData.pathIncludeBeginInErr.clear();
+	// connection.responseData.pathExcludeInErr.clear();
+	// connection.responseData.pathIncludeBeginInErr.clear();
 }
 
 void connectionClear(t_connection & connection)
@@ -300,6 +300,7 @@ void connectionClear(t_connection & connection)
 	connection.allowedMethods.clear();
 	connection.responseStatusCodesAll.clear();
 	connection.contentTypesAll.clear();
+	connection.referer.clear();
 	connectionInputDataClear(connection);
 	connectionResponseDataClear(connection);
 }
@@ -358,4 +359,14 @@ void readFileToStrInBinary(const char * pathChar, std::string & outp)
 				outp += "\n";
 		}
 	}
+}
+
+size_t findLastSlashInAddress(std::string addr)
+{
+	size_t pos = 0;
+	size_t posLast = 0;
+
+	for ( pos = addr.find("/", pos++); pos != std::string::npos; pos = addr.find("/", pos + 1))
+		posLast = pos;
+	return posLast;
 }

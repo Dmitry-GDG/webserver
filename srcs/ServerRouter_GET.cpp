@@ -56,15 +56,17 @@ void ServerRouter::_addFile404(std::string & contentTypeAndLengthAndData, t_conn
 	std::string path = "";
 	// std::string pathNew = path + "404.html";
 
-	size_t pos = 0;
-	size_t posLast = 0;
-	// while (pos != std::string::npos)
-	// {
-	// 	pos = connection->inputData.address.find("\\");
-	// }
+	// size_t pos = 0;
+	// size_t posLast = 0;
+	// // while (pos != std::string::npos)
+	// // {
+	// // 	pos = connection->inputData.address.find("\\");
+	// // }
 
-	for ( pos = connection->inputData.address.find("/", pos++); pos != std::string::npos; pos = connection->inputData.address.find("/", pos + 1))
-		posLast = pos;
+	// for ( pos = connection->inputData.address.find("/", pos++); pos != std::string::npos; pos = connection->inputData.address.find("/", pos + 1))
+	// 	posLast = pos;
+
+	size_t posLast = findLastSlashInAddress(connection->inputData.address);
 	// std::cout << RED << "posLast: " << posLast << NC << "\n";
 	std::string addressFolder = connection->inputData.address.substr(0, posLast);
 
@@ -112,13 +114,11 @@ void ServerRouter::_addFile404(std::string & contentTypeAndLengthAndData, t_conn
 	std::cout << RED << "path == " << path << NC << "\n";
 	std::cout << RED << "connection->inputData.address == " << connection->inputData.address << NC << "\n";
 	std::cout << RED << "addressFolder == " << addressFolder << NC << "\n";
-	connection->responseData.pathExcludeInErr = addressFolder;
-	pos = 0;
-	posLast = 0;
-	for ( pos = path.find("/", pos++); pos != std::string::npos; pos = path.find("/", pos + 1))
-		posLast = pos;
+	// connection->responseData.pathExcludeInErr = addressFolder;
+
+	posLast = findLastSlashInAddress(path);
 	// std::cout << RED << "posLast: " << posLast << NC << "\n";
-	connection->responseData.pathIncludeBeginInErr = path.substr(0, posLast);
+	// connection->responseData.pathIncludeBeginInErr = path.substr(0, posLast);
 
 	// std::string seperator = 
 	//  splitStringStr(path, std::string seperator, connection->responseData.pathIncludeInErr);
@@ -195,17 +195,17 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t
 	// std::string path = server.getConfig().listen + connection->inputdata.address;
 	// std::string path = "./" + connection->inputData.address;
 
-	std::string path = "./";
+	std::string pathToServer = "./";
 
 	size_t i;
 	if (server.getConfig().root != "")
-		path += server.getConfig().root + "/";
+		pathToServer += server.getConfig().root + "/";
 	for (i = 0; i < server.getConfig().locations.size(); i++)
 	{
 		if (connection->inputData.address == server.getConfig().locations[i].path)
 		{
 			if (server.getConfig().locations[i].root != "")
-				path += server.getConfig().locations[i].root + "/";
+				pathToServer += server.getConfig().locations[i].root + "/";
 	// 		if (server.getConfig().locations[i].index != "")
 	// 			path += server.getConfig().locations[i].index;
 	// 		else
@@ -221,7 +221,15 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t
 	// 		path += "index.html";
 	// }
 
-	path += connection->inputData.address;
+	#ifdef DEBUGMODE
+		std::cout << VIOLET << " DEBUGMODE SR_GET _addFileToAnswer pathToServer \n0pathToServer: " << NC << pathToServer << "\n------------" << std::endl;
+	#endif
+	std::string path = pathToServer + connection->inputData.address;
+	_findReferer(connection);
+	#ifdef DEBUGMODE
+		std::cout << VIOLET << " DEBUGMODE SR_GET _addFileToAnswer refer \nReferer: " << NC << connection->referer << "\n------------" << std::endl;
+	#endif
+	// std::string fileName = 
 
 	// size_t i;
 	// for (i = 0; i < server.getConfig().locations.size(); i++)
@@ -244,12 +252,17 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t
 	// }
 
 	const char * pathChar = path.c_str();
+	// #ifdef DEBUGMODE
+	// 	std::cout << VIOLET << " DEBUGMODE SR_GET _addFileToAnswer path \n1path: " << NC << path << "\n------------" << std::endl;
+	// #endif
+
 	struct stat buf;
 	
 	lstat(pathChar, & buf);
 	FILE * fileOpen = fopen(pathChar, "rb"); //r - read only, b - in binary
 	if (fileOpen == NULL)
 	{
+		//ИСПОЛЬЗОВАТЬ referer
 		// if (_ifErrPages(connection))
 		// {
 		// 	std::vector<std::string> errPathParts;
