@@ -16,7 +16,7 @@ void exitErr(std::string errmsg)
 {
 	std::cerr << "\r" << REV << errmsg << std::endl;
 	printMsgToLogFile(-1, -1, errmsg, "");
-	printMsgToLogFile(-1, -1, "Webserver stopped by error. Buy!\n ----------------------", "");
+	printMsgToLogFile(-1, -1, "Webserver stopped by error. Buy!\n----------------------", "");
 	exit (EXIT_FAILURE);
 }
 
@@ -301,6 +301,7 @@ void connectionClear(t_connection & connection)
 	connection.responseStatusCodesAll.clear();
 	connection.contentTypesAll.clear();
 	connection.referer.clear();
+	connection.pathTo404.clear();
 	connectionInputDataClear(connection);
 	connectionResponseDataClear(connection);
 }

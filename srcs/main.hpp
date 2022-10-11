@@ -17,7 +17,7 @@
 # define REV "\033[7m"
 // # define BLACK "\033[0;30m"
 # define BLACKS "\033[2;30m"
-// # define BLUE "\033[0;34m"
+# define BLUE "\033[0;34m"
 # define BLUS "\033[2;34m"
 # define GREEN "\033[0;32m"
 # define GREENS "\033[2;32m"

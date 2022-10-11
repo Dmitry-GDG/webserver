@@ -77,6 +77,7 @@ class ServerRouter
 		std::string	_addressDecode(std::string const & address);
 		std::string	_extractLocalAddress(std::string const & address);
 		void	_findReferer(t_connection *);
+		void	_findPath404(t_connection *);
 		// void	_addStatusCode(std::string & answer, t_connection * connection, std::string code);
 
 		bool	_checkDelimeterAtTheEnd(std::string str);

@@ -11,9 +11,9 @@ void printAllServersConfig(std::vector<t_config> configs, std::string msg)
 	{
 		std::cout << "Server Nr " << i << std::endl;
 		printServerConfig(configs[i], "");
-		std::cout << "-------------------------" << std::endl;
+		std::cout << "----------------------" << std::endl;
 	}
-	std::cout << "----------------" << std::endl;
+	std::cout << "----------------------" << std::endl;
 }
 
 void printVector(std::vector<std::string> data, std::string msg)
@@ -41,7 +41,7 @@ void printVector(std::vector<std::string> data, std::string msg)
 	// }
 	std::cout << std::endl;
 	if (msg != "")
-		std::cout << "----------------" << std::endl;
+		std::cout << "----------------------" << std::endl;
 }
 
 void printVectorEnter(std::vector<std::string> data, std::string msg)
@@ -63,7 +63,7 @@ void printVectorEnter(std::vector<std::string> data, std::string msg)
 	}
 	std::cout << std::endl;
 	if (msg != "")
-		std::cout << "----------------" << std::endl;
+		std::cout << "----------------------" << std::endl;
 }
 
 void printVVector(std::vector<std::vector<std::string> > data, std::string msg)
@@ -75,7 +75,7 @@ void printVVector(std::vector<std::vector<std::string> > data, std::string msg)
 	for (std::vector<std::vector<std::string> >::iterator iter = data.begin(); iter < data.end(); iter++)
 		printVector(*iter, "");
 	std::cout << std::endl;
-	std::cout << "----------------" << std::endl;
+	std::cout << "----------------------" << std::endl;
 }
 
 void printAllServersVector(std::vector<Server> servers, std::string msg)
@@ -89,10 +89,10 @@ void printAllServersVector(std::vector<Server> servers, std::string msg)
 	{
 		std::cout << "Server Nr " << i << std::endl;
 		printServerConfig((*iter).getConfig(), "");
-		std::cout << "-------------------------" << std::endl;
+		std::cout << "----------------------" << std::endl;
 		i++;
 	}
-	std::cout << "----------------" << std::endl;
+	std::cout << "----------------------" << std::endl;
 }
 
 void printPollfds(const pollfd *pfds, std::string msg, size_t pSize)
@@ -103,7 +103,7 @@ void printPollfds(const pollfd *pfds, std::string msg, size_t pSize)
 		std::cout << VIOLET << " printPollfds " << NC << std::endl;
 	for (size_t i = 0; i < pSize; i++)
 		std::cout << "_pollfds[" << i << "]: sd=_pollfds.fd = " << pfds[i].fd << ", _pollfds.events = " << pfds[i].events << ", _pollfds.revents = " << pfds[i].revents << std::endl;
-	std::cout << "----------------" << std::endl;
+	std::cout << "----------------------" << std::endl;
 }
 
 void printServerConfig(t_config config, std::string msg)
@@ -197,7 +197,7 @@ void printServerConfig(t_config config, std::string msg)
 			}
 		}
 	}
-	std::cout << "----------------" << std::endl;
+	std::cout << "----------------------" << std::endl;
 }
 
 void printConnection(t_connection connection, std::string msg, int sign)
@@ -279,7 +279,7 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	if (connection.inputStrBody.size() > 0)
 		std::cout << "+++++++\n" << GREEN << "Input str Body:\n" << NC << connection.inputStrBody << std::endl;
 
-	std::cout << "+++++++\n----------------" << std::endl;
+	std::cout << "+++++++\n----------------------" << std::endl;
 }
 
 // void printConnection(t_connection * connection, std::string msg, int sign)
@@ -333,7 +333,7 @@ void printConnection(t_connection connection, std::string msg, int sign)
 // 	if (connection->inputStr.size() > 0)
 // 		std::cout << "Input str:\n" << connection->inputStr << std::endl;
 
-// 	std::cout << "----------------" << std::endl;
+// 	std::cout << "----------------------" << std::endl;
 // }
 
 void printAllConnections(std::vector<t_connection> connections, std::string msg)
@@ -347,7 +347,7 @@ void printAllConnections(std::vector<t_connection> connections, std::string msg)
 		for (std::vector<t_connection>::iterator iter = connections.begin(); iter < connections.end(); iter++)
 			printConnection((*iter), "", 0);
 	}
-	std::cout << "----------------" << std::endl;
+	std::cout << "----------------------" << std::endl;
 }
 
 void printWebServer(ServerRouter data, std::string msg)
@@ -389,7 +389,7 @@ void printWebServer(ServerRouter data, std::string msg)
 	// }
 	std::cout << "Quantuty of poiifds:\t" << data.getPollfdsQty() << std::endl;
 	printPollfds(data.getPollfds(), "",  data.getPollfdsQty());
-	std::cout << "----------------" << std::endl;
+	std::cout << "----------------------" << std::endl;
 }
 
 void printVectorPair(std::vector<std::pair<std::string, std::string> > vec, std::string msg)

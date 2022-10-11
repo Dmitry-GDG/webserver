@@ -410,7 +410,7 @@ int ServerRouter::_readSd(t_connection * connection)
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		// #ifdef DEBUGMODE
-		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd buf \nbuf: " << NC << buf << "\n------------" << std::endl;
+		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd buf \nbuf: " << NC << buf << "\n----------------------" << std::endl;
 		// #endif
 
 		connection->inputStr += buf;
@@ -428,7 +428,7 @@ int ServerRouter::_readSd(t_connection * connection)
 				#ifdef DEBUGMODE
 					std::vector<std::string> tmpInputStrHeaderVec;
 					splitString(connection->inputStrHeader, '\n', tmpInputStrHeaderVec);
-					std::cout << VIOLET << " DEBUGMODE SR _readSd connection->inputStrHeader \nconnection->inputStrHeader[0]: " << NC << tmpInputStrHeaderVec[0] << "\n------------" << std::endl;
+					std::cout << VIOLET << " DEBUGMODE SR _readSd connection->inputStrHeader \nconnection->inputStrHeader[0]: " << NC << tmpInputStrHeaderVec[0] << "\n----------------------" << std::endl;
 				#endif
 
 				if (!_parseInputDataHeader(connection))
@@ -441,7 +441,7 @@ int ServerRouter::_readSd(t_connection * connection)
 
 				_findConnectionLenBody(connection);
 				#ifdef DEBUGMODE
-					std::cout << VIOLET << " DEBUGMODE SR _readSd connection->lenBody \nconnection->lenBody: " << NC << connection->lenBody << "\n------------" << std::endl;
+					std::cout << VIOLET << " DEBUGMODE SR _readSd connection->lenBody \nconnection->lenBody: " << NC << connection->lenBody << "\n----------------------" << std::endl;
 				#endif
 				if (connection->lenBody > 0)
 				{
@@ -613,13 +613,13 @@ bool ServerRouter::_isSocketServer(int fd)
 		if ((*iter).getSd() == fd)
 		{
 			// #ifdef DEBUGMODE
-			// 	std::cout << "-------------------------" << std::endl;
+			// 	std::cout << "----------------------" << std::endl;
 			// #endif
 			return true;
 		}
 	}
 	// #ifdef DEBUGMODE
-	// 	std::cout << "-------------------------" << std::endl;
+	// 	std::cout << "----------------------" << std::endl;
 	// #endif
 	return false;
 }
@@ -653,6 +653,64 @@ std::string ServerRouter::_extractLocalAddress(std::string const & address)
 {
 	size_t pos = address.find('/');
 	return address.substr(pos + 1);
+}
+
+void ServerRouter::_findPath404(t_connection * connection)
+{
+	Server server = _getServer(connection->srvNbr);
+	bool found404 = false;
+	std::string path = "";
+	size_t posLast = findLastSlashInAddress(connection->inputData.address);
+	// std::cout << RED << "posLast: " << posLast << NC << "\n";
+	std::string addressFolder = connection->inputData.address.substr(0, posLast);
+
+	if (server.getConfig().root != "")
+		path += server.getConfig().root + "/";
+	size_t i;
+	for (i = 0; i < server.getConfig().locations.size(); i++)
+	{
+		// std::cout << RED << addressFolder << "\t" << server.getConfig().locations[i].path << NC << "\n";
+		if (addressFolder == server.getConfig().locations[i].path)
+		{
+			if (server.getConfig().locations[i].root != "")
+				path += server.getConfig().locations[i].root + "/";
+			if (server.getConfig().locations[i].error_pages.size() > 0)
+			{
+				for (std::map<std::string, std::string>::const_iterator iter = server.getConfig().locations[i].error_pages.begin(); iter != server.getConfig().locations[i].error_pages.end(); iter++)
+				{
+					// std::cout << RED << "1(*iter).first == " << (*iter).first << "\t1(*iter).second == " << (*iter).second << NC << "\n";
+					if ((*iter).first == "404" && (*iter).second != "")
+					{
+						path += (*iter).second;
+						found404 = true;
+					}
+				}
+
+			}
+		}
+	}
+	if (!found404)
+	{
+		if (server.getConfig().error_pages.size() > 0)
+		{
+			for (std::map<std::string, std::string>::const_iterator iter = server.getConfig().error_pages.begin(); iter != server.getConfig().error_pages.end(); iter++)
+			{
+				// std::cout << RED << "(*iter).first == " << (*iter).first << "\t(*iter).second == " << (*iter).second << NC << "\n";
+				if ((*iter).first == "404" && (*iter).second != "")
+				{
+					path += (*iter).second;
+					found404 = true;
+				}
+			}
+
+		}
+	}
+	connection->pathTo404 = path;
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED << "path == " << path << NC << "\n";
+	// 	std::cout << RED << "connection->inputData.address == " << connection->inputData.address << NC << "\n";
+	// 	std::cout << RED << "addressFolder == " << addressFolder << NC << "\n";
+	// #endif
 }
 
 void ServerRouter::_findReferer(t_connection * connection)
@@ -704,7 +762,7 @@ void ServerRouter::_checkTimeout()
 	for (std::vector<t_connection>::iterator iter = _connections.begin(); iter < _connections.end(); iter++)
 	{
 		// #ifdef DEBUGMODE
-		// 	std::cout << VIOLET << " DEBUGMODE SR _checkTimeout \ntime now: " << NC << tm1.tv_sec << "\tlastActivityTime: " << (*iter).lastActivityTime << "\tTIMEOUT: " << TIMEOUT << "\n--------" << std::endl;
+		// 	std::cout << VIOLET << " DEBUGMODE SR _checkTimeout \ntime now: " << NC << tm1.tv_sec << "\tlastActivityTime: " << (*iter).lastActivityTime << "\tTIMEOUT: " << TIMEOUT << "\n----------------------" << std::endl;
 		// #endif
 		bool keepAlive = false;
 		// for (std::map<std::string, std::string>::iterator iterF = (*iter).inputData.headerFields.begin(); iterF != (*iter).inputData.headerFields.end(); iterF++)

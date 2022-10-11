@@ -72,6 +72,8 @@ git push
 - findLastSlashInAddress
 - _findReferer;
 - надо: использовать connection->referer в случае 404 (SR_GET-265);
+Сделал картинки 404
+- подправил принты во всех файлах
 
 10/10 #Д#
 - браузхеры с keep-alive засоряют sd: я решил их отключать по таймауту, чтоб чистить sd (# define TIMEOUT в main.hpp)

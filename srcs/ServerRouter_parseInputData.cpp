@@ -109,7 +109,7 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 
 	_delWhiteSpacesStr(inpt);
 	// #ifdef DEBUGMODE
-	// 	std::cout << " DEBUGMODE parseInputData \nInput: " << inpt << ", size: " << inpt.size() << "\n-------------" << std::endl;
+	// 	std::cout << " DEBUGMODE parseInputData \nInput: " << inpt << ", size: " << inpt.size() << "\n----------------------" << std::endl;
 	// #endif
 
 	// std::vector<std::string> headerBody;
@@ -143,12 +143,12 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 	// 		std::cout << j << "\t" << *iter << "\t" << (int)(*iter) << std::endl;
 	// 		j++;
 	// 	}
-	// 	std::cout << "---------------" << std::endl;
+	// 	std::cout << "----------------------" << std::endl;
 	// #endif
 
 	_delWhiteSpacesStr(inptStr);
 	// #ifdef DEBUGMODE
-	// 	std::cout << "DEBUGMODE parseInputData _delWhiteSpacesStr(inptStr)/n/tintpstr: " << inptstr << "\n------------\n";
+	// 	std::cout << "DEBUGMODE parseInputData _delWhiteSpacesStr(inptStr)/n/tintpstr: " << inptstr << "\n----------------------\n";
 	// #endif
 	// msg = "data from sd ";
 	// printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + inptStr);
@@ -184,17 +184,17 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 		// connection->inputData.address = correctSlashInAddress(*iter);
 		std::string addr = correctSlashInAddress(*iter);
 		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \naddr: " << NC << addr << "\n--------\n";
+			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \naddr: " << NC << addr << "\n----------------------\n";
 		#endif
 		size_t pos = addr.find('?');
 		if (pos != std::string::npos)
 			connection->inputData.addressParamsStr = addr.substr(pos + 1);
 		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \nconnection->inputData.addressParamsStr: " << NC << connection->inputData.addressParamsStr << "\n--------\n";
+			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \nconnection->inputData.addressParamsStr: " << NC << connection->inputData.addressParamsStr << "\n----------------------\n";
 		#endif
 		connection->inputData.address = _addressDecode(addr);
 		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \nconnection->inputData.address: " << NC << connection->inputData.address << "\n--------\n";
+			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \nconnection->inputData.address: " << NC << connection->inputData.address << "\n----------------------\n";
 		#endif
 		iter++;
 		connection->inputData.httpVersion = *iter;
@@ -252,8 +252,8 @@ void ServerRouter::_findConnectionLenBody(t_connection * connection)
 		{
 			connection->lenBody = stoll ((*iterM).second);
 			// #ifdef DEBUGMODE
-			// 	std::cout << " DEBUGMODE SR_PID _findConnectionLenBody \n(*iterM).second: " << (*iterM).second << "\n------------" << std::endl;
-			// 	std::cout << " DEBUGMODE SR_PID _findConnectionLenBody \nconnection->lenBody: " << connection->lenBody << "\n------------" << std::endl;
+			// 	std::cout << " DEBUGMODE SR_PID _findConnectionLenBody \n(*iterM).second: " << (*iterM).second << "\n----------------------" << std::endl;
+			// 	std::cout << " DEBUGMODE SR_PID _findConnectionLenBody \nconnection->lenBody: " << connection->lenBody << "\n----------------------" << std::endl;
 			// #endif
 		}
 	}

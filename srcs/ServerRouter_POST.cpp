@@ -10,10 +10,10 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 		path += server.getConfig().root + "/";
 	path += _extractLocalAddress(connection->inputData.address);
 	// #ifdef DEBUGMODE
-	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer path \npath: " << NC << path << "\n--------\n";
+	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer path \npath: " << NC << path << "\n----------------------\n";
 	// #endif
 	// #ifdef DEBUGMODE
-	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer body \nbody:\n" << NC << connection->inputStrBody << "\n--------\n";
+	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer body \nbody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
 	// #endif
 
 	_parseInputBodyStr(connection);
@@ -110,7 +110,7 @@ void ServerRouter::_parseInputBodyStr(t_connection * connection)
 void ServerRouter::_choosePostContentType(t_connection * connection)
 {
 	// #ifdef DEBUGMODE
-	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType 0 \npostContentType: " << NC << connection->inputData.postContentType << "\n--------\n";
+	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType 0 \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
 	// #endif
 	for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter < connection->inputData.headerFieldsVec.end(); iter++)
 	{
@@ -125,6 +125,6 @@ void ServerRouter::_choosePostContentType(t_connection * connection)
 		}
 	}
 	// #ifdef DEBUGMODE
-	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType \npostContentType: " << NC << connection->inputData.postContentType << "\n--------\n";
+	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
 	// #endif
 }

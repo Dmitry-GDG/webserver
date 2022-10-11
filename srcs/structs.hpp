@@ -112,6 +112,7 @@ typedef struct s_connection
 	t_inputdata			inputData;
 	t_response			responseData;
 	std::string			referer;
+	std::string			pathTo404;
 } t_connection;
 
 typedef struct s_location
