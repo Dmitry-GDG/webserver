@@ -117,14 +117,41 @@ void ServerRouter::_choosePostContentType(t_connection * connection)
 		if ((*iter).first.find("Content-Type") != std::string::npos)
 		{
 			if ((*iter).second.find("application/x-www-form-urlencoded") != std::string::npos)
+			{
 				connection->inputData.postContentType = URLENCODED;
+				_postUrlencoded(connection);
+			}
 			else if ((*iter).second.find("multipart/form-data") != std::string::npos)
+			{
 				connection->inputData.postContentType = FORM_DATA;
+				_postFormData(connection);
+			}
 			else if ((*iter).second.find("multipart/mixed") != std::string::npos)
+			{
 				connection->inputData.postContentType = MIXED;
+				_postMixed(connection);
+			}
 		}
 	}
 	// #ifdef DEBUGMODE
 	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
 	// #endif
+}
+
+void ServerRouter::_postUrlencoded(t_connection * connection)
+{
+	(void) connection;
+	// connection->responseData.connectionAnswer +=
+}
+
+void ServerRouter::_postFormData(t_connection * connection)
+{
+	(void) connection;
+	// connection->responseData.connectionAnswer +=
+}
+
+void ServerRouter::_postMixed(t_connection * connection)
+{
+	(void) connection;
+	// connection->responseData.connectionAnswer +=
 }

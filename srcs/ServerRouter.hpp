@@ -69,6 +69,9 @@ class ServerRouter
 		// bool	_responseCheckMethod();
 		void	_prepareGetAnswer(t_connection *);
 		void	_preparePostAnswer(t_connection *);
+		void	_postUrlencoded(t_connection * connection);
+		void	_postFormData(t_connection * connection);
+		void	_postMixed(t_connection * connection);
 		void	_prepareDeleteAnswer(t_connection *);
 		bool	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
 		void	_addFile404(std::string & contentTypeAndLength, t_connection *);
