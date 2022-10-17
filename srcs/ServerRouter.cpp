@@ -509,6 +509,7 @@ int ServerRouter::_readSd(t_connection * connection)
 		if (connection->requestProcessingStep == READING_DONE)
 		{
 			connection->responseData.statusCode = "200";
+			_setConnectionLastActivity(connection->lastActivityTime);
 			msg = "finished reading data from sd ";
 			printMsg(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");

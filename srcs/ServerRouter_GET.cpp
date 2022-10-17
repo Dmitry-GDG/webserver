@@ -282,17 +282,26 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t
 				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer connection->inputData.address \nconnection->inputData.address: " << NC << connection->inputData.address << "\n----------------------" << std::endl;
 			#endif
 			pathWithoutRefererVec.clear();
+			#ifdef DEBUGMODE
+				std::cout << GREEN << " DEBUGMODE SR_GET _addFileToAnswer just_point \nconnection->inputData.address: " << NC << "just_point\n----------------------" << std::endl;
+			#endif
 			splitStringStr(connection->inputData.address, pathWithoutReferer, pathWithoutRefererVec);
 			#ifdef DEBUGMODE
 				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer pathWithoutRefererVec \npathWithoutRefererVec[0]: " << NC << pathWithoutRefererVec[0] << GREEN << "\tpathWithoutRefererVec[1]: " << NC << pathWithoutRefererVec[1] << "\n----------------------" << std::endl;
 			#endif
-			pathWithoutRefererTmp = pathWithoutRefererVec[1];
-			pathWithoutRefererTmp.erase(pathWithoutRefererTmp.begin());
+			// pathWithoutRefererTmp = pathWithoutRefererVec[1];
+			// pathWithoutRefererTmp.erase(pathWithoutRefererTmp.begin());
 			// std::string pathNew = pathToServer + "404/" + pathWithoutRefererTmp;
+			// _findPath404(connection);
+			// posLast = findLastSlashInAddress(connection->pathTo404);
+			// std::string pathTo404Folder = connection->pathTo404.substr(0, posLast);
+			// std::string pathNew = pathTo404Folder + "/" + pathWithoutRefererTmp;
+		
 			_findPath404(connection);
 			posLast = findLastSlashInAddress(connection->pathTo404);
 			std::string pathTo404Folder = connection->pathTo404.substr(0, posLast);
-			std::string pathNew = pathTo404Folder + "/" + pathWithoutRefererTmp;
+			std::string pathNew = pathTo404Folder + "/" + pathWithoutRefererVec[0];
+
 			#ifdef DEBUGMODE
 				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer pathNew \npathNew: " << NC << pathNew << "\n----------------------" << std::endl;
 			#endif

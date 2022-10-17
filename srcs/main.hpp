@@ -4,7 +4,7 @@
 # define NAME "webserv"
 # define WEBSERV_NAME "Cool Webserver"
 # define WEBSERV_VERSION "0.01"
-# define WEBSERV_AUTHORS "trurgot, botilia\t\t"
+# define WEBSERV_AUTHORS "trurgot                            "
 # define HOSTNAME_LENGTH 30
 # define SD_MAXCOUNT 1024
 # define BUF_SIZE 200000

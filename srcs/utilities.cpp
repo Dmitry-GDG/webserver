@@ -98,15 +98,21 @@ void splitStringStr(std::string str, std::string seperator, std::vector<std::str
 	size_t pos = 0;
 	size_t startIndex = 0;
 
-	for (pos = str.find(seperator, pos++); pos != std::string::npos; pos = str.find(seperator, pos + 1)) //????
+	std::cout << "splitStringStr0\n";
+	if (seperator != "")
 	{
-		subStr.clear();
-		subStr.append(str, startIndex, pos - startIndex);
-		strings.push_back(subStr);
-		startIndex = pos + seperator.size();
-		if (pos + seperator.size() != std::string::npos)
-			pos += (seperator.size() - 1);
+		for (pos = str.find(seperator, pos++); pos != std::string::npos; pos = str.find(seperator, pos + 1)) //????
+		{
+			std::cout << "splitStringStr1\n";
+			subStr.clear();
+			subStr.append(str, startIndex, pos - startIndex);
+			strings.push_back(subStr);
+			startIndex = pos + seperator.size();
+			if (pos + seperator.size() != std::string::npos)
+				pos += (seperator.size() - 1);
+		}
 	}
+	std::cout << "splitStringStr2\n";
 	subStr.clear();
 	subStr.append(str, startIndex, std::string::npos);
 	strings.push_back(subStr);
