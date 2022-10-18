@@ -17,3 +17,5 @@ main.sh
 objs/
 webserv
 test
+test_client/objs/
+test_client/client_webserv
