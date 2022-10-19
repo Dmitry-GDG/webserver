@@ -91,30 +91,12 @@ void Client::_post(std::string msg)
 	_makefilelist();
 	_splitCommandsPost(msg);
 	#ifdef DEBUGMODE
-		printCommandParsed(this, "commands _filesend commandParced");
+		printCommandParsed(this, "DEBUGMODE commands _filesend commandParced");
 	#endif
 	if (_commandArgs.size() < 1)
 		return _printMsgToTerminal(0, 0, "Not enough parameters. EXAMPLE: POST <filename>\n");
 	_preparePostRequest();
-	std::string buf;
-	std::string fileName = FILES_TO_SEND_DIR + _commandArgs[1];
-	std::fstream fileToSend;
-    fileToSend.open(fileName);
-    if (!fileToSend.is_open())
-        return (_printMsgToTerminal(0, 0, _commandArgs[1] + " Invalid file name\n"));
-	msg += " \n";
-    while (1)
-    {
-        std::getline(fileToSend, buf);
-        msg+= buf;
-        if (fileToSend.eof())
-            break;
-		msg += "\n";
-    }
-    fileToSend.close();
-//    std::cout << "MSG : " << msg << std::endl;
-	msg += DELIMETER;
-	_sendMsg(msg);
+	_sendMsg(_msgToSend);
 }
 
 void Client::_preparePostRequest()
@@ -126,10 +108,83 @@ void Client::_preparePostRequest()
 	_msgToSend += _port;
 	_msgToSend += " HTTP/1.1";
 	_msgToSend += DELIMETER;
-	for (size_t i = 0; i < _commandArgs.size(); i++)
+	_msgToSend += "Content-Type: ";
+	std::string fileType = _getFileType(_commandArgs[0]);
+	if (_isText(fileType) && _commandArgs.size() == 1)
 	{
+		_msgToSend += _getContentType(fileType);
+		_msgToSend += DDELIMETER;
+		std::string buf;
+		std::string fileName = FILES_TO_SEND_DIR + _commandArgs[0];
+		std::fstream fileToSend;
+		fileToSend.open(fileName);
+		if (!fileToSend.is_open())
+		{
+			_printMsgToTerminal(0, 0, _commandArgs[0] + " Invalid file name\n");
+			_msgToSend = "";
+			return;
+		}
+		// msg += " \n";
+		while (1)
+		{
+			std::getline(fileToSend, buf);
+			_msgToSend += buf;
+			if (fileToSend.eof())
+				break;
+			_msgToSend += "\n";
+		}
+		fileToSend.close();
+	//    std::cout << "MSG : " << msg << std::endl;
+		_msgToSend += DELIMETER;
+		#ifdef DEBUGMODE
+			std::cout << VIOLET << " DEBUGMODE commands _preparePostRequest " << NC << "\n_msgToSend: " << _msgToSend << "\n----------------------" << std::endl;
+		#endif
+		return ;
+	}
+	else
+	{
+		for (size_t i = 0; i < _commandArgs.size(); i++)
+		{
+
+			// void readFileToStrInBinary(const char * pathChar, std::string & outp);
+
+		}
 
 	}
+}
+
+bool Client::_isText(std::string str)
+{
+	std::string arr[] = {"abc", "acgi", "aip", "asm", "asp", "c", "c++", "cc", "com", "conf", "cpp", "css", "cxx", "def", "el", "etx", "f", "f77", "f90", "flx", "for", "g", "h", "hh", "hlb", "htc", "htm", "html", "htmls", "htt", "htx", "idc", "jav", "java", "js", "list", "log", "lst", "lsx", "m", "mar", "p", "pas", "pl", "py", "rexx", "rt", "rtf", "rtx", "s", "sdml", "sgm", "sgml", "shtml", "ssi", "talk", "tcsh", "text", "tsv", "txt", "uil", "uni", "unis", "uri", "uris", "uue", "vcs", "wml", "wmls", "wsc", "xml", "zsh"};
+	std::vector<std::string> texts(std::begin(arr), std::end(arr));
+	for (std::vector<std::string>::iterator iter = texts.begin(); iter < texts.end(); iter++)
+	{
+		if (str == *iter)
+			return true;
+	}
+	return false;
+}
+
+std::string Client::_getFileType(std::string str)
+{
+	size_t pos = str.find(".");
+	std::string outp = "";
+	if (pos != std::string::npos)
+		outp = str.erase(0, pos + 1);
+	#ifdef DEBUGMODE
+		std::cout << VIOLET << " DEBUGMODE commands _getType " << NC << "\ntype: " << outp << "\n----------------------" << std::endl;
+	#endif
+	return (outp);
+}
+
+std::string Client::_getContentType(std::string str)
+{
+	for (std::map<std::string, std::string>::iterator iter = _contentTypes.begin(); iter != _contentTypes.end(); iter++)
+	{
+		if (str == (*iter).first)
+			return (*iter).second;
+	}
+	return ("text/plain");
 }
 
 // void Client::_filesend(std::string msg)

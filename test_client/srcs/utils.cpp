@@ -35,3 +35,31 @@ std::string replaceAllDelimeters(std::string &msg)
     }
     return msg;
 }
+
+void readFileToStrInBinary(const char * pathChar, std::string & outp)
+{
+	std::string line;
+	std::vector<std::string> outpVector;
+
+	outp.clear();
+	outpVector.clear();
+	std::ifstream in(pathChar, std::ios::binary);
+	if (in.is_open())
+	{
+		while (getline(in, line))
+			outpVector.push_back(line);
+		in.close();
+	}
+	// in.close();
+	std::vector<std::string>::iterator iter = outpVector.begin();
+	if  (iter != outpVector.end())
+	{
+		while (iter != outpVector.end())
+		{
+			outp += *iter;
+			iter++;
+			if (iter != outpVector.end())
+				outp += "\n";
+		}
+	}
+}

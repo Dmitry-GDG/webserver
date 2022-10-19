@@ -98,12 +98,12 @@ void splitStringStr(std::string str, std::string seperator, std::vector<std::str
 	size_t pos = 0;
 	size_t startIndex = 0;
 
-	std::cout << "splitStringStr0\n";
+	// std::cout << "splitStringStr0\n";
 	if (seperator != "")
 	{
 		for (pos = str.find(seperator, pos++); pos != std::string::npos; pos = str.find(seperator, pos + 1)) //????
 		{
-			std::cout << "splitStringStr1\n";
+			// std::cout << "splitStringStr1\n";
 			subStr.clear();
 			subStr.append(str, startIndex, pos - startIndex);
 			strings.push_back(subStr);
@@ -112,7 +112,7 @@ void splitStringStr(std::string str, std::string seperator, std::vector<std::str
 				pos += (seperator.size() - 1);
 		}
 	}
-	std::cout << "splitStringStr2\n";
+	// std::cout << "splitStringStr2\n";
 	subStr.clear();
 	subStr.append(str, startIndex, std::string::npos);
 	strings.push_back(subStr);
@@ -241,7 +241,7 @@ void locationClear(t_location & location)
 	location.path.clear();
 	location.root.clear();
 	location.index.clear();
-	location.autoindex.clear();
+	location.autoindex = false;
 	location.upload.clear();
 	location.limit_size.clear();
 	location.redirs.clear();
@@ -260,7 +260,7 @@ void configClear(t_config & oneServerConfig)
 	oneServerConfig.root.clear();
 	oneServerConfig.index.clear();
 	oneServerConfig.upload.clear();
-	oneServerConfig.autoindex = "false";
+	oneServerConfig.autoindex = false;
 	oneServerConfig.redirs.clear();
 	oneServerConfig.methods.clear();
 	oneServerConfig.locations.clear();

@@ -66,6 +66,9 @@ private:
 	void	_post(std::string msg);
 	void	_splitCommandsPost(std::string msg);
 	void	_preparePostRequest();
+	std::string	_getFileType(std::string str);
+	std::string	_getContentType(std::string str);
+	bool	_isText(std::string str);
 
 	void	_chelp();
 	void	_welcome();

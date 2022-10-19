@@ -425,11 +425,11 @@ int ServerRouter::_readSd(t_connection * connection)
 				connection->inputStrHeader += tmp.substr (0, pos);
 				connection->requestProcessingStep = READING_BODY;
 				connection->responseData.statusCode = "100";
-				#ifdef DEBUGMODE
-					std::vector<std::string> tmpInputStrHeaderVec;
-					splitString(connection->inputStrHeader, '\n', tmpInputStrHeaderVec);
-					std::cout << VIOLET << " DEBUGMODE SR _readSd connection->inputStrHeader \nconnection->inputStrHeader[0]: " << NC << tmpInputStrHeaderVec[0] << "\n----------------------" << std::endl;
-				#endif
+				// #ifdef DEBUGMODE
+				// 	std::vector<std::string> tmpInputStrHeaderVec;
+				// 	splitString(connection->inputStrHeader, '\n', tmpInputStrHeaderVec);
+				// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->inputStrHeader \nconnection->inputStrHeader[0]: " << NC << tmpInputStrHeaderVec[0] << "\n----------------------" << std::endl;
+				// #endif
 
 				if (!_parseInputDataHeader(connection))
 				{
@@ -440,9 +440,9 @@ int ServerRouter::_readSd(t_connection * connection)
 				}
 
 				_findConnectionLenBody(connection);
-				#ifdef DEBUGMODE
-					std::cout << VIOLET << " DEBUGMODE SR _readSd connection->lenBody \nconnection->lenBody: " << NC << connection->lenBody << "\n----------------------" << std::endl;
-				#endif
+				// #ifdef DEBUGMODE
+				// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->lenBody \nconnection->lenBody: " << NC << connection->lenBody << "\n----------------------" << std::endl;
+				// #endif
 				if (connection->lenBody > 0)
 				{
 					if (pos < tmp.size() - 4)

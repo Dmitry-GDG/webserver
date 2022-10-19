@@ -122,7 +122,8 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "autoindex")
 				{
-					location.autoindex = oneServerConfigVectorSplit[i][1];
+					if (oneServerConfigVectorSplit[i][1] == "on" || oneServerConfigVectorSplit[i][1] == "On" || oneServerConfigVectorSplit[i][1] == "true" || oneServerConfigVectorSplit[i][1] == "True")
+						location.autoindex = true;
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
 				else if (oneServerConfigVectorSplit[i][0] == "upload")
@@ -203,7 +204,10 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 				if (oneServerConfigVectorSplit[j][0] == "index")
 					oneServerConfig.index = correctSlashInAddress(oneServerConfigVectorSplit[j][1]);
 				if (oneServerConfigVectorSplit[j][0] == "autoindex")
-					oneServerConfig.autoindex = oneServerConfigVectorSplit[j][1];
+				{
+					if (oneServerConfigVectorSplit[j][1] == "on" || oneServerConfigVectorSplit[j][1] == "On" || oneServerConfigVectorSplit[j][1] == "true" || oneServerConfigVectorSplit[j][1] == "True")
+						oneServerConfig.autoindex = true;
+				}
 				if (oneServerConfigVectorSplit[j][0] == "cgi")
 					oneServerConfig.cgi.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[j][1], correctSlashInAddress(oneServerConfigVectorSplit[j][2])) );
 				if (oneServerConfigVectorSplit[j][0] == "redir" || oneServerConfigVectorSplit[j][0] == "redirs" || oneServerConfigVectorSplit[j][0] == "redirection")

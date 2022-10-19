@@ -120,7 +120,7 @@ typedef struct s_location
 	std::string					path;
 	std::string					root;
 	std::string					index;
-	std::string					autoindex;
+	bool						autoindex;
 	std::string					upload;
 	std::string					limit_size;
 	std::string					redirs;
@@ -139,7 +139,7 @@ typedef struct s_config
 	std::string					root;
 	std::string					index;
 	std::string					upload;
-	std::string					autoindex;
+	bool						autoindex;
 	std::string					redirs;
 	std::vector<std::string>	methods;
 	std::vector<t_location>		locations;

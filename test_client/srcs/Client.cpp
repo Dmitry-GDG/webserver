@@ -893,3 +893,8 @@ void Client::_contentTypesInit()
 		std::make_pair("zoo", "application/octet-stream"), 
 		std::make_pair("zsh", "text/x-script.zsh")
 	};
+	#define ARRSIZE(arr) (sizeof((arr))/sizeof((arr)[0]))
+	for (size_t i = 0; i < ARRSIZE(contentTypesArr); i++)
+		_contentTypes[contentTypesArr[i].first] = contentTypesArr[i].second;
+	#undef  ARRSIZE
+}

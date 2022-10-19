@@ -19,6 +19,7 @@
 # include <dirent.h>
 # include <fstream>
 # include <iostream>
+# include <map>
 # include <netdb.h>
 # include <stdio.h>
 # include <string>
@@ -52,5 +53,6 @@ std::string timestamp();
 std::string replaceAllDelimeters(std::string &msg);
 
 void	printCommandParsed(Client * client, std::string msg);
+void	readFileToStrInBinary(const char * pathChar, std::string & outp);
 
 #endif

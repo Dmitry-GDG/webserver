@@ -126,8 +126,12 @@ void printServerConfig(t_config config, std::string msg)
 		std::cout << "index:\t" << config.index << std::endl;
 	if (config.upload.size() > 0)
 		std::cout << "upload:\t" << config.upload << std::endl;
-	if (config.autoindex.size() > 0)
-		std::cout << "autoindex:\t" << config.autoindex << std::endl;
+	// if (config.autoindex.size() > 0)
+	std::cout << "autoindex:\t";
+	if (config.autoindex)
+		std::cout << "true" << std::endl;
+	else
+		std::cout << "false" << std::endl;
 	if (config.redirs.size() > 0)
 		std::cout << "redirs:\t" << config.redirs << std::endl;
 	if (config.cgi.size() > 0)
@@ -164,8 +168,12 @@ void printServerConfig(t_config config, std::string msg)
 				std::cout << "   root:\t" << config.locations[i].root << std::endl;
 			if (config.locations[i].index.size() > 0)
 				std::cout << "   index:\t" << config.locations[i].index << std::endl;
-			if (config.locations[i].autoindex.size() > 0)
-				std::cout << "   autoindex:\t" << config.locations[i].autoindex << std::endl;
+			// if (config.locations[i].autoindex.size() > 0)
+			std::cout << "   autoindex:\t";
+			if (config.locations[i].autoindex)
+				std::cout << "true" << std::endl;
+			else
+				std::cout << "false" << std::endl;
 			if (config.locations[i].upload.size() > 0)
 				std::cout << "   upload:\t" << config.locations[i].upload << std::endl;
 			if (config.locations[i].limit_size.size() > 0)

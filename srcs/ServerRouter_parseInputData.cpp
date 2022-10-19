@@ -183,19 +183,19 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 		iter++;
 		// connection->inputData.address = correctSlashInAddress(*iter);
 		std::string addr = correctSlashInAddress(*iter);
-		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \naddr: " << NC << addr << "\n----------------------\n";
-		#endif
+		// #ifdef DEBUGMODE
+		// 	std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \naddr: " << NC << addr << "\n----------------------\n";
+		// #endif
 		size_t pos = addr.find('?');
 		if (pos != std::string::npos)
 			connection->inputData.addressParamsStr = addr.substr(pos + 1);
-		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \nconnection->inputData.addressParamsStr: " << NC << connection->inputData.addressParamsStr << "\n----------------------\n";
-		#endif
+		// #ifdef DEBUGMODE
+		// 	std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \nconnection->inputData.addressParamsStr: " << NC << connection->inputData.addressParamsStr << "\n----------------------\n";
+		// #endif
 		connection->inputData.address = _addressDecode(addr);
-		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \nconnection->inputData.address: " << NC << connection->inputData.address << "\n----------------------\n";
-		#endif
+		// #ifdef DEBUGMODE
+		// 	std::cout << VIOLET << " DEBUGMODE SR_parse _parseInputDataHeader \nconnection->inputData.address: " << NC << connection->inputData.address << "\n----------------------\n";
+		// #endif
 		iter++;
 		connection->inputData.httpVersion = *iter;
 

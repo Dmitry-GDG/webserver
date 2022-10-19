@@ -109,27 +109,28 @@ void ServerRouter::_parseInputBodyStr(t_connection * connection)
 
 void ServerRouter::_choosePostContentType(t_connection * connection)
 {
-	// #ifdef DEBUGMODE
-	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType 0 \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
-	// #endif
+	#ifdef DEBUGMODE
+		std::cout << BLUE << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType 0 \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
+	#endif
 	for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter < connection->inputData.headerFieldsVec.end(); iter++)
 	{
 		if ((*iter).first.find("Content-Type") != std::string::npos)
 		{
+			std::string contentType = (*iter).second;
 			if ((*iter).second.find("application/x-www-form-urlencoded") != std::string::npos)
 			{
 				connection->inputData.postContentType = URLENCODED;
-				_postUrlencoded(connection);
+				_postUrlencoded(connection, contentType);
 			}
 			else if ((*iter).second.find("multipart/form-data") != std::string::npos)
 			{
 				connection->inputData.postContentType = FORM_DATA;
-				_postFormData(connection);
+				_postFormData(connection, contentType);
 			}
 			else if ((*iter).second.find("multipart/mixed") != std::string::npos)
 			{
 				connection->inputData.postContentType = MIXED;
-				_postMixed(connection);
+				_postMixed(connection, contentType);
 			}
 		}
 	}
@@ -138,20 +139,47 @@ void ServerRouter::_choosePostContentType(t_connection * connection)
 	// #endif
 }
 
-void ServerRouter::_postUrlencoded(t_connection * connection)
+void ServerRouter::_postUrlencoded(t_connection * connection, std::string contentType)
 {
-	(void) connection;
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded \n" << NC << "connection->responseData.connectionAnswer:\t" << connection->responseData.connectionAnswer << "\n----------------------\n";
+	#endif
 	// connection->responseData.connectionAnswer +=
+	(void) contentType;
+	(void) connection;
 }
 
-void ServerRouter::_postFormData(t_connection * connection)
+void ServerRouter::_postFormData(t_connection * connection, std::string contentType)
 {
-	(void) connection;
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE _postFormData \n" << NC << "connection->responseData.connectionAnswer:\t" << connection->responseData.connectionAnswer << "\n----------------------\n";
+	#endif
+	std::vector<std::string> contentTypeVec;
+	splitStringStr(contentType, "; ", contentTypeVec);
+	std::string boundary;
+	for (std::vector<std::string>::iterator iter = contentTypeVec.begin(); iter < contentTypeVec.end(); iter++)
+	{
+		if ((*iter).find("boundary") != std::string::npos)
+		{
+			std::vector<std::string> boundaryVec;
+			splitStringStr(*iter, "=", boundaryVec);
+			boundary = boundaryVec[1];
+		}
+	}
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE _postFormData \n" << NC << "boundary:\t" << boundary << "\n----------------------\n";
+	#endif
 	// connection->responseData.connectionAnswer +=
+	(void) contentType;
+	(void) connection;
 }
 
-void ServerRouter::_postMixed(t_connection * connection)
+void ServerRouter::_postMixed(t_connection * connection, std::string contentType)
 {
-	(void) connection;
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE _postMixe \\n" << NC << "connection->responseData.connectionAnswer:\t" << connection->responseData.connectionAnswer << "\n----------------------\n";
+	#endif
 	// connection->responseData.connectionAnswer +=
+	(void) contentType;
+	(void) connection;
 }
