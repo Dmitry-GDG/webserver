@@ -168,13 +168,14 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 		connection->responseData.statusCode = "400";
 		return ;
 	}
+	connection->responseData.statusCode = "100";
 	#ifdef DEBUGMODE
 		std::cout << RED <<  " DEBUGMODE _postFormData connection->inputStrBody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
 	#endif
 	std::vector<std::string> bodyVec;
 	splitStringStr(connection->inputStrBody, connection->inputData.boundary[0], bodyVec);
 	for (std::vector<std::string>::iterator iter = bodyVec.begin(); iter < bodyVec.end(); iter++)
-		_getFile(*iter);
+		_getFile(connection, *iter);
 	// connection->responseData.connectionAnswer +=
 
 }
@@ -204,11 +205,14 @@ void ServerRouter::_findBoundary(std::string contentType, std::string &boundary)
 	}
 }
 
-void ServerRouter::_getFile(std::string str)
+void ServerRouter::_getFile(t_connection * connection, std::string str)
 {
 	if (str == "--")
 	{
+		connection->responseData.statusCode = "200";
 		return ;
 	}
-	
+	std::vector<std::string> dataVec, dataVec0;
+	splitStringStr(str, DDELIMETER, dataVec);
+	splitStringStr(dataVec[0], "; ", dataVec0);
 }

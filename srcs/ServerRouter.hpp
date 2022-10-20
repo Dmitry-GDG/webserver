@@ -73,7 +73,7 @@ class ServerRouter
 		void	_postFormData(t_connection * connection, std::string contentType);
 		void	_postMixed(t_connection * connection, std::string contentType);
 		void	_findBoundary(std::string contentType, std::string &boundary);
-		void	_getFile(std::string str);
+		void	_getFile(t_connection * connection, std::string str);
 		void	_prepareDeleteAnswer(t_connection *);
 		bool	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
 		void	_addFile404(std::string & contentTypeAndLength, t_connection *);
