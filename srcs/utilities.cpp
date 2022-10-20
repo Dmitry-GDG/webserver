@@ -378,3 +378,21 @@ size_t findLastSlashInAddress(std::string addr)
 		posLast = pos;
 	return posLast;
 }
+
+std::string getFileName(std::vector<std::string> dataVec)
+{
+	for (std::vector<std::string>::iterator iter = dataVec.begin(); iter < dataVec.end(); iter++)
+	{
+		if ((*iter).find("filename") != std::string::npos)
+		{
+			std::vector<std::string> outpVec;
+			splitStringStr((*iter), "=", outpVec);
+			if (outpVec[1].size() && outpVec[1][0] == '"')
+				outpVec[1].erase(outpVec[1].begin());
+			if (outpVec[1].size() && outpVec[1][outpVec[1].size() - 1] == '"')
+				outpVec[1].erase(outpVec[1].end() - 1);
+			return (outpVec[1]);
+		}
+	}
+	return "";
+}

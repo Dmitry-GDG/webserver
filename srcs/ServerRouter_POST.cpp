@@ -155,13 +155,13 @@ void ServerRouter::_postUrlencoded(t_connection * connection, std::string conten
 void ServerRouter::_postFormData(t_connection * connection, std::string contentType)
 {
 	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE _postFormData connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
+		std::cout << RED <<  " DEBUGMODE  SR_POST _postFormData connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
 	#endif
 	std::string boundary;
 	_findBoundary(contentType, boundary);
 	connection->inputData.boundary.push_back(boundary);
 	// #ifdef DEBUGMODE
-	// 	printBoundary((*connection), " DEBUGMODE _postFormData ");
+	// 	printBoundary((*connection), " DEBUGMODE SR_POST _postFormData ");
 	// #endif
 	if (connection->inputData.boundary.size() < 1)
 	{
@@ -170,12 +170,16 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 	}
 	connection->responseData.statusCode = "100";
 	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE _postFormData connection->inputStrBody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
+		std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputStrBody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
 	#endif
 	std::vector<std::string> bodyVec;
-	splitStringStr(connection->inputStrBody, connection->inputData.boundary[0], bodyVec);
+	bodyVec.clear();
+	splitStringStr(connection->inputStrBody, "--" + connection->inputData.boundary[0], bodyVec);
 	for (std::vector<std::string>::iterator iter = bodyVec.begin(); iter < bodyVec.end(); iter++)
-		_getFile(connection, *iter);
+	{
+		if ((*iter) != "" && (*iter) != DELIMETER && (*iter) != DDELIMETER)
+			_getFile(connection, *iter);
+	}
 	// connection->responseData.connectionAnswer +=
 
 }
@@ -183,7 +187,7 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 void ServerRouter::_postMixed(t_connection * connection, std::string contentType)
 {
 	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE _postMixe connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
+		std::cout << RED <<  " DEBUGMODE SR_POST _postMixe connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
 	#endif
 	// connection->responseData.connectionAnswer +=
 	(void) contentType;
@@ -207,12 +211,71 @@ void ServerRouter::_findBoundary(std::string contentType, std::string &boundary)
 
 void ServerRouter::_getFile(t_connection * connection, std::string str)
 {
-	if (str == "--")
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE SR_POST _getFile str: \n" << NC << str << "\n----------------------\n";
+	#endif
+	std::string filename = "";
+	std::string endStr = "--";
+	endStr += DELIMETER;
+	if (str == endStr || str == "--")
 	{
 		connection->responseData.statusCode = "200";
+		std::cout << "YES --" << std::endl;
 		return ;
 	}
-	std::vector<std::string> dataVec, dataVec0;
+	else
+		std::cout << "NO --" << std::endl;
+	std::vector<std::string> dataVec, dataVec0, dataVec00, dataVec000;
+	dataVec.clear();
 	splitStringStr(str, DDELIMETER, dataVec);
-	splitStringStr(dataVec[0], "; ", dataVec0);
+	#ifdef DEBUGMODE
+		printVector(dataVec, "SR_POST _getFile dataVec");
+	#endif
+	if (dataVec.size())
+	{
+		dataVec0.clear();
+		splitStringStr(dataVec[0], DELIMETER, dataVec0);
+		#ifdef DEBUGMODE
+			printVector(dataVec, "SR_POST _getFile dataVec0");
+		#endif
+		if (dataVec0.size())
+		{
+			std::map<std::string, std::string> dataMap;
+			dataMap.clear();
+			for (std::vector<std::string>::iterator iter = dataVec0.begin(); iter < dataVec0.end(); iter++)
+			{
+				dataVec00.clear();
+				splitStringStr((*iter), ": ", dataVec00);
+				#ifdef DEBUGMODE
+					printVector(dataVec, "SR_POST _getFile dataVec00");
+				#endif
+				if (dataVec00.size())
+				{
+					dataMap[dataVec00[0]] = "";
+					if (dataVec00[1].size())
+						dataMap[dataVec00[0]] = dataMap[dataVec00[1]];
+				}
+			}
+			if (dataMap.size())
+			{
+				dataVec000.clear();
+				for (std::map<std::string, std::string>::iterator iter = dataMap.begin(); iter != dataMap.end(); iter++)
+				{
+					if ((*iter).first == "Content-Disposition")
+					{
+						splitStringStr((*iter).second, "; ", dataVec000);
+						#ifdef DEBUGMODE
+							printVector(dataVec, "SR_POST _getFile dataVec000");
+						#endif
+						break;
+					}
+				}
+				if (dataVec000.size())
+					filename = getFileName(dataVec000);
+			}
+		}
+	}
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE SR_POST _getFile filename: \n" << NC << filename << "\n----------------------\n";
+	#endif
 }

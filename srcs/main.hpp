@@ -107,6 +107,7 @@ void	exitErr(std::string errmsg);
 void	ctrl_c_handler(int signum);
 std::string	correctSlashInAddress(std::string str);
 void	replaceAllStrings(std::string & msg, const std::string & search, const std::string & replace);
+std::string	getFileName(std::vector<std::string> dataVec);
 // bool	parseInputData(char * buf, t_connection * connection);
 // void	delWhiteSpacesStr(std::string & inptStr);
 // bool	checkDelimeterAtTheEnd(std::string str);
