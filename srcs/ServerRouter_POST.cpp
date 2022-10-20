@@ -25,10 +25,13 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	// if (!_acceptFile(contentTypeAndLength, connection, path))
 	// 	; // Подумать, что вернуть, если не примется файл
 
-	// connection->responseData.connectionAnswer += connection->responseData.statusCode \
-	// + " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
-	// + DELIMETER + "Connection: Close" + DDELIMETER;
+	connection->responseData.connectionAnswer += connection->responseData.statusCode \
+	+ " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
+	+ DELIMETER + "Connection: Close";
 
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
+	#endif
 }
 
 bool ServerRouter::_acceptFile(std::string & contentTypeAndLength, t_connection * connection, std::string const & path)
@@ -142,7 +145,7 @@ void ServerRouter::_choosePostContentType(t_connection * connection)
 void ServerRouter::_postUrlencoded(t_connection * connection, std::string contentType)
 {
 	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded \n" << NC << "connection->responseData.connectionAnswer:\t" << connection->responseData.connectionAnswer << "\n----------------------\n";
+		std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
 	#endif
 	// connection->responseData.connectionAnswer +=
 	(void) contentType;
@@ -152,11 +155,44 @@ void ServerRouter::_postUrlencoded(t_connection * connection, std::string conten
 void ServerRouter::_postFormData(t_connection * connection, std::string contentType)
 {
 	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE _postFormData \n" << NC << "connection->responseData.connectionAnswer:\t" << connection->responseData.connectionAnswer << "\n----------------------\n";
+		std::cout << RED <<  " DEBUGMODE _postFormData connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
 	#endif
+	std::string boundary;
+	_findBoundary(contentType, boundary);
+	connection->inputData.boundary.push_back(boundary);
+	// #ifdef DEBUGMODE
+	// 	printBoundary((*connection), " DEBUGMODE _postFormData ");
+	// #endif
+	if (connection->inputData.boundary.size() < 1)
+	{
+		connection->responseData.statusCode = "400";
+		return ;
+	}
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE _postFormData connection->inputStrBody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
+	#endif
+	std::vector<std::string> bodyVec;
+	splitStringStr(connection->inputStrBody, connection->inputData.boundary[0], bodyVec);
+	for (std::vector<std::string>::iterator iter = bodyVec.begin(); iter < bodyVec.end(); iter++)
+		_getFile(*iter);
+	// connection->responseData.connectionAnswer +=
+
+}
+
+void ServerRouter::_postMixed(t_connection * connection, std::string contentType)
+{
+	#ifdef DEBUGMODE
+		std::cout << RED <<  " DEBUGMODE _postMixe connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
+	#endif
+	// connection->responseData.connectionAnswer +=
+	(void) contentType;
+	(void) connection;
+}
+
+void ServerRouter::_findBoundary(std::string contentType, std::string &boundary)
+{
 	std::vector<std::string> contentTypeVec;
 	splitStringStr(contentType, "; ", contentTypeVec);
-	std::string boundary;
 	for (std::vector<std::string>::iterator iter = contentTypeVec.begin(); iter < contentTypeVec.end(); iter++)
 	{
 		if ((*iter).find("boundary") != std::string::npos)
@@ -166,20 +202,13 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 			boundary = boundaryVec[1];
 		}
 	}
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE _postFormData \n" << NC << "boundary:\t" << boundary << "\n----------------------\n";
-	#endif
-	// connection->responseData.connectionAnswer +=
-	(void) contentType;
-	(void) connection;
 }
 
-void ServerRouter::_postMixed(t_connection * connection, std::string contentType)
+void ServerRouter::_getFile(std::string str)
 {
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE _postMixe \\n" << NC << "connection->responseData.connectionAnswer:\t" << connection->responseData.connectionAnswer << "\n----------------------\n";
-	#endif
-	// connection->responseData.connectionAnswer +=
-	(void) contentType;
-	(void) connection;
+	if (str == "--")
+	{
+		return ;
+	}
+	
 }

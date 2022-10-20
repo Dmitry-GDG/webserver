@@ -414,3 +414,18 @@ void printVectorPair(std::vector<std::pair<std::string, std::string> > vec, std:
 		std::cout << std::endl;
 	}
 }
+
+void printBoundary(t_connection connection, std::string msg)
+{
+	if (msg != "")
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
+	else
+		std::cout << VIOLET << " printBoundary " << NC << std::endl;
+	if (connection.inputData.boundary.size() > 0)
+	{
+		size_t i = 0;
+		for (std::vector<std::string>::iterator iter = connection.inputData.boundary.begin(); iter < connection.inputData.boundary.end(); iter++, i++)
+			std::cout << "boundary[" << i << "]: " << connection.inputData.boundary[i] << std::endl;
+	}
+	std::cout << "----------------------" << std::endl;
+}
