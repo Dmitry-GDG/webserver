@@ -277,6 +277,8 @@ void connectionInputDataClear(t_connection & connection)
 	connection.inputData.dataType = NOT_DEFINED_INPUT_DATA_TYPE;
 	connection.inputData.postContentType = NOT_DEFINED_POST_CONTENT_TYPE;
 	connection.inputData.boundary.clear();
+	connection.inputData.postFileName.clear();
+	connection.inputData.postFileData.clear();
 	// connection.inputData.headerFields.clear();
 	connection.inputData.headerFieldsVec.clear();
 	connection.inputData.bodyFieldsVec.clear();

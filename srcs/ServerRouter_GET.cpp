@@ -303,10 +303,10 @@ bool ServerRouter::_addFileToAnswer(std::string & contentTypeAndLengthAndData, t
 			std::string pathNew = pathTo404Folder + "/" + pathWithoutRefererVec[0];
 
 			#ifdef DEBUGMODE
-				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer pathNew \npathNew: " << NC << pathNew << "\n----------------------" << std::endl;
+				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer connection->pathTo404 \nconnection->pathTo404: " << NC << connection->pathTo404 << "\n----------------------" << std::endl;
 			#endif
 			#ifdef DEBUGMODE
-				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer connection->pathTo404 \nconnection->pathTo404: " << NC << connection->pathTo404 << "\n----------------------" << std::endl;
+				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer pathNew \npathNew: " << NC << pathNew << "\n----------------------" << std::endl;
 			#endif
 			const char * pathChar2 = pathNew.c_str();
 			struct stat buf2;

@@ -178,7 +178,20 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 	for (std::vector<std::string>::iterator iter = bodyVec.begin(); iter < bodyVec.end(); iter++)
 	{
 		if ((*iter) != "" && (*iter) != DELIMETER && (*iter) != DDELIMETER)
-			_getFile(connection, *iter);
+		{
+			_postGetFileName(connection, *iter);
+			#ifdef DEBUGMODE
+				if (connection->inputData.postFileName.size())
+					std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileName: \n" << NC << connection->inputData.postFileName << "\n----------------------\n";
+			#endif
+			#ifdef DEBUGMODE
+				if (connection->inputData.postFileData.size())
+					std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileData: \n" << NC << connection->inputData.postFileData << "\n----------------------\n";
+			#endif
+			_postGetFilePath(connection);
+			_postCheckIsFileExist(connection); // ? mabe jast save with another filenamename ?
+			_postSaveFile(connection);
+		}
 	}
 	// connection->responseData.connectionAnswer +=
 
@@ -209,35 +222,52 @@ void ServerRouter::_findBoundary(std::string contentType, std::string &boundary)
 	}
 }
 
-void ServerRouter::_getFile(t_connection * connection, std::string str)
+void ServerRouter::_postGetFileName(t_connection * connection, std::string str)
 {
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _getFile str: \n" << NC << str << "\n----------------------\n";
-	#endif
-	std::string filename = "";
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE SR_POST _getFile str: \n" << NC << str << "\n----------------------\n";
+	// #endif
+	connection->inputData.postFileName.clear();;
 	std::string endStr = "--";
 	endStr += DELIMETER;
 	if (str == endStr || str == "--")
 	{
 		connection->responseData.statusCode = "200";
-		std::cout << "YES --" << std::endl;
+		// std::cout << "YES --" << std::endl;
 		return ;
 	}
-	else
-		std::cout << "NO --" << std::endl;
+	// else
+	// 	std::cout << "NO --" << std::endl;
 	std::vector<std::string> dataVec, dataVec0, dataVec00, dataVec000;
 	dataVec.clear();
 	splitStringStr(str, DDELIMETER, dataVec);
-	#ifdef DEBUGMODE
-		printVector(dataVec, "SR_POST _getFile dataVec");
-	#endif
+	// #ifdef DEBUGMODE
+	// 	printVector(dataVec, "SR_POST _getFile dataVec");
+	// #endif
+	// #ifdef DEBUGMODE
+	// 	if (dataVec[0].size())
+	// 		std::cout << "dataVec[0]: " << dataVec[0] << std::endl;
+	// 	if (dataVec[1].size())
+	// 		std::cout << "dataVec[1]: " << dataVec[1] << std::endl;
+	// #endif
+	connection->inputData.postFileData = dataVec[1];
+	if (connection->inputData.postFileData == "\n" || connection->inputData.postFileData == DELIMETER || connection->inputData.postFileData == DDELIMETER)
+		connection->inputData.postFileData.clear();
+	if (dataVec[1] == "\n" || dataVec[1] == "" || dataVec[1] == DELIMETER || dataVec[1] == DDELIMETER)
+		return;
 	if (dataVec.size())
 	{
 		dataVec0.clear();
 		splitStringStr(dataVec[0], DELIMETER, dataVec0);
-		#ifdef DEBUGMODE
-			printVector(dataVec, "SR_POST _getFile dataVec0");
-		#endif
+		// #ifdef DEBUGMODE
+		// 	printVector(dataVec0, "SR_POST _getFile dataVec0");
+		// #endif
+		// #ifdef DEBUGMODE
+		// 	if (dataVec0[0].size())
+		// 		std::cout << "dataVec0[0]: " << dataVec0[0] << std::endl;
+		// 	if (dataVec0[1].size())
+		// 		std::cout << "dataVec0[1]: " << dataVec0[1] << std::endl;
+		// #endif
 		if (dataVec0.size())
 		{
 			std::map<std::string, std::string> dataMap;
@@ -246,36 +276,63 @@ void ServerRouter::_getFile(t_connection * connection, std::string str)
 			{
 				dataVec00.clear();
 				splitStringStr((*iter), ": ", dataVec00);
-				#ifdef DEBUGMODE
-					printVector(dataVec, "SR_POST _getFile dataVec00");
-				#endif
-				if (dataVec00.size())
-				{
-					dataMap[dataVec00[0]] = "";
-					if (dataVec00[1].size())
-						dataMap[dataVec00[0]] = dataMap[dataVec00[1]];
-				}
+				// #ifdef DEBUGMODE
+				// 	printVector(dataVec00, "SR_POST _getFile dataVec00");
+				// #endif
+				// #ifdef DEBUGMODE
+				// 	if (dataVec00[0].size())
+				// 		std::cout << "dataVec00[0]: " << dataVec00[0] << std::endl;
+				// 	if (dataVec00[1].size())
+				// 		std::cout << "dataVec00[1]: " << dataVec00[1] << std::endl;
+				// #endif
+				if (dataVec00.size() && dataVec00[0].size() && dataVec00[1].size())
+					dataMap.insert(std::pair<std::string, std::string>(dataVec00[0], dataVec00[1]));
 			}
 			if (dataMap.size())
 			{
+				// #ifdef DEBUGMODE
+				// 	printMapStrStr(dataMap, "SR_POST _getFile dataMap");
+				// #endif
 				dataVec000.clear();
 				for (std::map<std::string, std::string>::iterator iter = dataMap.begin(); iter != dataMap.end(); iter++)
 				{
-					if ((*iter).first == "Content-Disposition")
+					if ((*iter).first.find("Content-Disposition") != std::string::npos)
 					{
 						splitStringStr((*iter).second, "; ", dataVec000);
-						#ifdef DEBUGMODE
-							printVector(dataVec, "SR_POST _getFile dataVec000");
-						#endif
+						// #ifdef DEBUGMODE
+						// 	printVector(dataVec000, "SR_POST _getFile dataVec000");
+						// #endif
+						// #ifdef DEBUGMODE
+						// 	for (size_t i = 0; i < dataVec000.size(); i++)
+						// 	// {
+						// 	// 	if (dataVec000[i].size())
+						// 			std::cout << "dataVec000[" << i << "]: " << dataVec000[i] << std::endl;
+						// 	// }
+						// #endif
 						break;
 					}
 				}
 				if (dataVec000.size())
-					filename = getFileName(dataVec000);
+					connection->inputData.postFileName = getFileName(dataVec000);
 			}
 		}
 	}
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _getFile filename: \n" << NC << filename << "\n----------------------\n";
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE SR_POST _getFile connection->inputData.postFileName: \n" << NC << connection->inputData.postFileName << "\n----------------------\n";
+	// #endif
+}
+
+void ServerRouter::_postGetFilePath(t_connection * connection)
+{
+	(void) connection;
+}
+
+void ServerRouter::_postCheckIsFileExist(t_connection * connection)
+{
+	(void) connection;
+}
+
+void ServerRouter::_postSaveFile(t_connection * connection)
+{
+	(void) connection;
 }

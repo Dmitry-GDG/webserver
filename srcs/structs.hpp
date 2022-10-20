@@ -71,6 +71,8 @@ typedef struct s_inputdata
 	InputDataType	dataType; // HTTP
 	PostContentType	postContentType;
 	std::vector<std::string> boundary;
+	std::string		postFileName;
+	std::string		postFileData;
 	// std::map<std::string, std::string>	headerFields;
 	std::vector<std::pair<std::string, std::string> >	headerFieldsVec; //map - notacceptable, some keys repeated witn other values
 	std::vector<std::string>							inputStrBodyVec;

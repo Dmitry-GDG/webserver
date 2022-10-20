@@ -429,3 +429,18 @@ void printBoundary(t_connection connection, std::string msg)
 	}
 	std::cout << "----------------------" << std::endl;
 }
+
+void printMapStrStr(std::map<std::string, std::string> dataMap, std::string msg)
+{
+	if (msg != "")
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
+	else
+		std::cout << VIOLET << " printMapStrStr " << NC << std::endl;
+	if (dataMap.size() > 0)
+	{
+		size_t i = 0;
+		for (std::map<std::string, std::string>::iterator iter = dataMap.begin(); iter != dataMap.end(); iter++, i++)
+			std::cout << "dataMap[" << i << "]:\t" << (*iter).first << "\t" << (*iter).second << std::endl;
+	}
+	std::cout << "----------------------" << std::endl;
+}

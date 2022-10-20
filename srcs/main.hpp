@@ -95,6 +95,7 @@ void	printPollfds(const pollfd *pfds, std::string msg, size_t pSize);
 void	printConnection(t_connection connection, std::string msg, int sign);
 void	printAllConnections(std::vector<t_connection> connections, std::string msg);
 void	printBoundary(t_connection connection, std::string msg);
+void	printMapStrStr(std::map<std::string, std::string> dataMap, std::string msg);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);

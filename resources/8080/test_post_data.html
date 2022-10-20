@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+		<meta name="Description" content="Al Capone"/>
+		<title>8080-Index</title>
+		<link rel="stylesheet" type="text/css" href="single.css" />
+		<style>
+			/* body {
+				background: #d6eaf8;
+			} */
+
+			.gradient-button {
+				text-decoration: none;
+				outline: none;
+				display: inline-block;
+				color: white;
+				padding: 20px 30px;
+				margin: 10px 20px;
+				border-radius: 10px;
+				font-family: 'Montserrat', sans-serif;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+				background-size: 200% auto;
+				box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+				transition: .5s;
+				width: 400px;
+				/* height: 400px; */
+			}
+
+			.gradient-button:hover {
+				background-position: right center;
+			}
+			.gradient-button-passed {
+				text-decoration: none;
+				outline: none;
+				display: inline-block;
+				color: rgb(0, 0, 255);
+				padding: 20px 30px;
+				margin: 10px 20px;
+				border-radius: 10px;
+				font-family: 'Montserrat', sans-serif;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+				background-size: 200% auto;
+				box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+				transition: .5s;
+				width: 400px;
+				/* height: 400px; */
+			}
+			*{margin:0;padding:0}
+			html,code{font:15px/22px arial,sans-serif}
+			html{background:#fff;color:#222;padding:15px}
+			/* body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px} */
+			body{margin:7% auto 0;max-width:1000px;min-height:180px;padding:30px 0 15px}
+			/* * > body{padding-right:205px} */
+			p{margin:11px 0 22px;overflow:hidden}
+			ins{color:#777;text-decoration:none}
+			a img{border:0}
+			@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}
+			#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}
+			@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}
+			@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}
+			#logo{display:inline-block;height:54px;width:150px}
+		</style>
+	</head>
+	<body>
+		<table>
+			<td>
+				<div class="button-container">
+					<a href="index.html" class="gradient-button">Index</a>
+					<a href="test_post_file.html" class="gradient-button">Test POST file</a>
+					<a href="test_post_data.html" class="gradient-button-passed">TEST POST data</a>
+					<a href="autoindex.html" class="gradient-button">TEST autoindex</a>
+					<a href="cgi.html" class="gradient-button">TEST CGI</a>
+				</div>
+			</td>
+			<td><img src=capone.jpeg alt="Al Capone"> </td> 
+			<td>
+				<form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
+					<label>Ваш аватар: <input type="file" name="avatar"></label>
+					<input type="submit" name="send" value="Отправить файл">
+				</form>
+			</td>
+		</table>
+		<img src=logo.jpg alt="logo"> 
+		<!-- <p>
+			<b>8080</b> <ins>index.html</ins>
+		</p> -->
+	</body>
+</html>
