@@ -727,12 +727,23 @@ void ServerRouter::_findPath404(t_connection * connection)
 
 void ServerRouter::_findReferer(t_connection * connection)
 {
+	std::string referer;
 	for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter < connection->inputData.headerFieldsVec.end(); iter++)
 	{
 		if ((*iter).first.find("Referer") != std::string::npos)
-			connection->referer = (*iter).second;
+			referer = (*iter).second;
 	}
+	connection->referer = urlDecode(referer);
 }
+
+// void ServerRouter::_findReferer(t_connection * connection)
+// {
+// 	for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter < connection->inputData.headerFieldsVec.end(); iter++)
+// 	{
+// 		if ((*iter).first.find("Referer") != std::string::npos)
+// 			connection->referer = (*iter).second;
+// 	}
+// }
 
 t_connection * ServerRouter::_getConnection(int clntSd)
 {

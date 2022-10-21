@@ -24,39 +24,39 @@ void ServerRouter::_delWhiteSpacesStr(std::string & inptStr)
 		inptStr.erase(inptStr.begin());
 }
 
-void ServerRouter::_splitStrDelimeter(std::string str, std::vector<std::string> & outp, std::string delim)
-{
-	// std::string delim = DELIMETER;
-	// std::string delim = "\r\n";
-	std::string outpLine;
-	outp.clear();
-	unsigned long	first = 0;
-	unsigned long	second = 0;
-	for(;;)
-	{
-		second = str.find(delim, first);
-		if (second != std::string::npos)
-		{
-			outpLine = str.substr(first, second - first);
-			// std::cout << "outpLine: " << outpLine << std::endl;
-			first = second + delim.size();
-			if (*(outpLine.end() - 1) == 10 || *(outpLine.end() - 1) == 32)
-				outpLine.erase(outpLine.end() - 1);
-			if (outpLine.size() > 0)
-				outp.push_back(outpLine);
-		}
-		else
-		{
-			outpLine = str.substr(first, str.size());
-			// std::cout << "outpLine2: " << outpLine << std::endl;
-			if (*(outpLine.end() - 1) == 10 || *(outpLine.end() - 1) == 32)
-				outpLine.erase(outpLine.end() - 1);
-			if (outpLine.size() > 0)
-				outp.push_back(outpLine);
-			break;
-		}
-	}
-}
+// void ServerRouter::_splitStrDelimeter(std::string str, std::vector<std::string> & outp, std::string delim)
+// {
+// 	// std::string delim = DELIMETER;
+// 	// std::string delim = "\r\n";
+// 	std::string outpLine;
+// 	outp.clear();
+// 	unsigned long	first = 0;
+// 	unsigned long	second = 0;
+// 	for(;;)
+// 	{
+// 		second = str.find(delim, first);
+// 		if (second != std::string::npos)
+// 		{
+// 			outpLine = str.substr(first, second - first);
+// 			// std::cout << "outpLine: " << outpLine << std::endl;
+// 			first = second + delim.size();
+// 			if (*(outpLine.end() - 1) == 10 || *(outpLine.end() - 1) == 32)
+// 				outpLine.erase(outpLine.end() - 1);
+// 			if (outpLine.size() > 0)
+// 				outp.push_back(outpLine);
+// 		}
+// 		else
+// 		{
+// 			outpLine = str.substr(first, str.size());
+// 			// std::cout << "outpLine2: " << outpLine << std::endl;
+// 			if (*(outpLine.end() - 1) == 10 || *(outpLine.end() - 1) == 32)
+// 				outpLine.erase(outpLine.end() - 1);
+// 			if (outpLine.size() > 0)
+// 				outp.push_back(outpLine);
+// 			break;
+// 		}
+// 	}
+// }
 
 // void splitStrDelimeter(std::string str, std::vector<std::string> & outp)
 // {
@@ -129,7 +129,10 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 
 
 	connectionInputDataClear(* connection);
-	_splitStrDelimeter(inpt, splitBuf, DELIMETER);
+
+	splitStringStr(inpt, DELIMETER, splitBuf);
+	// _splitStrDelimeter(inpt, splitBuf, DELIMETER);
+
 	// #ifdef DEBUGMODE
 	// 	printVector(splitBuf, "DEBUGMODE parseInputData splitStrDelimeter");
 	// #endif

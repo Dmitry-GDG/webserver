@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -80,9 +81,27 @@
 			</td>
 			<td><img src=capone.jpeg alt="Al Capone"> </td> 
 			<td>
-				<form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
+				<!-- <form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
 					<label>Ваш аватар: <input type="file" name="avatar"></label>
 					<input type="submit" name="send" value="Отправить файл">
+				</form> -->
+				<!-- <html>
+				<head>
+				<title>Personal INFO</title>
+				</head>
+				<body> -->
+				<form action="http://foo.com" method="post">
+					<div>
+						<label for="say">What greeting do you want to say?</label>
+						<input name="say" id="say" value="Hi">
+					</div>
+					<div>
+						<label for="to">Who do you want to say it to?</label>
+						<input name="to" id="to" value="Mom">
+					</div>
+					<div>
+						<button>Send my greetings</button>
+					</div>
 				</form>
 			</td>
 		</table>

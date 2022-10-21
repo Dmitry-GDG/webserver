@@ -189,8 +189,6 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 					std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileData: \n" << NC << connection->inputData.postFileData << "\n----------------------\n";
 			#endif
 			_postGetFilePathToSave(connection);
-			// _makefilelist(connection);
-			// _postCheckIsFileExist(connection); // ? mabe jast save with another filenamename ?
 			_postSaveFile(connection);
 		}
 	}
@@ -234,11 +232,8 @@ void ServerRouter::_postGetFileName(t_connection * connection, std::string str)
 	if (str == endStr || str == "--")
 	{
 		connection->responseData.statusCode = "200";
-		// std::cout << "YES --" << std::endl;
 		return ;
 	}
-	// else
-	// 	std::cout << "NO --" << std::endl;
 	std::vector<std::string> dataVec, dataVec0, dataVec00, dataVec000;
 	dataVec.clear();
 	splitStringStr(str, DDELIMETER, dataVec);
@@ -335,74 +330,29 @@ void ServerRouter::_postGetFilePathToSave(t_connection * connection)
 	#endif
 }
 
-void ServerRouter::_makefilelist(t_connection * connection)
+
+int ServerRouter::_postCheckIsFileExist(t_connection * connection)
 {
 	DIR *dir;
     struct dirent *entry;
     if ((dir = opendir((connection->inputData.postFilePathToSave).c_str())) == NULL)
-	{
-        // return;
 		mkdir((connection->inputData.postFilePathToSave).c_str(), 0777);		
-	}
-    std::ofstream ofile(FILESLISTNAME);
-	std::ofstream file_list;                 //создаем поток
-	file_list.open(FILESLISTNAME, std::ios::out | std::ios::in);  // открываем файл для перезаписи
-    if ( (entry = readdir(dir)) != NULL)
+	while ( (entry = readdir(dir)) != NULL) 
 	{
-		if (strcmp(entry->d_name, ".") && strcmp(entry->d_name, "..") && strcmp(entry->d_name, ".DS_Store"))
-		{
-			file_list << entry->d_name;
-			file_list << "\n";
-		}
-		while ( (entry = readdir(dir)) != NULL) 
-		{
-			if (strcmp(entry->d_name, ".") && strcmp(entry->d_name, "..") && strcmp(entry->d_name, ".DS_Store"))
-			{
-				file_list << entry->d_name;
-				file_list << "\n";
-			}
-		}
-	}
-	file_list.close();  
-    closedir(dir);
-}
-
-int ServerRouter::_postCheckIsFileExist(t_connection * connection)
-{
-	std::fstream fileList;
-	std::string buf;
-	fileList.open(FILESLISTNAME);
-    if (!fileList.is_open())
-        return 0;
-	while (1)
-    {
-        std::getline(fileList, buf);
-		if (buf == connection->inputData.postFileName)
-		{
-			fileList.close();
+		if (!strcmp(entry->d_name, (connection->inputData.postFileName).c_str()))
 			return 1;
-		}
-        if (fileList.eof())
-            break;
-    }
-    fileList.close();
+	}
+    closedir(dir);
 	return 2;
 }
 
 void ServerRouter::_postSaveFile(t_connection * connection)
 {
-	_makefilelist(connection);
-	std::fstream fileList;
 	std::string buf;
-	fileList.open(FILESLISTNAME);
-    if (!fileList.is_open())
-        return ; // придумать ошибку и вернуть её
-    fileList.close();
 
-	// std::string saveName = connection->inputData.postFileName;
 	std::vector<std::string> saveName;
 	splitStringColon(connection->inputData.postFileName, '.', saveName);
-	int i = _postCheckIsFileExist(connection); // ? mabe jast save with another filenamename ?
+	int i = _postCheckIsFileExist(connection); // ? maybe just save with another filenamename ?
 	if (i != 2)
 	{
 		// if (i == 0)
@@ -421,7 +371,7 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 		}
 	}
 
-	std::string fileName = connection->inputData.postFilePathToSave + "/" + connection->inputData.postFileName;
+	std::string fileName = correctSlashInAddress(connection->inputData.postFilePathToSave) + "/" + correctSlashInAddress(connection->inputData.postFileName);
 	#ifdef DEBUGMODE
 		std::cout << RED <<  " DEBUGMODE SR_POST _postSaveFile fileName: \n" << NC << fileName << "\n----------------------\n";
 	#endif
@@ -434,25 +384,18 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 	}
 	else
 		file = fopen(fileName.c_str(), "a");
-	fwrite((connection->inputData.postFileData).c_str(), sizeof(char), (connection->inputData.postFileData).size(), file);
+
+	#ifdef DEBUGMODE
+		printCharInt(connection->inputData.postFileData, "DEBUGMODE SR_POST _postSaveFile connection->inputData.postFileData");
+	#endif
+	std::vector<std::string> dataVecData;
+	splitStringStr(connection->inputData.postFileData, DELIMETER, dataVecData);
+	std::string dataToWrite = dataVecData[0];
+
+	fwrite(dataToWrite.c_str(), sizeof(char), dataToWrite.size(), file);
+	// fwrite((connection->inputData.postFileData).c_str(), sizeof(char), (connection->inputData.postFileData).size(), file);
 	// #ifdef DEBUGMODE
 	// 	std::cout << RED <<  " DEBUGMODE SR_POST _makefilelist \n" << NC << "ERROR11" << "\n----------------------\n";
 	// #endif
 	fclose(file);
-
-	// std::ofstream fileToWrite;
-    // std::ofstream ofile(fileName);
-	// fileToWrite.open(fileName, std::ios::out | std::ios::in);
-
-	// // int j = 0;
-	// // std::string::iterator iter = connection->inputData.postFileData.begin();
-	// // while ((*iter) != '\n')
-	// // {
-	// // 	iter++;
-	// // 	j++;
-	// // }
-	// // connection->inputData.postFileData.erase(_bufGet.begin(), _bufGet.begin() + j + 1);
-
-	// fileToWrite << connection->inputData.postFileData;
-    // fileToWrite.close();	
 }

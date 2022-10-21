@@ -12,7 +12,7 @@
 # define DDELIMETER "\r\n\r\n"
 // # define DELIMETER "\\r\\n"
 # define TIMEOUT 10 // in seconds
-# define FILESLISTNAME "__files.txt"
+// # define FILESLISTNAME "__files.txt"
 
 # define NC "\033[0m"
 # define REV "\033[7m"
@@ -98,6 +98,7 @@ void	printConnection(t_connection connection, std::string msg, int sign);
 void	printAllConnections(std::vector<t_connection> connections, std::string msg);
 void	printBoundary(t_connection connection, std::string msg);
 void	printMapStrStr(std::map<std::string, std::string> dataMap, std::string msg);
+void	printCharInt(std::string str, std::string msg);
 
 bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std::vector<std::string> & vectorConfigFile);
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);
@@ -111,6 +112,7 @@ void	ctrl_c_handler(int signum);
 std::string	correctSlashInAddress(std::string str);
 void	replaceAllStrings(std::string & msg, const std::string & search, const std::string & replace);
 std::string	getFileName(std::vector<std::string> dataVec);
+std::string urlDecode(std::string text);
 // bool	parseInputData(char * buf, t_connection * connection);
 // void	delWhiteSpacesStr(std::string & inptStr);
 // bool	checkDelimeterAtTheEnd(std::string str);

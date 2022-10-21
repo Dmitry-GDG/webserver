@@ -398,3 +398,31 @@ std::string getFileName(std::vector<std::string> dataVec)
 	}
 	return "";
 }
+
+// https://stackoverflow.com/questions/154536/encode-decode-urls-in-c
+
+std::string urlDecode(std::string str)
+{
+    std::string ret;
+    char ch;
+    int i, ii, len = str.length();
+
+    for (i=0; i < len; i++)
+	{
+        if(str[i] != '%')
+		{
+            if(str[i] == '+')
+                ret += ' ';
+            else
+                ret += str[i];
+        }
+		else
+		{
+            sscanf(str.substr(i + 1, 2).c_str(), "%x", &ii);
+            ch = static_cast<char>(ii);
+            ret += ch;
+            i = i + 2;
+        }
+    }
+    return ret;
+}

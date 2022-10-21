@@ -444,3 +444,16 @@ void printMapStrStr(std::map<std::string, std::string> dataMap, std::string msg)
 	}
 	std::cout << "----------------------" << std::endl;
 }
+
+void	printCharInt(std::string str, std::string msg)
+{
+	if (msg != "")
+		std::cout << VIOLET << " " << msg << " " << NC << std::endl;
+	else
+		std::cout << VIOLET << " printCharInt " << NC << std::endl;
+	for (size_t i = 0; i < str.size(); i++)
+	{
+		std::cout << str[i] << "\t" << int(str[i]) << std::endl;
+	}
+	std::cout << "----------------------" << std::endl;
+}
