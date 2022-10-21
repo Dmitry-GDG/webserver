@@ -242,7 +242,7 @@ void locationClear(t_location & location)
 	location.root.clear();
 	location.index.clear();
 	location.autoindex = false;
-	location.upload.clear();
+	// location.upload.clear();
 	location.limit_size.clear();
 	location.redirs.clear();
 	location.methods.clear();
@@ -259,7 +259,7 @@ void configClear(t_config & oneServerConfig)
 	oneServerConfig.limitSize.clear();
 	oneServerConfig.root.clear();
 	oneServerConfig.index.clear();
-	oneServerConfig.upload.clear();
+	oneServerConfig.upload = "downloads";
 	oneServerConfig.autoindex = false;
 	oneServerConfig.redirs.clear();
 	oneServerConfig.methods.clear();

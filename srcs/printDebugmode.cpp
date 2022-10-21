@@ -174,8 +174,8 @@ void printServerConfig(t_config config, std::string msg)
 				std::cout << "true" << std::endl;
 			else
 				std::cout << "false" << std::endl;
-			if (config.locations[i].upload.size() > 0)
-				std::cout << "   upload:\t" << config.locations[i].upload << std::endl;
+			// if (config.locations[i].upload.size() > 0)
+			// 	std::cout << "   upload:\t" << config.locations[i].upload << std::endl;
 			if (config.locations[i].limit_size.size() > 0)
 				std::cout << "   limit_size:\t" << config.locations[i].limit_size << std::endl;
 			if (config.locations[i].redirs.size() > 0)

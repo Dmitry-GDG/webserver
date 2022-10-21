@@ -12,6 +12,7 @@
 # define DDELIMETER "\r\n\r\n"
 // # define DELIMETER "\\r\\n"
 # define TIMEOUT 10 // in seconds
+# define FILESLISTNAME "__files.txt"
 
 # define NC "\033[0m"
 # define REV "\033[7m"
@@ -32,6 +33,7 @@
 
 # include <algorithm>
 # include <arpa/inet.h>
+# include <dirent.h>
 # include <fcntl.h>
 # include <fstream>
 # include <iostream>

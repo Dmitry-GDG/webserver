@@ -126,11 +126,11 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 						location.autoindex = true;
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
-				else if (oneServerConfigVectorSplit[i][0] == "upload")
-				{
-					location.upload = correctSlashInAddress(oneServerConfigVectorSplit[i][1]);
-					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
-				}
+				// else if (oneServerConfigVectorSplit[i][0] == "upload")
+				// {
+				// 	location.upload = correctSlashInAddress(oneServerConfigVectorSplit[i][1]);
+				// 	oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
+				// }
 				else if (oneServerConfigVectorSplit[i][0] == "limit_size")
 				{
 					location.limit_size = oneServerConfigVectorSplit[i][1];
@@ -203,6 +203,8 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 					oneServerConfig.root = correctSlashInAddress(oneServerConfigVectorSplit[j][1]);
 				if (oneServerConfigVectorSplit[j][0] == "index")
 					oneServerConfig.index = correctSlashInAddress(oneServerConfigVectorSplit[j][1]);
+				if (oneServerConfigVectorSplit[j][0] == "upload")
+					oneServerConfig.upload = correctSlashInAddress(oneServerConfigVectorSplit[j][1]);
 				if (oneServerConfigVectorSplit[j][0] == "autoindex")
 				{
 					if (oneServerConfigVectorSplit[j][1] == "on" || oneServerConfigVectorSplit[j][1] == "On" || oneServerConfigVectorSplit[j][1] == "true" || oneServerConfigVectorSplit[j][1] == "True")

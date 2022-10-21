@@ -257,6 +257,15 @@ bool ServerRouter::_mainLoop()
 			{
 				// std::cout << "POLOUT" << std::endl;
 				err = _sendAnswer(connection);
+				// if (connection->responseData.connectionAnswer.find("Connection: Close") != std::string::npos)
+				// {
+				// 	msg = "client closed sd ";
+				// 	msg1 = "";
+				// 	printMsg(connection->srvNbr, clntSd, msg, msg1);
+				// 	printMsgToLogFile(connection->srvNbr, clntSd, msg, msg1);
+				// 	_closeConnection (clntSd);
+				// 	// continue ;
+				// }
 				bool connectionClosed;
 
 				connectionClosed = false;
@@ -350,6 +359,8 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 	msg = "prepared answer to sd ";
 	printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
 	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + answerHeaderTmp);
+	// printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + connection->responseData.connectionAnswer);
+	// printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + connection->responseData.connectionAnswer);
 
 	// connection->responseData.connectionAnswer += "BLA-bla-bla\n\rbla-bla-bla\n\r";
 

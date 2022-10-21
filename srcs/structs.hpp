@@ -73,6 +73,7 @@ typedef struct s_inputdata
 	std::vector<std::string> boundary;
 	std::string		postFileName;
 	std::string		postFileData;
+	std::string		postFilePathToSave;
 	// std::map<std::string, std::string>	headerFields;
 	std::vector<std::pair<std::string, std::string> >	headerFieldsVec; //map - notacceptable, some keys repeated witn other values
 	std::vector<std::string>							inputStrBodyVec;
@@ -124,7 +125,7 @@ typedef struct s_location
 	std::string					root;
 	std::string					index;
 	bool						autoindex;
-	std::string					upload;
+	// std::string					upload;
 	std::string					limit_size;
 	std::string					redirs;
 	std::vector<std::string>	methods;
