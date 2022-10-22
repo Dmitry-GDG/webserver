@@ -105,7 +105,7 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 		if (oneServerConfigVectorSplit[i][0] == "location")
 		{
 			locationClear(location);
-			location.path = correctSlashInAddress(oneServerConfigVectorSplit[i][1]);
+			location.path =  urlDecode(correctSlashInAddress(oneServerConfigVectorSplit[i][1]));
 			oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 			for (;i < oneServerConfigVectorSplit.size(); i++)
 			{
@@ -147,7 +147,7 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 					location.redirs = oneServerConfigVectorSplit[i][1];
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
-				else if (oneServerConfigVectorSplit[i][0] == "cgi")
+				else if (oneServerConfigVectorSplit[i][0] == "cgi" || oneServerConfigVectorSplit[i][0] == "cgi_dir")
 				{
 					location.cgi.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[i][1], correctSlashInAddress(oneServerConfigVectorSplit[i][2])) );
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
@@ -210,7 +210,7 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 					if (oneServerConfigVectorSplit[j][1] == "on" || oneServerConfigVectorSplit[j][1] == "On" || oneServerConfigVectorSplit[j][1] == "true" || oneServerConfigVectorSplit[j][1] == "True")
 						oneServerConfig.autoindex = true;
 				}
-				if (oneServerConfigVectorSplit[j][0] == "cgi")
+				if (oneServerConfigVectorSplit[j][0] == "cgi" || oneServerConfigVectorSplit[j][0] == "cgi_dir")
 					oneServerConfig.cgi.insert(std::pair<std::string, std::string>(oneServerConfigVectorSplit[j][1], correctSlashInAddress(oneServerConfigVectorSplit[j][2])) );
 				if (oneServerConfigVectorSplit[j][0] == "redir" || oneServerConfigVectorSplit[j][0] == "redirs" || oneServerConfigVectorSplit[j][0] == "redirection")
 					oneServerConfig.redirs = oneServerConfigVectorSplit[j][1];

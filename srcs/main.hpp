@@ -14,7 +14,7 @@
 # define TIMEOUT 10 // in seconds
 // # define FILESLISTNAME "__files.txt"
 
-# define NC "\033[0m"
+# define NC "\033[0m" //no colour
 # define REV "\033[7m"
 // # define BLACK "\033[0;30m"
 # define BLACKS "\033[2;30m"
@@ -113,6 +113,7 @@ std::string	correctSlashInAddress(std::string str);
 void	replaceAllStrings(std::string & msg, const std::string & search, const std::string & replace);
 std::string	getFileName(std::vector<std::string> dataVec);
 std::string urlDecode(std::string text);
+std::string urlEncode(std::string str);
 // bool	parseInputData(char * buf, t_connection * connection);
 // void	delWhiteSpacesStr(std::string & inptStr);
 // bool	checkDelimeterAtTheEnd(std::string str);

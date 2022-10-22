@@ -996,7 +996,7 @@ void ServerRouter::_contentTypesInit()
 		std::make_pair("htt", "text/webviewhtml"), 
 		std::make_pair("htx", "text/html"), 
 		std::make_pair("ice", "x-conference/x-cooltalk"), 
-		std::make_pair("ico", "image/x-icon"), 
+		std::make_pair("ico", "image/vnd.microsoft.icon"), 
 		std::make_pair("idc", "text/plain"), 
 		std::make_pair("ief", "image/ief"), 
 		std::make_pair("iefs", "image/ief"), 

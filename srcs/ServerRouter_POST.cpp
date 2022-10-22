@@ -12,9 +12,9 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	// #ifdef DEBUGMODE
 	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer path \npath: " << NC << path << "\n----------------------\n";
 	// #endif
-	// #ifdef DEBUGMODE
-	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer body \nbody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
-	// #endif
+	#ifdef DEBUGMODE
+		std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer body \nbody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
+	#endif
 
 	_parseInputBodyStr(connection);
 	_choosePostContentType(connection);
@@ -135,11 +135,17 @@ void ServerRouter::_choosePostContentType(t_connection * connection)
 				connection->inputData.postContentType = MIXED;
 				_postMixed(connection, contentType);
 			}
+			else if ((*iter).second.find("application/json") != std::string::npos)
+			{
+				// connection->inputData.postContentType = MIXED;
+				// _postMixed(connection, contentType);
+			}
 		}
 	}
 	// #ifdef DEBUGMODE
 	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
 	// #endif
+	std::cout << RED << "TEST" << NC << std::endl;
 }
 
 void ServerRouter::_postUrlencoded(t_connection * connection, std::string contentType)
@@ -179,7 +185,13 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 	{
 		if ((*iter) != "" && (*iter) != DELIMETER && (*iter) != DDELIMETER)
 		{
+			std::string tmp = "--";
+			if ((*iter == "--") || (*iter == (tmp + DELIMETER)) || (*iter == (tmp + DDELIMETER)))
+				break;
 			_postGetFileName(connection, *iter);
+			#ifdef DEBUGMODE
+				std::cout << RED <<  " DEBUGMODE SR_POST _postFormData *iter: \n" << NC << *iter << "\n----------------------\n";
+			#endif
 			#ifdef DEBUGMODE
 				if (connection->inputData.postFileName.size())
 					std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileName: \n" << NC << connection->inputData.postFileName << "\n----------------------\n";
@@ -189,8 +201,11 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 					std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileData: \n" << NC << connection->inputData.postFileData << "\n----------------------\n";
 			#endif
 			_postGetFilePathToSave(connection);
+			// std::cout << RED << "TEST22" << NC << std::endl;
 			_postSaveFile(connection);
 		}
+		// else
+		// 	continue ;
 	}
 	// connection->responseData.connectionAnswer +=
 
@@ -359,7 +374,9 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 			// return (_sendMsg("371 " + commandParced.args[1] + " FILEGET unknown error. Try later"));// придумать ошибку и вернуть её
 		for (size_t j = 1; ; j++)
 		{
-			connection->inputData.postFileName = saveName[0] + "_" + unsignedToString99(j) + "." + saveName[1];
+			connection->inputData.postFileName = saveName[0] + "_" + unsignedToString99(j);
+			if (saveName[1].size())
+				connection->inputData.postFileName += "." + saveName[1];
 			// #ifdef DEBUGMODE
 			// 	std::cout << RED <<  " DEBUGMODE SR_POST _postSaveFile i = \n" << NC << i << "\n----------------------\n";
 			// #endif
@@ -385,11 +402,14 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 	else
 		file = fopen(fileName.c_str(), "a");
 
-	#ifdef DEBUGMODE
-		printCharInt(connection->inputData.postFileData, "DEBUGMODE SR_POST _postSaveFile connection->inputData.postFileData");
-	#endif
+	// #ifdef DEBUGMODE
+	// 	printCharInt(connection->inputData.postFileData, "DEBUGMODE SR_POST _postSaveFile connection->inputData.postFileData");
+	// #endif
+	// std::cout << RED << "TEST00" << NC << std::endl;
 	std::vector<std::string> dataVecData;
+	// std::cout << RED << "TEST0" << NC << std::endl;
 	splitStringStr(connection->inputData.postFileData, DELIMETER, dataVecData);
+	// std::cout << RED << "TEST" << NC << std::endl;
 	std::string dataToWrite = dataVecData[0];
 
 	fwrite(dataToWrite.c_str(), sizeof(char), dataToWrite.size(), file);
