@@ -73,7 +73,7 @@
 				<div class="button-container">
 					<a href="index.html" class="gradient-button-passed">Index</a>
 					<a href="test_post_file.html" class="gradient-button">Test POST file</a>
-					<a href="test_post_data.html" class="gradient-button">TEST POST data</a>
+					<a href="test_delete_file.html" class="gradient-button">TEST DELETE file</a>
 					<a href="autoindex.html" class="gradient-button">TEST autoindex</a>
 					<a href="cgi.html" class="gradient-button">TEST CGI</a>
 				</div>
@@ -81,9 +81,28 @@
 			<td><img src=capone.jpeg alt="Al Capone"> </td> 
 			<td><img src=mistake.jpeg alt="phrase"> </td>
 		</table>
-		<img src=logo.jpg alt="logo"> 
+		<!-- <img src=logo.jpg alt="logo">  -->
 		<!-- <p>
 			<b>8080</b> <ins>index.html</ins>
 		</p> -->
+		<input type="submit" value="Delete" class="delete_item" data-id="666" />
+
+		<script>
+			$(function() {
+				$('.delete_item').on('click', function() {
+					var $btn = $(this);
+					var id = $btn.data('id');
+					$.ajax({
+						// url: '/trains/' + id + '/',
+						url: '1.txt',
+						type: 'DELETE',
+						success: function(response) {
+							// Какое либо действие после удаления, например переход на другую страницу или ее обновление
+							location.reload();
+						}
+					});
+				});
+			});
+		</script>
 	</body>
 </html>

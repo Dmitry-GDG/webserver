@@ -83,7 +83,7 @@ class ServerRouter
 		void	_addFile404(std::string & contentTypeAndLength, t_connection *);
 		bool	_acceptFile(std::string & contentTypeAndLength, t_connection * connection, std::string const & path);
 		void	_findConnectionLenBody(t_connection *);
-		std::string	_addressDecode(std::string const & address);
+		// std::string	_addressDecode(std::string const & address);
 		std::string	_extractLocalAddress(std::string const & address);
 		void	_findReferer(t_connection *);
 		void	_findPath404(t_connection *);

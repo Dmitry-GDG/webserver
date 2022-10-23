@@ -636,30 +636,30 @@ bool ServerRouter::_isSocketServer(int fd)
 	return false;
 }
 
-std::string	ServerRouter::_addressDecode(std::string const & address)
-{
-	std::string outp;
-	unsigned int decodedI;
-	size_t maxLen = address.find('?');
+// std::string	ServerRouter::_addressDecode(std::string const & address)
+// {
+// 	std::string outp;
+// 	unsigned int decodedI;
+// 	size_t maxLen = address.find('?');
 
-	for (size_t i = 0; i < address.length() && (i < maxLen || maxLen == std::string::npos); i++)
-	{
-		if (address[i] != '%')
-		{
-			if (address[i] == '+')
-				outp += ' ';
-			else
-				outp += address[i];
-		}
-		else
-		{
-			sscanf(address.substr(i + 1, 2).c_str(), "%x", & decodedI);
-			outp += static_cast<char>(decodedI);
-			i += 2;
-		}
-	}
-	return outp;
-}
+// 	for (size_t i = 0; i < address.length() && (i < maxLen || maxLen == std::string::npos); i++)
+// 	{
+// 		if (address[i] != '%')
+// 		{
+// 			if (address[i] == '+')
+// 				outp += ' ';
+// 			else
+// 				outp += address[i];
+// 		}
+// 		else
+// 		{
+// 			sscanf(address.substr(i + 1, 2).c_str(), "%x", & decodedI);
+// 			outp += static_cast<char>(decodedI);
+// 			i += 2;
+// 		}
+// 	}
+// 	return outp;
+// }
 
 std::string ServerRouter::_extractLocalAddress(std::string const & address)
 {

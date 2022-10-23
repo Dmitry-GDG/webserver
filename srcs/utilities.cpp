@@ -401,30 +401,55 @@ std::string getFileName(std::vector<std::string> dataVec)
 
 // https://stackoverflow.com/questions/154536/encode-decode-urls-in-c
 
-std::string urlDecode(std::string str)
-{
-    std::string ret;
-    char ch;
-    int i, ii, len = str.length();
+// std::string urlDecode(std::string str)
+// {
+//     std::string ret;
+//     char ch;
+//     int i, ii, len = str.length();
 
-    for (i=0; i < len; i++)
+//     for (i=0; i < len; i++)
+// 	{
+//         if(str[i] != '%')
+// 		{
+//             if(str[i] == '+')
+//                 ret += ' ';
+//             else
+//                 ret += str[i];
+//         }
+// 		else
+// 		{
+//             sscanf(str.substr(i + 1, 2).c_str(), "%x", &ii);
+//             ch = static_cast<char>(ii);
+//             ret += ch;
+//             i = i + 2;
+//         }
+//     }
+//     return ret;
+// }
+
+std::string urlDecode(std::string const & address)
+{
+	std::string outp;
+	unsigned int decodedI;
+	size_t maxLen = address.find('?');
+
+	for (size_t i = 0; i < address.length() && (i < maxLen || maxLen == std::string::npos); i++)
 	{
-        if(str[i] != '%')
+		if (address[i] != '%')
 		{
-            if(str[i] == '+')
-                ret += ' ';
-            else
-                ret += str[i];
-        }
+			if (address[i] == '+')
+				outp += ' ';
+			else
+				outp += address[i];
+		}
 		else
 		{
-            sscanf(str.substr(i + 1, 2).c_str(), "%x", &ii);
-            ch = static_cast<char>(ii);
-            ret += ch;
-            i = i + 2;
-        }
-    }
-    return ret;
+			sscanf(address.substr(i + 1, 2).c_str(), "%x", & decodedI);
+			outp += static_cast<char>(decodedI);
+			i += 2;
+		}
+	}
+	return outp;
 }
 
 std::string urlEncode(std::string str)

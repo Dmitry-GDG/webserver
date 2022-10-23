@@ -73,7 +73,7 @@
 				<div class="button-container">
 					<a href="index.html" class="gradient-button">Index</a>
 					<a href="test_post_file.html" class="gradient-button-passed">Test POST file</a>
-					<a href="test_post_data.html" class="gradient-button">TEST POST data</a>
+					<a href="test_delete_file.html" class="gradient-button">TEST DELETE file</a>
 					<a href="autoindex.html" class="gradient-button">TEST autoindex</a>
 					<a href="cgi.html" class="gradient-button">TEST CGI</a>
 				</div>
@@ -83,34 +83,46 @@
 				<form method="post" enctype="multipart/form-data">
 					<input type="file" name="file[]"><br>
 					<input type="file" name="file[]"><br>
-					<!-- <input type="file" name="file[]"><br> -->
+					<input type="file" name="file[]"><br>
 					<input type="submit" value="Отправить">
 				</form>
-				<form method="post" enctype="multipart/form-data">
+				<br><br>
+				<!-- <form method="post" enctype="multipart/form-data">
 					<input type="file" name="file[]"><br>
 					Прикрепить файл: <input type="file" name="fileup" /><br />
 					<input type="file" name="file[]"><br>
-					<!-- <input type="file" name="file[]"><br>
-					<input type="file" name="file[]"><br> -->
+					<input type="file" name="file[]"><br>
+					<input type="file" name="file[]"><br>
 					<input type="submit" value="Отправить">
 				</form>
-				<!-- <form ENCTYPE="multipart/form-data" name="form1" method="post" action="<?php echo $PHP_SELF; ?>"> -->
+				<form ENCTYPE="multipart/form-data" name="form1" method="post" action="<?php echo $PHP_SELF; ?>">
 				<form method="post" enctype="multipart/form-data">
-					<!-- Имя отправителя: <input type="text" name="username" /><br /> -->
-					<!-- Прикрепить файл: <input type="file" name="fileup" /><br /> -->
+					Имя отправителя: <input type="text" name="username" /><br />
+					Прикрепить файл: <input type="file" name="fileup" /><br />
 					<input type="file" name="file[]"><br>
-					<!-- <input name="" type="submit" value="Отправить" /> -->
+					<input name="" type="submit" value="Отправить" />
 					<input type="submit" value="Отправить" />
+				</form> -->
+				<form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
+					<label>Ваш аватар: <input type="file" name="avatar"></label>
+					<input type="submit" name="send" value="Отправить файл">
+				</form>
+				<br><br>
+				<form action="http://foo.com" method="post">
+					<div>
+						<label for="say">What greeting do you want to say?</label>
+						<input name="say" id="say" value="Hi">
+					</div>
+					<div>
+						<label for="to">Who do you want to say it to?</label>
+						<input name="to" id="to" value="Mom">
+					</div>
+					<div>
+						<button>Send my greetings</button>
+					</div>
 				</form>
 			</td>
 		</table>
-		<!-- <form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
-			<label>Ваш аватар: <input type="file" name="avatar"></label>
-			<input type="submit" name="send" value="Отправить файл">
-		  </form> -->
-		<img src=logo.jpg alt="logo"> 
-		<!-- <p>
-			<b>8080</b> <ins>index.html</ins>
-		</p> -->
+		<!-- <img src=logo.jpg alt="logo">  -->
 	</body>
 </html>
