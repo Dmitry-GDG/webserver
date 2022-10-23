@@ -78,6 +78,7 @@ class ServerRouter
 		void	_postGetFilePathToSave(t_connection * connection);
 		int		_postCheckIsFileExist(t_connection * connection);
 		void	_postSaveFile(t_connection * connection);
+		std::string	_delGetPath(t_connection * connection);
 		void	_prepareDeleteAnswer(t_connection *);
 		bool	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
 		void	_addFile404(std::string & contentTypeAndLength, t_connection *);

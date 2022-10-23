@@ -90,6 +90,26 @@
 				<title>Personal INFO</title>
 				</head>
 				<body> -->
+				<input type="submit" value="Delete" class="delete_item" data-id="666" />
+
+				<script>
+					$(function() {
+						$('.delete_item').on('click', function() {
+							var $btn = $(this);
+							var id = $btn.data('id');
+							$.ajax({
+								// url: '/trains/' + id + '/',
+								url: '1.txt',
+								type: 'DELETE',
+								success: function(response) {
+									// Какое либо действие после удаления, например переход на другую страницу или ее обновление
+									location.reload();
+								}
+							});
+						});
+					});
+				</script>
+
 				<form action="http://foo.com" method="post">
 					<div>
 						<label for="say">What greeting do you want to say?</label>
