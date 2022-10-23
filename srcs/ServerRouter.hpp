@@ -78,11 +78,11 @@ class ServerRouter
 		void	_postGetFilePathToSave(t_connection * connection);
 		int		_postCheckIsFileExist(t_connection * connection);
 		void	_postSaveFile(t_connection * connection);
-		std::string	_delGetPath(t_connection * connection);
+		bool	_delGetPath(t_connection * connection, std::string & contentTypeAndLengthAndData);
 		void	_prepareDeleteAnswer(t_connection *);
-		bool	_addFileToAnswer(std::string & contentTypeAndLength, t_connection *);
-		void	_addFile404(std::string & contentTypeAndLength, t_connection *);
-		bool	_acceptFile(std::string & contentTypeAndLength, t_connection * connection, std::string const & path);
+		bool	_addFileToAnswer(t_connection *, std::string & contentTypeAndLength);
+		void	_addFile404(t_connection *, std::string & contentTypeAndLength);
+		bool	_acceptFile(t_connection * connection, std::string & contentTypeAndLength, std::string const & path);
 		void	_findConnectionLenBody(t_connection *);
 		// std::string	_addressDecode(std::string const & address);
 		std::string	_extractLocalAddress(std::string const & address);

@@ -34,7 +34,7 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	#endif
 }
 
-bool ServerRouter::_acceptFile(std::string & contentTypeAndLength, t_connection * connection, std::string const & path)
+bool ServerRouter::_acceptFile(t_connection * connection, std::string & contentTypeAndLength, std::string const & path)
 {
 	(void) path;
 	(void) connection;

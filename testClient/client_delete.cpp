@@ -23,7 +23,7 @@
 
 extern int h_errno;
 
-ssize_t process_http(int sockfd, char *host, char *fileD, char *poststr)
+ssize_t process_http(int sockfd, char *fileD)
 {
 	char sendline[MAXLINE + 1], recvline[MAXLINE + 1];
 	ssize_t n;
@@ -35,12 +35,7 @@ ssize_t process_http(int sockfd, char *host, char *fileD, char *poststr)
 	// 	 "Connection: Close\r\n\r\n"
 	// 	 "%s", page, host, (int)strlen(poststr), poststr);
 	snprintf(sendline, MAXSUB,
-		"DELETE %s HTTP/1.1\r\n"
-		"Host: %s\r\n"
-		"Content-Length: %d\r\n"
-		"Content-Type: multipart/form-data; boundary=AaB03x\r\n"
-		"Connection: Close\r\n\r\n"
-		"%s", fileD, host, (int)strlen(poststr), poststr);
+		"DELETE %s HTTP/1.1\r\n\r\n", fileD);
 
 	// fcntl(sockfd, F_SETFL, O_NONBLOCK);
 	std::cout << "\033[0;32m\tClient request:\n\033[0m" <<  sendline << std::endl;
@@ -63,8 +58,13 @@ ssize_t process_http(int sockfd, char *host, char *fileD, char *poststr)
 	return n;
 
 }
-int main(void)
+int main(int argc, char **argv)
 {
+	if (argc < 3)
+	{
+		std::cerr << "Error! Use it with arguments: <port> <fileToDelete>\n";
+		exit (1);
+	}
 	int sockfd;
 	struct sockaddr_in servaddr;
 
@@ -72,27 +72,27 @@ int main(void)
 	//********** You can change. Put any values here *******
 	// char *hname = (char *)("souptonuts.sourceforge.net");
 	char *hname = (char *)("localhost");
-	int	port = 4242;
-	char *page = (char *)("/chirico/test.php");
+	int	port = atoi(argv[1]);
+	char *fileD = argv[2];
 	// char *poststr = ("--AaB03x\r\nContent-Disposition: form-data; name='submit-name'\r\n\r\nLarry\r\n--AaB03x\r\nContent-Disposition: form-data; name=files\r\nContent-Type: multipart/mixed; boundary=BbC04y\r\n\r\n--BbC04y\r\nContent-Disposition: file; filename=file1.txt\r\nContent-Type: text/plain\r\n\r\n... contents of file1.txt ...\r\n--BbC04y\r\nContent-Disposition: file; filename=file2.gif\r\nContent-Type: image/gif\r\nContent-Transfer-Encoding: binary\r\n\r\n...contents of file2.gif...\r\n--BbC04y--\r\n--AaB03x--\r\n\r\n").c_str();
-	std::string strPost = "--AaB03x\r\n\
-Content-Disposition: form-data; name=\"submit-name\"\r\n\r\n\
-Larry\r\n\
---AaB03x\r\n\
-Content-Disposition: form-data; name=\"files\"\r\n\
-Content-Type: multipart/mixed; boundary=BbC04y\r\n\r\n\
---BbC04y\r\n\
-Content-Disposition: file; filename=\"file1.txt\"\r\n\
-Content-Type: text/plain\r\n\r\n\
-... contents of file1.txt ...\r\n\
---BbC04y\r\n\
-Content-Disposition: file; filename=\"file2.gif\"\r\n\
-Content-Type: image/gif\r\n\
-Content-Transfer-Encoding: binary\r\n\r\n\
-...contents of file2.gif...\r\n\
---BbC04y--\r\n\
---AaB03x--\r\n\r\n";
-	char *poststr = (char *)strPost.c_str();
+// 	std::string strPost = "--AaB03x\r\n\
+// Content-Disposition: form-data; name=\"submit-name\"\r\n\r\n\
+// Larry\r\n\
+// --AaB03x\r\n\
+// Content-Disposition: form-data; name=\"files\"\r\n\
+// Content-Type: multipart/mixed; boundary=BbC04y\r\n\r\n\
+// --BbC04y\r\n\
+// Content-Disposition: file; filename=\"file1.txt\"\r\n\
+// Content-Type: text/plain\r\n\r\n\
+// ... contents of file1.txt ...\r\n\
+// --BbC04y\r\n\
+// Content-Disposition: file; filename=\"file2.gif\"\r\n\
+// Content-Type: image/gif\r\n\
+// Content-Transfer-Encoding: binary\r\n\r\n\
+// ...contents of file2.gif...\r\n\
+// --BbC04y--\r\n\
+// --AaB03x--\r\n\r\n";
+// 	char *poststr = (char *)strPost.c_str();
 	//*******************************************************
 
 	char str[50];
@@ -115,7 +115,7 @@ Content-Transfer-Encoding: binary\r\n\r\n\
 	inet_pton(AF_INET, str, &servaddr.sin_addr);
 
 	connect(sockfd, (SA *) & servaddr, sizeof(servaddr));
-	process_http(sockfd, hname, page, poststr);
+	process_http(sockfd, fileD);
 	close(sockfd);
 	exit(0);
 
