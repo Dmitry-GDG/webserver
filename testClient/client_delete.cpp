@@ -124,4 +124,4 @@ int main(int argc, char **argv)
 // https://souptonuts.sourceforge.net/code/http_post.c.html
 // https://www.cyberforum.ru/post2446230.html
 
-// c++ client_delete.cpp && ./a.out && rm a.out
+// c++ client_delete.cpp && ./a.out 8080 files/1.txt && rm a.out
