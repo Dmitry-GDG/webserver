@@ -108,6 +108,7 @@ git push
 - установил ReqBin Google Chrome Extension https://chrome.google.com/webstore/detail/reqbin-http-client/gmmkjpcadciiokjpikmkkmapphbmdjok . Запрос DELETE на нём отрабатывается (см раздел "Как тестировать")
 - Пофиксил: надо сделать стр 405 в методе DELETE когда статус 405. Сделал универсальную страницу на ошибки (смотрит по коду ошибки) ServerRouter_addStatusCodePage.cpp
 - надо проверить: сделал _createAutoindex
+- надо проверить и доделать логику запроса _createAutoindex
 - надо сделать: разделить запрос по амперсанту на адрес и параметры
 
 23/10 #Д#
