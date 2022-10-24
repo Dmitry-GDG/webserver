@@ -9,9 +9,10 @@ void ServerRouter::_prepareDeleteAnswer(t_connection * connection)
 	if (!_delGetPath(connection, contentTypeAndLengthAndData))
 		_addStatusCodePage(connection, contentTypeAndLengthAndData);
 	
-	connection->responseData.connectionAnswer += connection->responseData.statusCode \
-	+ " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
-	+ DELIMETER + "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER \
+	connection->responseData.connectionAnswer += connection->responseData.statusCode + " " \
+	+ connection->responseStatusCodesAll[connection->responseData.statusCode] + DELIMETER \
+	+ timeStampHeader() + DELIMETER \
+	+ "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER \
 	+ contentTypeAndLengthAndData;
 }
 

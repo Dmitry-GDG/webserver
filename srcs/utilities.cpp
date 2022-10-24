@@ -575,7 +575,23 @@ std::string getTime(time_t time)
 	tm.tm_gmtoff = 0; // не используем
 	tm.tm_yday = 0; // не используем
 	strftime (buf, 100, "Date: %a, %d %b %Y %X %Z", &tm);
-	std::string outp(buf, sizeof(buf));
+	std::string outp(buf);
 	free (buf);
 	return (outp);
+}
+
+std::string dayOfWeekStamp()
+{
+	std::string arr[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+	std::vector<std::string> days(std::begin(arr), std::end(arr));
+	time_t now = time(0);
+	tm *ltm = localtime(&now);
+	return(days[ltm->tm_wday]);
+}
+
+std::string timeStampHeader()
+{
+	time_t now = time(0);
+	tm *ltm = localtime(&now);
+	return("Date: " + dayOfWeekStamp() +  ", " + datastamp() + " " + unsignedToString99(ltm->tm_hour) +  ":" + unsignedToString99(ltm->tm_min) + ":" +  unsignedToString99(ltm->tm_sec) + " " + ltm->tm_zone);
 }

@@ -25,9 +25,11 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	// if (!_acceptFile(contentTypeAndLength, connection, path))
 	// 	; // Подумать, что вернуть, если не примется файл
 
-	connection->responseData.connectionAnswer += connection->responseData.statusCode \
-	+ " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
-	+ DELIMETER + "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER + "Connection: Close";
+	connection->responseData.connectionAnswer += connection->responseData.statusCode + " " \
+	+ connection->responseStatusCodesAll[connection->responseData.statusCode] + DELIMETER \
+	+ timeStampHeader() + DELIMETER \
+	+ "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER \
+	+ "Connection: Close" + DDELIMETER;
 
 	#ifdef DEBUGMODE
 		std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";

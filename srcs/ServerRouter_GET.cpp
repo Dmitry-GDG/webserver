@@ -35,9 +35,10 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 
 	}
 
-	connection->responseData.connectionAnswer += connection->responseData.statusCode \
-	+ " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
-	+ DELIMETER + "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER \
+	connection->responseData.connectionAnswer += connection->responseData.statusCode + " " \
+	+ connection->responseStatusCodesAll[connection->responseData.statusCode] + DELIMETER \
+	+ timeStampHeader() + DELIMETER \
+	+ "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER \
 	+ contentTypeAndLengthAndData;
 
 
@@ -649,6 +650,21 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 			FILE * fileOpen2 = fopen(pathChar2, "rb"); //r - read only, b - in binary
 			if (fileOpen2 == NULL)
 			{
+				if (_isPathAutoindex(connection))
+				{
+					msg = "autoindex from path \"" + connection->inputData.address + "\", sd ";
+					printMsg(connection->srvNbr, connection->clntSd, msg, "");
+					printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+					connection->responseData.statusCode = "200";
+					std::string htmlStr = _createAutoindex(connection);
+					connection->responseData.fileToSendInBinary.clear();
+					connection->responseData.fileToSendInBinary = htmlStr;
+					contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+					contentTypeAndLengthAndData +=  DELIMETER;
+					contentTypeAndLengthAndData +=  "Content-Length: " + std::to_string(htmlStr.size());
+					contentTypeAndLengthAndData +=  DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+					return true;
+				}
 				msg = "Error! Can not open the file " + pathNew + ", sd ";
 				printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
@@ -695,12 +711,28 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 		// }
 		else
 		{
+			if (_isPathAutoindex(connection))
+			{
+				msg = "autoindex from path \"" + connection->inputData.address + "\", sd ";
+				printMsg(connection->srvNbr, connection->clntSd, msg, "");
+				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+				connection->responseData.statusCode = "200";
+				std::string htmlStr = _createAutoindex(connection);
+				connection->responseData.fileToSendInBinary.clear();
+				connection->responseData.fileToSendInBinary = htmlStr;
+				contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+				contentTypeAndLengthAndData +=  DELIMETER;
+				contentTypeAndLengthAndData +=  "Content-Length: " + std::to_string(htmlStr.size());
+				contentTypeAndLengthAndData +=  DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+				return true;
+			}
 			msg = "Error! Can not open the file " + path + ", sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 			connection->responseData.statusCode = "404";
+			return false;
 		}
-		return false;
+		// return false;
 	}
 	else if (S_ISREG(buf.st_mode)) //it's path to file
 	{
@@ -760,6 +792,21 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 		FILE * fileOpen2 = fopen(pathChar2, "rb"); //r - read only, b - in binary
 		if (fileOpen2 == NULL)
 		{
+			if (_isPathAutoindex(connection))
+			{
+				msg = "autoindex from path \"" + connection->inputData.address + "\", sd ";
+				printMsg(connection->srvNbr, connection->clntSd, msg, "");
+				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+				connection->responseData.statusCode = "200";
+				std::string htmlStr = _createAutoindex(connection);
+				connection->responseData.fileToSendInBinary.clear();
+				connection->responseData.fileToSendInBinary = htmlStr;
+				contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+				contentTypeAndLengthAndData +=  DELIMETER;
+				contentTypeAndLengthAndData +=  "Content-Length: " + std::to_string(htmlStr.size());
+				contentTypeAndLengthAndData +=  DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+				return true;
+			}
 			msg = "Error! Can not open the file " + path + ", sd ";
 			printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
@@ -798,6 +845,21 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 	}
 	else
 	{
+		if (_isPathAutoindex(connection))
+		{
+			msg = "autoindex from path \"" + connection->inputData.address + "\", sd ";
+			printMsg(connection->srvNbr, connection->clntSd, msg, "");
+			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+			connection->responseData.statusCode = "200";
+			std::string htmlStr = _createAutoindex(connection);
+			connection->responseData.fileToSendInBinary.clear();
+			connection->responseData.fileToSendInBinary = htmlStr;
+			contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+			contentTypeAndLengthAndData +=  DELIMETER;
+			contentTypeAndLengthAndData +=  "Content-Length: " + std::to_string(htmlStr.size());
+			contentTypeAndLengthAndData +=  DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+			return true;
+		}
 		msg = "Error! Can not open the file " + path + ", sd ";
 		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");

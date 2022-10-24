@@ -92,6 +92,7 @@ class ServerRouter
 		std::string	_extractLocalAddress(std::string const & address);
 		void	_findReferer(t_connection *);
 		std::string	_createAutoindex(t_connection * connection);
+		bool	_isPathAutoindex(t_connection * connection);
 		// void	_addStatusCode(std::string & answer, t_connection * connection, std::string code);
 
 		bool	_checkDelimeterAtTheEnd(std::string str);

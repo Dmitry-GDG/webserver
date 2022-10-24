@@ -105,7 +105,10 @@ bool	openConfigFileAndWriteToVectorConfigFile(std::string config_file_name, std:
 void 	parserVectorConfigFile(std::vector<std::string> & vectorConfigFile, std::vector<t_config> & configs);
 std::string unsignedToString99(unsigned x);
 std::string timestamp();
+std::string timeStampHeader();
+std::string getTime(time_t time);
 std::string datastamp();
+std::string dayOfWeekStamp();
 uint16_t	atou16(const char *s);
 std::string	exec(const char *cmd);
 void	exitErr(std::string errmsg);
@@ -115,7 +118,6 @@ void	replaceAllStrings(std::string & msg, const std::string & search, const std:
 std::string	getFileName(std::vector<std::string> dataVec);
 std::string urlDecode(std::string const & address);
 std::string urlEncode(std::string str);
-std::string getTime(time_t time);
 // bool	parseInputData(char * buf, t_connection * connection);
 // void	delWhiteSpacesStr(std::string & inptStr);
 // bool	checkDelimeterAtTheEnd(std::string str);

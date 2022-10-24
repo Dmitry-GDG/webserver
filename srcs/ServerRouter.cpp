@@ -2214,6 +2214,23 @@ Server ServerRouter::_getServer(int srvNbr) const
 	return _servers[0];
 }
 
+bool ServerRouter::_isPathAutoindex(t_connection * connection)
+{
+	Server server = _getServer(connection->srvNbr);
+	t_config config = server.getConfig();
+	bool outp = false;
+	if (config.autoindex)
+		outp = true;
+	for (size_t i = 0; i < server.getConfig().locations.size(); i++)
+	{
+		if (connection->inputData.address == server.getConfig().locations[i].path)
+		{
+			if (server.getConfig().locations[i].autoindex)
+				outp = true;
+		}
+	}
+	return outp;
+}
 
 // fd_set ServerRouter::_getAllActiveSdSets()
 // {
