@@ -115,6 +115,7 @@ void	replaceAllStrings(std::string & msg, const std::string & search, const std:
 std::string	getFileName(std::vector<std::string> dataVec);
 std::string urlDecode(std::string const & address);
 std::string urlEncode(std::string str);
+std::string getTime(time_t time);
 // bool	parseInputData(char * buf, t_connection * connection);
 // void	delWhiteSpacesStr(std::string & inptStr);
 // bool	checkDelimeterAtTheEnd(std::string str);

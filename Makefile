@@ -22,7 +22,8 @@ RM =		rm -Rf
 
 # FILES
 MAIN =		main ServerRouter utilities parserServerConfigFile Server ServerRouter_parseInputData \
-			printDebugmode ServerRouter_GET ServerRouter_POST ServerRouter_DELETE
+			printDebugmode ServerRouter_GET ServerRouter_POST ServerRouter_DELETE ServerRouter_addStatusCodePage \
+			ServerRouter_createAutoindex
 # WEBSERVCONFIG =	lexer parser
 # AUTOINDEX =	AutoIndexGenerator
 # CGI =		CgiHandler

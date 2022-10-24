@@ -60,6 +60,7 @@ class ServerRouter
 		void	_removeConnection(int);
 		t_connection	* _getConnection(int clntSd);
 		Server	_getServer(int srvNb) const;
+		std::string	_getStatusCodeDescription(std::string statusCode);
 		int		_readSd(t_connection *);
 		int		_sendAnswer(t_connection *);
 		// void	_parseInputData(char *, t_connection *);
@@ -81,13 +82,16 @@ class ServerRouter
 		bool	_delGetPath(t_connection * connection, std::string & contentTypeAndLengthAndData);
 		void	_prepareDeleteAnswer(t_connection *);
 		bool	_addFileToAnswer(t_connection *, std::string & contentTypeAndLength);
-		void	_addFile404(t_connection *, std::string & contentTypeAndLength);
+		// void	_findPath404(t_connection *);
+		// void	_addFile404(t_connection *, std::string & contentTypeAndLength);
+		void	_findPathToStatusCodePage(t_connection * connection);
+		void	_addStatusCodePage(t_connection * connection, std::string & contentTypeAndLengthAndData);
 		bool	_acceptFile(t_connection * connection, std::string & contentTypeAndLength, std::string const & path);
 		void	_findConnectionLenBody(t_connection *);
 		// std::string	_addressDecode(std::string const & address);
 		std::string	_extractLocalAddress(std::string const & address);
 		void	_findReferer(t_connection *);
-		void	_findPath404(t_connection *);
+		std::string	_createAutoindex(t_connection * connection);
 		// void	_addStatusCode(std::string & answer, t_connection * connection, std::string code);
 
 		bool	_checkDelimeterAtTheEnd(std::string str);

@@ -7,7 +7,7 @@ void ServerRouter::_prepareDeleteAnswer(t_connection * connection)
 	Server server = _getServer(connection->srvNbr);
 	std::string contentTypeAndLengthAndData = "";
 	if (!_delGetPath(connection, contentTypeAndLengthAndData))
-		_addFile404(connection, contentTypeAndLengthAndData);
+		_addStatusCodePage(connection, contentTypeAndLengthAndData);
 	
 	connection->responseData.connectionAnswer += connection->responseData.statusCode \
 	+ " " + connection->responseStatusCodesAll[connection->responseData.statusCode] \
@@ -104,6 +104,10 @@ bool ServerRouter::_delGetPath(t_connection * connection, std::string & contentT
 	#endif
 
 	remove(pathChar);
+	msg = "File " + path + " was removed, sd ";
+	printMsg(connection->srvNbr, connection->clntSd, msg, "");
+	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+	connection->responseData.statusCode = "200";
 
 	(void) contentTypeAndLengthAndData;
 	return true;

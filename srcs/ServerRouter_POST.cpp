@@ -355,7 +355,10 @@ int ServerRouter::_postCheckIsFileExist(t_connection * connection)
 	while ( (entry = readdir(dir)) != NULL) 
 	{
 		if (!strcmp(entry->d_name, (connection->inputData.postFileName).c_str()))
+		{
+			closedir(dir);
 			return 1;
+		}
 	}
     closedir(dir);
 	return 2;

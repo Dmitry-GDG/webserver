@@ -81,7 +81,14 @@
 			</td>
 			<td><img src=capone.jpeg alt="Al Capone"> </td> 
 			<td>
-				Чекать из client_delete.cpp
+				Чекать из https://reqbin.com/<br>
+				Поместить файл 1.txt в директорию 8080 и в директорию 8080/downloads/ нашего сервера, выбрать метод DELETE и в адресной строке набрать:<br>
+				```<br>
+				127.0.0.1:8080/1.txt // Status: 200 (Ok)<br>
+				127.0.0.1:8080/1.txt // Status: 404 (Not Found)<br>
+				127.0.0.1:8080/downloads/1.txt // Status: 405 (Method Not Allowed)<br>
+				```<br>
+				или client_delete.cpp<br>
 
 				<!-- <form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
 					<label>Ваш аватар: <input type="file" name="avatar"></label>
@@ -92,6 +99,10 @@
 				<title>Personal INFO</title>
 				</head>
 				<body> -->
+
+				<!-- <br><br>
+				<a rel="nofollow" data-method="delete" href="1.txt">DeleteMe</a>
+				<br><br> -->
 
 				<!-- <input type="submit" value="Delete" class="delete_item" data-id="666" />
 
@@ -135,6 +146,14 @@
 				</form> -->
 			</td>
 		</table>
+		Чекать из https://reqbin.com/<br>
+		Поместить файл 1.txt в директорию 8080 и в директорию 8080/downloads/ нашего сервера, выбрать метод DELETE и в адресной строке набрать:<br>
+		```<br>
+		127.0.0.1:8080/1.txt // Status: 200 (Ok)<br>
+		127.0.0.1:8080/1.txt // Status: 404 (Not Found)<br>
+		127.0.0.1:8080/downloads/1.txt // Status: 405 (Method Not Allowed)<br>
+		```<br>
+		или client_delete.cpp<br>
 		<!-- <img src=logo.jpg alt="logo">  -->
 	</body>
 </html>

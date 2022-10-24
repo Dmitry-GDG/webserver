@@ -4,3 +4,4 @@ if (isset($_FILES['avatar'])) {
 
     print("Загружен файл с именем " . $file['name'] . " и размером " . $file['size'] . " байт");
 }
+?>

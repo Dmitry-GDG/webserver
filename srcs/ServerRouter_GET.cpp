@@ -27,7 +27,7 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 	if (!_addFileToAnswer(connection, contentTypeAndLengthAndData))
 	{
 		// std::cout << RED << "_prepareGetAnswer\n" << NC;
-		_addFile404(connection, contentTypeAndLengthAndData); // Подумать, что вернуть, если не откроется файл
+		_addStatusCodePage(connection, contentTypeAndLengthAndData); // Подумать, что вернуть, если не откроется файл
 		// connection->responseData.connectionAnswer += "404 " \
 		// + connection->responseStatusCodesAll["404"] + DELIMETER \
 		// + "Location: resources/8080/404/404.html" + DELIMETER \
@@ -627,17 +627,18 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 			// std::string pathTo404Folder = connection->pathTo404.substr(0, posLast);
 			// std::string pathNew = pathTo404Folder + "/" + pathWithoutRefererTmp;
 		
-			_findPath404(connection);
-			posLast = findLastSlashInAddress(connection->pathTo404);
-			std::string pathTo404Folder = connection->pathTo404.substr(0, posLast);
+			connection->responseData.statusCode = "404";
+			_findPathToStatusCodePage(connection);
+			posLast = findLastSlashInAddress(connection->pathToStatusCode);
+			std::string pathToErrFolder = connection->pathToStatusCode.substr(0, posLast);
 			// std::string pathNew = pathTo404Folder + "/" + pathWithoutRefererVec[0];
-			std::string pathNew = (pathWithoutRefererVec[0] == "") ? (pathTo404Folder + "/" + pathWithoutRefererVec[1]) : (pathTo404Folder + "/" + pathWithoutRefererVec[0]);
+			std::string pathNew = (pathWithoutRefererVec[0] == "") ? (pathToErrFolder + "/" + pathWithoutRefererVec[1]) : (pathToErrFolder + "/" + pathWithoutRefererVec[0]);
 
 			#ifdef DEBUGMODE
-				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer connection->pathTo404 \nconnection->pathTo404: " << NC << connection->pathTo404 << "\n----------------------" << std::endl;
+				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer connection->pathToStatusCode \nconnection->pathToStatusCode: " << NC << connection->pathToStatusCode << "\n----------------------" << std::endl;
 			#endif
 			#ifdef DEBUGMODE
-				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer pathTo404Folder \npathTo404Folder: " << NC << pathTo404Folder << "\n----------------------" << std::endl;
+				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer pathToErrFolder \npathToErrFolder: " << NC << pathToErrFolder << "\n----------------------" << std::endl;
 			#endif
 			#ifdef DEBUGMODE
 				std::cout << BLUE << " DEBUGMODE SR_GET _addFileToAnswer pathNew \npathNew: " << NC << pathNew << "\n----------------------" << std::endl;
