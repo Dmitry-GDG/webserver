@@ -14,6 +14,13 @@ void ServerRouter::_prepareDeleteAnswer(t_connection * connection)
 	+ timeStampHeader() + DELIMETER \
 	+ "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER \
 	+ contentTypeAndLengthAndData;
+	if (connection->responseData.statusCode == "200")
+	{
+		connection->responseData.connectionAnswer += "Content-Type: text/html; charset=utf-8";
+		connection->responseData.connectionAnswer += DELIMETER;
+		std::string htmlStr = "<html><body><h1>File deleted.</h1></body></html>";
+		connection->responseData.connectionAnswer += "Content-Length: " + std::to_string(htmlStr.size()) + DDELIMETER + htmlStr + DDELIMETER;
+	}
 }
 
 bool ServerRouter::_delGetPath(t_connection * connection, std::string & contentTypeAndLengthAndData)

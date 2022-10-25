@@ -52,6 +52,12 @@
 				width: 400px;
 				/* height: 400px; */
 			}
+			.tab4 {
+				tab-size: 4;
+			}
+			.tab8 {
+				tab-size: 8;
+			}
 			*{margin:0;padding:0}
 			html,code{font:15px/22px arial,sans-serif}
 			html{background:#fff;color:#222;padding:15px}
@@ -81,14 +87,15 @@
 			</td>
 			<td><img src=capone.jpeg alt="Al Capone"> </td> 
 			<td>
-				Чекать из https://reqbin.com/<br>
+				<img src=mistake.jpeg alt="phrase">
+				<!-- Чекать из https://reqbin.com/<br>
 				Поместить файл 1.txt в директорию 8080 и в директорию 8080/downloads/ нашего сервера, выбрать метод DELETE и в адресной строке набрать:<br>
 				```<br>
 				127.0.0.1:8080/1.txt // Status: 200 (Ok)<br>
 				127.0.0.1:8080/1.txt // Status: 404 (Not Found)<br>
 				127.0.0.1:8080/downloads/1.txt // Status: 405 (Method Not Allowed)<br>
 				```<br>
-				или client_delete.cpp<br>
+				или client_delete.cpp<br> -->
 
 				<!-- <form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
 					<label>Ваш аватар: <input type="file" name="avatar"></label>
@@ -146,14 +153,19 @@
 				</form> -->
 			</td>
 		</table>
-		Чекать из https://reqbin.com/<br>
-		Поместить файл 1.txt в директорию 8080 и в директорию 8080/downloads/ нашего сервера, выбрать метод DELETE и в адресной строке набрать:<br>
-		```<br>
-		127.0.0.1:8080/1.txt // Status: 200 (Ok)<br>
-		127.0.0.1:8080/1.txt // Status: 404 (Not Found)<br>
-		127.0.0.1:8080/downloads/1.txt // Status: 405 (Method Not Allowed)<br>
-		```<br>
-		или client_delete.cpp<br>
+		<pre class="tab4">	Для проверки поместить файл 1.txt в директорию 8080 и в директорию 8080/downloads/ нашего сервера.<br>	Перейти на https://reqbin.com/, выбрать метод DELETE и в адресной строке набрать:<br></pre>
+		<pre class="tab8">	```<br></pre>
+		<pre class="tab8">	127.0.0.1:8080/1.txt // Status: 200 (Ok)<br></pre>
+		<pre class="tab8">	127.0.0.1:8080/1.txt // Status: 404 (Not Found)<br></pre>
+		<pre class="tab8">	127.0.0.1:8080/downloads/1.txt // Status: 405 (Method Not Allowed)<br></pre>
+		<pre class="tab8">	```<br></pre>
+		<pre class="tab4">	или для проверки использовать файл client_delete.cpp из папки testClient и в терминале набрать:<br></pre>
+		<pre class="tab8">	```<br></pre>
+		<pre class="tab8">	c++ client_delete.cpp && ./a.out 8080 1.txt && rm a.out<br></pre>
+		<pre class="tab8">	```<br></pre>
+		<div class="button-container">
+			<a href="https://reqbin.com/" target="_blank" class="gradient-button">TEST DELETE file</a>
+		</div>
 		<!-- <img src=logo.jpg alt="logo">  -->
 	</body>
 </html>

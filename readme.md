@@ -104,6 +104,11 @@ git push
 - DELETE https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/DELETE
 
 ### Хронология изменений:
+25/10 #Д#
+- подправил DELETE страницу 8080
+- сделал ответ на запрос DELETE _prepareDeleteAnswer страницей как https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/DELETE
+- пофиксил ожидание ответа сервера после запроса DELETE (требовалось content-type и Content-Length)
+
 24/10 #Д#
 - установил ReqBin Google Chrome Extension https://chrome.google.com/webstore/detail/reqbin-http-client/gmmkjpcadciiokjpikmkkmapphbmdjok . Запрос DELETE на нём отрабатывается (см раздел "Как тестировать")
 - Пофиксил: надо сделать стр 405 в методе DELETE когда статус 405. Сделал универсальную страницу на ошибки (смотрит по коду ошибки) ServerRouter_addStatusCodePage.cpp
@@ -118,7 +123,7 @@ git push
 - подправил шрифт в стр new404
 - убрал _addressDecode (была задвоена с urlDecode)
 - сделал метод DELETE. Чекать из client_delete.cpp
-- надо: сделать возврат из метода DELETE страницей как https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/DELETE
+- FIXED надо: сделать возврат из метода DELETE страницей как https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/DELETE
 ```
 <html>
   <body>
@@ -126,8 +131,8 @@ git push
   </body>
 </html>
 ```
-- надо: сделать список файлов на странице DELETE в браузере
-- надо: сделать выбор и посыл на удаление файла со странице в браузере
+- ? надо: сделать список файлов на странице DELETE в браузере
+- FIXED надо: сделать выбор и посыл на удаление файла со странице в браузере - сделал перенаправление на страницу, с которой можно сделать метод DELETE
 
 22/10 #Д#
 - добавил кодер urlEncode(std::string str)
