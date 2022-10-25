@@ -111,6 +111,7 @@ git push
 - разделил запрос по амперсанту на адрес и параметры (_parseParamsStr)
 - ввёл переменные _serverIp (SR) & _port (S)
 - сделал переадресацию со страниц Deleted(DELETE) & Success (POST) на главную страницу того сайта
+- надо сделать: SR-526 проверить логику: должен сохраняться ВСЁ тело, потом распарсиваться. Сейчас какие-то куски. Надо разобраться. Возможноб поправить всю логику, начиная с SR-419
 
 24/10 #Д#
 - установил ReqBin Google Chrome Extension https://chrome.google.com/webstore/detail/reqbin-http-client/gmmkjpcadciiokjpikmkkmapphbmdjok . Запрос DELETE на нём отрабатывается (см раздел "Как тестировать")
