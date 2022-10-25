@@ -18,7 +18,11 @@ void ServerRouter::_prepareDeleteAnswer(t_connection * connection)
 	{
 		connection->responseData.connectionAnswer += "Content-Type: text/html; charset=utf-8";
 		connection->responseData.connectionAnswer += DELIMETER;
-		std::string htmlStr = "<html><body><h1>File deleted.</h1></body></html>";
+		std::string htmlStr = "<html><head><meta http-equiv=\"refresh\" content=\"2; http://";
+		htmlStr += _serverIp;
+		htmlStr += ":" + std::to_string(server.getPort());
+		htmlStr += "\" /></head><body><h1>File deleted.</h1></body></html>";
+		// std::string htmlStr = "<html><body><h1>File deleted.</h1></body></html>";
 		connection->responseData.connectionAnswer += "Content-Length: " + std::to_string(htmlStr.size()) + DDELIMETER + htmlStr + DDELIMETER;
 	}
 }

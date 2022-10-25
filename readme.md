@@ -108,6 +108,9 @@ git push
 - подправил DELETE страницу 8080
 - сделал ответ на запрос DELETE _prepareDeleteAnswer страницей как https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/DELETE
 - пофиксил ожидание ответа сервера после запроса DELETE (требовалось content-type и Content-Length)
+- разделил запрос по амперсанту на адрес и параметры (_parseParamsStr)
+- ввёл переменные _serverIp (SR) & _port (S)
+- сделал переадресацию со страниц Deleted(DELETE) & Success (POST) на главную страницу того сайта
 
 24/10 #Д#
 - установил ReqBin Google Chrome Extension https://chrome.google.com/webstore/detail/reqbin-http-client/gmmkjpcadciiokjpikmkkmapphbmdjok . Запрос DELETE на нём отрабатывается (см раздел "Как тестировать")
@@ -115,8 +118,8 @@ git push
 - сделал _createAutoindex
 - Пофиксил: надо проверить и доделать логику запроса _createAutoindex
 - сделал печать даты в ответах
-- надо сделать: разделить запрос по амперсанту на адрес и параметры
-- надо пофиксить: ответ POST не должен всегда быть Continue
+- FIXED надо сделать: разделить запрос по амперсанту на адрес и параметры
+- надо пофиксить: ответ POST не должен всегда быть Continue (100)
 
 23/10 #Д#
 - подправил раздел этого файла "как тестировать"

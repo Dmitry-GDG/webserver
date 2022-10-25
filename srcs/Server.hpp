@@ -14,6 +14,7 @@ class Server
 		std::string _colors[4];
 		unsigned	_nextColor;
 		int			_srvrNbr;
+		unsigned	_port;
 		// std::vector<std::string> _methods; // GET, POST, DELETE
 		// size_t		_sdMaxCount; // = SD_MAXCOUNT
 		// char		_serverIp[sizeof(struct sockaddr_in)];
@@ -30,6 +31,8 @@ class Server
 		void	setSd(int);
 		int		getServNbr() const;
 		void	setSrvrNbr(size_t);
+		unsigned	getPort() const;
+		void	setPort(unsigned);
 		// bool		start();
 		// void		sdSet(fd_set & allActiveSdSets, int & sdMaxCountRouter);
 		// bool		readSd(int sd);

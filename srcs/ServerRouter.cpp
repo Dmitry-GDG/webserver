@@ -102,13 +102,15 @@ bool ServerRouter::_launch(Server & server, int indx)
 	pfd.events = POLLIN;
 	_pollfds[indx] = pfd;
 
-	char serverIp[sizeof(struct sockaddr_in)];
-	inet_ntop(AF_INET, &(addr.sin_addr), serverIp, sizeof(addr));
+	// char _serverIp[sizeof(struct sockaddr_in)];
+	inet_ntop(AF_INET, &(addr.sin_addr), _serverIp, sizeof(addr));
+	server.setPort(ntohs(addr.sin_port));
 
 	std::cout << NC << timestamp() << YELLOS << "On socket descriptor " << NC << sd \
 	<< YELLOS << " the " << NC << server.getConfig().serverName \
 	<< YELLOS << " server[" << server.getServNbr() << "] started successfully and is listening on " << NC \
-	<< serverIp << ":" << ntohs(addr.sin_port) << std::endl;
+	<< _serverIp << ":" << server.getPort() << std::endl;
+	// << _serverIp << ":" << ntohs(addr.sin_port) << std::endl;
 	// std::cout << "\nTo connect via this Mac use " \
 	// << NC << "localhost" << YELLOS << " (or 127.0.0.1), port: " \
 	// << NC << _port << YELLOS << " and password: " << NC << _password \
@@ -117,7 +119,7 @@ bool ServerRouter::_launch(Server & server, int indx)
 	// << NC << _port << YELLOS << " and password: " << NC << _password \
 	// << std::endl;
 
-	msg = "On sd " + std::to_string(sd) + " the '" + server.getConfig().serverName + "' server[" + std::to_string(server.getServNbr()) + "] started successfully and is listening on " + serverIp + ":" + std::to_string(ntohs(addr.sin_port));
+	msg = "On sd " + std::to_string(sd) + " the '" + server.getConfig().serverName + "' server[" + std::to_string(server.getServNbr()) + "] started successfully and is listening on " + _serverIp + ":" + std::to_string(ntohs(addr.sin_port));
 	printMsgToLogFile(-1, -1, msg, "");
 
 	return true;
@@ -508,7 +510,7 @@ int ServerRouter::_readSd(t_connection * connection)
 				// проверить, достаточно ли размер бади соотв Content-Length
 				size_t bodySize = ((connection->lenBody - connection->inputStrBody.size()) <= tmp.size()) ? (connection->lenBody - connection->inputStrBody.size()) : tmp.size();
 				connection->inputStrBody += tmp.substr (0, bodySize);
-				if (connection->inputStrBody.size() == connection->lenBody)
+				if (connection->inputStrBody.size() >= connection->lenBody)
 					connection->requestProcessingStep = READING_DONE;
 			}
 			else
@@ -521,6 +523,8 @@ int ServerRouter::_readSd(t_connection * connection)
 		{
 			connection->responseData.statusCode = "200";
 			_setConnectionLastActivity(connection->lastActivityTime);
+			if (connection->inputData.addressParamsStr != "")
+				_parseParamsStr(connection);
 			msg = "finished reading data from sd ";
 			printMsg(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");

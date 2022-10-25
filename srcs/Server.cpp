@@ -9,6 +9,7 @@ Server::Server(t_config config)
 	_colors[2] = VIOLETS;
 	_colors[3] = AQUAMARINES;
 	_nextColor = 0;
+	_port = 0;
 	// _sdMaxCount = SD_MAXCOUNT;
 	// char hostname[HOSTNAME_LENGTH];
 	// _hostname = (gethostname(hostname, HOSTNAME_LENGTH) != -1) ? hostname : "\0";
@@ -46,6 +47,12 @@ int Server::getServNbr() const
 
 void Server::setSrvrNbr(size_t indx)
 	{ _srvrNbr = indx; }
+
+unsigned Server::getPort() const
+	{ return _port; }
+
+void Server::setPort(unsigned port)
+	{_port = port; }
 
 // bool Server::start()
 // {

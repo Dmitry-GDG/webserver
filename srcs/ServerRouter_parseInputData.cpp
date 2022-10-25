@@ -264,3 +264,20 @@ void ServerRouter::_findConnectionLenBody(t_connection * connection)
 		}
 	}
 }
+
+void ServerRouter::_parseParamsStr(t_connection * connection)
+{
+	if (connection->inputData.addressParamsStr != "")
+	{
+		std::vector<std::string> addressParamsStrVec, splitStr;
+		splitStringStr(connection->inputData.addressParamsStr, "&", addressParamsStrVec);
+		for (std::vector<std::string>::iterator iter = addressParamsStrVec.begin(); iter != addressParamsStrVec.end(); iter++)
+		{
+			splitStringColon(*iter, '=', splitStr);
+			if (splitStr.size() == 1)
+				connection->inputData.headerFieldsVec.push_back(std::make_pair(splitStr[0], ""));
+			else if (splitStr.size() == 2)
+				connection->inputData.headerFieldsVec.push_back(std::make_pair(splitStr[0], splitStr[1]));
+		}
+	}
+}

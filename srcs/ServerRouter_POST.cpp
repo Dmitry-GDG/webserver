@@ -28,8 +28,22 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	connection->responseData.connectionAnswer += connection->responseData.statusCode + " " \
 	+ connection->responseStatusCodesAll[connection->responseData.statusCode] + DELIMETER \
 	+ timeStampHeader() + DELIMETER \
-	+ "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER \
-	+ "Connection: Close" + DDELIMETER;
+	+ "Server: \"" + WEBSERV_NAME + "\"" + DELIMETER;
+	if (connection->responseData.statusCode == "200")
+	{
+		connection->responseData.connectionAnswer += "Content-Type: text/html; charset=utf-8";
+		connection->responseData.connectionAnswer += DELIMETER;
+		std::string htmlStr = "<html><head><meta http-equiv=\"refresh\" content=\"2; http://";
+		htmlStr += _serverIp;
+		htmlStr += ":" + std::to_string(server.getPort());
+		htmlStr += "\" /></head><body><h1>Success.</h1></body></html>";
+		connection->responseData.connectionAnswer += "Content-Length: " + std::to_string(htmlStr.size()) + DDELIMETER + htmlStr + DDELIMETER;
+	}
+	else
+	{
+		connection->responseData.connectionAnswer += "Connection: Close";
+		connection->responseData.connectionAnswer += DDELIMETER;
+	}
 
 	#ifdef DEBUGMODE
 		std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
@@ -423,4 +437,5 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 	// 	std::cout << RED <<  " DEBUGMODE SR_POST _makefilelist \n" << NC << "ERROR11" << "\n----------------------\n";
 	// #endif
 	fclose(file);
+	connection->responseData.statusCode = "200";
 }

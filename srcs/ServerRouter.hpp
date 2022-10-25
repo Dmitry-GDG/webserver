@@ -12,6 +12,7 @@ class ServerRouter
 		std::vector<t_config>	_configs; //store vector of all server configs
 		std::vector<Server>		_servers;
 		std::string				_hostname; // il-a3.msk.21-school.ru
+		char 					_serverIp[sizeof(struct sockaddr_in)];
 		// int						_sdMaxCount;
 		// std::vector<Connection>	_connections;
 		// std::vector<int> 		_allSds;
@@ -101,6 +102,7 @@ class ServerRouter
 		void	_parseMultiStringData(std::vector<std::string>	splitBuf, t_connection * connection);
 		bool	_parseInputDataHeader(t_connection * connection);
 		void	_parseInputBodyStr(t_connection * connection);
+		void	_parseParamsStr(t_connection * connection);
 		void	_choosePostContentType(t_connection * connection);
 		// bool	_ifErrPages(t_connection * connection);
 
