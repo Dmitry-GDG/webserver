@@ -245,24 +245,26 @@ bool ServerRouter::_parseInputDataHeader(t_connection * connection)
 	return true;
 }
 
-void ServerRouter::_findConnectionLenBody(t_connection * connection)
+bool ServerRouter::_findConnectionСontentLength(t_connection * connection)
 {
 	// for (std::map<std::string, std::string>::iterator iterM = connection->inputData.headerFields.begin(); iterM != connection->inputData.headerFields.end(); iterM++)
 	// {
 	// 	if ((*iterM).first == "Content-Length")
-	// 		connection->lenBody = stoll ((*iterM).second);
+	// 		connection->сontentLength = stoll ((*iterM).second);
 	// }
 	for (std::vector<std::pair<std::string, std::string> >::iterator iterM = connection->inputData.headerFieldsVec.begin(); iterM != connection->inputData.headerFieldsVec.end(); iterM++)
 	{
 		if ((*iterM).first == "Content-Length")
 		{
-			connection->lenBody = stoll ((*iterM).second);
+			connection->сontentLength = stoll ((*iterM).second);
 			// #ifdef DEBUGMODE
-			// 	std::cout << " DEBUGMODE SR_PID _findConnectionLenBody \n(*iterM).second: " << (*iterM).second << "\n----------------------" << std::endl;
-			// 	std::cout << " DEBUGMODE SR_PID _findConnectionLenBody \nconnection->lenBody: " << connection->lenBody << "\n----------------------" << std::endl;
+			// 	std::cout << " DEBUGMODE SR_PID _findConnectionсontentLength \n(*iterM).second: " << (*iterM).second << "\n----------------------" << std::endl;
+			// 	std::cout << " DEBUGMODE SR_PID _findConnectionсontentLength \nconnection->сontentLength: " << connection->сontentLength << "\n----------------------" << std::endl;
 			// #endif
+			return true;
 		}
 	}
+	return false;
 }
 
 void ServerRouter::_parseParamsStr(t_connection * connection)

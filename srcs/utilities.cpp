@@ -304,7 +304,8 @@ void connectionClear(t_connection & connection)
 	connection.fromPort = 0;
 	connection.clntSd = 0;
 	connection.position = 0;
-	connection.lenBody = 0;
+	connection.сontentLength = 0;
+	connection.lenGet = 0;
 	connection.requestProcessingStep = NOT_DEFINED_REQUEST_PROCESSING_STEP;
 	connection.allowedMethods.clear();
 	connection.responseStatusCodesAll.clear();

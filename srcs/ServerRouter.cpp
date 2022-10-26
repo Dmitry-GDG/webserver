@@ -405,6 +405,7 @@ int ServerRouter::_readSd(t_connection * connection)
 {
 	char buf[BUF_SIZE + 1];
 	std::string msg, msg1;
+	std::string tmpDDelimeter = DDELIMETER;
 
 	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
 	if (qtyBytes == 0) // ?? было ли всё полностью получено? не было ли разрыва?
@@ -419,106 +420,251 @@ int ServerRouter::_readSd(t_connection * connection)
 	else if (qtyBytes > 0)
 	{
 		buf[qtyBytes] = '\0';
-		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
-		printMsg(connection->srvNbr, connection->clntSd, msg, "");
-		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		connection->lenGet += qtyBytes;
+		size_t amount;
 		#ifdef DEBUGMODE
 			std::cout << VIOLET << " DEBUGMODE SR _readSd buf \nbuf: " << NC << buf << "\n----------------------" << std::endl;
 		#endif
 
+		#ifdef DEBUGMODE
+			std::cout << BLUE << " DEBUGMODE SR _readSd (connection->inputStr).size()0 \n(connection->inputStr).size()0: " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
+		#endif
 		connection->inputStr += buf;
+		#ifdef DEBUGMODE
+			std::cout << GREEN << " DEBUGMODE SR _readSd (connection->inputStr).size() \n(connection->inputStr).size(): " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
+		#endif
+
 		std::string tmp = buf;
 		std::string tmpBody = "";
-		size_t pos = tmp.find(DDELIMETER);
-		// std::cout << "pos: " << pos << "\tlenInputStr: " << tmp.size() << std::endl;
-		if (pos != std::string::npos)
+
+		if (connection->requestProcessingStep == NOT_DEFINED_REQUEST_PROCESSING_STEP)
 		{
-			if (connection->requestProcessingStep < READING_BODY)
+			// первый запуск
+			size_t pos = tmp.find(DDELIMETER);
+			connection->inputStrHeader = tmp.substr (0, pos);
+			if (!_parseInputDataHeader(connection))
 			{
-				connection->inputStrHeader += tmp.substr (0, pos);
-				connection->requestProcessingStep = READING_BODY;
-				connection->responseData.statusCode = "100";
-				// #ifdef DEBUGMODE
-				// 	std::vector<std::string> tmpInputStrHeaderVec;
-				// 	splitString(connection->inputStrHeader, '\n', tmpInputStrHeaderVec);
-				// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->inputStrHeader \nconnection->inputStrHeader[0]: " << NC << tmpInputStrHeaderVec[0] << "\n----------------------" << std::endl;
-				// #endif
-
-				if (!_parseInputDataHeader(connection))
+				// ничего не пришло, выход
+				while (qtyBytes > 0)
+					qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+				// connection->inputStr = "";
+				return -1;
+			}
+			connection->requestProcessingStep = READING_HEADER;
+			connection->responseData.statusCode = "100";
+			if (pos != std::string::npos)
+			{
+				// есть body
+				connection->inputStrBody = tmp.substr (pos + tmpDDelimeter.size());
+				if (!_findConnectionСontentLength(connection))
 				{
-					while (qtyBytes > 0)
-						qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
-					// connection->inputStr = "";
-					return -1;
-				}
-
-				_findConnectionLenBody(connection);
-				// #ifdef DEBUGMODE
-				// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->lenBody \nconnection->lenBody: " << NC << connection->lenBody << "\n----------------------" << std::endl;
-				// #endif
-				if (connection->lenBody > 0)
-				{
-					if (pos < tmp.size() - 4)
-					{
-						tmpBody = tmp.substr (pos + 4);
-						size_t bodySize = (connection->lenBody <= tmpBody.size()) ? connection->lenBody : tmpBody.size();
-						connection->inputStrBody = tmpBody.substr (0, bodySize);
-						// проверить по длине, все ли данные скачали
-						if (connection->inputStrBody.size() == connection->lenBody)
-							connection->requestProcessingStep = READING_DONE;
-					}
-
+					// body закончится в этом пакете
+					connection->requestProcessingStep = READING_DONE;
+					connection->responseData.statusCode = "200";
+					// return ;
 				}
 				else
-					connection->requestProcessingStep = READING_DONE;
-			}
-			else if (connection->requestProcessingStep == READING_BODY)
-			{
-				// connection->inputStrBody += tmp.substr (0, pos);
-				// проверить, достаточно ли размер бади соотв Content-Length
-				size_t bodySize = ((connection->lenBody - connection->inputStrBody.size()) <= tmp.size()) ? (connection->lenBody - connection->inputStrBody.size()) : tmp.size();
-				connection->inputStrBody += tmp.substr (0, bodySize);
-				if (connection->inputStrBody.size() == connection->lenBody)
-					connection->requestProcessingStep = READING_DONE;
-
-				// if (pos < tmp.size())
-				// {
-				// 	connection->requestProcessingStep = READING_DONE;
-				// 	connection->responseData.statusCode = "200";
-				// 	msg = "finished reading data from sd ";
-				// 	printMsg(connection->srvNbr, connection->clntSd, msg, "");
-				// 	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-				// }
-			}
-			// if (connection->requestProcessingStep == READING_DONE)
-			// {
-			// 	// if (!_parseInputData(connection))
-			// 	// {
-			// 	// 	while (qtyBytes > 0)
-			// 	// 		qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
-			// 	// 	// connection->inputStr = "";
-			// 	// 	connection->responseData.statusCode = "204";
-			// 	// 	return 0;
-			// 	// }
-			// 	// connection->inputStr = "";
-			// }
-		}
-		else
-		{
-			if (connection->requestProcessingStep > READING_HEADER)
-			{
-				// проверить, достаточно ли размер бади соотв Content-Length
-				size_t bodySize = ((connection->lenBody - connection->inputStrBody.size()) <= tmp.size()) ? (connection->lenBody - connection->inputStrBody.size()) : tmp.size();
-				connection->inputStrBody += tmp.substr (0, bodySize);
-				if (connection->inputStrBody.size() >= connection->lenBody)
-					connection->requestProcessingStep = READING_DONE;
+				{
+					// длину body надо сверять с параметром Сontent-Length
+					if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
+					{
+						// данные еще будут
+						connection->requestProcessingStep = READING_BODY;
+						// return ;
+					}
+					else
+					{
+						connection->requestProcessingStep = READING_DONE;
+						connection->responseData.statusCode = "200";
+						// return ;
+					}
+				}
 			}
 			else
 			{
-				connection->inputStrHeader += tmp;
-				connection->requestProcessingStep = READING_HEADER;
+				// нет body
+				if (_findConnectionСontentLength(connection) && (connection->lenGet < connection->сontentLength))
+				{
+					connection->requestProcessingStep = READING_HEADER;
+					// return ;
+				}
+				else
+				{
+					connection->requestProcessingStep = READING_DONE;
+					connection->responseData.statusCode = "200";
+					// return ;
+				}
 			}
 		}
+		else
+		{
+			// первый запуск произошел, требуется более одного пакета данных
+			if (connection->requestProcessingStep < READING_BODY)
+			{
+				// заголовок еще не прочитан
+				size_t pos = tmp.find(DDELIMETER);
+				connection->inputStrHeader += tmp.substr (0, pos);
+				if (pos != std::string::npos)
+				{
+					// есть body
+					connection->inputStrBody = tmp.substr (pos + 4);
+					// длину body надо сверять с параметром Сontent-Length
+	amount = connection->сontentLength > 0 ? (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()) : (connection->inputStr).size();
+					if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
+					{
+						// данные еще будут
+						connection->requestProcessingStep = READING_BODY;
+						// return ;
+					}
+					else
+					{
+						connection->requestProcessingStep = READING_DONE;
+						// connection->responseData.statusCode = "200";
+						// return ;
+					}
+				}
+				else
+				{
+					// нет body
+					if (connection->lenGet < connection->сontentLength)
+					{
+						connection->requestProcessingStep = READING_HEADER;
+						// return ;
+					}
+					else
+					{
+						connection->requestProcessingStep = READING_DONE;
+						// connection->responseData.statusCode = "200";
+						// return ;
+					}
+				}
+			}
+			else
+			{
+				// body непрочитано до конца
+				connection->inputStrBody += tmp;
+				// длину body надо сверять с параметром Сontent-Length
+				if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
+				{
+					// данные еще будут
+					connection->requestProcessingStep = READING_BODY;
+					// return ;
+				}
+				else
+				{
+					connection->requestProcessingStep = READING_DONE;
+					// connection->responseData.statusCode = "200";
+					// return ;
+				}
+			}
+		}
+
+		// size_t pos = tmp.find(DDELIMETER);
+		// // std::cout << "pos: " << pos << "\tlenInputStr: " << tmp.size() << std::endl;
+		// if (pos != std::string::npos)
+		// {
+		// 	if (connection->requestProcessingStep < READING_BODY)
+		// 	{
+		// 		connection->inputStrHeader += tmp.substr (0, pos);
+		// 		connection->requestProcessingStep = READING_BODY;
+		// 		connection->responseData.statusCode = "100";
+		// 		// #ifdef DEBUGMODE
+		// 		// 	std::vector<std::string> tmpInputStrHeaderVec;
+		// 		// 	splitString(connection->inputStrHeader, '\n', tmpInputStrHeaderVec);
+		// 		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->inputStrHeader \nconnection->inputStrHeader[0]: " << NC << tmpInputStrHeaderVec[0] << "\n----------------------" << std::endl;
+		// 		// #endif
+
+		// 		if (!_parseInputDataHeader(connection))
+		// 		{
+		// 			while (qtyBytes > 0)
+		// 				qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+		// 			// connection->inputStr = "";
+		// 			return -1;
+		// 		}
+
+		// 		_findConnectionСontentLength(connection);
+		// 		// #ifdef DEBUGMODE
+		// 		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->сontentLength \nconnection->сontentLength: " << NC << connection->сontentLength << "\n----------------------" << std::endl;
+		// 		// #endif
+		// 		if (connection->сontentLength > 0)
+		// 		{
+		// 			if (pos < tmp.size() - 4)
+		// 			{
+		// 				tmpBody = tmp.substr (pos + 4);
+		// 				size_t bodySize = (connection->сontentLength <= tmpBody.size()) ? connection->сontentLength : tmpBody.size();
+		// 				connection->inputStrBody = tmpBody.substr (0, bodySize);
+		// 				// проверить по длине, все ли данные скачали
+		// 				if (connection->inputStrBody.size() == connection->сontentLength)
+		// 					connection->requestProcessingStep = READING_DONE;
+		// 			}
+
+		// 		}
+		// 		else
+		// 			connection->requestProcessingStep = READING_DONE;
+		// 	}
+		// 	else if (connection->requestProcessingStep == READING_BODY)
+		// 	{
+		// 		// connection->inputStrBody += tmp.substr (0, pos);
+		// 		// проверить, достаточно ли размер бади соотв Content-Length
+		// 		size_t bodySize = ((connection->сontentLength - connection->inputStrBody.size()) <= tmp.size()) ? (connection->сontentLength - connection->inputStrBody.size()) : tmp.size();
+		// 		connection->inputStrBody += tmp.substr (0, bodySize);
+		// 		if (connection->inputStrBody.size() == connection->сontentLength)
+		// 			connection->requestProcessingStep = READING_DONE;
+
+		// 		// if (pos < tmp.size())
+		// 		// {
+		// 		// 	connection->requestProcessingStep = READING_DONE;
+		// 		// 	connection->responseData.statusCode = "200";
+		// 		// 	msg = "finished reading data from sd ";
+		// 		// 	printMsg(connection->srvNbr, connection->clntSd, msg, "");
+		// 		// 	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		// 		// }
+		// 	}
+		// 	// if (connection->requestProcessingStep == READING_DONE)
+		// 	// {
+		// 	// 	// if (!_parseInputData(connection))
+		// 	// 	// {
+		// 	// 	// 	while (qtyBytes > 0)
+		// 	// 	// 		qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+		// 	// 	// 	// connection->inputStr = "";
+		// 	// 	// 	connection->responseData.statusCode = "204";
+		// 	// 	// 	return 0;
+		// 	// 	// }
+		// 	// 	// connection->inputStr = "";
+		// 	// }
+		// }
+		// else
+		// {
+		// 	if (connection->requestProcessingStep > READING_HEADER)
+		// 	{
+		// 		// проверить, достаточно ли размер бади соотв Content-Length
+		// 		size_t bodySize = ((connection->сontentLength - connection->inputStrBody.size()) <= tmp.size()) ? (connection->сontentLength - connection->inputStrBody.size()) : tmp.size();
+		// 		connection->inputStrBody += tmp.substr (0, bodySize);
+		// 		if (connection->inputStrBody.size() >= connection->сontentLength)
+		// 			connection->requestProcessingStep = READING_DONE;
+		// 	}
+		// 	else
+		// 	{
+		// 		connection->inputStrHeader += tmp;
+		// 		connection->requestProcessingStep = READING_HEADER;
+		// 	}
+		// }
+		amount = connection->сontentLength > 0 ? (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()) : (connection->inputStr).size();
+		msg = "got " + std::to_string(connection->lenGet) + "/" + std::to_string(amount) + " bytes from sd ";
+		printMsg(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+		#ifdef DEBUGMODE
+			std::cout << VIOLET << " DEBUGMODE SR _readSd connection->requestProcessingStep \nconnection->requestProcessingStep: " << NC << connection->requestProcessingStep << "\n----------------------" << std::endl;
+		#endif
+		#ifdef DEBUGMODE
+			std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStr).size() \n(connection->inputStr).size(): " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
+		#endif
+		#ifdef DEBUGMODE
+			std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStrHeader).size() \n(connection->inputStrHeader).size(): " << NC << (connection->inputStrHeader).size() << "\n----------------------" << std::endl;
+		#endif
+		#ifdef DEBUGMODE
+			std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStrBody).size() \n(connection->inputStrBody).size(): " << NC << (connection->inputStrBody).size() << "\n----------------------" << std::endl;
+		#endif
 		if (connection->requestProcessingStep == READING_DONE)
 		{
 			connection->responseData.statusCode = "200";
@@ -553,6 +699,161 @@ int ServerRouter::_readSd(t_connection * connection)
 	}
 	return qtyBytes;
 }
+
+
+
+// int ServerRouter::_readSd(t_connection * connection)
+// {
+// 	char buf[BUF_SIZE + 1];
+// 	std::string msg, msg1;
+
+// 	int qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+// 	if (qtyBytes == 0) // ?? было ли всё полностью получено? не было ли разрыва?
+// 	{
+// 		// msg = "finished reading data from sd ";
+// 		// printMsg(connection->srvNbr, connection->clntSd, msg, "");
+// 		// printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+// 		// connection->requestProcessingStep = READ_DONE;
+// 		// connection->responseData.statusCode = "200";
+// 		return 0;
+// 	}
+// 	else if (qtyBytes > 0)
+// 	{
+// 		buf[qtyBytes] = '\0';
+// 		msg = "got " + std::to_string(qtyBytes) + " bytes from sd ";
+// 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
+// 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+// 		#ifdef DEBUGMODE
+// 			std::cout << VIOLET << " DEBUGMODE SR _readSd buf \nbuf: " << NC << buf << "\n----------------------" << std::endl;
+// 		#endif
+
+// 		connection->inputStr += buf;
+// 		std::string tmp = buf;
+// 		std::string tmpBody = "";
+// 		size_t pos = tmp.find(DDELIMETER);
+// 		// std::cout << "pos: " << pos << "\tlenInputStr: " << tmp.size() << std::endl;
+// 		if (pos != std::string::npos)
+// 		{
+// 			if (connection->requestProcessingStep < READING_BODY)
+// 			{
+// 				connection->inputStrHeader += tmp.substr (0, pos);
+// 				connection->requestProcessingStep = READING_BODY;
+// 				connection->responseData.statusCode = "100";
+// 				// #ifdef DEBUGMODE
+// 				// 	std::vector<std::string> tmpInputStrHeaderVec;
+// 				// 	splitString(connection->inputStrHeader, '\n', tmpInputStrHeaderVec);
+// 				// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->inputStrHeader \nconnection->inputStrHeader[0]: " << NC << tmpInputStrHeaderVec[0] << "\n----------------------" << std::endl;
+// 				// #endif
+
+// 				if (!_parseInputDataHeader(connection))
+// 				{
+// 					while (qtyBytes > 0)
+// 						qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+// 					// connection->inputStr = "";
+// 					return -1;
+// 				}
+
+// 				_findConnectionсontentLength(connection);
+// 				// #ifdef DEBUGMODE
+// 				// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->сontentLength \nconnection->сontentLength: " << NC << connection->сontentLength << "\n----------------------" << std::endl;
+// 				// #endif
+// 				if (connection->сontentLength > 0)
+// 				{
+// 					if (pos < tmp.size() - 4)
+// 					{
+// 						tmpBody = tmp.substr (pos + 4);
+// 						size_t bodySize = (connection->сontentLength <= tmpBody.size()) ? connection->сontentLength : tmpBody.size();
+// 						connection->inputStrBody = tmpBody.substr (0, bodySize);
+// 						// проверить по длине, все ли данные скачали
+// 						if (connection->inputStrBody.size() == connection->сontentLength)
+// 							connection->requestProcessingStep = READING_DONE;
+// 					}
+
+// 				}
+// 				else
+// 					connection->requestProcessingStep = READING_DONE;
+// 			}
+// 			else if (connection->requestProcessingStep == READING_BODY)
+// 			{
+// 				// connection->inputStrBody += tmp.substr (0, pos);
+// 				// проверить, достаточно ли размер бади соотв Content-Length
+// 				size_t bodySize = ((connection->сontentLength - connection->inputStrBody.size()) <= tmp.size()) ? (connection->сontentLength - connection->inputStrBody.size()) : tmp.size();
+// 				connection->inputStrBody += tmp.substr (0, bodySize);
+// 				if (connection->inputStrBody.size() == connection->сontentLength)
+// 					connection->requestProcessingStep = READING_DONE;
+
+// 				// if (pos < tmp.size())
+// 				// {
+// 				// 	connection->requestProcessingStep = READING_DONE;
+// 				// 	connection->responseData.statusCode = "200";
+// 				// 	msg = "finished reading data from sd ";
+// 				// 	printMsg(connection->srvNbr, connection->clntSd, msg, "");
+// 				// 	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+// 				// }
+// 			}
+// 			// if (connection->requestProcessingStep == READING_DONE)
+// 			// {
+// 			// 	// if (!_parseInputData(connection))
+// 			// 	// {
+// 			// 	// 	while (qtyBytes > 0)
+// 			// 	// 		qtyBytes = recv(connection->clntSd, buf, BUF_SIZE, 0);
+// 			// 	// 	// connection->inputStr = "";
+// 			// 	// 	connection->responseData.statusCode = "204";
+// 			// 	// 	return 0;
+// 			// 	// }
+// 			// 	// connection->inputStr = "";
+// 			// }
+// 		}
+// 		else
+// 		{
+// 			if (connection->requestProcessingStep > READING_HEADER)
+// 			{
+// 				// проверить, достаточно ли размер бади соотв Content-Length
+// 				size_t bodySize = ((connection->сontentLength - connection->inputStrBody.size()) <= tmp.size()) ? (connection->сontentLength - connection->inputStrBody.size()) : tmp.size();
+// 				connection->inputStrBody += tmp.substr (0, bodySize);
+// 				if (connection->inputStrBody.size() >= connection->сontentLength)
+// 					connection->requestProcessingStep = READING_DONE;
+// 			}
+// 			else
+// 			{
+// 				connection->inputStrHeader += tmp;
+// 				connection->requestProcessingStep = READING_HEADER;
+// 			}
+// 		}
+// 		if (connection->requestProcessingStep == READING_DONE)
+// 		{
+// 			connection->responseData.statusCode = "200";
+// 			_setConnectionLastActivity(connection->lastActivityTime);
+// 			if (connection->inputData.addressParamsStr != "")
+// 				_parseParamsStr(connection);
+// 			msg = "finished reading data from sd ";
+// 			printMsg(connection->srvNbr, connection->clntSd, msg, "");
+// 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+// 			// #ifdef DEBUGMODE
+// 				msg = "data from sd ";
+// 				msg1 = "✧✧✧✧✧header:✧✧✧✧✧\n" + connection->inputData.method + " " + connection->inputData.address;
+// 				if (connection->inputData.addressParamsStr != "")
+// 					msg1 += "?" + connection->inputData.addressParamsStr;
+// 				msg1 += " " + connection->inputData.httpVersion + "\n";
+// 				// for (std::map<std::string, std::string>::iterator iter = connection->inputData.headerFields.begin(); iter != connection->inputData.headerFields.end(); iter++)
+// 				// 	msg1 += (*iter).first + ": " + (*iter).second + "\n";
+// 				for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter != connection->inputData.headerFieldsVec.end(); iter++)
+// 				{	msg1 += (*iter).first;
+// 					if ((*iter).second != "")
+// 						msg1 += ": " + (*iter).second + "\n";
+// 				}
+// 				msg1 += "✧✧✧✧✧body:✧✧✧✧✧\n";
+// 				msg1 += connection->inputStrBody;
+// 				printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
+// 				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
+// 			// #endif	
+// 		}
+
+
+
+// 	}
+// 	return qtyBytes;
+// }
 
 // void ServerRouter::_addStatusCode(std::string & answer, t_connection * connection, std::string code)
 // {

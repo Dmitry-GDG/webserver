@@ -88,7 +88,7 @@ class ServerRouter
 		void	_findPathToStatusCodePage(t_connection * connection);
 		void	_addStatusCodePage(t_connection * connection, std::string & contentTypeAndLengthAndData);
 		bool	_acceptFile(t_connection * connection, std::string & contentTypeAndLength, std::string const & path);
-		void	_findConnectionLenBody(t_connection *);
+		bool	_findConnectionСontentLength(t_connection *);
 		// std::string	_addressDecode(std::string const & address);
 		std::string	_extractLocalAddress(std::string const & address);
 		void	_findReferer(t_connection *);

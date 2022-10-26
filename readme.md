@@ -104,14 +104,20 @@ git push
 - DELETE https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/DELETE
 
 ### Хронология изменений:
+26/10 #Д#
+- заменил connection.lenBody на connection.сontentLength (что по смыслу правильно)
+- _findConnectionСontentLength теперь bool
+- полностью переписал SR _readSd (недоделал)
+- выяснилось, что нельзя буфер добавлять к строке (проглатываются символы) => надо переписать конкатенацию строк, начиная с connection->inputStr += buf; SR-430. Возможно, писать не в строку, а в файл бинарный??
+
 25/10 #Д#
 - подправил DELETE страницу 8080
 - сделал ответ на запрос DELETE _prepareDeleteAnswer страницей как https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/DELETE
 - пофиксил ожидание ответа сервера после запроса DELETE (требовалось content-type и Content-Length)
 - разделил запрос по амперсанту на адрес и параметры (_parseParamsStr)
 - ввёл переменные _serverIp (SR) & _port (S)
-- сделал переадресацию со страниц Deleted(DELETE) & Success (POST) на главную страницу того сайта
-- надо сделать: SR-526 проверить логику: должен сохраняться ВСЁ тело, потом распарсиваться. Сейчас какие-то куски. Надо разобраться. Возможноб поправить всю логику, начиная с SR-419
+- сделал переадресацию со страниц Deleted (DELETE) & Success (POST) на главную страницу того сайта
+- надо сделать: SR-526 проверить логику: должен сохраняться ВСЁ тело, потом распарсиваться. Сейчас какие-то куски. Надо разобраться. Возможно, поправить всю логику, начиная с SR-419
 
 24/10 #Д#
 - установил ReqBin Google Chrome Extension https://chrome.google.com/webstore/detail/reqbin-http-client/gmmkjpcadciiokjpikmkkmapphbmdjok . Запрос DELETE на нём отрабатывается (см раздел "Как тестировать")
