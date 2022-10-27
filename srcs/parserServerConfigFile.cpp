@@ -197,8 +197,8 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 					oneServerConfig.port = oneServerConfigVectorSplit[j][1];
 				if (oneServerConfigVectorSplit[j][0] == "server_name" && oneServerConfig.serverName.size() == 0)
 					oneServerConfig.serverName = oneServerConfigVectorSplit[j][1];
-				if (oneServerConfigVectorSplit[j][0] == "limit_size")
-					oneServerConfig.limitSize = oneServerConfigVectorSplit[j][1];
+				if (oneServerConfigVectorSplit[j][0] == "limit_size" || oneServerConfigVectorSplit[j][0] == "limitClientBodySize")
+					oneServerConfig.limitClientBodySize = stoul(oneServerConfigVectorSplit[j][1]) > 0 ? stoul(oneServerConfigVectorSplit[j][1]) : LIMIT_CLIENT_BODY_SIZE;
 				if (oneServerConfigVectorSplit[j][0] == "root")
 					oneServerConfig.root = correctSlashInAddress(oneServerConfigVectorSplit[j][1]);
 				if (oneServerConfigVectorSplit[j][0] == "index")
@@ -230,6 +230,9 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 	// #ifdef DEBUGMODE
 	// 	printServerConfig(oneServerConfig, "DEBUGMODE parseVectorOnStruct");
 	// #endif
+
+	if (oneServerConfig.limitClientBodySize == 0)
+		oneServerConfig.limitClientBodySize = LIMIT_CLIENT_BODY_SIZE;
 	
 	if (oneServerConfig.ip.size() > 0 && oneServerConfig.port.size() > 0)
 		configs.push_back(oneServerConfig);

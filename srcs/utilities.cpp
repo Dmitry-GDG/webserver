@@ -256,7 +256,7 @@ void configClear(t_config & oneServerConfig)
 	oneServerConfig.listen.clear();
 	oneServerConfig.ip.clear();
 	oneServerConfig.port.clear();
-	oneServerConfig.limitSize.clear();
+	oneServerConfig.limitClientBodySize = 0;
 	oneServerConfig.root.clear();
 	oneServerConfig.index.clear();
 	oneServerConfig.upload = "downloads";
@@ -386,14 +386,17 @@ std::string getFileName(std::vector<std::string> dataVec)
 {
 	for (std::vector<std::string>::iterator iter = dataVec.begin(); iter < dataVec.end(); iter++)
 	{
+		std::cout << " utils getFileName *iter  : " << *iter << std::endl;
 		if ((*iter).find("filename") != std::string::npos)
 		{
 			std::vector<std::string> outpVec;
 			splitStringStr((*iter), "=", outpVec);
+			std::cout << " utils getFileName outpVec[1]  : " << outpVec[1] << std::endl;
 			if (outpVec[1].size() && outpVec[1][0] == '"')
 				outpVec[1].erase(outpVec[1].begin());
 			if (outpVec[1].size() && outpVec[1][outpVec[1].size() - 1] == '"')
 				outpVec[1].erase(outpVec[1].end() - 1);
+			std::cout << " utils getFileName outpVec[1]  : " << outpVec[1] << std::endl;
 			return (outpVec[1]);
 		}
 	}

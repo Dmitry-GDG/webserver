@@ -5,10 +5,10 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	std::string msg;
 	connection->responseData.type = POST;
 	Server server = _getServer(connection->srvNbr);
-	std::string path = "./";
-	if (server.getConfig().root != "")
-		path += server.getConfig().root + "/";
-	path += _extractLocalAddress(connection->inputData.address);
+	// std::string path = "./";
+	// if (server.getConfig().root != "")
+	// 	path += server.getConfig().root + "/";
+	// path += _extractLocalAddress(connection->inputData.address);
 	// #ifdef DEBUGMODE
 	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer path \npath: " << NC << path << "\n----------------------\n";
 	// #endif
@@ -50,63 +50,63 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	#endif
 }
 
-bool ServerRouter::_acceptFile(t_connection * connection, std::string & contentTypeAndLength, std::string const & path)
-{
-	(void) path;
-	(void) connection;
-	(void) contentTypeAndLength;
-	// Проверить, возможно, такой файл уже существует -> еррор
-	// std::vector<std::string> splitInputDataAddr;
-	// splitString(connection->inputData.address, ':', splitInputDataAddr);
-	// std::string pathInsideServer = splitInputDataAddr[1];
+// bool ServerRouter::_acceptFile(t_connection * connection, std::string & contentTypeAndLength, std::string const & path)
+// {
+// 	(void) path;
+// 	(void) connection;
+// 	(void) contentTypeAndLength;
+// 	// Проверить, возможно, такой файл уже существует -> еррор
+// 	// std::vector<std::string> splitInputDataAddr;
+// 	// splitString(connection->inputData.address, ':', splitInputDataAddr);
+// 	// std::string pathInsideServer = splitInputDataAddr[1];
 
-	// std::string saveName = 
+// 	// std::string saveName = 
 
 
-	// std::ofstream outFile;
-	// struct stat file;
-	// bool isExists = true;
+// 	// std::ofstream outFile;
+// 	// struct stat file;
+// 	// bool isExists = true;
 
-	// // Заполнение информации о файле и проверка на его существование
-	// if (stat(_parsedURI.upload.c_str(), &file))
-	// {
-	// 	if (errno == ENOENT)
-	// 	{
-	// 	isExists = false;
-	// 	}
-	// 	else
-	// 	{
-	// 	throw std::logic_error("500");
-	// 	}
-	// }
+// 	// // Заполнение информации о файле и проверка на его существование
+// 	// if (stat(_parsedURI.upload.c_str(), &file))
+// 	// {
+// 	// 	if (errno == ENOENT)
+// 	// 	{
+// 	// 	isExists = false;
+// 	// 	}
+// 	// 	else
+// 	// 	{
+// 	// 	throw std::logic_error("500");
+// 	// 	}
+// 	// }
 
-	// if (isExists)
-	// {
-	// 	if (S_ISDIR(file.st_mode)) // Это папка
-	// 	{
-	// 	// Создаем новый файл
-	// 	outFile.open(_parsedURI.upload);
-	// 	outFile << _inputBody;
-	// 	outFile.close();
-	// 	_resBodyType = "";
-	// 	}
-	// 	else // Это файл
-	// 	{
-	// 	throw std::logic_error("400");
-	// 	}
-	// }
-	// else
-	// {
-	// 	// Создаем новый файл
-	// 	outFile.open(_parsedURI.upload);
-	// 	if (!outFile.is_open())
-	// 	throw std::logic_error("400");
-	// 	outFile << _inputBody;
-	// 	outFile.close();
-	// 	_resBodyType = "";
-	// }
-	return true;
-}
+// 	// if (isExists)
+// 	// {
+// 	// 	if (S_ISDIR(file.st_mode)) // Это папка
+// 	// 	{
+// 	// 	// Создаем новый файл
+// 	// 	outFile.open(_parsedURI.upload);
+// 	// 	outFile << _inputBody;
+// 	// 	outFile.close();
+// 	// 	_resBodyType = "";
+// 	// 	}
+// 	// 	else // Это файл
+// 	// 	{
+// 	// 	throw std::logic_error("400");
+// 	// 	}
+// 	// }
+// 	// else
+// 	// {
+// 	// 	// Создаем новый файл
+// 	// 	outFile.open(_parsedURI.upload);
+// 	// 	if (!outFile.is_open())
+// 	// 	throw std::logic_error("400");
+// 	// 	outFile << _inputBody;
+// 	// 	outFile.close();
+// 	// 	_resBodyType = "";
+// 	// }
+// 	return true;
+// }
 
 void ServerRouter::_parseInputBodyStr(t_connection * connection)
 {
@@ -201,13 +201,13 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 	{
 		if ((*iter) != "" && (*iter) != DELIMETER && (*iter) != DDELIMETER)
 		{
+			#ifdef DEBUGMODE
+				std::cout << RED <<  " DEBUGMODE SR_POST _postFormData *iter: \n" << NC << *iter << "\n----------------------\n";
+			#endif
 			std::string tmp = "--";
 			if ((*iter == "--") || (*iter == (tmp + DELIMETER)) || (*iter == (tmp + DDELIMETER)))
 				break;
 			_postGetFileName(connection, *iter);
-			#ifdef DEBUGMODE
-				std::cout << RED <<  " DEBUGMODE SR_POST _postFormData *iter: \n" << NC << *iter << "\n----------------------\n";
-			#endif
 			#ifdef DEBUGMODE
 				if (connection->inputData.postFileName.size())
 					std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileName: \n" << NC << connection->inputData.postFileName << "\n----------------------\n";
@@ -257,7 +257,7 @@ void ServerRouter::_postGetFileName(t_connection * connection, std::string str)
 	// #ifdef DEBUGMODE
 	// 	std::cout << RED <<  " DEBUGMODE SR_POST _getFile str: \n" << NC << str << "\n----------------------\n";
 	// #endif
-	connection->inputData.postFileName.clear();;
+	connection->inputData.postFileName.clear();
 	std::string endStr = "--";
 	endStr += DELIMETER;
 	if (str == endStr || str == "--")
@@ -317,12 +317,16 @@ void ServerRouter::_postGetFileName(t_connection * connection, std::string str)
 			}
 			if (dataMap.size())
 			{
-				// #ifdef DEBUGMODE
-				// 	printMapStrStr(dataMap, "SR_POST _getFile dataMap");
-				// #endif
+				#ifdef DEBUGMODE
+					printMapStrStr(dataMap, "SR_POST _getFile dataMap");
+				#endif
 				dataVec000.clear();
 				for (std::map<std::string, std::string>::iterator iter = dataMap.begin(); iter != dataMap.end(); iter++)
 				{
+					#ifdef DEBUGMODE
+						printMapStrStr(dataMap, "SR_POST _getFile dataMap");
+						std::cout << RED <<  " DEBUGMODE SR_POST _getFile dataMap *iter \n*iter: " << NC << (*iter).first << "\t" << (*iter).second << "\n----------------------\n";
+					#endif
 					if ((*iter).first.find("Content-Disposition") != std::string::npos)
 					{
 						splitStringStr((*iter).second, "; ", dataVec000);
@@ -386,6 +390,14 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 
 	std::vector<std::string> saveName;
 	splitStringColon(connection->inputData.postFileName, '.', saveName);
+	#ifdef DEBUGMODE
+		int itmp = 0;
+		std::cout << BLUE <<  " DEBUGMODE SR_POST _postSaveFile connection->inputData.postFileName \nconnection->inputData.postFileName: " << NC <<connection->inputData.postFileName << std::endl;
+		std::cout << BLUE <<  " DEBUGMODE SR_POST _postSaveFile saveName " << NC << std::endl;
+		for (std::vector<std::string>::iterator iter = saveName.begin(); iter < saveName.end(); iter++, itmp++)
+			std::cout  <<  "\tsaveName[" << itmp << "]: " << saveName[itmp] << "\n";
+		std::cout << "----------------------" << NC << std::endl;
+	#endif
 	int i = _postCheckIsFileExist(connection); // ? maybe just save with another filenamename ?
 	if (i != 2)
 	{
@@ -429,13 +441,22 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 	// std::cout << RED << "TEST0" << NC << std::endl;
 	splitStringStr(connection->inputData.postFileData, DELIMETER, dataVecData);
 	// std::cout << RED << "TEST" << NC << std::endl;
-	std::string dataToWrite = dataVecData[0];
 
-	fwrite(dataToWrite.c_str(), sizeof(char), dataToWrite.size(), file);
+	std::string tmpStr = "";
+	for (std::vector<std::string>::iterator iter = dataVecData.begin(); iter < dataVecData.end(); iter++)
+		tmpStr.append(*iter);
+	fwrite(tmpStr.c_str(), sizeof(char), tmpStr.size(), file);
+	// fwrite(tmpStr.c_str(), sizeof(char), connection->сontentLength, file); // segmentation fault
+
+	// std::string dataToWrite = dataVecData[0];
+	// fwrite(dataToWrite.c_str(), sizeof(char), dataToWrite.size(), file);
+
 	// fwrite((connection->inputData.postFileData).c_str(), sizeof(char), (connection->inputData.postFileData).size(), file);
 	// #ifdef DEBUGMODE
 	// 	std::cout << RED <<  " DEBUGMODE SR_POST _makefilelist \n" << NC << "ERROR11" << "\n----------------------\n";
 	// #endif
 	fclose(file);
+	if (strlen(connection->bodyBinar))
+		free (connection->bodyBinar);
 	connection->responseData.statusCode = "200";
 }

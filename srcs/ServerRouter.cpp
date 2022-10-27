@@ -403,6 +403,7 @@ int ServerRouter::_sendAnswer(t_connection * connection)
 
 int ServerRouter::_readSd(t_connection * connection)
 {
+	Server server = _getServer(connection->srvNbr);
 	char buf[BUF_SIZE + 1];
 	std::string msg, msg1;
 	std::string tmpDDelimeter = DDELIMETER;
@@ -465,18 +466,43 @@ int ServerRouter::_readSd(t_connection * connection)
 				}
 				else
 				{
-					// длину body надо сверять с параметром Сontent-Length
-					if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
+					unsigned long bodyBinarSize = server.getConfig().limitClientBodySize;
+					// сравнить размер пришедших данных с максимально допустимым в конфигурации
+					#ifdef DEBUGMODE
+						std::cout << GREEN << " DEBUGMODE SR _readSd connection->сontentLength \nconnection->сontentLength: " << NC << connection->сontentLength << "\n----------------------" << std::endl;
+						std::cout << GREEN << " DEBUGMODE SR _readSd bodyBinarSize \nbodyBinarSize: " << NC << bodyBinarSize << "\n----------------------" << std::endl;
+					#endif
+					if (connection->сontentLength > bodyBinarSize + 1)
 					{
-						// данные еще будут
-						connection->requestProcessingStep = READING_BODY;
-						// return ;
+						//вернуть ошибку
+						return 0 ;
 					}
 					else
 					{
-						connection->requestProcessingStep = READING_DONE;
-						connection->responseData.statusCode = "200";
-						// return ;
+						connection->bodyBinar = (char *)calloc (bodyBinarSize + 10000, 1);
+						if (!connection->bodyBinar)
+						{
+							//вернуть ошибку
+							return 0 ;
+						}
+						else
+						{
+							strcat(connection->bodyBinar, buf);
+							connection->bodyBinar[strlen(buf)] = '\0';
+							// длину body надо сверять с параметром Сontent-Length
+							if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
+							{
+								// данные еще будут
+								connection->requestProcessingStep = READING_BODY;
+								// return ;
+							}
+							else
+							{
+								connection->requestProcessingStep = READING_DONE;
+								connection->responseData.statusCode = "200";
+								// return ;
+							}
+						}
 					}
 				}
 			}
@@ -499,6 +525,11 @@ int ServerRouter::_readSd(t_connection * connection)
 		else
 		{
 			// первый запуск произошел, требуется более одного пакета данных
+			
+			// size_t tmpsize = strlen(connection->bodyBinar);
+			strcat(connection->bodyBinar, buf);
+			// connection->bodyBinar[tmpsize + strlen(buf)] = '\0';
+			
 			if (connection->requestProcessingStep < READING_BODY)
 			{
 				// заголовок еще не прочитан

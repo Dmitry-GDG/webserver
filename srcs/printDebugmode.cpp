@@ -118,8 +118,8 @@ void printServerConfig(t_config config, std::string msg)
 		std::cout << "ip:\t" << config.ip << std::endl;
 	if (config.port.size() > 0)
 		std::cout << "port:\t" << config.port << std::endl;
-	if (config.limitSize.size() > 0)
-		std::cout << "limitSize:\t" << config.limitSize << std::endl;
+	// if (config.limitClientBodySize > 0)
+	std::cout << "limit client body size:\t" << config.limitClientBodySize << std::endl;
 	if (config.root.size() > 0)
 		std::cout << "root:\t" << config.root << std::endl;
 	if (config.index.size() > 0)

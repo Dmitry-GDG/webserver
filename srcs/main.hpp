@@ -8,6 +8,7 @@
 # define HOSTNAME_LENGTH 30
 # define SD_MAXCOUNT 1024
 # define BUF_SIZE 200000
+# define LIMIT_CLIENT_BODY_SIZE 3000000
 # define DELIMETER "\r\n"
 # define DDELIMETER "\r\n\r\n"
 // # define DELIMETER "\\r\\n"
