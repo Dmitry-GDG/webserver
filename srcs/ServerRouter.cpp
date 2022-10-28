@@ -479,7 +479,7 @@ int ServerRouter::_readSd(t_connection * connection)
 					}
 					else
 					{
-						connection->bodyBinar = (char *)calloc (bodyBinarSize + 10000, 1);
+						connection->bodyBinar = (char *)calloc (bodyBinarSize + 1, 1);
 						if (!connection->bodyBinar)
 						{
 							//вернуть ошибку
@@ -487,8 +487,15 @@ int ServerRouter::_readSd(t_connection * connection)
 						}
 						else
 						{
+							#ifdef DEBUGMODE
+								std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
+							#endif
 							strcat(connection->bodyBinar, buf);
-							connection->bodyBinar[strlen(buf)] = '\0';
+							#ifdef DEBUGMODE
+								std::cout << VIOLET << " DEBUGMODE SR _readSd sizeof(buf) \nstrlen(buf): " << NC << sizeof(buf) << "\n----------------------" << std::endl;
+								std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
+							#endif
+							// connection->bodyBinar[strlen(buf)] = '\0';
 							// длину body надо сверять с параметром Сontent-Length
 							if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
 							{
@@ -529,7 +536,11 @@ int ServerRouter::_readSd(t_connection * connection)
 			// size_t tmpsize = strlen(connection->bodyBinar);
 			strcat(connection->bodyBinar, buf);
 			// connection->bodyBinar[tmpsize + strlen(buf)] = '\0';
-			
+			#ifdef DEBUGMODE
+				std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(buf) \nstrlen(buf): " << NC << strlen(buf) << "\n----------------------" << std::endl;
+				std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
+			#endif
+
 			if (connection->requestProcessingStep < READING_BODY)
 			{
 				// заголовок еще не прочитан
@@ -705,6 +716,9 @@ int ServerRouter::_readSd(t_connection * connection)
 			msg = "finished reading data from sd ";
 			printMsg(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
+			#ifdef DEBUGMODE
+				std::cout << VIOLET << " DEBUGMODE SR _readSd sizeof(connection->bodyBinar) \nsizeof(connection->bodyBinar): " << NC << sizeof(connection->bodyBinar) << "\n----------------------" << std::endl;
+			#endif
 			// #ifdef DEBUGMODE
 				msg = "data from sd ";
 				msg1 = "✧✧✧✧✧header:✧✧✧✧✧\n" + connection->inputData.method + " " + connection->inputData.address;

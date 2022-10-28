@@ -456,7 +456,7 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 	// 	std::cout << RED <<  " DEBUGMODE SR_POST _makefilelist \n" << NC << "ERROR11" << "\n----------------------\n";
 	// #endif
 	fclose(file);
-	if (strlen(connection->bodyBinar))
-		free (connection->bodyBinar);
+	// if (connection->bodyBinar != NULL)
+	// 	free (connection->bodyBinar);
 	connection->responseData.statusCode = "200";
 }

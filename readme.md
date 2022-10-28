@@ -105,6 +105,9 @@ git push
 - DELETE https://developer.mozilla.org/ru/docs/Web/HTTP/Methods/DELETE
 
 ### Хронология изменений:
+28/10 #Д#
+- Пофиксил длину limitClientBodySize по умолчанию (даже если LIMIT_CLIENT_BODY_SIZE не задан) parserSCF-236
+
 27/10 #Д#
 - изменил в структуре данных: ввёл unsigned long limitClientBodySize (для создания массива чаров буфера body)
 - надо предусмотреть:

@@ -233,6 +233,8 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 
 	if (oneServerConfig.limitClientBodySize == 0)
 		oneServerConfig.limitClientBodySize = LIMIT_CLIENT_BODY_SIZE;
+	if (oneServerConfig.limitClientBodySize == 0)
+		oneServerConfig.limitClientBodySize = 3000000;
 	
 	if (oneServerConfig.ip.size() > 0 && oneServerConfig.port.size() > 0)
 		configs.push_back(oneServerConfig);
