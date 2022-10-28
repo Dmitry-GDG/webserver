@@ -12,9 +12,10 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 	// #ifdef DEBUGMODE
 	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer path \npath: " << NC << path << "\n----------------------\n";
 	// #endif
-	#ifdef DEBUGMODE
-		std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer body \nbody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
-	#endif
+
+	// #ifdef DEBUGMODE
+	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _preparePostAnswer body \nbody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
+	// #endif
 
 	_parseInputBodyStr(connection);
 	_choosePostContentType(connection);
@@ -45,9 +46,9 @@ void ServerRouter::_preparePostAnswer(t_connection * connection)
 		connection->responseData.connectionAnswer += DDELIMETER;
 	}
 
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
+	// #endif
 }
 
 // bool ServerRouter::_acceptFile(t_connection * connection, std::string & contentTypeAndLength, std::string const & path)
@@ -128,9 +129,9 @@ void ServerRouter::_parseInputBodyStr(t_connection * connection)
 
 void ServerRouter::_choosePostContentType(t_connection * connection)
 {
-	#ifdef DEBUGMODE
-		std::cout << BLUE << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType 0 \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << BLUE << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType 0 \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
+	// #endif
 	for (std::vector<std::pair<std::string, std::string> >::iterator iter = connection->inputData.headerFieldsVec.begin(); iter < connection->inputData.headerFieldsVec.end(); iter++)
 	{
 		if ((*iter).first.find("Content-Type") != std::string::npos)
@@ -161,14 +162,14 @@ void ServerRouter::_choosePostContentType(t_connection * connection)
 	// #ifdef DEBUGMODE
 	// 	std::cout << VIOLET << " DEBUGMODE SR_POST _choosePostContentType connection->inputData.postContentType \npostContentType: " << NC << connection->inputData.postContentType << "\n----------------------\n";
 	// #endif
-	std::cout << RED << "TEST" << NC << std::endl;
+	// std::cout << RED << "TEST" << NC << std::endl;
 }
 
 void ServerRouter::_postUrlencoded(t_connection * connection, std::string contentType)
 {
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE SR_POST _postUrlencoded connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
+	// #endif
 	// connection->responseData.connectionAnswer +=
 	(void) contentType;
 	(void) connection;
@@ -176,9 +177,10 @@ void ServerRouter::_postUrlencoded(t_connection * connection, std::string conten
 
 void ServerRouter::_postFormData(t_connection * connection, std::string contentType)
 {
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE  SR_POST _postFormData connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
-	#endif
+	std::string msg;
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE  SR_POST _postFormData connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
+	// #endif
 	std::string boundary;
 	_findBoundary(contentType, boundary);
 	connection->inputData.boundary.push_back(boundary);
@@ -188,12 +190,15 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 	if (connection->inputData.boundary.size() < 1)
 	{
 		connection->responseData.statusCode = "400";
+		msg = "Error! Bad Request, sd ";
+		printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 		return ;
 	}
 	connection->responseData.statusCode = "100";
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputStrBody:\n" << NC << connection->inputStrBody << "\n----------------------\n";
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputStrBody: \n" << NC << connection->inputStrBody << "\n----------------------\n";
+	// #endif
 	std::vector<std::string> bodyVec;
 	bodyVec.clear();
 	splitStringStr(connection->inputStrBody, "--" + connection->inputData.boundary[0], bodyVec);
@@ -201,24 +206,25 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 	{
 		if ((*iter) != "" && (*iter) != DELIMETER && (*iter) != DDELIMETER)
 		{
-			#ifdef DEBUGMODE
-				std::cout << RED <<  " DEBUGMODE SR_POST _postFormData *iter: \n" << NC << *iter << "\n----------------------\n";
-			#endif
+			// #ifdef DEBUGMODE
+			// 	std::cout << RED <<  " DEBUGMODE SR_POST _postFormData *iter: \n" << NC << *iter << "\n----------------------\n";
+			// #endif
 			std::string tmp = "--";
 			if ((*iter == "--") || (*iter == (tmp + DELIMETER)) || (*iter == (tmp + DDELIMETER)))
 				break;
 			_postGetFileName(connection, *iter);
-			#ifdef DEBUGMODE
-				if (connection->inputData.postFileName.size())
-					std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileName: \n" << NC << connection->inputData.postFileName << "\n----------------------\n";
-			#endif
-			#ifdef DEBUGMODE
-				if (connection->inputData.postFileData.size())
-					std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileData: \n" << NC << connection->inputData.postFileData << "\n----------------------\n";
-			#endif
+			// #ifdef DEBUGMODE
+			// 	if (connection->inputData.postFileName.size())
+			// 		std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileName: \n" << NC << connection->inputData.postFileName << "\n----------------------\n";
+			// #endif
+			// #ifdef DEBUGMODE
+			// 	if (connection->inputData.postFileData.size())
+			// 		std::cout << RED <<  " DEBUGMODE SR_POST _postFormData connection->inputData.postFileData: \n" << NC << connection->inputData.postFileData << "\n----------------------\n";
+			// #endif
 			_postGetFilePathToSave(connection);
 			// std::cout << RED << "TEST22" << NC << std::endl;
-			_postSaveFile(connection);
+			if ((connection->inputData.postFileName).size())
+				_postSaveFile(connection);
 		}
 		// else
 		// 	continue ;
@@ -229,9 +235,9 @@ void ServerRouter::_postFormData(t_connection * connection, std::string contentT
 
 void ServerRouter::_postMixed(t_connection * connection, std::string contentType)
 {
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _postMixe connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE SR_POST _postMixe connection->responseData.connectionAnswer: \n" << NC << connection->responseData.connectionAnswer << "\n----------------------\n";
+	// #endif
 	// connection->responseData.connectionAnswer +=
 	(void) contentType;
 	(void) connection;
@@ -317,16 +323,16 @@ void ServerRouter::_postGetFileName(t_connection * connection, std::string str)
 			}
 			if (dataMap.size())
 			{
-				#ifdef DEBUGMODE
-					printMapStrStr(dataMap, "SR_POST _getFile dataMap");
-				#endif
+				// #ifdef DEBUGMODE
+				// 	printMapStrStr(dataMap, "SR_POST _getFile dataMap");
+				// #endif
 				dataVec000.clear();
 				for (std::map<std::string, std::string>::iterator iter = dataMap.begin(); iter != dataMap.end(); iter++)
 				{
-					#ifdef DEBUGMODE
-						printMapStrStr(dataMap, "SR_POST _getFile dataMap");
-						std::cout << RED <<  " DEBUGMODE SR_POST _getFile dataMap *iter \n*iter: " << NC << (*iter).first << "\t" << (*iter).second << "\n----------------------\n";
-					#endif
+					// #ifdef DEBUGMODE
+					// 	printMapStrStr(dataMap, "SR_POST _getFile dataMap");
+					// 	std::cout << RED <<  " DEBUGMODE SR_POST _getFile dataMap *iter \n*iter: " << NC << (*iter).first << "\t" << (*iter).second << "\n----------------------\n";
+					// #endif
 					if ((*iter).first.find("Content-Disposition") != std::string::npos)
 					{
 						splitStringStr((*iter).second, "; ", dataVec000);
@@ -360,11 +366,10 @@ void ServerRouter::_postGetFilePathToSave(t_connection * connection)
 	if (server.getConfig().root != "")
 		connection->inputData.postFilePathToSave += server.getConfig().root + "/";
 	connection->inputData.postFilePathToSave += server.getConfig().upload + "/";
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _postGetFilePathToSave connection->inputData.postFilePathToSave: \n" << NC << connection->inputData.postFilePathToSave << "\n----------------------\n";
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE SR_POST _postGetFilePathToSave connection->inputData.postFilePathToSave: \n" << NC << connection->inputData.postFilePathToSave << "\n----------------------\n";
+	// #endif
 }
-
 
 int ServerRouter::_postCheckIsFileExist(t_connection * connection)
 {
@@ -384,20 +389,18 @@ int ServerRouter::_postCheckIsFileExist(t_connection * connection)
 	return 2;
 }
 
-void ServerRouter::_postSaveFile(t_connection * connection)
+void ServerRouter::_postFindUniqueFileNameToSave(t_connection * connection)
 {
-	std::string buf;
-
 	std::vector<std::string> saveName;
 	splitStringColon(connection->inputData.postFileName, '.', saveName);
-	#ifdef DEBUGMODE
-		int itmp = 0;
-		std::cout << BLUE <<  " DEBUGMODE SR_POST _postSaveFile connection->inputData.postFileName \nconnection->inputData.postFileName: " << NC <<connection->inputData.postFileName << std::endl;
-		std::cout << BLUE <<  " DEBUGMODE SR_POST _postSaveFile saveName " << NC << std::endl;
-		for (std::vector<std::string>::iterator iter = saveName.begin(); iter < saveName.end(); iter++, itmp++)
-			std::cout  <<  "\tsaveName[" << itmp << "]: " << saveName[itmp] << "\n";
-		std::cout << "----------------------" << NC << std::endl;
-	#endif
+	// #ifdef DEBUGMODE
+	// 	int itmp = 0;
+	// 	std::cout << BLUE <<  " DEBUGMODE SR_POST _postFindUniqueFileNameToSave connection->inputData.postFileName \nconnection->inputData.postFileName: " << NC <<connection->inputData.postFileName << std::endl;
+	// 	std::cout << BLUE <<  " DEBUGMODE SR_POST _postFindUniqueFileNameToSave saveName " << NC << std::endl;
+	// 	for (std::vector<std::string>::iterator iter = saveName.begin(); iter < saveName.end(); iter++, itmp++)
+	// 		std::cout  <<  "\tsaveName[" << itmp << "]: " << saveName[itmp] << "\n";
+	// 	std::cout << "----------------------" << NC << std::endl;
+	// #endif
 	int i = _postCheckIsFileExist(connection); // ? maybe just save with another filenamename ?
 	if (i != 2)
 	{
@@ -409,20 +412,25 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 			if (saveName[1].size())
 				connection->inputData.postFileName += "." + saveName[1];
 			// #ifdef DEBUGMODE
-			// 	std::cout << RED <<  " DEBUGMODE SR_POST _postSaveFile i = \n" << NC << i << "\n----------------------\n";
+			// 	std::cout << RED <<  " DEBUGMODE SR_POST _postFindUniqueFileNameToSave i = \n" << NC << i << "\n----------------------\n";
 			// #endif
 			i = _postCheckIsFileExist(connection);
 			if (i == 2)
 				break ;
-			// if (i == 0)
-				// return (_sendMsg("371 " + commandParced.args[0] + " FILEGET unknown error. Try later"));
 		}
 	}
+}
+
+void ServerRouter::_postSaveFile(t_connection * connection)
+{
+	std::string msg;
+
+	_postFindUniqueFileNameToSave(connection);
 
 	std::string fileName = correctSlashInAddress(connection->inputData.postFilePathToSave) + "/" + correctSlashInAddress(connection->inputData.postFileName);
-	#ifdef DEBUGMODE
-		std::cout << RED <<  " DEBUGMODE SR_POST _postSaveFile fileName: \n" << NC << fileName << "\n----------------------\n";
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << RED <<  " DEBUGMODE SR_POST _postSaveFile fileName: \n" << NC << fileName << "\n----------------------\n";
+	// #endif
 
 	FILE *file;
 	if (connection->requestProcessingStep == READING_DONE)
@@ -442,10 +450,24 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 	splitStringStr(connection->inputData.postFileData, DELIMETER, dataVecData);
 	// std::cout << RED << "TEST" << NC << std::endl;
 
-	std::string tmpStr = "";
-	for (std::vector<std::string>::iterator iter = dataVecData.begin(); iter < dataVecData.end(); iter++)
-		tmpStr.append(*iter);
-	fwrite(tmpStr.c_str(), sizeof(char), tmpStr.size(), file);
+	// std::string tmpStr = "";
+	// if (connection->lenGet)
+	// {
+	// 	for (std::vector<std::string>::iterator iter = dataVecData.begin(); iter < dataVecData.end(); iter++)
+	// 		tmpStr.append(*iter);
+	// 	fwrite(tmpStr.c_str(), sizeof(char), tmpStr.size(), file);
+	// 	// fwrite(connection->inputStrBody.c_str(), sizeof(char), connection->lenGet - 1967, file);
+	// }
+
+	fwrite(connection->inputData.postFileData.c_str(), sizeof(char), connection->inputData.postFileData.size(), file);
+	
+
+	// // std::ifstream f1 ("dunno.png",std::fstream::binary);
+	// std::ofstream f2 ("dunno2.png",std::fstream::binary|std::ios::app);
+	// // // f2<<f1.rdbuf();
+	// f2 << connection->inputStrBody;	
+
+
 	// fwrite(tmpStr.c_str(), sizeof(char), connection->сontentLength, file); // segmentation fault
 
 	// std::string dataToWrite = dataVecData[0];
@@ -459,4 +481,7 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 	// if (connection->bodyBinar != NULL)
 	// 	free (connection->bodyBinar);
 	connection->responseData.statusCode = "200";
+	msg = "the new file was saved as " + correctSlashInAddress(connection->inputData.postFileName) + ", sd ";
+	printMsgErr(connection->srvNbr, connection->clntSd, msg, "");
+	printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
 }

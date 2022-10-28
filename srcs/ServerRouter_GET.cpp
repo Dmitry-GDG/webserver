@@ -555,14 +555,14 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 	// 		path += "index.html";
 	// }
 
-	#ifdef DEBUGMODE
-		std::cout << VIOLET << " DEBUGMODE SR_GET _addFileToAnswer pathToServer \n0pathToServer: " << NC << pathToServer << "\n----------------------" << std::endl;
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << VIOLET << " DEBUGMODE SR_GET _addFileToAnswer pathToServer \n0pathToServer: " << NC << pathToServer << "\n----------------------" << std::endl;
+	// #endif
 	std::string path = pathToServer + connection->inputData.address;
 	_findReferer(connection);
-	#ifdef DEBUGMODE
-		std::cout << VIOLET << " DEBUGMODE SR_GET _addFileToAnswer refer \nReferer: " << NC << connection->referer << "\n----------------------" << std::endl;
-	#endif
+	// #ifdef DEBUGMODE
+	// 	std::cout << VIOLET << " DEBUGMODE SR_GET _addFileToAnswer refer \nReferer: " << NC << connection->referer << "\n----------------------" << std::endl;
+	// #endif
 	// std::string fileName = 
 
 	// size_t i;
@@ -686,7 +686,7 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 				pathTmp.erase(pathTmp.begin());
 				size_t dot = pathTmp.find('.');
 				std::string ext = pathTmp.substr(dot + 1, path.length() - dot);
-				std::cout << RED << "ext = " << ext << NC << std::endl;
+				// std::cout << RED << "ext = " << ext << NC << std::endl;
 
 				std::string contType;
 				if (connection->contentTypesAll.find(ext) != connection->contentTypesAll.end())
@@ -749,7 +749,7 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 		pathTmp.erase(pathTmp.begin());
 		size_t dot = pathTmp.find('.');
 		std::string ext = pathTmp.substr(dot + 1, path.length() - dot);
-		std::cout << RED << "ext = " << ext << NC << std::endl;
+		// std::cout << RED << "ext = " << ext << NC << std::endl;
 
 		std::string contType;
 		if (connection->contentTypesAll.find(ext) != connection->contentTypesAll.end())
@@ -784,7 +784,7 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 			else
 				path += "index.html";
 		}
-		std::cout << RED << path << NC << std::endl;
+		// std::cout << BLUE << " SR_GET _addFileToAnswer  path: " << NC << path << std::endl;
 
 		const char * pathChar2 = path.c_str();
 		struct stat buf2;
@@ -828,7 +828,7 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 			pathTmp.erase(pathTmp.begin());
 			size_t dot = pathTmp.find('.');
 			std::string ext = pathTmp.substr(dot + 1, path.length() - dot);
-			std::cout << RED << "ext = " << ext << NC << std::endl;
+			// std::cout << RED << "ext = " << ext << NC << std::endl;
 
 			std::string contType;
 			if (connection->contentTypesAll.find(ext) != connection->contentTypesAll.end())

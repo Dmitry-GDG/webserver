@@ -423,17 +423,18 @@ int ServerRouter::_readSd(t_connection * connection)
 		buf[qtyBytes] = '\0';
 		connection->lenGet += qtyBytes;
 		size_t amount;
-		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR _readSd buf \nbuf: " << NC << buf << "\n----------------------" << std::endl;
-		#endif
+		// #ifdef DEBUGMODE
+		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd buf \nbuf: " << NC << buf << "\n----------------------" << std::endl;
+		// #endif
 
-		#ifdef DEBUGMODE
-			std::cout << BLUE << " DEBUGMODE SR _readSd (connection->inputStr).size()0 \n(connection->inputStr).size()0: " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
-		#endif
-		connection->inputStr += buf;
-		#ifdef DEBUGMODE
-			std::cout << GREEN << " DEBUGMODE SR _readSd (connection->inputStr).size() \n(connection->inputStr).size(): " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
-		#endif
+		// #ifdef DEBUGMODE
+		// 	std::cout << BLUE << " DEBUGMODE SR _readSd (connection->inputStr).size()0 \n(connection->inputStr).size()0: " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
+		// #endif
+		// connection->inputStr += buf;
+		connection->inputStr.append(buf, qtyBytes);
+		// #ifdef DEBUGMODE
+		// 	std::cout << GREEN << " DEBUGMODE SR _readSd (connection->inputStr).size() \n(connection->inputStr).size(): " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
+		// #endif
 
 		std::string tmp = buf;
 		std::string tmpBody = "";
@@ -456,7 +457,8 @@ int ServerRouter::_readSd(t_connection * connection)
 			if (pos != std::string::npos)
 			{
 				// есть body
-				connection->inputStrBody = tmp.substr (pos + tmpDDelimeter.size());
+				connection->inputStrBody = std::string(connection->inputStr, pos + tmpDDelimeter.size(), qtyBytes - pos - tmpDDelimeter.size());
+				// connection->inputStrBody = tmp.substr (pos + tmpDDelimeter.size());
 				if (!_findConnectionСontentLength(connection))
 				{
 					// body закончится в этом пакете
@@ -468,10 +470,10 @@ int ServerRouter::_readSd(t_connection * connection)
 				{
 					unsigned long bodyBinarSize = server.getConfig().limitClientBodySize;
 					// сравнить размер пришедших данных с максимально допустимым в конфигурации
-					#ifdef DEBUGMODE
-						std::cout << GREEN << " DEBUGMODE SR _readSd connection->сontentLength \nconnection->сontentLength: " << NC << connection->сontentLength << "\n----------------------" << std::endl;
-						std::cout << GREEN << " DEBUGMODE SR _readSd bodyBinarSize \nbodyBinarSize: " << NC << bodyBinarSize << "\n----------------------" << std::endl;
-					#endif
+					// #ifdef DEBUGMODE
+					// 	std::cout << GREEN << " DEBUGMODE SR _readSd connection->сontentLength \nconnection->сontentLength: " << NC << connection->сontentLength << "\n----------------------" << std::endl;
+					// 	std::cout << GREEN << " DEBUGMODE SR _readSd bodyBinarSize \nbodyBinarSize: " << NC << bodyBinarSize << "\n----------------------" << std::endl;
+					// #endif
 					if (connection->сontentLength > bodyBinarSize + 1)
 					{
 						//вернуть ошибку
@@ -487,14 +489,14 @@ int ServerRouter::_readSd(t_connection * connection)
 						}
 						else
 						{
-							#ifdef DEBUGMODE
-								std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
-							#endif
+							// #ifdef DEBUGMODE
+							// 	std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
+							// #endif
 							strcat(connection->bodyBinar, buf);
-							#ifdef DEBUGMODE
-								std::cout << VIOLET << " DEBUGMODE SR _readSd sizeof(buf) \nstrlen(buf): " << NC << sizeof(buf) << "\n----------------------" << std::endl;
-								std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
-							#endif
+							// #ifdef DEBUGMODE
+							// 	std::cout << VIOLET << " DEBUGMODE SR _readSd sizeof(buf) \nstrlen(buf): " << NC << sizeof(buf) << "\n----------------------" << std::endl;
+							// 	std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
+							// #endif
 							// connection->bodyBinar[strlen(buf)] = '\0';
 							// длину body надо сверять с параметром Сontent-Length
 							if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
@@ -536,10 +538,10 @@ int ServerRouter::_readSd(t_connection * connection)
 			// size_t tmpsize = strlen(connection->bodyBinar);
 			strcat(connection->bodyBinar, buf);
 			// connection->bodyBinar[tmpsize + strlen(buf)] = '\0';
-			#ifdef DEBUGMODE
-				std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(buf) \nstrlen(buf): " << NC << strlen(buf) << "\n----------------------" << std::endl;
-				std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
-			#endif
+			// #ifdef DEBUGMODE
+			// 	std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(buf) \nstrlen(buf): " << NC << strlen(buf) << "\n----------------------" << std::endl;
+			// 	std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
+			// #endif
 
 			if (connection->requestProcessingStep < READING_BODY)
 			{
@@ -549,7 +551,8 @@ int ServerRouter::_readSd(t_connection * connection)
 				if (pos != std::string::npos)
 				{
 					// есть body
-					connection->inputStrBody = tmp.substr (pos + 4);
+					// connection->inputStrBody = tmp.substr (pos + tmpDDelimeter.size());
+					connection->inputStrBody = std::string(connection->inputStr, pos + tmpDDelimeter.size(), qtyBytes - pos - tmpDDelimeter.size());
 					// длину body надо сверять с параметром Сontent-Length
 	amount = connection->сontentLength > 0 ? (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()) : (connection->inputStr).size();
 					if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
@@ -584,7 +587,8 @@ int ServerRouter::_readSd(t_connection * connection)
 			else
 			{
 				// body непрочитано до конца
-				connection->inputStrBody += tmp;
+				// connection->inputStrBody += tmp;
+				connection->inputStrBody.append(buf, qtyBytes);
 				// длину body надо сверять с параметром Сontent-Length
 				if (connection->lenGet < (connection->сontentLength + tmpDDelimeter.size() + connection->inputStrHeader.size()))
 				{
@@ -695,18 +699,20 @@ int ServerRouter::_readSd(t_connection * connection)
 		msg = "got " + std::to_string(connection->lenGet) + "/" + std::to_string(amount) + " bytes from sd ";
 		printMsg(connection->srvNbr, connection->clntSd, msg, "");
 		printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR _readSd connection->requestProcessingStep \nconnection->requestProcessingStep: " << NC << connection->requestProcessingStep << "\n----------------------" << std::endl;
-		#endif
-		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStr).size() \n(connection->inputStr).size(): " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
-		#endif
-		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStrHeader).size() \n(connection->inputStrHeader).size(): " << NC << (connection->inputStrHeader).size() << "\n----------------------" << std::endl;
-		#endif
-		#ifdef DEBUGMODE
-			std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStrBody).size() \n(connection->inputStrBody).size(): " << NC << (connection->inputStrBody).size() << "\n----------------------" << std::endl;
-		#endif
+		// #ifdef DEBUGMODE
+		// 	std::string arr[] = {"NOT_DEFINED_REQUEST_PROCESSING_STEP", "READING_HEADER", "READING_HEADER_DONE", "READING_BODY", "READING_BODY_DONE", "WRITING", "WRITING_DONE"};
+		// 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
+		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd connection->requestProcessingStep \nconnection->requestProcessingStep: " << NC << sts[connection->requestProcessingStep] << "\n----------------------" << std::endl;
+		// #endif
+		// #ifdef DEBUGMODE
+		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStr).size() \n(connection->inputStr).size(): " << NC << (connection->inputStr).size() << "\n----------------------" << std::endl;
+		// #endif
+		// #ifdef DEBUGMODE
+		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStrHeader).size() \n(connection->inputStrHeader).size(): " << NC << (connection->inputStrHeader).size() << "\n----------------------" << std::endl;
+		// #endif
+		// #ifdef DEBUGMODE
+		// 	std::cout << VIOLET << " DEBUGMODE SR _readSd (connection->inputStrBody).size() \n(connection->inputStrBody).size(): " << NC << (connection->inputStrBody).size() << "\n----------------------" << std::endl;
+		// #endif
 		if (connection->requestProcessingStep == READING_DONE)
 		{
 			connection->responseData.statusCode = "200";
@@ -716,9 +722,9 @@ int ServerRouter::_readSd(t_connection * connection)
 			msg = "finished reading data from sd ";
 			printMsg(connection->srvNbr, connection->clntSd, msg, "");
 			printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, "");
-			#ifdef DEBUGMODE
-				std::cout << VIOLET << " DEBUGMODE SR _readSd sizeof(connection->bodyBinar) \nsizeof(connection->bodyBinar): " << NC << sizeof(connection->bodyBinar) << "\n----------------------" << std::endl;
-			#endif
+			// #ifdef DEBUGMODE
+			// 	std::cout << VIOLET << " DEBUGMODE SR _readSd sizeof(connection->bodyBinar) \nsizeof(connection->bodyBinar): " << NC << sizeof(connection->bodyBinar) << "\n----------------------" << std::endl;
+			// #endif
 			// #ifdef DEBUGMODE
 				msg = "data from sd ";
 				msg1 = "✧✧✧✧✧header:✧✧✧✧✧\n" + connection->inputData.method + " " + connection->inputData.address;
@@ -732,8 +738,8 @@ int ServerRouter::_readSd(t_connection * connection)
 					if ((*iter).second != "")
 						msg1 += ": " + (*iter).second + "\n";
 				}
-				msg1 += "✧✧✧✧✧body:✧✧✧✧✧\n";
-				msg1 += connection->inputStrBody;
+				// msg1 += "✧✧✧✧✧body:✧✧✧✧✧\n";
+				// msg1 += connection->inputStrBody;
 				printMsg(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
 				printMsgToLogFile(connection->srvNbr, connection->clntSd, msg, ":\n" + msg1);
 			// #endif	

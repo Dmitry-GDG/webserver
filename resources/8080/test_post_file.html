@@ -51,6 +51,27 @@
 				width: 400px;
 				/* height: 400px; */
 			}
+			.tab4 {
+				tab-size: 4;
+			}
+			.tab8 {
+				tab-size: 8;
+			}
+			.superbutton {
+			width:150px;
+			height:40px;
+			border-radius:20px;
+			background:#459DE5;
+			color:#fff;
+			font-size:18px;
+			cursor:pointer;
+			}
+			.superbutton:hover{
+			background:#358DE5;
+			}
+			.superbutton:focus{
+			outline:none;
+			}
 			*{margin:0;padding:0}
 			html,code{font:15px/22px arial,sans-serif}
 			html{background:#fff;color:#222;padding:15px}
@@ -81,10 +102,11 @@
 			<td><img src=capone.jpeg alt="Al Capone"> </td> 
 			<td>
 				<form method="post" enctype="multipart/form-data">
-					<input type="file" name="file[]"><br>
-					<input type="file" name="file[]"><br>
-					<input type="file" name="file[]"><br>
-					<input type="submit" value="Отправить">
+					<pre class="tab4"><input type="file" name="file[]"><br><br></pre>
+					<pre class="tab4"><input type="file" name="file[]"><br><br></pre>
+					<!-- <input type="file" name="file[]"><br> -->
+					<!-- <input type="submit" value="Отправить"> -->
+					<input type="submit" class="superbutton" name="submit" value="Post file(s)" />
 				</form>
 				<br><br>
 				<!-- <form method="post" enctype="multipart/form-data">
@@ -103,12 +125,12 @@
 					<input name="" type="submit" value="Отправить" />
 					<input type="submit" value="Отправить" />
 				</form> -->
-				<form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
+				<!-- <form name="file_upload" method="POST" action="form.php" enctype="multipart/form-data">
 					<label>Ваш аватар: <input type="file" name="avatar"></label>
 					<input type="submit" name="send" value="Отправить файл">
-				</form>
+				</form> -->
 				<br><br>
-				<form action="http://foo.com" method="post">
+				<!-- <form action="http://foo.com" method="post">
 					<div>
 						<label for="say">What greeting do you want to say?</label>
 						<input name="say" id="say" value="Hi">
@@ -120,7 +142,7 @@
 					<div>
 						<button>Send my greetings</button>
 					</div>
-				</form>
+				</form> -->
 			</td>
 		</table>
 		<!-- <img src=logo.jpg alt="logo">  -->

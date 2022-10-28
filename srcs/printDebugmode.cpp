@@ -218,13 +218,14 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::cout << "Client from:\t" << connection.fromIp << ":" << connection.fromPort << std::endl;
 	std::cout << "Client Sd:\t" << connection.clntSd << std::endl;
 	std::cout << "Last Connection time:\t" << connection.lastActivityTime << " sec" << std::endl;
-	std::string arr[] = {"NOT_DEFINED_REQUEST_PROCESSING_STEP", "READING_HEADER", "READING_HEADER_DONE", "READING_BODY", "READING_BODY_DONE", "WRITING", "WRITING_DONE"};
-	std::vector<std::string> sts(std::begin(arr), std::end(arr));
 	if (connection.allowedMethods.size() > 0)
 	{
 		for (size_t i = 0; i < connection.allowedMethods.size(); i++)
 			std::cout << "allowedMethods[" << i << "]:\t" << connection.allowedMethods[i] << std::endl;
 	}
+	std::string arr[] = {"NOT_DEFINED_REQUEST_PROCESSING_STEP", "READING_HEADER", "READING_HEADER_DONE", "READING_BODY", "READING_BODY_DONE", "WRITING", "WRITING_DONE"};
+	std::vector<std::string> sts(std::begin(arr), std::end(arr));
+	std::cout << "Request Processing Step:\t" << RED << sts[connection.requestProcessingStep] << NC << std::endl;
 	// if (connection.responseStatusCodesAll.size() > 0)
 	// {
 	// 	std::cout << "Response status codes:" << std::endl;
@@ -239,7 +240,6 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
 	// 	std::cout << std::endl;
 	// }
-	std::cout << "Request Processing Step:\t" << RED << sts[connection.requestProcessingStep] << NC << std::endl;
 	if (sign == 1)
 	{
 		std::vector<std::pair<int, std::string> > vec;
