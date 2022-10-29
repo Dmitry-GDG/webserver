@@ -109,7 +109,7 @@ typedef struct s_connection
 	std::string			inputStrBody;
 	size_t				lenGet; // qty bytes recieved
 	unsigned long		сontentLength; // = Content-Length
-	char				* bodyBinar;
+	// char				* bodyBinar;
 	RequestProcessingStep	requestProcessingStep;
 	// std::string			status; // 	READING, READING_DONE, WRITING, WRITING_DONE
 	std::vector<std::string> allowedMethods; // GET, POST, DELETE

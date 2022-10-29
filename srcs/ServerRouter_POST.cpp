@@ -445,9 +445,11 @@ void ServerRouter::_postSaveFile(t_connection * connection)
 	// 	printCharInt(connection->inputData.postFileData, "DEBUGMODE SR_POST _postSaveFile connection->inputData.postFileData");
 	// #endif
 	// std::cout << RED << "TEST00" << NC << std::endl;
-	std::vector<std::string> dataVecData;
-	// std::cout << RED << "TEST0" << NC << std::endl;
-	splitStringStr(connection->inputData.postFileData, DELIMETER, dataVecData);
+
+	// std::vector<std::string> dataVecData;
+	// // std::cout << RED << "TEST0" << NC << std::endl;
+	// splitStringStr(connection->inputData.postFileData, DELIMETER, dataVecData);
+
 	// std::cout << RED << "TEST" << NC << std::endl;
 
 	// std::string tmpStr = "";

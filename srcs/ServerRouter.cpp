@@ -481,18 +481,20 @@ int ServerRouter::_readSd(t_connection * connection)
 					}
 					else
 					{
-						connection->bodyBinar = (char *)calloc (bodyBinarSize + 1, 1);
-						if (!connection->bodyBinar)
-						{
-							//вернуть ошибку
-							return 0 ;
-						}
-						else
+						// connection->bodyBinar = (char *)calloc (bodyBinarSize + 1, 1);
+						// if (!connection->bodyBinar)
+						// {
+						// 	//вернуть ошибку
+						// 	return 0 ;
+						// }
+						// else
 						{
 							// #ifdef DEBUGMODE
 							// 	std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
 							// #endif
-							strcat(connection->bodyBinar, buf);
+
+							// strcat(connection->bodyBinar, buf);
+
 							// #ifdef DEBUGMODE
 							// 	std::cout << VIOLET << " DEBUGMODE SR _readSd sizeof(buf) \nstrlen(buf): " << NC << sizeof(buf) << "\n----------------------" << std::endl;
 							// 	std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(connection->bodyBinar) \nstrlen(connection->bodyBinar): " << NC << strlen(connection->bodyBinar) << "\n----------------------" << std::endl;
@@ -536,7 +538,9 @@ int ServerRouter::_readSd(t_connection * connection)
 			// первый запуск произошел, требуется более одного пакета данных
 			
 			// size_t tmpsize = strlen(connection->bodyBinar);
-			strcat(connection->bodyBinar, buf);
+
+			// strcat(connection->bodyBinar, buf);
+
 			// connection->bodyBinar[tmpsize + strlen(buf)] = '\0';
 			// #ifdef DEBUGMODE
 			// 	std::cout << VIOLET << " DEBUGMODE SR _readSd strlen(buf) \nstrlen(buf): " << NC << strlen(buf) << "\n----------------------" << std::endl;
