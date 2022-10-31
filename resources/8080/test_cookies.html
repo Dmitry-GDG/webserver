@@ -87,28 +87,128 @@
 			@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}
 			#logo{display:inline-block;height:54px;width:150px}
 		</style>
+			  <SCRIPT LANGUAGE="JavaScript">
+				// <!--
+				function addCookie(szName,szValue,dtDaysExpires) 
+				{
+					var dtExpires = new Date();
+					var dtExpiryDate = "";
+			
+					dtExpires.setTime(dtExpires.getTime() + 
+					dtDaysExpires * 24 * 60 * 60 * 1000);
+			
+					dtExpiryDate = dtExpires.toGMTString();
+			
+					document.cookie = 
+					szName + "=" + szValue + "; expires=" + 
+					dtExpiryDate;
+				}
+			
+				function findCookie(szName) 
+				{
+					var i = 0;
+					var nStartPosition = 0;
+					var nEndPosition = 0;  
+					var szCookieString = document.cookie;  
+			
+					while (i <= szCookieString.length) 
+					{
+					nStartPosition = i;
+					nEndPosition = nStartPosition + szName.length;
+			
+					if(szCookieString.substring( nStartPosition,nEndPosition) == szName) 
+					{
+						nStartPosition = nEndPosition + 1;
+						nEndPosition = document.cookie.indexOf(";",nStartPosition);
+			
+						if(nEndPosition < nStartPosition)
+						nEndPosition = document.cookie.length;
+			
+						return document.cookie.substring( nStartPosition,nEndPosition);  
+						break;    
+					}
+					i++;  
+					}
+					return "";
+				}
+			
+				function removeCookie(szName) 
+				{
+					var dtExpires = new Date();
+					dtExpires.setTime(dtExpires.getTime() - 1);
+			
+					var szValue = findCookie(szName);
+			
+					document.cookie = szName + "=" + szValue +
+					"; expires=" + dtExpires.toGMTString();
+				}
+			
+				function btnClick()
+				{
+					if(findCookie("Visit") == "")
+					{
+					addCookie("Visit","Trurgot & Co",10);
+					addCookie("Count","0",10);
+			
+					document.write("<H2>You are welcome!</H2>");     
+					}
+					else
+					{
+					var szCnt = findCookie("Count");
+					var i=0;
+			
+					if(szCnt != "")
+					{
+						i = szCnt;
+						i++;
+						szCnt = i.toString();
+				
+						addCookie("Count",szCnt,10);
+					}
+			
+					document.write("<H2>You are welcome AGAIN!</H2>");     
+					document.write(document.cookie);     
+					}
+					document.write("<H3>The page will be reloaded in 3 sec</H3>");  
+					setTimeout(function(){
+						location.reload();
+					}, 3000);
+				}
+				// -->
+				</SCRIPT>
 	</head>
 	<body>
 		<table>
 			<td>
 				<div class="button-container">
 					<a href="index.html" class="gradient-button">Index</a>
-					<a href="test_post_file.html" class="gradient-button-passed">Test POST file</a>
+					<a href="test_post_file.html" class="gradient-button">Test POST file</a>
 					<a href="test_delete_file.html" class="gradient-button">TEST DELETE file</a>
 					<a href="auto" class="gradient-button">TEST autoindex</a>
 					<a href="hello.py" class="gradient-button">TEST CGI Python</a>
 					<a href="hello.rb" class="gradient-button">TEST CGI Ruby</a>
-					<a href="test_cookies.html" class="gradient-button">TEST set cookies</a>
+					<a href="test_cookies.html" class="gradient-button-passed">TEST set cookies</a>
 				</div>
 			</td>
 			<td><img src=capone.jpeg alt="Al Capone"> </td> 
 			<td>
-				<form method="post" enctype="multipart/form-data">
+				<H1>Visit our page!</H1>
+				<FORM NAME="TestForm">
+					<P><INPUT TYPE="button" VALUE="Go to page"
+					onClick="btnClick();">
+					<P><INPUT TYPE="button" VALUE="Remove All Cookies"
+					onClick="removeCookie('Count');removeCookie('Visit')">
+					<br><br>It's better to test cookies in Safari
+				</FORM>
+				<!-- <form method="post" enctype="multipart/form-data">
 					<pre class="tab4"><input type="file" name="file[]"><br><br></pre>
-					<pre class="tab4"><input type="file" name="file[]"><br><br></pre>
+					<pre class="tab4"><input type="file" name="file[]"><br><br></pre> -->
 					<!-- <input type="file" name="file[]"><br> -->
 					<!-- <input type="submit" value="Отправить"> -->
-					<input type="submit" class="superbutton" name="submit" value="Post file(s)" />
+					<!-- <input type="submit" class="superbutton" name="submit" value="Set cookies" />
+					<p><input name="login" form="auth">
+					<input type="password" name="pass" form="auth"></p>
+					<p><input type="submit" form="auth"></p>  -->
 				</form>
 				<br><br>
 				<!-- <form method="post" enctype="multipart/form-data">

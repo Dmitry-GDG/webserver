@@ -524,6 +524,17 @@ void ServerRouter::_prepareGetAnswer(t_connection * connection)
 
 bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & contentTypeAndLengthAndData)
 {
+	if (connection->inputData.address == "setCookies")
+	{
+		std::string setCookies = "<html><head><title>Set cookies</title><meta http-equiv=\"set-cookie\" content=\"name=mycookie; lang=en; expires=Saturday, 31 Dec 2022 15:25:00 GMT\" /></head><body><h2>Cookies set successfully</h2></body></html>";
+		contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+		contentTypeAndLengthAndData += DELIMETER;
+		contentTypeAndLengthAndData += "Content-Length: " + std::to_string(setCookies.length());
+		contentTypeAndLengthAndData += DDELIMETER + setCookies + DDELIMETER;
+		return true;
+	}
+
+
 	std::string msg;
 	Server server = _getServer(connection->srvNbr);
 	// std::string path = server.getConfig().listen + connection->inputdata.address;
@@ -696,6 +707,10 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 
 				fclose(fileOpen2);
 
+				std::string nname = pathTmp.substr(0, dot);
+				size_t nnpos = findLastSlashInAddress(nname);
+				nname = nname.substr(nnpos + 1);
+
 				if (ext == "py" || ext == "rb")
 				{
 					std::string pyStr = execPy(pathChar);
@@ -704,6 +719,14 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 					contentTypeAndLengthAndData += "Content-Length: " + std::to_string(pyStr.length());
 					contentTypeAndLengthAndData += DDELIMETER + pyStr + DDELIMETER;
 				}
+				// else if (nname == "setCookies")
+				// {
+				// 	std::string setCookies = "<html><head><title>Set cookies</title><meta http-equiv=\"set-cookie\" content=\"name=mycookie; lang=en; expires=Saturday, 31 Dec 2022 15:25:00 GMT\" /></head><body><h2>Cookies set successfully</h2></body></html>";
+				// 	contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+				// 	contentTypeAndLengthAndData += DELIMETER;
+				// 	contentTypeAndLengthAndData += "Content-Length: " + std::to_string(setCookies.length());
+				// 	contentTypeAndLengthAndData += DDELIMETER + setCookies + DDELIMETER;
+				// }
 				else 
 				{
 					readFileToStrInBinary(pathChar2, connection->responseData.fileToSendInBinary);
@@ -768,6 +791,10 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 			contType = "text/html";
 		fclose(fileOpen);
 
+		std::string nname = pathTmp.substr(0, dot);
+		size_t nnpos = findLastSlashInAddress(nname);
+		nname = nname.substr(nnpos + 1);
+
 		if (ext == "py" || ext == "rb")
 		{
 			std::string pyStr = execPy(pathChar);
@@ -776,6 +803,14 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 			contentTypeAndLengthAndData += "Content-Length: " + std::to_string(pyStr.length());
 			contentTypeAndLengthAndData += DDELIMETER + pyStr + DDELIMETER;
 		}
+		// else if (nname == "setCookies")
+		// {
+		// 	std::string setCookies = "<html><head><title>Set cookies</title><meta http-equiv=\"set-cookie\" content=\"name=mycookie; lang=en; expires=Saturday, 31 Dec 2022 15:25:00 GMT\" /></head><body><h2>Cookies set successfully</h2></body></html>";
+		// 	contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+		// 	contentTypeAndLengthAndData += DELIMETER;
+		// 	contentTypeAndLengthAndData += "Content-Length: " + std::to_string(setCookies.length());
+		// 	contentTypeAndLengthAndData += DDELIMETER + setCookies + DDELIMETER;
+		// }
 		else
 		{
 			readFileToStrInBinary(pathChar, connection->responseData.fileToSendInBinary);
@@ -858,6 +893,10 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 
 			fclose(fileOpen2);
 
+			std::string nname = pathTmp.substr(0, dot);
+			size_t nnpos = findLastSlashInAddress(nname);
+			nname = nname.substr(nnpos + 1);
+
 			if (ext == "py" || ext == "rb")
 			{
 				std::string pyStr = execPy(pathChar);
@@ -866,6 +905,14 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 				contentTypeAndLengthAndData += "Content-Length: " + std::to_string(pyStr.length());
 				contentTypeAndLengthAndData += DDELIMETER + pyStr + DDELIMETER;
 			}
+			// else if (nname == "setCookies")
+			// {
+			// 	std::string setCookies = "<html><head><title>Set cookies</title><meta http-equiv=\"set-cookie\" content=\"name=mycookie; lang=en; expires=Saturday, 31 Dec 2022 15:25:00 GMT\" /></head><body><h2>Cookies set successfully</h2></body></html>";
+			// 	contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+			// 	contentTypeAndLengthAndData += DELIMETER;
+			// 	contentTypeAndLengthAndData += "Content-Length: " + std::to_string(setCookies.length());
+			// 	contentTypeAndLengthAndData += DDELIMETER + setCookies + DDELIMETER;
+			// }
 			else
 			{
 				readFileToStrInBinary(pathChar2, connection->responseData.fileToSendInBinary);
