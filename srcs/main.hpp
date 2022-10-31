@@ -111,7 +111,7 @@ std::string getTime(time_t time);
 std::string datastamp();
 std::string dayOfWeekStamp();
 uint16_t	atou16(const char *s);
-std::string	exec(const char *cmd);
+std::string	execPy(const char *cmd);
 void	exitErr(std::string errmsg);
 void	ctrl_c_handler(int signum);
 std::string	correctSlashInAddress(std::string str);

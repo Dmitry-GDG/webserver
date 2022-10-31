@@ -696,9 +696,19 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 
 				fclose(fileOpen2);
 
-				readFileToStrInBinary(pathChar2, connection->responseData.fileToSendInBinary);
-
-				contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+				if (ext == "py" || ext == "rb")
+				{
+					std::string pyStr = execPy(pathChar);
+					contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+					contentTypeAndLengthAndData += DELIMETER;
+					contentTypeAndLengthAndData += "Content-Length: " + std::to_string(pyStr.length());
+					contentTypeAndLengthAndData += DDELIMETER + pyStr + DDELIMETER;
+				}
+				else 
+				{
+					readFileToStrInBinary(pathChar2, connection->responseData.fileToSendInBinary);
+					contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+				}
 			}
 		}
 		//ИСПОЛЬЗОВАТЬ referer
@@ -758,9 +768,19 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 			contType = "text/html";
 		fclose(fileOpen);
 
-		readFileToStrInBinary(pathChar, connection->responseData.fileToSendInBinary);
-
-		contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+		if (ext == "py" || ext == "rb")
+		{
+			std::string pyStr = execPy(pathChar);
+			contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+			contentTypeAndLengthAndData += DELIMETER;
+			contentTypeAndLengthAndData += "Content-Length: " + std::to_string(pyStr.length());
+			contentTypeAndLengthAndData += DDELIMETER + pyStr + DDELIMETER;
+		}
+		else
+		{
+			readFileToStrInBinary(pathChar, connection->responseData.fileToSendInBinary);
+			contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+		}
 	}
 	else if (S_ISDIR(buf.st_mode)) //it's path to dir
 	{
@@ -838,9 +858,19 @@ bool ServerRouter::_addFileToAnswer(t_connection * connection, std::string & con
 
 			fclose(fileOpen2);
 
-			readFileToStrInBinary(pathChar2, connection->responseData.fileToSendInBinary);
-
-			contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+			if (ext == "py" || ext == "rb")
+			{
+				std::string pyStr = execPy(pathChar);
+				contentTypeAndLengthAndData += "Content-Type: text/html; charset=utf-8";
+				contentTypeAndLengthAndData += DELIMETER;
+				contentTypeAndLengthAndData += "Content-Length: " + std::to_string(pyStr.length());
+				contentTypeAndLengthAndData += DDELIMETER + pyStr + DDELIMETER;
+			}
+			else
+			{
+				readFileToStrInBinary(pathChar2, connection->responseData.fileToSendInBinary);
+				contentTypeAndLengthAndData += "Content-Type: " + contType + "; charset=utf-8" + DELIMETER + "Content-Length: " + std::to_string(fileLength2) + DDELIMETER + connection->responseData.fileToSendInBinary + DDELIMETER;
+			}
 		}
 	}
 	else

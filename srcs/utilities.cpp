@@ -325,25 +325,6 @@ std::string datastamp()
 	return(std::to_string(ltm->tm_mday) +  " " + months[ltm->tm_mon] + " " +  std::to_string(ltm->tm_year + 1900));
 }
 
-
-std::string exec(const char* cmd)
-{
-    char buffer[128];
-    std::string result = "";
-    FILE* pipe = popen(cmd, "r");
-    if (!pipe) throw std::runtime_error("popen() failed!");
-    try {
-        while (fgets(buffer, sizeof buffer, pipe) != NULL) {
-            result += buffer;
-        }
-    } catch (...) {
-        pclose(pipe);
-        throw;
-    }
-    pclose(pipe);
-    return result;
-}
-
 void readFileToStrInBinary(const char * pathChar, std::string & outp)
 {
 	std::string line;
@@ -598,4 +579,26 @@ std::string timeStampHeader()
 	time_t now = time(0);
 	tm *ltm = localtime(&now);
 	return("Date: " + dayOfWeekStamp() +  ", " + datastamp() + " " + unsignedToString99(ltm->tm_hour) +  ":" + unsignedToString99(ltm->tm_min) + ":" +  unsignedToString99(ltm->tm_sec) + " " + ltm->tm_zone);
+}
+
+std::string execPy(const char* cmd)
+{
+    char buffer[128];
+    std::string result = "";
+    FILE* pipe = popen(cmd, "r");
+    if (!pipe) throw std::runtime_error("popen() failed!");
+    try
+	{
+        while (fgets(buffer, sizeof buffer, pipe) != NULL)
+		{
+            result += buffer;
+        }
+    }
+	catch (...)
+	{
+        pclose(pipe);
+        throw;
+    }
+    pclose(pipe);
+    return result;
 }
