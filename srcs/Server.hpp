@@ -2,9 +2,6 @@
 # define SERVER_HPP
 
 # include "main.hpp"
-// # include "Connection.hpp"
-
-// class Connection;
 
 class Server
 {
@@ -15,10 +12,6 @@ class Server
 		unsigned	_nextColor;
 		int			_srvrNbr;
 		unsigned	_port;
-		// std::vector<std::string> _methods; // GET, POST, DELETE
-		// size_t		_sdMaxCount; // = SD_MAXCOUNT
-		// char		_serverIp[sizeof(struct sockaddr_in)];
-		// std::vector<Connection>	_connections;
 
 	public:
 		Server(t_config);
@@ -33,14 +26,7 @@ class Server
 		void	setSrvrNbr(size_t);
 		unsigned	getPort() const;
 		void	setPort(unsigned);
-		// bool		start();
-		// void		sdSet(fd_set & allActiveSdSets, int & sdMaxCountRouter);
-		// bool		readSd(int sd);
 	
-	private:
-		// std::vector<int>	_getAllSds() const;
-		// bool				_foundSd(int sd) const;
-
 };
 
 #endif

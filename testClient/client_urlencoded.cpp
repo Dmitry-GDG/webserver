@@ -1,25 +1,14 @@
 #include <arpa/inet.h>
-// #include <assert.h>
-// #include <errno.h>
 #include <netinet/in.h>
-// #include <signal.h>
-// #include <stdlib.h>
-// #include <stdio.h>
 #include <string.h>
-// #include <sys/types.h>
-// #include <sys/socket.h>
-// #include <sys/wait.h>
 #include <netdb.h>
 #include <unistd.h>
-// #include <fcntl.h>
 #include <iostream>
 
 #define SA      struct sockaddr
 #define MAXLINE 4096
 #define MAXSUB  200
 #define BUFSIZE 1024
-
-// #define LISTENQ         1024
 
 extern int h_errno;
 
@@ -35,16 +24,9 @@ ssize_t process_http(int sockfd, char *host, char *page, char *poststr)
 		 "Connection: Close\r\n\r\n"
 		 "%s", page, host, (int)strlen(poststr), poststr);
 
-	// fcntl(sockfd, F_SETFL, O_NONBLOCK);
 	std::cout << "\033[0;32m\tClient request:\n\033[0m" <<  sendline << std::endl;
-	// write(sockfd, sendline, strlen(sendline));
 	send(sockfd, sendline, strlen(sendline), 0);
 	std::cout << "\033[0;32m\tServer answer:\n\033[0m";
-	// while ((n = read(sockfd, recvline, MAXLINE)) > 0)
-	// {
-	// 	recvline[n] = '\0';
-	// 	std::cout << recvline << "\n";
-	// }
 	char buff[BUFSIZE + 1];
     int qtyBytes = recv(sockfd, buff, BUFSIZE, 0);
 	while (qtyBytes > 0)

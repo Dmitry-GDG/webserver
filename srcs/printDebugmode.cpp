@@ -33,12 +33,6 @@ void printVector(std::vector<std::string> data, std::string msg)
 				std::cout << "\t";
 		}
 	}
-	// for (std::vector<std::string>::iterator iter = data.begin(); iter < data.end(); iter++)
-	// {
-	// 	std::cout << *iter;
-	// 	if (iter + 1 < data.end())
-	// 		std::cout << "\t";
-	// }
 	std::cout << std::endl;
 	if (msg != "")
 		std::cout << "----------------------" << std::endl;
@@ -226,20 +220,6 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::string arr[] = {"NOT_DEFINED_REQUEST_PROCESSING_STEP", "READING_HEADER", "READING_HEADER_DONE", "READING_BODY", "READING_BODY_DONE", "WRITING", "WRITING_DONE"};
 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
 	std::cout << "Request Processing Step:\t" << RED << sts[connection.requestProcessingStep] << NC << std::endl;
-	// if (connection.responseStatusCodesAll.size() > 0)
-	// {
-	// 	std::cout << "Response status codes:" << std::endl;
-	// 	for(std::map<std::string, std::string>::iterator iter = connection.responseStatusCodesAll.begin(); iter != connection.responseStatusCodesAll.end(); iter++)
-	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
-	// 	std::cout << std::endl;
-	// }
-	// if (connection.contentTypesAll.size() > 0)
-	// {
-	// 	std::cout << "Content types:" << std::endl;
-	// 	for(std::map<std::string, std::string>::iterator iter = connection.contentTypesAll.begin(); iter != connection.contentTypesAll.end(); iter++)
-	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
-	// 	std::cout << std::endl;
-	// }
 	if (sign == 1)
 	{
 		std::vector<std::pair<int, std::string> > vec;
@@ -267,11 +247,6 @@ void printConnection(t_connection connection, std::string msg, int sign)
 	std::cout << "Inputdata address params:\t" << connection.inputData.addressParamsStr << std::endl;
 	std::cout << "Inputdata httpVersion:\t" << connection.inputData.httpVersion << std::endl;
 	int i = 0;
-	// for (std::map<std::string, std::string>::iterator iterM = connection.inputData.headerFields.begin(); iterM != connection.inputData.headerFields.end(); iterM++)
-	// {
-	// 	std::cout << "inputdata.headerFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
-	// 	i++;
-	// }
 	for (std::vector<std::pair<std::string, std::string> >::iterator iterM = connection.inputData.headerFieldsVec.begin(); iterM != connection.inputData.headerFieldsVec.end(); iterM++)
 	{
 		std::cout << "inputdata.headerFieldsVec[" << std::to_string(i) << "]:\t" << (*iterM).first;
@@ -289,60 +264,6 @@ void printConnection(t_connection connection, std::string msg, int sign)
 
 	std::cout << "+++++++\n----------------------" << std::endl;
 }
-
-// void printConnection(t_connection * connection, std::string msg, int sign)
-// {
-// 	if (msg != "")
-// 		std::cout << " " << msg << " " << std::endl;
-// 	else
-// 		std::cout << " printConnection " << std::endl;
-// 	std::cout << "server Nbr:\t" << connection->srvNbr << std::endl;
-// 	std::cout << "Client from:\t" << connection->fromIp << ":" << connection->fromPort << std::endl;
-// 	std::cout << "Client Sd:\t" << connection->clntSd << std::endl;
-// 	if (sign == 1)
-// 	{
-// 		std::vector<std::pair<int, std::string> > vec;
-// 		vec.push_back(std::make_pair(1, "POLLIN"));
-// 		vec.push_back(std::make_pair(4, "POLLOUT"));
-// 		std::cout << "Client events:\t";
-// 		for (size_t i = 0; i < vec.size(); i++)
-// 		{
-// 			if (vec[i].first == connection->pfd->events)
-// 				std::cout << vec[i].second << std::endl;
-// 		}
-// 		std::cout << "Client revents:\t";
-// 		for (size_t i = 0; i < vec.size(); i++)
-// 		{
-// 			if (vec[i].first == connection->pfd->revents)
-// 				std::cout << vec[i].second << std::endl;
-// 		}
-// 	}
-// 	std::cout << "Position:\t" << connection->position << std::endl;
-// 	std::string arr[] = {"READ", "READ_DONE", "WRITE", "WRITE_DONE"};
-// 	std::vector<std::string> sts(std::begin(arr), std::end(arr));
-// 	std::cout << "Status:\t" << sts[connection->status] << std::endl;
-// 	if (connection->methods.size() > 0)
-// 	{
-// 		for (size_t i = 0; i < connection->methods.size(); i++)
-// 			std::cout << "method[" << i << "]:\t" << connection->methods[i] << std::endl;
-// 	}
-// 	std::cout << "Inputdata method:\t" << connection->inputdata.method << std::endl;
-// 	std::cout << "Inputdata address:\t" << connection->inputdata.address << std::endl;
-// 	std::cout << "Inputdata httpVersion:\t" << connection->inputdata.httpVersion << std::endl;
-// 	std::string arr2[] = {"HTTP", "DATA_START", "DATA_CONTIN"};
-// 	std::vector<std::string> dtt(std::begin(arr2), std::end(arr2));
-// 	std::cout << "Inputdata dataType:\t" << dtt[connection->inputdata.dataType] << std::endl;
-// 	int i = 0;
-// 	for (std::map<std::string, std::string>::iterator iterM = connection->inputdata.headerFields.begin(); iterM != connection->inputdata.headerFields.end(); iterM++)
-// 	{
-// 		std::cout << "inputdata.headerFields[" << std::to_string(i) << "]:\t" << (*iterM).first << ":\t" << (*iterM).second << std::endl;
-// 		i++;
-// 	}
-// 	if (connection->inputStr.size() > 0)
-// 		std::cout << "Input str:\n" << connection->inputStr << std::endl;
-
-// 	std::cout << "----------------------" << std::endl;
-// }
 
 void printAllConnections(std::vector<t_connection> connections, std::string msg)
 {
@@ -365,8 +286,6 @@ void printWebServer(ServerRouter data, std::string msg)
 	else
 		std::cout << VIOLET << " printWebServer " << NC << std::endl;
 	std::cout << "Host name: " << data.getHostname() << std::endl;
-	// if (data.getConfigs().size() > 0)
-	// 	printAllServersConfig(data.getConfigs(), "");
 	if (data.getServers().size() > 0)
 		printAllServersVector(data.getServers(), "");
 	if (data.getConnections().size() > 0)
@@ -375,26 +294,6 @@ void printWebServer(ServerRouter data, std::string msg)
 		for (std::vector<t_connection>::iterator iter = tmp.begin(); iter < tmp.end(); iter++)
 			printConnection((*iter), "", 0);
 	}
-	// if (data.getResponseStatusCodes().size() > 0)
-	// {
-	// 	std::cout << "Response status codes:" << std::endl;
-	// 	std::map<std::string, std::string> tmp;
-	// 	tmp.clear();
-	// 	tmp = data.getResponseStatusCodes();
-	// 	for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
-	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
-	// 	std::cout << std::endl;
-	// }
-	// if (data.getContentTypes().size() > 0)
-	// {
-	// 	std::cout << "Content types:" << std::endl;
-	// 	std::map<std::string, std::string> tmp;
-	// 	tmp.clear();
-	// 	tmp = data.getContentTypes();
-	// 	for(std::map<std::string, std::string>::iterator iter = tmp.begin(); iter != tmp.end(); iter++)
-	// 		std::cout << (*iter).first << ":" << (*iter).second << "\t";
-	// 	std::cout << std::endl;
-	// }
 	std::cout << "Quantuty of poiifds:\t" << data.getPollfdsQty() << std::endl;
 	printPollfds(data.getPollfds(), "",  data.getPollfdsQty());
 	std::cout << "----------------------" << std::endl;

@@ -8,7 +8,6 @@ int	main(int argc, char **argv)
 
 	signal(SIGINT, ctrl_c_handler);
 	std::string	configFile = ((argc > 1) ? argv[1] : "configs/configurationAcr.conf");
-	// std::string	configFile = ((argc > 1) ? argv[1] : "configs/webserv.conf");
 	printMsgToLogFile(-1, -1, datastamp(), "");
 	printMsgToLogFile(-1, -1, "Starting...", "");
 	printMsg(-1, -1, "Starting...", "");

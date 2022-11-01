@@ -4,32 +4,27 @@
 # define NAME "webserv"
 # define WEBSERV_NAME "Cool Webserver"
 # define WEBSERV_VERSION "0.01"
-# define WEBSERV_AUTHORS "trurgot                            "
+# define WEBSERV_AUTHORS "trurgot, kmarg, jerrok                           "
 # define HOSTNAME_LENGTH 30
 # define SD_MAXCOUNT 1024
 # define BUF_SIZE 200000
 # define LIMIT_CLIENT_BODY_SIZE 3000000
 # define DELIMETER "\r\n"
 # define DDELIMETER "\r\n\r\n"
-// # define DELIMETER "\\r\\n"
 # define TIMEOUT 10 // in seconds
-// # define FILESLISTNAME "__files.txt"
 
 # define NC "\033[0m" //no colour
 # define REV "\033[7m"
-// # define BLACK "\033[0;30m"
 # define BLACKS "\033[2;30m"
 # define BLUE "\033[0;34m"
 # define BLUS "\033[2;34m"
 # define GREEN "\033[0;32m"
 # define GREENS "\033[2;32m"
 # define RED "\033[0;31m"
-// # define REDB "\033[41m"
 # define REDS "\033[2;31m"
 # define VIOLET "\033[0;35m"
 # define VIOLETS "\033[2;35m"
 # define AQUAMARINES "\033[2;36m"
-// # define YELLOW "\033[33m"
 # define YELLOS "\033[2;33m"
 
 # include <algorithm>
@@ -119,8 +114,5 @@ void	replaceAllStrings(std::string & msg, const std::string & search, const std:
 std::string	getFileName(std::vector<std::string> dataVec);
 std::string urlDecode(std::string const & address);
 std::string urlEncode(std::string str);
-// bool	parseInputData(char * buf, t_connection * connection);
-// void	delWhiteSpacesStr(std::string & inptStr);
-// bool	checkDelimeterAtTheEnd(std::string str);
 
 #endif

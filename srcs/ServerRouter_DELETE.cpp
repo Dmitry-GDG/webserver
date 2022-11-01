@@ -22,7 +22,6 @@ void ServerRouter::_prepareDeleteAnswer(t_connection * connection)
 		htmlStr += _serverIp;
 		htmlStr += ":" + std::to_string(server.getPort());
 		htmlStr += "\" /></head><body><h1>File deleted.</h1></body></html>";
-		// std::string htmlStr = "<html><body><h1>File deleted.</h1></body></html>";
 		connection->responseData.connectionAnswer += "Content-Length: " + std::to_string(htmlStr.size()) + DDELIMETER + htmlStr + DDELIMETER;
 	}
 }
@@ -52,8 +51,6 @@ bool ServerRouter::_delGetPath(t_connection * connection, std::string & contentT
 
 	const char * pathChar = path.c_str();
 
-	// struct stat buf;	
-	// lstat(pathChar, & buf);
 	FILE * fileOpen = fopen(pathChar, "rb"); //r - read only, b - in binary
 	if (fileOpen == NULL)
 	{

@@ -3,15 +3,6 @@
 
 class Server;
 
-// class ParserException : public std::exception 
-// {
-// 	const char* what() const throw()
-// 	{
-// 		return  "Error of parsing, try other configuration file!";
-// 	}
-// };
-
-
 void exitErr(std::string errmsg)
 {
 	std::cerr << "\r" << REV << errmsg << std::endl;
@@ -70,25 +61,6 @@ void splitString (std::string str, char seperator, std::vector<std::string> & st
 			startIndex = endIndex + 1;  
 		}  
 	}
-
-
-
-	// size_t currIndex = 0;
-	// size_t i = 0;
-	// size_t startIndex = 0, endIndex = 0;  
-	// while (i <= str.size())  
-	// {
-	// 	if (str[i] == seperator || i == str.size())  
-	// 	{
-	// 		endIndex = i;  
-	// 		std::string subStr = "";  
-	// 		subStr.append(str, startIndex, endIndex - startIndex);  
-	// 		strings.push_back(subStr);  
-	// 		// currIndex += 1;  
-	// 		startIndex = endIndex + 1;  
-	// 	}  
-	// 	i++;
-	// }
 }
 
 void splitStringStr(std::string str, std::string seperator, std::vector<std::string> & strings)  
@@ -98,12 +70,10 @@ void splitStringStr(std::string str, std::string seperator, std::vector<std::str
 	size_t pos = 0;
 	size_t startIndex = 0;
 
-	// std::cout << "splitStringStr0\n";
 	if (seperator != "")
 	{
 		for (pos = str.find(seperator, pos++); pos != std::string::npos; pos = str.find(seperator, pos + 1)) //????
 		{
-			// std::cout << "splitStringStr1\n";
 			subStr.clear();
 			subStr.append(str, startIndex, pos - startIndex);
 			strings.push_back(subStr);
@@ -112,51 +82,9 @@ void splitStringStr(std::string str, std::string seperator, std::vector<std::str
 				pos += (seperator.size() - 1);
 		}
 	}
-	// std::cout << "splitStringStr2\n";
 	subStr.clear();
 	subStr.append(str, startIndex, std::string::npos);
 	strings.push_back(subStr);
-
-
-	// while (pos != std::string::npos)
-	// {
-
-	// }
-
-	// std::string str1 = str.substr (0, pos);
-	// std::string str2 = (pos < str.size() - 4) ? str.substr (pos + 4) : "";
-
-	// std::string subStr; 
-	// size_t startIndex = 0;  
-	// for (size_t endIndex = 0; endIndex <= str.size(); endIndex++)  
-	// {
-	// 	if (endIndex == str.size() || str[endIndex] == seperator)  
-	// 	{
-	// 		subStr.clear();  
-	// 		subStr.append(str, startIndex, endIndex - startIndex);  
-	// 		strings.push_back(subStr);  
-	// 		startIndex = endIndex + 1;  
-	// 	}  
-	// }
-
-
-
-	// size_t currIndex = 0;
-	// size_t i = 0;
-	// size_t startIndex = 0, endIndex = 0;  
-	// while (i <= str.size())  
-	// {
-	// 	if (str[i] == seperator || i == str.size())  
-	// 	{
-	// 		endIndex = i;  
-	// 		std::string subStr = "";  
-	// 		subStr.append(str, startIndex, endIndex - startIndex);  
-	// 		strings.push_back(subStr);  
-	// 		// currIndex += 1;  
-	// 		startIndex = endIndex + 1;  
-	// 	}  
-	// 	i++;
-	// }
 }
 
 void splitStringColon(std::string str, char seperator, std::vector<std::string> & strings)  
@@ -195,8 +123,6 @@ void replaceAllStrings(std::string & msg, const std::string & search, const std:
 			msg.replace(pos, search.length(), replace);
 			pos += replace.length();
 	}
-	// if (msg != "")
-	// 	std::cout << "MSG test: " << msg << std::endl;
 }
 
 void printMsgToLogFile(int srvNb, int clntSd, std::string msg1, std::string msg2)
@@ -242,7 +168,6 @@ void locationClear(t_location & location)
 	location.root.clear();
 	location.index.clear();
 	location.autoindex = false;
-	// location.upload.clear();
 	location.limit_size.clear();
 	location.redirs.clear();
 	location.methods.clear();
@@ -279,10 +204,8 @@ void connectionInputDataClear(t_connection & connection)
 	connection.inputData.boundary.clear();
 	connection.inputData.postFileName.clear();
 	connection.inputData.postFileData.clear();
-	// connection.inputData.headerFields.clear();
 	connection.inputData.headerFieldsVec.clear();
 	connection.inputData.bodyFieldsVec.clear();
-	// connection.inputStr.clear();
 }
 
 void connectionResponseDataClear(t_connection & connection)
@@ -293,8 +216,6 @@ void connectionResponseDataClear(t_connection & connection)
 	connection.responseData.lenAnswer = 0;
 	connection.responseData.fileToSendInBinary.clear();
 	connection.responseData.connectionAnswer.clear();
-	// connection.responseData.pathExcludeInErr.clear();
-	// connection.responseData.pathIncludeBeginInErr.clear();
 }
 
 void connectionClear(t_connection & connection)
@@ -339,7 +260,6 @@ void readFileToStrInBinary(const char * pathChar, std::string & outp)
 			outpVector.push_back(line);
 		in.close();
 	}
-	// in.close();
 	std::vector<std::string>::iterator iter = outpVector.begin();
 	if  (iter != outpVector.end())
 	{
@@ -384,34 +304,6 @@ std::string getFileName(std::vector<std::string> dataVec)
 	return "";
 }
 
-// https://stackoverflow.com/questions/154536/encode-decode-urls-in-c
-
-// std::string urlDecode(std::string str)
-// {
-//     std::string ret;
-//     char ch;
-//     int i, ii, len = str.length();
-
-//     for (i=0; i < len; i++)
-// 	{
-//         if(str[i] != '%')
-// 		{
-//             if(str[i] == '+')
-//                 ret += ' ';
-//             else
-//                 ret += str[i];
-//         }
-// 		else
-// 		{
-//             sscanf(str.substr(i + 1, 2).c_str(), "%x", &ii);
-//             ch = static_cast<char>(ii);
-//             ret += ch;
-//             i = i + 2;
-//         }
-//     }
-//     return ret;
-// }
-
 std::string urlDecode(std::string const & address)
 {
 	std::string outp;
@@ -446,13 +338,14 @@ std::string urlEncode(std::string str)
     char bufHex[10];
     int len = strlen(chars);
 
-    for(int i=0;i<len;i++){
+    for(int i=0;i<len;i++)
+	{
         c = chars[i];
         ic = c;
-        // uncomment this if you want to encode spaces with +
-        /*if (c==' ') new_str += '+';   
-        else */if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') new_str += c;
-        else {
+		if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~')
+			new_str += c;
+        else
+		{
             sprintf(bufHex,"%X",c);
             if(ic < 16) 
                 new_str += "%0"; 

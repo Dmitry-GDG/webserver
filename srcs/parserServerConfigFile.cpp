@@ -126,11 +126,6 @@ void	parseVectorOnStruct(std::vector<std::vector<std::string> >	& oneServerConfi
 						location.autoindex = true;
 					oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
 				}
-				// else if (oneServerConfigVectorSplit[i][0] == "upload")
-				// {
-				// 	location.upload = correctSlashInAddress(oneServerConfigVectorSplit[i][1]);
-				// 	oneServerConfigVectorSplit.erase(oneServerConfigVectorSplit.begin() + i);
-				// }
 				else if (oneServerConfigVectorSplit[i][0] == "limit_size")
 				{
 					location.limit_size = oneServerConfigVectorSplit[i][1];
