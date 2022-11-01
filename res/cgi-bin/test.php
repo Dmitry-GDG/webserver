@@ -1,1 +1,0 @@
-<?php echo '<html><head></head><body><h2>Hello world from php</h2></body></html>'; ?>
